@@ -1,0 +1,17 @@
+@import "~@fontsource/roboto";
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Roboto, serif;
+}
+html{
+  background-color: #f9f9f9;
+
+}
+.ytp-show-cards-title {
+  //display: none!important;
+  background-color: red !important;
+}
+.ytp-chrome-top {
+  display: none !important;
+}
