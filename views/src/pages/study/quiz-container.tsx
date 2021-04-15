@@ -11,6 +11,7 @@ import {
 import { useStudyPage } from "./study-page-provider";
 import { ImageMatcher } from "components/quiz/image-matcher/image-matcher";
 import { LetterPuzzle } from "components/quiz/letter-puzzle/letter-puzzle";
+import { QuestionQuiz } from "components/quiz/question-quiz/question-quiz";
 import { ThemeProvider } from "@material-ui/styles";
 
 const Theme = createMuiTheme();
@@ -50,6 +51,7 @@ export const QuizContainer = () => {
               justifyContent: "center",
             }}
           >
+            {quiz === "soal1" ? <QuestionQuiz /> : null}
             {quiz === "soal2" ? <ImageMatcher /> : null}
             {quiz === "soal3" ? <LetterPuzzle /> : null}
           </div>

@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useYoutubeApi } from "hooks/use-youtube-api";
 import gapiJson from "root/gapi.json";
+import ReactHotkeys from "react-hot-keys";
 
 export type Video = gapi.client.youtube.SearchResult;
 
@@ -72,9 +73,30 @@ export const Provider = ({ children }: React.PropsWithChildren<any>) => {
     handleQuiz: setQuiz,
   };
   const shouldRender = !loading && videos.length && gapiloaded;
+
+  const handleKey = (key: string) => {
+    console.log(key);
+    switch (key) {
+      case "shift+1": {
+        setQuiz("soal1");
+        break;
+      }
+      case "shift+2": {
+        setQuiz("soal2");
+        break;
+      }
+      case "shift+3": {
+        setQuiz("soal3");
+        break;
+      }
+    }
+  };
+
   return (
-    <Context.Provider value={values}>
-      {shouldRender ? children : null}
-    </Context.Provider>
+    <ReactHotkeys onKeyUp={handleKey} keyName="shift+1,shift+2,shift+3">
+      <Context.Provider value={values}>
+        {shouldRender ? children : null}
+      </Context.Provider>
+    </ReactHotkeys>
   );
 };
