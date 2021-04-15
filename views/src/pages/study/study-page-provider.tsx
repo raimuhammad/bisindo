@@ -30,7 +30,7 @@ export const Provider = ({ children }: React.PropsWithChildren<any>) => {
   const handleChangeTab = (e: any, v: string) => {
     setTab(v);
   };
-  const [quiz, setQuiz] = React.useState<StudyPageProvider["quiz"]>("soal2");
+  const [quiz, setQuiz] = React.useState<StudyPageProvider["quiz"]>(null);
   const [index, setIndex] = React.useState<number>(0);
   const [gapiloaded, setGapiLoaded] = React.useState<boolean>(false);
   const [videos, loading] = useYoutubeApi("belajar bisindo pemula", gapiloaded);
