@@ -1,7 +1,7 @@
 import axios from "axios";
 import { parse } from "node-html-parser";
-import path from 'path';
-import fs from 'fs';
+import path from "path";
+import fs from "fs";
 
 const initFetch = () =>
   axios
@@ -47,7 +47,7 @@ const parsePage = (result: any, withLinks = false): any => {
 };
 
 initFetch().then((result) => {
-  const { links,... initScrap } = parsePage(result, true);
+  const { links, ...initScrap } = parsePage(result, true);
   contents.push({
     id: initScrap.letter,
     ...initScrap,
@@ -72,10 +72,10 @@ initFetch().then((result) => {
     return Promise.all(promises);
   };
   run().then((result) => {
-    const final = [... contents, ... result];
-    const file = fs.createWriteStream(path.resolve('./views/image-quiz.json'), {
-      flags :"w+"
+    const final = [...contents, ...result];
+    const file = fs.createWriteStream(path.resolve("../views/image-data.json"), {
+      flags: "w+",
     });
-    file.write(JSON.stringify(final))
+    file.write(JSON.stringify(final));
   });
 });
