@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useYoutubeApi } from "hooks/use-youtube-api";
+import gapiJson from "root/gapi.json";
 
 export type Video = gapi.client.youtube.SearchResult;
 
@@ -38,7 +39,7 @@ export const Provider = ({ children }: React.PropsWithChildren<any>) => {
     const script = document.createElement("script");
     script.src = "https://apis.google.com/js/api.js";
     script.addEventListener("load", () => {
-      const apikey = "AIzaSyCKP4sXQKRGS92UR-jYImQ2VszU-WEfP98";
+      const apikey = gapiJson.apiKey;
       gapi.load("client", () => {
         gapi.client.setApiKey(apikey);
         gapi.client
