@@ -1,0 +1,44 @@
+enum QuizType {
+  IMAGE_MATCH
+  LETTER_SEQUENCE
+  MULTIPLE_CHOICE
+}
+type Quiz {
+  id: ID!
+  created_at: Date!
+  updated_at: Date
+  video_id: String!
+  show_at: Float!
+  type: QuizType!
+  letters: String
+  word: String
+  question: String
+  options: [String!]
+  question_answer: String
+}
+
+input MetaDataInput {
+  letters: String
+  word: String
+  question: String
+  options: [String!]
+  question_answer: String
+}
+
+input CreateQuizInput
+  @validator(class: "App\\GraphQL\\Validators\\QuizInputValidator") {
+  video_id: String!
+  show_at: Float!
+  type: QuizType!
+  meta_data: MetaDataInput
+}
+
+extend type Query {
+  quizzes: [Quiz] @all
+  quizVideo(video_id: String! @where): [Quiz!] @all
+}
+extend type Mutation {
+  quiz(args: CreateQuizInput! @spread): Quiz
+    @field(resolver: "App\\GraphQL\\QuizResolver@create")
+  quizDelete(id: ID!): Quiz! @delete
+}

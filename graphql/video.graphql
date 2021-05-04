@@ -1,0 +1,34 @@
+type Video {
+  id: ID!
+  created_at: Date!
+  updated_at: Date
+  title: String!
+  caption: String!
+  description: String!
+  content: String!
+  thumbnail: String!
+  duration: Int!
+}
+
+input CreateVideoInput {
+  title: String! @rules(apply: ["required"])
+  caption: String! @rules(apply: ["required"])
+  description: JSON! @rules(apply: ["required"])
+  content: Upload! @rules(apply: ["required", "mimetypes:video/*"])
+}
+input UpdateVideoInput {
+  title: String @rules(apply: ["sometimes"])
+  caption: String @rules(apply: ["sometimes"])
+  description: JSON @rules(apply: ["sometimes"])
+  content: Upload @rules(apply: ["sometimes", "file", "mimetypes:video/*"])
+}
+
+extend type Query {
+  videos: [Video!]! @all
+}
+extend type Mutation {
+  video(args: CreateVideoInput! @spread) : Video
+    @field(resolver: "App\\GraphQL\\VideoResolver@create")
+  videoUpdate(id: ID! @eq, args: UpdateVideoInput! @spread): Video
+    @field(resolver: "App\\GraphQL\\VideoResolver@update")
+}

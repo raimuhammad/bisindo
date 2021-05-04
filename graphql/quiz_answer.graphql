@@ -1,0 +1,31 @@
+type QuizAnswer {
+  id: ID!
+  created_at: Date!
+  updated_at: Date
+  user_id: String!
+  quiz_id: String!
+  to: [String]
+  from: [String]
+  items: [String]
+  selected: String
+}
+input QuizAnswerMetaInput {
+  selected: String
+  to: [String]
+  from: [String]
+  items: [String]
+}
+input CreateQuizAnswerInput
+  @validator(class: "App\\GraphQL\\Validators\\QuizAnswerInputValidator") {
+  quiz_id: String!
+  meta_data: QuizAnswerMetaInput!
+}
+extend type Query {
+  quizAnswers: [QuizAnswer!]! @all
+}
+extend type Mutation {
+  quizAnswer(args: CreateQuizAnswerInput! @spread): QuizAnswer
+  @inject(context: "user.id", name: "user_id")
+  @field(resolver: "App\\GraphQL\\QuizAnswerResolver@create")
+  @guard
+}

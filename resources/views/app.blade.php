@@ -2,17 +2,28 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
   <meta charset="utf-8">
-  <meta name="app-name" content="{{env("APP_NAME")}}">
-  <meta name="gapikey" content="{{env("GAPI")}}">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>
-      {{env("APP_NAME")}}
+    {{env("APP_NAME")}}
   </title>
   <link rel="stylesheet" href="{{mix("css/app.css")}}">
 </head>
 <body>
-<main id="app"></main>
+<main id="root"></main>
+@if(env("APP_DEBUG"))
+  <script>
+    var global = window;
+  </script>
+  <script type="module">
+    import RefreshRuntime from "http://localhost:3000/@react-refresh"
+    RefreshRuntime.injectIntoGlobalHook(window)
+    window.$RefreshReg$ = () => {}
+    window.$RefreshSig$ = () => (type) => type
+    window.__vite_plugin_react_preamble_installed__ = true
+  </script>
+  <script type="module" src="http://localhost:3000/@vite/client"></script>
+  <script type="module" src="http://localhost:3000/vitejs/entry.ts"></script>
+@endif
+
 </body>
-<script src="https://apis.google.com/js/api.js"></script>
-<script src="{{mix("js/app.js")}}"></script>
 </html>

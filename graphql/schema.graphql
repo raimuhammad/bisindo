@@ -1,0 +1,45 @@
+"A date string with format `Y-m-d`, e.g. `2011-05-23`."
+scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
+
+"A datetime string with format `Y-m-d H:i:s`, e.g. `2018-05-23 13:43:32`."
+scalar DateTime
+  @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+scalar JSON @scalar(class: "MLL\\GraphQLScalars\\JSON")
+scalar Upload
+  @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Upload")
+#import video.graphql
+#import quiz.graphql
+#import quiz_answer.graphql
+#import user.graphql
+
+enum AppRole {
+  ADMIN @enum(value: "admin")
+  STUDENT @enum(value: "students")
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  created_at: Date!
+  updated_at: Date
+  role: AppRole!
+  need_change_password: Boolean!
+  active: Boolean
+}
+
+type Query {
+  auth: User @auth
+}
+type Mutation {
+  login(
+    email: String!
+      @rules(
+        apply: ["required", "email", "exists:users,email"]
+        messages: [{ rule: "exists", message: "pengguna tidak di temukan" }]
+      )
+    password: String! @rules(apply: ["required"])
+  ): Boolean @field(resolver: "App\\GraphQL\\AuthResolver@login")
+  logout: Boolean @field(resolver: "App\\GraphQL\\AuthResolver@logout")
+
+}

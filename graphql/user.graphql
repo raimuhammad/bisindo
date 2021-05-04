@@ -1,0 +1,25 @@
+input CreateUserInput {
+  name: String! @rules(apply: ["required"])
+  email: String! @rules(apply: ["required", "unique:users,email"])
+}
+
+extend type Query {
+  students: [User!]! @field(resolver: "App\\GraphQL\\UserResolver@students")
+}
+
+extend type Mutation {
+  user(args: CreateUserInput! @spread): User
+    @field(resolver: "App\\GraphQL\\UserResolver@create")
+  loginWithInvitation(
+    invitation: String @rules(apply: ["required", "exists:users,invitation"])
+  ): Boolean @field(resolver: "App\\GraphQL\\UserResolver@loginWithInvitation")
+  userChangeUserPassword(
+    password: String!
+      @rules(apply: ["required", "string", "min:8", "confirmed"])
+    password_confirmation: String! @rules(apply: ["required"])
+  ): Boolean
+    @field(resolver: "App\\GraphQL\\UserResolver@changeDefaultPassword")
+  sentInvitation(
+    id: String! @rules(apply: ["required", "exists:users,id"])
+  ): Boolean @field(resolver: "App\\GraphQL\\UserResolver@sendInvitation")
+}
