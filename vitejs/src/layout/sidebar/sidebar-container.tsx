@@ -24,7 +24,7 @@ export const SidebarContainer = observer(() => {
         <Box className={classes.userinfo} textAlign="center">
           <img
             aria-expanded={layoutStore.sideBarOpen}
-            src="https://yt3.ggpht.com/ytc/AAUvwnifge5tCj40DRIwdOh0Cxc321D-TVAIqP85Gw=s176-c-k-c0x00ffffff-no-rj"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR30SfNCE6e-sM7qSa8Z9CwrktkRgrjbHKyeSh3VyZDrsXLDVW0uHVcjmeki6bBSwQnqWo&usqp=CAU"
             alt=""
           />
         </Box>

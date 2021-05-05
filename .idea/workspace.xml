@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e94c46e-1c07-4efd-823c-bb31b961c4c7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/layout/sidebar/sidebar-container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/layout/sidebar/sidebar-container.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,7 +239,7 @@
       <command value="artisan dev" />
     </option>
   </component>
-  <component name="RunManager" selected="npm.generate-model">
+  <component name="RunManager" selected="npm.start">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
@@ -298,8 +298,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.generate-model" />
         <item itemvalue="npm.start" />
+        <item itemvalue="npm.generate-model" />
         <item itemvalue="npm.mst-print-model" />
         <item itemvalue="Shell Script.print-directive.sh" />
       </list>
@@ -340,7 +340,7 @@
       <workItem from="1620146123344" duration="1675000" />
       <workItem from="1620147821852" duration="5798000" />
       <workItem from="1620153944574" duration="87000" />
-      <workItem from="1620168033849" duration="4473000" />
+      <workItem from="1620168033849" duration="4715000" />
     </task>
     <servers />
   </component>
