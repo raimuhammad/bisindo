@@ -83,7 +83,15 @@ class Video extends Model implements HasMedia
    * @attributes
    */
   public function getDurationAttribute(){
-    $probe = FFProbe::create();
+    $probe = null;
+    if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+      $probe = FFProbe::create([
+        'ffmpeg.binaries'  =>env("FFMPEG_PATH"),
+        'ffprobe.binaries' => env('FFPROBE_PATH'),
+      ]);
+    }else{
+      $probe = FFProbe::create();
+    }
     $video = $this->getFirstMedia('content');
     $dur = $probe->format($video->getPath())->get("duration");
     return (int) $dur;
