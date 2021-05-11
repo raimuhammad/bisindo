@@ -73,7 +73,7 @@ export class AppProvider extends React.Component<any, State> {
     this.componentMap = {
       [AppStatus.INVITATION_SUCCESS]: () => <h1>Application success</h1>,
       [AppStatus.LOGGED_IN]: () => {
-        return this.user?.role === "ADMIN" ? props.children : <ComingSoon />;
+        return props.children;
       },
       [AppStatus.CHANGE_USER_PASSWORD]: ChangeUserPasswordPage,
       [AppStatus.INVITATION_FAIL]: InvitationFail,

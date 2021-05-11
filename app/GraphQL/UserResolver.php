@@ -5,6 +5,7 @@ namespace App\GraphQL;
 
 
 use App\Constants\AppRole;
+use App\Models\StudentGrade;
 use App\Models\User;
 use App\Notifications\InvitationNotification;
 use App\Shared\GraphqlResolver;
@@ -31,7 +32,7 @@ class UserResolver extends GraphqlResolver
 
   public function getExcluded(array $array): array
   {
-    return [];
+    return ["grade_id"];
   }
 
 
@@ -59,6 +60,10 @@ class UserResolver extends GraphqlResolver
   {
     $this->model->assignRole(AppRole::SUBSCRIBER);
     $this->model->notify(new InvitationNotification($this->model));
+    StudentGrade::create([
+      "user_id"=>$this->model->id,
+      'grade_id'=>$this->additionalArguments['grade_id']
+    ]);
     parent::afterCreate();
   }
 
@@ -99,5 +104,4 @@ class UserResolver extends GraphqlResolver
     }
     return false;
   }
-
 }

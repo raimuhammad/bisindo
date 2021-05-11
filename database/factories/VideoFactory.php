@@ -24,8 +24,8 @@ class VideoFactory extends Factory
   }
 
   private function addVideo(Video $video){
-    $id = $video->id;
-    $name = "assets/sample-video/$id.mp4";
+    $n = $this->faker->randomElement([1,2,3]);
+    $name = "assets/sample-video/$n.mp4";
     $content = Storage::get($name);
     $uploaded = UploadedFile::fake()->createWithContent($name,$content);
     $video->attachContent($uploaded);

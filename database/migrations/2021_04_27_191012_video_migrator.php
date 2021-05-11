@@ -10,11 +10,13 @@ class VideoMigrator extends Migration
   {
     Schema::create('videos', function (Blueprint $table) {
       $table->id();
+      $table->unsignedBigInteger('grade_id');
       $table->string("title");
       $table->string("caption");
       $table->json("description");
       $table->timestamps();
     });
+    \App\Shared\RelationHelper::AttachRelation('videos', ['grade_id']);
   }
   public function down()
   {

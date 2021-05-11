@@ -17,7 +17,7 @@ import { useApp } from "providers/app-provider";
 const theme = createMuiTheme((themeOptions as unknown) as ThemeOptions);
 
 // eslint-disable-next-line react/display-name
-const Theme = (Component: React.FC<any>) => (props: any) => {
+export const Theme = (Component: React.FC<any>) => (props: any) => {
   return (
     <ThemeProvider theme={theme}>
       <Component {...props} />
@@ -28,6 +28,12 @@ const Theme = (Component: React.FC<any>) => (props: any) => {
 const Wrap = observer(({ children }: React.PropsWithChildren<any>) => {
   const classes = useClasses();
   const app = useApp();
+
+  const openSideBar = () => {
+    if (!app.user) return false;
+    return true;
+  };
+
   return (
     <div className={classes.root}>
       <Header />
@@ -36,11 +42,11 @@ const Wrap = observer(({ children }: React.PropsWithChildren<any>) => {
         ref={layoutStore.updatePageHeight}
         className={classes.contanerContainer}
       >
-        {!app.user ? null : (
+        {openSideBar() ? (
           <div aria-hidden={!layoutStore.sideBarOpen}>
             <Sidebar />
           </div>
-        )}
+        ) : null}
         <div
           style={{ height: layoutStore.pageHeight - layoutStore.appbarHeight }}
           className={classes.content}

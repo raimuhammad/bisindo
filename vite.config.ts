@@ -1,7 +1,7 @@
 import reactRefresh from "@vitejs/plugin-react-refresh";
-import aliases from './vite.alias.config'
+import aliases from "./vite.alias.config";
 
-console.log(aliases)
+console.log(aliases);
 
 export default ({ command }: any) => ({
   base: command === "serve" ? "" : "/build/",
@@ -17,7 +17,7 @@ export default ({ command }: any) => ({
   optimizeDeps: {
     include: ["voca", "lodash", "konva", "mobx", "mobx-state-tree"],
   },
-  resolve:{
-    alias: aliases
-  }
+  resolve: {
+    alias: aliases,
+  },
 });

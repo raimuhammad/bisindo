@@ -403,6 +403,13 @@
     prop-types "^15.7.2"
     react-is "^16.8.0 || ^17.0.0"
 
+"@maxim_mazurok/gapi.client.youtube@latest":
+  version "3.0.20210510"
+  resolved "https://registry.yarnpkg.com/@maxim_mazurok/gapi.client.youtube/-/gapi.client.youtube-3.0.20210510.tgz#ab15baf4df14369eb6411550ca46e5dc16e9f9d1"
+  integrity sha512-QG1swNN0K7Fb0ftqyArCb+2z5cFoBFD3Jk4tppLwFSBtrAP1GIkzYrZNOSk2qFJEJcNFEb4j5puoYcPn+En/Cw==
+  dependencies:
+    "@types/gapi.client" "*"
+
 "@nodelib/fs.scandir@2.1.4":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.4.tgz#d4b3549a5db5de2683e0c1071ab4f140904bbf69"
@@ -592,6 +599,23 @@
   dependencies:
     "@types/react" "*"
     immutable "~3.7.4"
+
+"@types/gapi.client.youtube@v3":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@types/gapi.client.youtube/-/gapi.client.youtube-3.0.2.tgz#4a13cd3c8cbd6600fdcfcd2ddecd8f7e7a0cf874"
+  integrity sha512-SmWCofuA5DtzU/m87I2+TMgeir7b9eHO81SDkqlEIs0OQj8MjiJk8xnjLIf2UfmYuViW31qAjjBcUFINImNaTw==
+  dependencies:
+    "@maxim_mazurok/gapi.client.youtube" latest
+
+"@types/gapi.client@*", "@types/gapi.client@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@types/gapi.client/-/gapi.client-1.0.4.tgz#f766c9e30c17fc315d68039e3148f19bea19f643"
+  integrity sha512-MVC0ukq+bVfmQnrkaJdyFBJVuQ7W9QtqH4aGqQaEmLBj/fwsbQ7IMk8M6q2LffEoKlYBuJNpGz4nTnckthoIpg==
+
+"@types/gapi@^0.0.39":
+  version "0.0.39"
+  resolved "https://registry.yarnpkg.com/@types/gapi/-/gapi-0.0.39.tgz#bc7fa8cd0cb175b36e3609790fb2ed73a33f6881"
+  integrity sha512-R1TZeZbvvbIC60DBJMhuOEivQHzOQtzl3uMDOOENTYQTSSDB6oEMpJo8HVPOTWivdUTbyEcB5qQOVr/JCKRlCQ==
 
 "@types/history@*":
   version "4.7.8"
@@ -2836,6 +2860,11 @@ hosted-git-info@^2.1.4:
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.8.9.tgz#dffc0bf9a21c02209090f2aa69429e1414daf3f9"
   integrity sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==
 
+hotkeys-js@^3.8.1:
+  version "3.8.5"
+  resolved "https://registry.yarnpkg.com/hotkeys-js/-/hotkeys-js-3.8.5.tgz#a66030c48b75ceb2f3fc48fd39e7a0b3473a4b19"
+  integrity sha512-beJJ2Y4J6XkSlXlLPOG29BRKxZx3bV0gVi3eUpYdjrecN1i25iqndM/+X1eIDPSeG0XdqSv7Ksek43j5tQrmPQ==
+
 html-to-draftjs@^1.5.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/html-to-draftjs/-/html-to-draftjs-1.5.0.tgz#0df0eabf429deaedb63f5c859889e2c983606e86"
@@ -2968,6 +2997,11 @@ interpret@^1.0.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.4.0.tgz#665ab8bc4da27a774a40584e812e3e0fa45b1a1e"
   integrity sha512-agE4QfB2Lkp9uICn7BAqoscw4SZP9kTE2hxiFI3jBPmXJfdqiahTbUuKGsMoN2GtqL9AxhYioAcVvgsb1HvRbA==
+
+invert-color@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/invert-color/-/invert-color-2.0.0.tgz#894ab1f7494a6e45f5e74c2f99ec042cd67dd23e"
+  integrity sha512-9s6IATlhOAr0/0MPUpLdMpk81ixIu8IqwPwORssXBauFT/4ff/iyEOcojd0UYuPwkDbJvL1+blIZGhqVIaAm5Q==
 
 is-arrayish@^0.2.1:
   version "0.2.1"
@@ -4387,6 +4421,14 @@ react-hook-form@^7.3.4:
   version "7.3.4"
   resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.3.4.tgz#6a246cea3ff8669168a56dd166b462d28aa2f076"
   integrity sha512-xreG3NHFlbKFrN1Fs+rZUT5RN9zkx4qn0vyY+6tO1xNfhOkfgwkTYU1/PkktYsWw6GerMw16vX5CPdIZVfyB1A==
+
+react-hot-keys@^2.6.2:
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/react-hot-keys/-/react-hot-keys-2.6.2.tgz#32fba45d9bf854a12f75994f421cb7047e5a3338"
+  integrity sha512-BMyIrQqQg5H7VWPW0OlJe+MTVZ68t37kkGF2ELvQqgCBPEMbvi6jhb7V4gKYkUV/BetqNnLTrUC4LUMW6myr1Q==
+  dependencies:
+    hotkeys-js "^3.8.1"
+    prop-types "^15.7.2"
 
 react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"

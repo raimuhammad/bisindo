@@ -1,6 +1,7 @@
 input CreateUserInput {
   name: String! @rules(apply: ["required"])
   email: String! @rules(apply: ["required", "unique:users,email"])
+  grade_id: String! @rules(apply: ["required", "exists:grades,id"])
 }
 
 extend type Query {

@@ -25,7 +25,7 @@ extend type Query {
 }
 extend type Mutation {
   quizAnswer(args: CreateQuizAnswerInput! @spread): QuizAnswer
-  @inject(context: "user.id", name: "user_id")
-  @field(resolver: "App\\GraphQL\\QuizAnswerResolver@create")
-  @guard
+    @inject(context: "user.id", name: "user_id")
+    @field(resolver: "App\\GraphQL\\QuizAnswerResolver@create")
+    @guard
 }

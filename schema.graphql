@@ -18,9 +18,11 @@ input CreateQuizInput {
 input CreateUserInput {
   name: String!
   email: String!
+  grade_id: String!
 }
 
 input CreateVideoInput {
+  grade_id: String!
   title: String!
   caption: String!
   description: JSON!
@@ -34,6 +36,17 @@ scalar Date
 A datetime string with format `Y-m-d H:i:s`, e.g. `2018-05-23 13:43:32`.
 """
 scalar DateTime
+
+type Grade {
+  id: ID!
+  student_count: Int!
+  video_count: Int!
+  name: String!
+  students: [StudentGrade!]!
+  videos: [Video!]!
+  created_at: Date!
+  updated_at: Date
+}
 
 """
 Arbitrary data encoded in JavaScript Object Notation. See https://www.json.org/.
@@ -60,6 +73,8 @@ type Mutation {
   loginWithInvitation(invitation: String): Boolean
   userChangeUserPassword(password: String!, password_confirmation: String!): Boolean
   sentInvitation(id: String!): Boolean
+  grade(name: String!): Grade
+  gradeEdit(id: ID!, name: String): Grade
 }
 
 """Allows ordering a list of records."""
@@ -132,6 +147,26 @@ type Query {
   quizVideo(video_id: String!): [Quiz!]
   quizAnswers: [QuizAnswer!]!
   students: [User!]!
+  grades: [Grade!]!
+  gradeById(id: ID!): Grade
+  getVideoByGrade(
+    grade_id: ID!
+
+    """Limits number of fetched elements."""
+    first: Int!
+
+    """The offset from which elements are returned."""
+    page: Int
+  ): VideoPaginator
+  getStudentByGrade(
+    grade_id: ID!
+
+    """Limits number of fetched elements."""
+    first: Int!
+
+    """The offset from which elements are returned."""
+    page: Int
+  ): StudentGradePaginator
 }
 
 type Quiz {
@@ -182,6 +217,23 @@ enum SortOrder {
   DESC
 }
 
+type StudentGrade {
+  id: ID!
+  created_at: Date!
+  updated_at: Date
+  student: User!
+  grade: Grade!
+}
+
+"""A paginated list of StudentGrade items."""
+type StudentGradePaginator {
+  """Pagination information about the list of items."""
+  paginatorInfo: PaginatorInfo!
+
+  """A list of StudentGrade items."""
+  data: [StudentGrade!]!
+}
+
 """
 Specify if you want to include or exclude trashed results from a query.
 """
@@ -226,4 +278,14 @@ type Video {
   content: String!
   thumbnail: String!
   duration: Int!
+  grade: Grade!
+}
+
+"""A paginated list of Video items."""
+type VideoPaginator {
+  """Pagination information about the list of items."""
+  paginatorInfo: PaginatorInfo!
+
+  """A list of Video items."""
+  data: [Video!]!
 }

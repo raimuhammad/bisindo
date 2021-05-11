@@ -54,6 +54,12 @@ class Video extends Model implements HasMedia
   /**
    * @utility
    */
+  public function grade(){
+    return $this->belongsTo(Grade::class);
+  }
+  /**
+   * @utility
+   */
   public function attachContent($fileOrUrl) : void {
     $this->attachMedia($fileOrUrl, 'content');
   }

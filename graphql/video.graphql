@@ -8,9 +8,11 @@ type Video {
   content: String!
   thumbnail: String!
   duration: Int!
+  grade: Grade!
 }
 
 input CreateVideoInput {
+  grade_id: String! @rules(apply: ["required", "exists:grades,id"])
   title: String! @rules(apply: ["required"])
   caption: String! @rules(apply: ["required"])
   description: JSON! @rules(apply: ["required"])
@@ -25,9 +27,10 @@ input UpdateVideoInput {
 
 extend type Query {
   videos: [Video!]! @all
+  getVideoByGrade(grade_id: ID! @where): [Video!]! @paginate
 }
 extend type Mutation {
-  video(args: CreateVideoInput! @spread) : Video
+  video(args: CreateVideoInput! @spread): Video
     @field(resolver: "App\\GraphQL\\VideoResolver@create")
   videoUpdate(id: ID! @eq, args: UpdateVideoInput! @spread): Video
     @field(resolver: "App\\GraphQL\\VideoResolver@update")

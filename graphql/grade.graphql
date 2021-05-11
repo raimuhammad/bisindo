@@ -1,0 +1,27 @@
+type Grade {
+  id: ID!
+  student_count: Int!
+  video_count: Int!
+  name: String!
+  students: [StudentGrade!]!
+  videos: [Video!]!
+  created_at: Date!
+  updated_at: Date
+}
+type StudentGrade {
+  id: ID!
+  created_at: Date!
+  updated_at: Date
+  student: User!
+  grade: Grade!
+}
+
+extend type Mutation {
+  grade(name: String!): Grade @create
+  gradeEdit(id: ID! @eq, name: String): Grade @update
+}
+extend type Query {
+  grades: [Grade!]! @all
+  getStudentByGrade(grade_id: ID! @where): [StudentGrade!]! @paginate
+  gradeById(id: ID! @eq): Grade @find
+}
