@@ -5,106 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e94c46e-1c07-4efd-823c-bb31b961c4c7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Models/Grade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/StudentGrade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/GradeFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_04_18_213008_grade_migrator.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_10_213203_student_grade_migrator.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graphql/grade.graphql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/components/konva/image-node.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/components/konva/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/components/preload-page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/components/quiz/image-matcher/box.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/components/quiz/image-matcher/controller.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/components/quiz/image-matcher/image-container.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/components/quiz/image-matcher/image-matcher-provider.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/components/quiz/image-matcher/image-matcher.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/components/quiz/image-matcher/letter-container.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/components/quiz/image-matcher/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/components/quiz/image-matcher/utility.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/components/quiz/letter-puzzle/letter-container.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/components/quiz/letter-puzzle/letter-puzzle-provider.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/components/quiz/letter-puzzle/letter-puzzle.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/components/quiz/letter-puzzle/provider.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/components/quiz/letter-puzzle/question-container.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/components/quiz/letter-puzzle/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/components/quiz/letter-puzzle/utilities.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/components/quiz/question-quiz/question-quiz.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/components/tables/table-base.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/components/tables/user/user-data-table.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/components/tables/video/video-data-table.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/gapi.example.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/gapi.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/hooks/use-fetch-query.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/hooks/use-konva-responsive.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/hooks/use-node-dimension.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/hooks/use-paginate.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/hooks/use-switch-value.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/hooks/use-youtube-api.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/image-data.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/models/stores/GradeModel.base.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/models/stores/GradeModel.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/models/stores/StudentGradeModel.base.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/models/stores/StudentGradeModel.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/grade-detail-page/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/grade-detail-page/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/grade-detail-page/provider.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/grade-list-page/add-grade-form.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/grade-list-page/grade-card.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/grade-list-page/grade-form.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/grade-list-page/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/grade-list-page/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/grade-list-page/provider.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/grade-list-page/utils.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/grade-list-page/video-list.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/grade/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/grade/list/card.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/grade/list/list-page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/grade/shared/providers.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/grade/shared/type.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/grade/show/discussion.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/grade/show/show-page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/grade/show/students.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/grade/show/type.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/grade/show/video.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/study/comment.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/study/quiz-container.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/study/quiz.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/study/study-page-provider.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/study/study.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/study/teather.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/study/video-container.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/study/video-info-container.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/study/video-list.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/providers/konva/container.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/providers/konva/konva-provider.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/providers/youtube-player-provider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Commands/Development.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/Development.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/GraphQL/UserResolver.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/GraphQL/UserResolver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Video.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Video.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/VideoFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/VideoFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_27_191012_video_migrator.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_27_191012_video_migrator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphql/quiz_answer.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/quiz_answer.graphql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphql/schema.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/schema.graphql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphql/user.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/user.graphql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphql/video.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/video.graphql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schema-directives.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/schema-directives.graphql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schema.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/schema.graphql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vite.alias.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vite.alias.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vitejs/global.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/global.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vitejs/routing.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/routing.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vitejs/src/layout/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/layout/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vitejs/src/layout/sidebar/navigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/layout/sidebar/navigation.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vitejs/src/models/stores/RootStore.base.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/models/stores/RootStore.base.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vitejs/src/models/stores/VideoModel.base.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/models/stores/VideoModel.base.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vitejs/src/models/stores/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/models/stores/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vitejs/src/providers/app-provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/providers/app-provider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/gapi.json" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/gapi.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -453,7 +354,7 @@
       <workItem from="1620717624079" duration="4545000" />
       <workItem from="1620728335382" duration="5777000" />
       <workItem from="1620753469001" duration="12299000" />
-      <workItem from="1620766682288" duration="649000" />
+      <workItem from="1620766682288" duration="760000" />
     </task>
     <servers />
   </component>
