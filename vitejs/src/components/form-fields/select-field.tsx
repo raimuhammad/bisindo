@@ -7,7 +7,7 @@ import {
 import { MenuItem, TextField, TextFieldProps } from "@material-ui/core";
 import { Controller } from "react-hook-form";
 
-type Option = {
+export type Option = {
   label: React.ReactNode | string;
   value: any;
 };

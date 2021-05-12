@@ -3,6 +3,7 @@ import { Box, FormLabel, Grid, Theme, useMediaQuery } from "@material-ui/core";
 import { observer } from "mobx-react";
 import { FormField } from "components/form-fields/form-field";
 import { TextEditor } from "components/form-fields/text-editor-field";
+import { GradeField } from "components/form-fields/grade-field";
 
 const fields = [
   { name: "title", label: "Judul" },
@@ -34,6 +35,11 @@ export const InfoField = observer(() => {
           </Box>
         </Grid>
       ))}
+      <Grid item sm={12}>
+        <Box paddingY={2}>
+          <GradeField />
+        </Box>
+      </Grid>
       <Grid item sm={12}>
         <Box paddingY={2}>
           <FormLabel>Deskripsi</FormLabel>

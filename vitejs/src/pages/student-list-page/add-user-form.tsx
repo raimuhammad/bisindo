@@ -9,6 +9,7 @@ import { RootStoreBaseMutations } from "root-model";
 import { resolverFactory } from "utils/resolver-factory";
 import * as yup from "yup";
 import { Save } from "@material-ui/icons";
+import { GradeField } from "components/form-fields/grade-field";
 
 type Props = WrapperProps<UserModelType, { onSuccess: () => void }>;
 const Component = (props: Props) => {
@@ -46,6 +47,9 @@ const Component = (props: Props) => {
               name="email"
               label="Alamat email"
             />
+            <Box paddingY={2}>
+              <GradeField />
+            </Box>
             <Box paddingY={2}>
               <Button
                 startIcon={loading ? <CircularProgress size={10} /> : <Save />}
