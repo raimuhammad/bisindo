@@ -5,34 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e94c46e-1c07-4efd-823c-bb31b961c4c7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/vitejs/src/components/tables/video/VideoDialog.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/components/tables/video/delete.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/components/tables/video/edit.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/components/tables/video/provider.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/components/tables/video/row.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/components/tables/video/utils.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/components/tables/video/view.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/utils/mutation-service-factory.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/grade/list/create.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/grade/shared/grade-form.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/grade/show/editor.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vitejs/src/services/grade.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Video.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Video.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_27_191012_video_migrator.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_27_191012_video_migrator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphql/grade.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/grade.graphql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphql/video.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/video.graphql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schema.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/schema.graphql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vitejs/src/components/form-fields/form-field.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/components/form-fields/form-field.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vitejs/src/components/form-fields/grade-field.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/components/form-fields/grade-field.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vitejs/src/components/form-fields/select-field.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/components/form-fields/select-field.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vitejs/src/components/form-fields/text-editor-field.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/components/form-fields/text-editor-field.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vitejs/src/components/player.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/components/player.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vitejs/src/components/tables/video/video-data-table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/components/tables/video/video-data-table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vitejs/src/models/stores/RootStore.base.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/models/stores/RootStore.base.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/add-video-page/info-field.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/pages/add-video-page/info-field.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/add-video-page/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/pages/add-video-page/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/grade/show/students.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/pages/grade/show/students.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/grade/show/video.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/pages/grade/show/video.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/list-video-page/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/pages/list-video-page/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/student-list-page/add-user-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/pages/student-list-page/add-user-form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.extends.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.extends.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/preload-page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/components/preload-page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/hooks/use-success-modal.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/hooks/use-success-modal.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/grade/list/list-page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/pages/grade/list/list-page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/grade/show/show-page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/pages/grade/show/show-page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,8 +33,8 @@
       <list>
         <option value="CSS File" />
         <option value="GraphQL File" />
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -397,7 +379,7 @@
       <workItem from="1620780651703" duration="744000" />
       <workItem from="1621190948442" duration="15000" />
       <workItem from="1621340824705" duration="1048000" />
-      <workItem from="1621342508321" duration="6870000" />
+      <workItem from="1621342508321" duration="11524000" />
     </task>
     <servers />
   </component>

@@ -8,6 +8,7 @@ import {
 } from "../shared/providers";
 import { observer } from "mobx-react";
 import { Card } from "./card";
+import { Create } from "./create";
 
 const El = observer(() => {
   const { data, fetch } = useListPage();
@@ -17,7 +18,7 @@ const El = observer(() => {
   }, []);
 
   return (
-    <PageLayout pageTitle="Jenjang">
+    <PageLayout customButton={<Create onSuccess={fetch} />} pageTitle="Batch">
       <Box display="flex" flexWrap="wrap" marginY={2}>
         {!data
           ? null

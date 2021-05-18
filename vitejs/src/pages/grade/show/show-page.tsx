@@ -13,6 +13,7 @@ import { Students } from "./students";
 import { Discussion } from "./discussion";
 import { Video } from "./video";
 import { useNodeDimension } from "hooks/use-node-dimension";
+import { Editor } from "./editor";
 /**
  * Component tab untuk mengontrol konten yang tampilkan oleh halaman
  */
@@ -63,7 +64,11 @@ const Page = ({ model }: PreloadComponentProp<GradeModelType>) => {
     [model]
   );
   return (
-    <PageLayout backPath="/grades" pageTitle={`${model.name}`}>
+    <PageLayout
+      customButton={<Editor grade={model} />}
+      backPath="/grades"
+      pageTitle={`${model.name}`}
+    >
       <Controller>{renderChild}</Controller>
     </PageLayout>
   );
