@@ -5,11 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e94c46e-1c07-4efd-823c-bb31b961c4c7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/vitejs/src/components/form-fields/grade-field.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vitejs/src/components/tables/video/VideoDialog.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vitejs/src/components/tables/video/delete.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vitejs/src/components/tables/video/edit.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vitejs/src/components/tables/video/provider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vitejs/src/components/tables/video/row.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vitejs/src/components/tables/video/utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vitejs/src/components/tables/video/view.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vitejs/src/utils/mutation-service-factory.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Video.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Video.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_27_191012_video_migrator.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_27_191012_video_migrator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphql/grade.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/grade.graphql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphql/video.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/video.graphql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schema.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/schema.graphql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/form-fields/form-field.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/components/form-fields/form-field.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/form-fields/grade-field.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/components/form-fields/grade-field.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vitejs/src/components/form-fields/select-field.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/components/form-fields/select-field.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vitejs/src/gapi.json" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/gapi.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/form-fields/text-editor-field.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/components/form-fields/text-editor-field.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/player.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/components/player.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/tables/video/video-data-table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/components/tables/video/video-data-table.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/models/stores/RootStore.base.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/models/stores/RootStore.base.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vitejs/src/pages/add-video-page/info-field.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/pages/add-video-page/info-field.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/add-video-page/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/pages/add-video-page/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/grade/show/students.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/pages/grade/show/students.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/grade/show/video.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/pages/grade/show/video.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/list-video-page/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/pages/list-video-page/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vitejs/src/pages/student-list-page/add-user-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/pages/student-list-page/add-user-form.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,8 +51,8 @@
       <list>
         <option value="CSS File" />
         <option value="GraphQL File" />
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -244,8 +266,8 @@
       <command value="artisan make:migration StudentGradeMigrator --create=student_grades" />
       <command value="artisan make:model Grade" />
       <command value="artisan make:model StudentGrade" />
-      <command value="artisan lighthouse:validate-schema" />
       <command value="artisan make:factory --model=Grade GradeFactory" />
+      <command value="artisan lighthouse:validate-schema" />
       <command value="artisan migrate:fresh" />
       <command value="artisan dev" />
     </option>
@@ -290,6 +312,16 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="print-schema" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="print-schema" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -306,12 +338,14 @@
       <item itemvalue="npm.mst-print-model" />
       <item itemvalue="PHPUnit.phpunit.xml" />
       <item itemvalue="Shell Script.print-directive.sh" />
+      <item itemvalue="npm.print-schema" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="npm.start" />
-        <item itemvalue="npm.generate-model" />
         <item itemvalue="npm.mst-print-model" />
+        <item itemvalue="npm.print-schema" />
+        <item itemvalue="npm.generate-model" />
         <item itemvalue="Shell Script.print-directive.sh" />
       </list>
     </recent_temporary>
@@ -360,7 +394,10 @@
       <workItem from="1620728335382" duration="5777000" />
       <workItem from="1620753469001" duration="12299000" />
       <workItem from="1620766682288" duration="1874000" />
-      <workItem from="1620780651703" duration="623000" />
+      <workItem from="1620780651703" duration="744000" />
+      <workItem from="1621190948442" duration="15000" />
+      <workItem from="1621340824705" duration="1048000" />
+      <workItem from="1621342508321" duration="6870000" />
     </task>
     <servers />
   </component>

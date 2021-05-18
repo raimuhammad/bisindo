@@ -14,6 +14,7 @@ class VideoMigrator extends Migration
       $table->string("title");
       $table->string("caption");
       $table->json("description");
+      $table->softDeletes();
       $table->timestamps();
     });
     \App\Shared\RelationHelper::AttachRelation('videos', ['grade_id']);

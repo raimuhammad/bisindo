@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { formWrapper, WrapperProps } from "components/form-wrapper";
-import { UserModelType } from "root/models/stores";
+import { GradeModelType, UserModelType } from "root/models/stores";
 import { useSuccessModal } from "hooks/use-success-modal";
 import { Box, Button, CircularProgress, Typography } from "@material-ui/core";
 import { FormField } from "components/form-fields/form-field";
@@ -11,9 +11,12 @@ import * as yup from "yup";
 import { Save } from "@material-ui/icons";
 import { GradeField } from "components/form-fields/grade-field";
 
-type Props = WrapperProps<UserModelType, { onSuccess: () => void }>;
+type Props = WrapperProps<
+  UserModelType,
+  { onSuccess: () => void; grade?: GradeModelType }
+>;
 const Component = (props: Props) => {
-  const { instance } = props;
+  const { instance, grade } = props;
   const { loading, result } = instance;
 
   useSuccessModal({
@@ -25,6 +28,7 @@ const Component = (props: Props) => {
     depedencies: Boolean(result),
     message: "Data siswa berhasil di tambahkan",
   });
+
   return (
     <div>
       <Box paddingY={2}>
@@ -48,7 +52,7 @@ const Component = (props: Props) => {
               label="Alamat email"
             />
             <Box paddingY={2}>
-              <GradeField />
+              <GradeField gradeId={grade?.id} />
             </Box>
             <Box paddingY={2}>
               <Button
@@ -66,7 +70,13 @@ const Component = (props: Props) => {
   );
 };
 
-export const AddUserForm = ({ onSuccess }: { onSuccess(): void }) => {
+export const AddUserForm = ({
+  onSuccess,
+  grade,
+}: {
+  onSuccess(): void;
+  grade?: GradeModelType;
+}) => {
   const instance = useFormFactoryGenerator<UserModelType>({
     callback: (data) => {
       return (model: RootModel) =>
@@ -83,7 +93,7 @@ export const AddUserForm = ({ onSuccess }: { onSuccess(): void }) => {
 
   const Node = useCallback(() => {
     const Form = formWrapper<UserModelType, any>(Component, instance);
-    return <Form onSuccess={onSuccess} />;
+    return <Form grade={grade} onSuccess={onSuccess} />;
   }, []);
   return <Node />;
 };

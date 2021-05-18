@@ -10,6 +10,7 @@ import { observer } from "mobx-react";
 import { DataTable } from "components/data-table";
 import { TableCell, TableHead, TableRow } from "@material-ui/core";
 import { Row } from "./row";
+import voca from "voca";
 
 type Props = WithListPageProp<
   typeof QuizModel,
@@ -26,10 +27,13 @@ const ComponentPage = ({
   video,
   refresh,
 }: React.PropsWithChildren<PageProps>) => {
+  const gradeId = voca(location.search).replaceAll("?gradeId=", "").value();
+  const gradePath = `/grade/${gradeId}`;
+
   return (
     <PageLayout
       customButton={<AddQuizForm refresh={refresh} video={video} />}
-      backPath="/video"
+      backPath={gradeId ? gradePath : "/video"}
       pageTitle="Quis"
     >
       {children}

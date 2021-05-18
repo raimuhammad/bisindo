@@ -7,10 +7,11 @@ import { DataTable } from "components/data-table";
 import { pageProperties } from "./page-properties";
 import { useNavigate } from "hooks/use-navigate";
 import { DescriptionViewer } from "./description-viewer";
-import { RouteProps } from "react-router-dom";
+import { RouteProps, useLocation } from "react-router-dom";
 import { TableCell, TableRow } from "@material-ui/core";
 import { Row } from "./row";
 import { observer } from "mobx-react";
+import voca from "voca";
 
 const Header = () => {
   return (
@@ -28,6 +29,7 @@ const Component = ({
   loadData,
 }: WithListPageProp<typeof VideoModel, RouteProps>) => {
   const { navigateHandler } = useNavigate();
+
   const pageLayoutProps = {
     pageTitle: pageProperties.title,
     customButton: {

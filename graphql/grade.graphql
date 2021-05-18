@@ -22,6 +22,6 @@ extend type Mutation {
 }
 extend type Query {
   grades: [Grade!]! @all
-  getStudentByGrade(grade_id: ID! @where): [StudentGrade!]! @paginate
+  getStudentByGrade(grade_id: ID! @where): [StudentGrade!]! @orderBy(column:"created_at", direction:DESC) @paginate
   gradeById(id: ID! @eq): Grade @find
 }

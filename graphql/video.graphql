@@ -22,7 +22,6 @@ input UpdateVideoInput {
   title: String @rules(apply: ["sometimes"])
   caption: String @rules(apply: ["sometimes"])
   description: JSON @rules(apply: ["sometimes"])
-  content: Upload @rules(apply: ["sometimes", "file", "mimetypes:video/*"])
 }
 
 extend type Query {
@@ -34,4 +33,5 @@ extend type Mutation {
     @field(resolver: "App\\GraphQL\\VideoResolver@create")
   videoUpdate(id: ID! @eq, args: UpdateVideoInput! @spread): Video
     @field(resolver: "App\\GraphQL\\VideoResolver@update")
+  videoDelete(id: ID!): Video @delete
 }

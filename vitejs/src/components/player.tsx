@@ -6,22 +6,27 @@ type PlayerProps = {
   url: string;
   onContainerClick(): void;
   play: boolean;
+  enableFullScreen?: boolean;
 };
 
-const attributes = {
-  controlsList: "nodownload nofullscreen",
-};
-const commonProps = {
-  controls: true,
-  config: {
-    file: {
-      attributes,
-    },
-  },
-};
-
-export const Player = ({ url, play, onContainerClick }: PlayerProps) => {
+export const Player = ({
+  url,
+  play,
+  onContainerClick,
+  enableFullScreen = true,
+}: PlayerProps) => {
   const { nodeRef, style } = useAspectRatioBox();
+  const attributes = {
+    controlsList: `nodownload ${!enableFullScreen ? "nofullscreen" : ""}`,
+  };
+  const commonProps = {
+    controls: true,
+    config: {
+      file: {
+        attributes,
+      },
+    },
+  };
   return (
     <div ref={nodeRef}>
       <div onClick={onContainerClick} style={style}>

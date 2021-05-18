@@ -43,7 +43,6 @@ export type UpdateVideoInput = {
   title?: string
   caption?: string
   description?: any
-  content?: any
 }
 export type CreateQuizInput = {
   video_id: string
@@ -108,6 +107,7 @@ mutateLogin="mutateLogin",
 mutateLogout="mutateLogout",
 mutateVideo="mutateVideo",
 mutateVideoUpdate="mutateVideoUpdate",
+mutateVideoDelete="mutateVideoDelete",
 mutateQuiz="mutateQuiz",
 mutateQuizDelete="mutateQuizDelete",
 mutateQuizAnswer="mutateQuizAnswer",
@@ -197,6 +197,11 @@ export const RootStoreBase = withTypedRefs<Refs>()(MSTGQLStore
     },
     mutateVideoUpdate(variables: { id: string, args: UpdateVideoInput }, resultSelector: string | ((qb: VideoModelSelector) => VideoModelSelector) = videoModelPrimitives.toString(), optimisticUpdate?: () => void) {
       return self.mutate<{ videoUpdate: VideoModelType}>(`mutation videoUpdate($id: ID!, $args: UpdateVideoInput!) { videoUpdate(id: $id, args: $args) {
+        ${typeof resultSelector === "function" ? resultSelector(new VideoModelSelector()).toString() : resultSelector}
+      } }`, variables, optimisticUpdate)
+    },
+    mutateVideoDelete(variables: { id: string }, resultSelector: string | ((qb: VideoModelSelector) => VideoModelSelector) = videoModelPrimitives.toString(), optimisticUpdate?: () => void) {
+      return self.mutate<{ videoDelete: VideoModelType}>(`mutation videoDelete($id: ID!) { videoDelete(id: $id) {
         ${typeof resultSelector === "function" ? resultSelector(new VideoModelSelector()).toString() : resultSelector}
       } }`, variables, optimisticUpdate)
     },

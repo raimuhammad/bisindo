@@ -14,18 +14,28 @@ import options from "./form-options";
 import { useNavigate } from "hooks/use-navigate";
 import { useSuccessModal } from "hooks/use-success-modal";
 import { pageProperties } from "./page-properties";
+import { useLocation } from "react-router-dom";
+import voca from "voca";
 
 const Component = observer(
   ({ instance }: WrapperProps<VideoModelType, any>) => {
     const { navigateHandler } = useNavigate();
     const { handler, result } = instance;
+    const location = useLocation();
+    const gradeId = voca(location.search).replaceAll("?gradeId=", "").value();
+    const gradePath = `/grade/${gradeId}`;
     useSuccessModal({
-      callback: navigateHandler(pageProperties.navigatePath),
+      callback: navigateHandler(
+        gradeId ? gradePath : pageProperties.navigatePath
+      ),
       message: pageProperties.successMessage,
       depedencies: Boolean(result),
     });
     return (
-      <PageLayout pageTitle={pageProperties.title} backPath="/video">
+      <PageLayout
+        pageTitle={pageProperties.title}
+        backPath={gradeId ? `/grade/${gradeId}` : "/video"}
+      >
         <Grid container>
           <Grid item sm={12} md={4}>
             <Box padding={1}>

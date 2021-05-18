@@ -14,17 +14,13 @@ type Props = Omit<TextFieldProps, "onChange"> & {
 class Field extends React.Component<Props, { value: any }> {
   constructor(props: any) {
     super(props);
-    let value = this.getInitial();
-    if (this.props.controller && this.props.controller.field.value) {
-      value = this.props.controller.field.value;
-    }
     this.state = {
-      value,
+      value: this.getInitial(),
     };
   }
 
   getInitial = () => {
-    const { type = "text", select } = this.props;
+    const { type = "text", select, controller } = this.props;
     switch (type) {
       case "number": {
         return 0;
@@ -35,6 +31,9 @@ class Field extends React.Component<Props, { value: any }> {
       default: {
         if (select) {
           return "__default__";
+        }
+        if (controller) {
+          return controller.field.value;
         }
         return "";
       }

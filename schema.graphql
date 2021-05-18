@@ -66,6 +66,7 @@ type Mutation {
   logout: Boolean
   video(args: CreateVideoInput!): Video
   videoUpdate(id: ID!, args: UpdateVideoInput!): Video
+  videoDelete(id: ID!): Video
   quiz(args: CreateQuizInput!): Quiz
   quizDelete(id: ID!): Quiz!
   quizAnswer(args: CreateQuizAnswerInput!): QuizAnswer
@@ -252,7 +253,6 @@ input UpdateVideoInput {
   title: String
   caption: String
   description: JSON
-  content: Upload
 }
 
 scalar Upload

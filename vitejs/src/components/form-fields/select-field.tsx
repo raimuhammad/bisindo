@@ -43,6 +43,17 @@ export class SelectField extends React.Component<Props, State> {
     };
   }
 
+  getValue = () => {
+    const defaultVal = "__default__";
+    const { controller } = this.props;
+    let value = defaultVal;
+    if (controller) {
+      value = controller.field.value ?? value;
+    }
+    const find = this.findInOption(value);
+    return find ? find.value : defaultVal;
+  };
+
   handleFormChange = (value: any) => {
     const { controller } = this.props;
     if (controller) {
@@ -63,7 +74,9 @@ export class SelectField extends React.Component<Props, State> {
   };
 
   findInOption = (value: any) =>
-    this.options.find((item) => item.value === value);
+    this.options.find((item) => {
+      return item.value === value;
+    });
 
   getErrorProps = () => {
     if (!this.props.controller) {
@@ -87,7 +100,7 @@ export class SelectField extends React.Component<Props, State> {
         inputRef: controller?.field.ref,
       },
       onChange: this.handleChange,
-      value: this.state.selected,
+      value: this.getValue(),
     };
   };
 
