@@ -6,7 +6,7 @@ $getDefault = function ($type){
   if ( strtoupper(substr(PHP_OS, 0, 3)) !== 'WIN') {
     $base = "/usr/bin/";
   } else {
-    $base = "C:\\ffmped\\";
+    $base = "C:\\ffmpeg\\";
     $ext = ".exe";
   }
   return $base . "/" . $type . $ext;
