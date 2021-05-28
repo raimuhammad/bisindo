@@ -5,197 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e94c46e-1c07-4efd-823c-bb31b961c4c7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/GraphQL/.phpstorm.meta.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/GraphQL/Directives/HasFileDirective.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/GraphQL/_ide_helper.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/QuizMetadata.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Utils/AttachMedia.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Utils/DurationHelper.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/QuizMetadataFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_26_104356_quiz_meta_data_migrator.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/131-300x300.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/app.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/option-0.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/option-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/option-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/option-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/quiz.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/app-routes.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/app.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/app.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/draft-js-viewer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/form-field/file-upload-field.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/form-field/form-field.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/form-field/form-helper.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/form-field/grade-field.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/form-field/select-field.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/form-field/text-editor-field.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/form-field/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/form-field/wrap-paginator.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/konva/rounded-box.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/loading-button.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/player.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/preload-page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/quiz/image-matcher/arrow-renderer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/quiz/image-matcher/colors.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/quiz/image-matcher/content-container.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/quiz/image-matcher/image-match-provider.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/quiz/image-matcher/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/quiz/image-matcher/item-box.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/quiz/image-matcher/listeners.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/quiz/image-matcher/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/quiz/image-matcher/utils.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/quiz/image-matcher/view.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/quiz/multiple-choise/form/additional-image.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/quiz/multiple-choise/form/create-form.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/quiz/multiple-choise/form/image-preview.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/quiz/multiple-choise/form/options-field.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/quiz/multiple-choise/form/time-slider.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/quiz/multiple-choise/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/quiz/multiple-choise/type.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/quiz/multiple-choise/utils.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/quiz/multiple-choise/viewer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/search-form.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/hooks/use-aspect-ratio-box.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/hooks/use-fetch-query.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/hooks/use-konva-responsive.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/hooks/use-navigate.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/hooks/use-node-dimension.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/hooks/use-node-ref.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/hooks/use-paginator.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/hooks/use-regex-keydown.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/hooks/use-responsive-cycles.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/hooks/use-success-modal.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/hooks/use-switch-value.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/hooks/use-toggle.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/hooks/use-upload-file.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/hooks/use-youtube-api.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/image-data.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/layout/admin/header.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/layout/admin/navigator.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/layout/admin/style.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/layout/app-theme.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/layout/layout-provider.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/layout/theme.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/content/delete-form.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/content/edit-form.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/content/form-dialog.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/content/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/content/tab-content.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/content/utils.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/content/video-container.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/content/video-list.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/controller.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/create-video.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/discussion.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/provider.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/student.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch/content.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch/controller.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch/form-drawer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch/provider.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/form-node.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/provider.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/quiz-list.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/side-bar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/type.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/utils.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/viewer/component.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/viewer/delete-mode.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/viewer/form-mode.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/viewer/image-match-form.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/viewer/image-match-preview.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/viewer/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/viewer/multiple-choice-form.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/viewer/multiple-choice-preview.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/viewer/view-mode.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/shared/video-form.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/video/data-table.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/video/drawers/description.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/video/drawers/drawer-node.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/video/drawers/edit.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/video/drawers/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/video/drawers/watch.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/video/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/video/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/video/provider.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/guest/home.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/guest/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/guest/login.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/guest/register.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/providers/app-provider.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/providers/konva/konva-provider.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/providers/service-provider/content/form-provider.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/providers/service-provider/content/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/providers/service-provider/content/paginator-provider.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/providers/service-provider/quiz/form-provider.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/providers/service-provider/quiz/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/providers/service-provider/quiz/paginator-provider.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/providers/service-provider/quiz/use-delete.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/routes/admin.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/routes/default-component.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/routes/guest.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/routes/type.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/services/auth-service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/services/batch-service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/services/content-service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/services/quiz-service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/utils/get-duration-time.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/utils/mutation-service-factory.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/utils/transform-gql-key.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/7.4/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/7.4/php.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/7.4/start-container" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/7.4/supervisord.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/8.0/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/8.0/php.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/8.0/start-container" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/8.0/supervisord.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/bisindo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bisindo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Laravel_4_28_21__4_44_AM.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Laravel_4_28_21__4_44_AM.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Commands/Development.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/Development.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/GraphQL/Directives/RoleBasedDirectiveDirective.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/GraphQL/QuizResolver.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/GraphQL/QuizResolver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/GraphQL/VideoResolver.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/GraphQL/VideoResolver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Grade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Grade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Quiz.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Quiz.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/QuizAnswer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/QuizAnswer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/StudentGrade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/StudentGrade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Video.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Video.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Shared/GraphqlResolver.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Shared/GraphqlResolver.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/lighthouse.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/lighthouse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/QuizFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/QuizFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/VideoFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/VideoFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_27_191012_video_migrator.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_27_191012_video_migrator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphql/grade.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/grade.graphql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphql/quiz.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/quiz.graphql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphql/schema.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/schema.graphql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphql/video.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/video.graphql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programmatic-types.graphql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schema-directives.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/schema-directives.graphql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schema.graphql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.extends.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vite.alias.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vite.alias.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vitejs/src/components/quiz/image-matcher/utility.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/components/quiz/image-matcher/utility.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/media-library.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/media-library.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -373,6 +196,7 @@
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
       <path value="$PROJECT_DIR$/vendor/graham-campbell/result-type" />
       <path value="$PROJECT_DIR$/vendor/thecodingmachine/safe" />
+      <path value="$PROJECT_DIR$/vendor/yoelpc4/laravel-sail-preset" />
     </include_path>
   </component>
   <component name="ProjectId" id="1rlns69HqaFSnQCRhYIThH1H1kj" />
@@ -611,7 +435,7 @@
       <workItem from="1622114202300" duration="4263000" />
       <workItem from="1622122565615" duration="2522000" />
       <workItem from="1622129328407" duration="29642000" />
-      <workItem from="1622166875991" duration="7129000" />
+      <workItem from="1622166875991" duration="10650000" />
     </task>
     <servers />
   </component>

@@ -26,11 +26,12 @@
   "require-dev": {
     "facade/ignition": "^2.5",
     "fakerphp/faker": "^1.9.1",
-    "laravel/sail": "^1.0.1",
+    "laravel/sail": "^1.7",
     "mbezhanov/laravel-faker-provider-collection": "^2.0",
     "mockery/mockery": "^1.4.2",
     "nunomaduro/collision": "^5.0",
-    "phpunit/phpunit": "^9.3.3"
+    "phpunit/phpunit": "^9.3.3",
+    "yoelpc4/laravel-sail-preset": "^0.1.0"
   },
   "autoload": {
     "psr-4": {

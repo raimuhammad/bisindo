@@ -1,5 +1,17 @@
 <?php
 
+$getDefault = function ($type){
+  $base = "";
+  $ext = "";
+  if ( strtoupper(substr(PHP_OS, 0, 3)) !== 'WIN') {
+    $base = "/usr/bin/";
+  } else {
+    $base = "C:\\ffmped\\";
+    $ext = ".exe";
+  }
+  return $base . "/" . $type . $ext;
+};
+
 return [
 
     /*
@@ -139,8 +151,8 @@ return [
      * thumbnails and have installed the php-ffmpeg/php-ffmpeg composer
      * dependency.
      */
-    'ffmpeg_path' => env('FFMPEG_PATH', '/usr/bin/ffmpeg'),
-    'ffprobe_path' => env('FFPROBE_PATH', '/usr/bin/ffprobe'),
+    'ffmpeg_path' => env('FFMPEG_PATH', $getDefault("ffpeg")),
+    'ffprobe_path' => env('FFPROBE_PATH', $getDefault('ffprobe')),
 
     /*
      * Here you can override the class names of the jobs used by this package. Make sure
