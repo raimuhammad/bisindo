@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Utils\AttachMedia;
+use App\Utils\DurationHelper;
 use FFMpeg\FFProbe;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -13,9 +15,45 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\FileAdder;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
+/**
+ * App\Models\Video
+ *
+ * @property int $id
+ * @property int $grade_id
+ * @property string $title
+ * @property string $caption
+ * @property int $duration
+ * @property mixed $description
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read string $content
+ * @property-read string $thumbnail
+ * @property-read \App\Models\Grade $grade
+ * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection|Media[] $media
+ * @property-read int|null $media_count
+ * @method static \Database\Factories\VideoFactory factory(...$parameters)
+ * @method static \Illuminate\Database\Eloquent\Builder|Video newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Video newQuery()
+ * @method static \Illuminate\Database\Query\Builder|Video onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Video query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Video whereCaption($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Video whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Video whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Video whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Video whereDuration($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Video whereGradeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Video whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Video whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Video whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|Video withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Video withoutTrashed()
+ * @mixin \Eloquent
+ */
 class Video extends Model implements HasMedia
 {
-  use HasFactory, InteractsWithMedia, SoftDeletes;
+  use HasFactory, InteractsWithMedia, SoftDeletes, AttachMedia;
+
 
   protected $guarded = ["id"];
 
@@ -30,39 +68,24 @@ class Video extends Model implements HasMedia
       ->extractVideoFrameAtSecond(1)
       ->performOnCollections("content");
   }
-
-  /**
-   * @utility
-   * @param $fileOrUrl
-   * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileCannotBeAdded
-   * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
-   * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
-   */
-  private function attachMedia($fileOrUrl, string $collection = ""){
-    /**
-     * @var FileAdder $media
-     */
-    $media = null;
-    if (is_string($fileOrUrl)){
-      $media = $this->addMediaFromUrl($fileOrUrl);
-    }else{
-      $media = $this->addMedia($fileOrUrl);
-    }
-    $media
-      ->preservingOriginal()
-      ->toMediaCollection($collection);
-  }
   /**
    * @utility
    */
   public function grade(){
     return $this->belongsTo(Grade::class);
   }
+  public function durationHelper() : int{
+    $video = $this->getFirstMedia('content');
+    $helper = new DurationHelper();
+    return $helper->getVideoDuration($video->getPath());
+  }
   /**
    * @utility
    */
   public function attachContent($fileOrUrl) : void {
     $this->attachMedia($fileOrUrl, 'content');
+    $this->duration = $this->durationHelper();
+    $this->save();
   }
   /**
    * @utility
@@ -84,23 +107,5 @@ class Video extends Model implements HasMedia
    */
   public function getThumbnailAttribute() : string {
     return $this->getFirstMediaUrl("content", 'thumbnail');
-  }
-
-  /**
-   * @attributes
-   */
-  public function getDurationAttribute(){
-    $probe = null;
-    if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-      $probe = FFProbe::create([
-        'ffmpeg.binaries'  =>env("FFMPEG_PATH"),
-        'ffprobe.binaries' => env('FFPROBE_PATH'),
-      ]);
-    }else{
-      $probe = FFProbe::create();
-    }
-    $video = $this->getFirstMedia('content');
-    $dur = $probe->format($video->getPath())->get("duration");
-    return (int) $dur;
   }
 }

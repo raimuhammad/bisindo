@@ -68,9 +68,6 @@ class QuizFactory extends Factory
 
   public function definition()
   {
-    $type =$this->faker->randomElement([
-      "IMAGE_MATCH", "LETTER_SEQUENCE", "MULTIPLE_CHOICE"
-    ]);
     return [
       "show_at"=> $this->faker->numberBetween(15,120),
       "type"=> $type,

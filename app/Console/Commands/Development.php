@@ -6,6 +6,7 @@ use App\Constants\AppRole;
 use App\Models\Grade;
 use App\Models\Quiz;
 use App\Models\QuizAnswer;
+use App\Models\QuizMetadata;
 use App\Models\StudentGrade;
 use App\Models\User;
 use App\Models\Video;
@@ -18,14 +19,17 @@ class Development extends Command
   protected $signature = 'dev';
   protected $description = '';
   private User $user;
+  private \Faker\Generator $faker;
 
   public function __construct()
   {
     parent::__construct();
+    $this->faker = Factory::create();
   }
 
   private $modelStacks = [
     QuizAnswer::class,
+    QuizMetadata::class,
     Quiz::class,
     Video::class,
     StudentGrade::class,
@@ -55,11 +59,51 @@ class Development extends Command
 
   public function makeVideos(Grade $grade){
     $c = Factory::create()->numberBetween(1,5);
-    Video::factory()
+    /**
+     * @var Video $video
+     */
+    $video = Video::factory()
       ->count($c)
       ->create([
-      "grade_id"=>$grade->id
-    ]);
+        "grade_id"=>$grade->id
+      ])->each(function (Video $video){
+        for ($i = 0; $i < 10; $i++){
+          $metadata = [
+            "question"=> $this->faker->text(100),
+            "answer"=>$this->faker->randomElement([0,1,2,3])
+          ];
+          $isImage = $i % 3 === 0;
+
+          $quiz = Quiz::create([
+            "video_id"=>$video->id,
+            "meta_data"=>json_encode($metadata),
+            "show_at"=>$this->faker->numberBetween(1, $video->duration),
+            "type"=>"MULTIPLE_CHOICE",
+          ]);
+          if ($isImage){
+            $quiz->addAdditionalImage(public_path() . "/quiz.jpg");
+          }
+          $quizInfos[] = [];
+          $metas = [];
+          for ($j = 0; $j < 4; $j++){
+            $quizMeta = [
+              "index"=>$j,
+            ];
+            if (!$isImage){
+              $quizMeta['text'] = $this->faker->text(30);
+            }
+            $quizInfos[] = $quizMeta;
+            $metas[] = QuizMetadata::create([
+              "quiz_id"=>$quiz->id,
+              "meta_data"=>json_encode($quizMeta)
+            ]);
+          }
+          if ($isImage)
+          foreach ($metas as $index=>$meta){
+            $meta->addOptionImage(public_path() . "/option-". $index .".jpg");
+          }
+        }
+      });
   }
 
   public function handle()

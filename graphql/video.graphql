@@ -10,28 +10,31 @@ type Video {
   duration: Int!
   grade: Grade!
 }
-
-input CreateVideoInput {
-  grade_id: String! @rules(apply: ["required", "exists:grades,id"])
-  title: String! @rules(apply: ["required"])
-  caption: String! @rules(apply: ["required"])
-  description: JSON! @rules(apply: ["required"])
-  content: Upload! @rules(apply: ["required", "mimetypes:video/*"])
-}
-input UpdateVideoInput {
-  title: String @rules(apply: ["sometimes"])
-  caption: String @rules(apply: ["sometimes"])
-  description: JSON @rules(apply: ["sometimes"])
-}
-
 extend type Query {
-  videos: [Video!]! @all
-  getVideoByGrade(grade_id: ID! @where): [Video!]! @paginate
+  video(id: ID! @eq): Video @find
+  videos(
+    grade_id: ID @where
+    search: String @builder(method: "App\\GraphQL\\VideoResolver@search")
+  ): [Video!]! @orderBy(column: "created_at", direction: DESC) @paginate
+  getVideoByGrade(grade_id: ID! @where): [Video!]!
+    @orderBy(column: "created_at", direction: ASC)
+    @paginate
 }
 extend type Mutation {
-  video(args: CreateVideoInput! @spread): Video
-    @field(resolver: "App\\GraphQL\\VideoResolver@create")
-  videoUpdate(id: ID! @eq, args: UpdateVideoInput! @spread): Video
-    @field(resolver: "App\\GraphQL\\VideoResolver@update")
-  videoDelete(id: ID!): Video @delete
+  video(
+    grade_id: String! @rules(apply: ["required", "exists:grades,id"])
+    title: String! @rules(apply: ["required"])
+    caption: String! @rules(apply: ["required"])
+    description: String! @rules(apply: ["required"])
+    content: Upload! @rules(apply: ["required", "mimetypes:video/*"])
+  ): Video!
+    @hasFile(key: "content", resolver: "App\\Models\\Video@attachContent")
+    @create
+  videoUpdate(
+    id: ID! @eq
+    title: String! @rules(apply: ["required"])
+    caption: String! @rules(apply: ["required"])
+    description: String! @rules(apply: ["required"])
+  ): Video! @update
+  videoDelete(id: ID! @eq): Video! @delete
 }

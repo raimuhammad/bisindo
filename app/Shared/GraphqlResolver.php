@@ -53,7 +53,7 @@ abstract class GraphqlResolver
     $this->additionalArguments = $this->excludedNullValues(Arr::only($arguments,$this->getExcluded($arguments)));
   }
 
-  public function create($_, array $args){
+  public function create($_, array $args, $ctx = null, $fieldInfo = null){
     $this->setArguments($args);
     $this->model = $this->makeModel();
     $this->afterCreate();

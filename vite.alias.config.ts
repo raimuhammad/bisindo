@@ -1,5 +1,5 @@
 import path from "path";
-import tsConfig from "./tsconfig.extends.json";
+import tsConfig from "./tsconfig.json";
 import voca from "voca";
 
 const paths = tsConfig.compilerOptions.paths as Record<string, Array<string>>;
@@ -11,7 +11,7 @@ const removeSlashStars = (val: string) =>
 
 Object.keys(paths).forEach((str) => {
   const key = removeSlashStars(str);
-  parsed[key] = path.resolve("vitejs/" + removeSlashStars(paths[str][0]));
+  parsed[key] = path.resolve("" + removeSlashStars(paths[str][0]));
 });
 
 export default parsed;

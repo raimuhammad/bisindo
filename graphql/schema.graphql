@@ -7,6 +7,7 @@ scalar DateTime
 scalar JSON @scalar(class: "MLL\\GraphQLScalars\\JSON")
 scalar Upload
   @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Upload")
+
 #import video.graphql
 #import quiz.graphql
 #import quiz_answer.graphql

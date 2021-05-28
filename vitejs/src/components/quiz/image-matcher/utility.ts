@@ -43,8 +43,6 @@ Object.keys(colors).forEach((colorKey) => {
     });
   }
 });
-console.log(colorList);
-
 export function getRandomData(): Item[] {
   const samples = sampleSize(Data, 4) as Array<Item["question"]>;
   const shufled = shuffle(samples) as Array<Item["question"]>;
@@ -224,3 +222,4 @@ export function extractAttrsFromNode<
   }
   return base;
 }
+

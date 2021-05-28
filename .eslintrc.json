@@ -10,10 +10,10 @@
     "public/*",
     "node_modules",
     "*.svg",
-    "views/*",
     "node/*",
     "vite.config.ts",
-    "vitejs/src/models/stores/*"
+    "vitejs/src/models/stores/*",
+    "views/models/**/**"
   ],
   "plugins": ["react"],
   "rules": {
@@ -39,7 +39,7 @@
   },
   "overrides": [
     {
-      "files": ["vitejs/**/*.ts", "vitejs/**/*.tsx"],
+      "files": ["views/**/*.ts", "views/**/*.tsx"],
       "rules": {
         "no-use-before-define": "off",
         "@typescript-eslint/explicit-function-return-type": "off",

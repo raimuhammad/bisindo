@@ -1,7 +1,6 @@
 {
-  "extends": "./tsconfig.extends.json",
   "compilerOptions": {
-    "target": "es5",
+    "target": "ESNext",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -13,11 +12,30 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
+    "sourceMap": true,
+    "outDir": "views/compiled",
     "jsx": "react-jsx",
     "experimentalDecorators": true,
-    "useDefineForClassFields": true
+    "useDefineForClassFields": true,
+    "baseUrl": ".",
+    "paths": {
+      "@admin-routes": ["views/routes/admin.ts"],
+      "@root/*": ["views/*"],
+      "@components/*": ["views/components/*"],
+      "@guest-page": ["views/pages/guest/index.ts"],
+      "@hooks/*": ["views/hooks/*"],
+      "@layout/*": ["views/layout/*"],
+      "@models/*": ["views/models/*"],
+      "@model": ["views/models"],
+      "@providers/*": ["views/providers/*"],
+      "@service-provider/*": ["views/providers/service-provider/*"],
+      "@shared/*": ["views/shared/*"],
+      "@pages/*": ["views/pages/*"],
+      "@utils/*": ["views/utils/*"],
+      "@services/*": ["views/services/*"],
+      "@root-model": ["views/models/RootStore.base.ts"]
+    }
   },
-  "include": ["vitejs"]
+  "include": ["views"],
+  "exclude": ["views/compiled", "node_modules", "vitejs"]
 }

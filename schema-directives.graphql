@@ -8,19 +8,11 @@ Will be replaced by a generated type during schema manipulation.
 """
 scalar _
 
-# Directive class: App\GraphQL\Directives\RoleBasedDirectiveDirective
-"""
-Run authentication through one or more guards.
-This is run per field and may allow unauthenticated
-users to still receive partial results.
-"""
-directive @role(
-  """
-  Specify which role can use the field.
-  """
-  with: AppRole
-  roles: [AppRole!]
-) on FIELD_DEFINITION | OBJECT
+# Directive class: App\GraphQL\Directives\HasFileDirective
+directive @hasFile(
+  key: String
+  resolver: String!
+) on FIELD_DEFINITION
 
 # Directive class: Nuwave\Lighthouse\GlobalId\GlobalIdDirective
 """
@@ -41,20 +33,20 @@ directive @globalId(
 Options for the `decode` argument of `@globalId`.
 """
 enum GlobalIdDecode {
-  """
-  Return an array of `[$type, $id]`.
-  """
-  ARRAY
+    """
+    Return an array of `[$type, $id]`.
+    """
+    ARRAY
 
-  """
-  Return just `$type`.
-  """
-  TYPE
+    """
+    Return just `$type`.
+    """
+    TYPE
 
-  """
-  Return just `$id`.
-  """
-  ID
+    """
+    Return just `$id`.
+    """
+    ID
 }
 
 # Directive class: Nuwave\Lighthouse\GlobalId\NodeDirective
@@ -88,48 +80,48 @@ directive @node(
 Sort a result list by one or more given columns.
 """
 directive @orderBy(
-  """
-  Restrict the allowed column names to a well-defined list.
-  This improves introspection capabilities and security.
-  Mutually exclusive with the `columnsEnum` argument.
-  Only used when the directive is added on an argument.
-  """
-  columns: [String!]
+    """
+    Restrict the allowed column names to a well-defined list.
+    This improves introspection capabilities and security.
+    Mutually exclusive with the `columnsEnum` argument.
+    Only used when the directive is added on an argument.
+    """
+    columns: [String!]
 
-  """
-  Use an existing enumeration type to restrict the allowed columns to a predefined list.
-  This allowes you to re-use the same enum for multiple fields.
-  Mutually exclusive with the `columns` argument.
-  Only used when the directive is added on an argument.
-  """
-  columnsEnum: String
+    """
+    Use an existing enumeration type to restrict the allowed columns to a predefined list.
+    This allowes you to re-use the same enum for multiple fields.
+    Mutually exclusive with the `columns` argument.
+    Only used when the directive is added on an argument.
+    """
+    columnsEnum: String
 
-  """
-  The database column for which the order by clause will be applied on.
-  Only used when the directive is added on a field.
-  """
-  column: String
+    """
+    The database column for which the order by clause will be applied on.
+    Only used when the directive is added on a field.
+    """
+    column: String
 
-  """
-  The direction of the order by clause.
-  Only used when the directive is added on a field.
-  """
-  direction: OrderByDirection = ASC
+    """
+    The direction of the order by clause.
+    Only used when the directive is added on a field.
+    """
+    direction: OrderByDirection = ASC
 ) on ARGUMENT_DEFINITION | FIELD_DEFINITION
 
 """
 Options for the `direction` argument on `@orderBy`.
 """
 enum OrderByDirection {
-  """
-  Sort in ascending order.
-  """
-  ASC
+    """
+    Sort in ascending order.
+    """
+    ASC
 
-  """
-  Sort in descending order.
-  """
-  DESC
+    """
+    Sort in descending order.
+    """
+    DESC
 }
 
 # Directive class: Nuwave\Lighthouse\Pagination\PaginateDirective
@@ -176,15 +168,20 @@ directive @paginate(
 Options for the `type` argument of `@paginate`.
 """
 enum PaginateType {
-  """
-  Offset-based pagination, similar to the Laravel default.
-  """
-  PAGINATOR
+    """
+    Offset-based pagination, similar to the Laravel default.
+    """
+    PAGINATOR
 
-  """
-  Cursor-based pagination, compatible with the Relay specification.
-  """
-  CONNECTION
+    """
+    Offset-based pagination like the Laravel "Simple Pagination", which does not count the total number of records.
+    """
+    SIMPLE
+
+    """
+    Cursor-based pagination, compatible with the Relay specification.
+    """
+    CONNECTION
 }
 
 # Directive class: Nuwave\Lighthouse\Scout\SearchDirective
@@ -278,21 +275,21 @@ directive @rules(
   Specify the messages to return if the validators fail.
   """
   messages: [RulesMessage!]
-) on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
+)  on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
 
 """
 Input for the `messages` argument of `@rules`.
 """
 input RulesMessage {
-  """
-  Name of the rule, e.g. `"email"`.
-  """
-  rule: String!
+    """
+    Name of the rule, e.g. `"email"`.
+    """
+    rule: String!
 
-  """
-  Message to display if the rule fails, e.g. `"Must be a valid email"`.
-  """
-  message: String!
+    """
+    Message to display if the rule fails, e.g. `"Must be a valid email"`.
+    """
+    message: String!
 }
 
 # Directive class: Nuwave\Lighthouse\Validation\RulesForArrayDirective
@@ -316,21 +313,21 @@ directive @rulesForArray(
   Specify the messages to return if the validators fail.
   """
   messages: [RulesForArrayMessage!]
-) on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
+)  on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
 
 """
 Input for the `messages` argument of `@rulesForArray`.
 """
 input RulesForArrayMessage {
-  """
-  Name of the rule, e.g. `"email"`.
-  """
-  rule: String!
+    """
+    Name of the rule, e.g. `"email"`.
+    """
+    rule: String!
 
-  """
-  Message to display if the rule fails, e.g. `"Must be a valid email"`.
-  """
-  message: String!
+    """
+    Message to display if the rule fails, e.g. `"Must be a valid email"`.
+    """
+    message: String!
 }
 
 # Directive class: Nuwave\Lighthouse\Validation\ValidateDirective
@@ -352,7 +349,67 @@ directive @validator(
   and the field name: `{$parent}{$field}Validator`.
   """
   class: String
-) on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION | FIELD_DEFINITION | INPUT_OBJECT
+)  on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION | FIELD_DEFINITION | INPUT_OBJECT
+
+# Directive class: Nuwave\Lighthouse\Schema\Directives\AggregateDirective
+"""
+Returns an aggregate of a column in a given relationship or model.
+
+Requires Laravel 8+.
+"""
+directive @aggregate(
+  """
+  The column to aggregate.
+  """
+  column: String!
+
+  """
+  The aggregate function to compute.
+  """
+  function: AggregateFunction!
+
+  """
+  The relationship with the column to aggregate.
+  Mutually exclusive with the `model` argument.
+  """
+  relation: String
+
+  """
+  The model with the column to aggregate.
+  Mutually exclusive with the `relation` argument.
+  """
+  model: String
+
+  """
+  Apply scopes to the underlying query.
+  """
+  scopes: [String!]
+) on FIELD_DEFINITION
+
+"""
+Options for the `function` argument of `@aggregate`.
+"""
+enum AggregateFunction {
+    """
+    Return the average value.
+    """
+    AVG
+
+    """
+    Return the sum.
+    """
+    SUM
+
+    """
+    Return the minimum.
+    """
+    MIN
+
+    """
+    Return the maximum.
+    """
+    MAX
+}
 
 # Directive class: Nuwave\Lighthouse\Schema\Directives\AllDirective
 """
@@ -451,15 +508,20 @@ directive @belongsToMany(
 Options for the `type` argument of `@belongsToMany`.
 """
 enum BelongsToManyType {
-  """
-  Offset-based pagination, similar to the Laravel default.
-  """
-  PAGINATOR
+    """
+    Offset-based pagination, similar to the Laravel default.
+    """
+    PAGINATOR
 
-  """
-  Cursor-based pagination, compatible with the Relay specification.
-  """
-  CONNECTION
+    """
+    Offset-based pagination like the Laravel "Simple Pagination", which does not count the total number of records.
+    """
+    SIMPLE
+
+    """
+    Cursor-based pagination, compatible with the Relay specification.
+    """
+    CONNECTION
 }
 
 # Directive class: Nuwave\Lighthouse\Schema\Directives\BuilderDirective
@@ -479,7 +541,7 @@ directive @builder(
   Only used when the directive is added on a field.
   """
   value: BuilderValue
-) on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION | FIELD_DEFINITION
+)  on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION | FIELD_DEFINITION
 
 """
 Any constant literal value: https://graphql.github.io/graphql-spec/draft/#sec-Input-Values
@@ -550,7 +612,7 @@ directive @can(
   e.g.: [1, 2, 3] or { foo: "bar" }
   """
   args: CanArgs
-) on FIELD_DEFINITION
+)  on FIELD_DEFINITION
 
 """
 Any constant literal value: https://graphql.github.io/graphql-spec/draft/#sec-Input-Values
@@ -576,13 +638,13 @@ Returns the count of a given relationship or model.
 """
 directive @count(
   """
-  The relationship which you want to run the count on.
+  The relationship to count.
   Mutually exclusive with the `model` argument.
   """
   relation: String
 
   """
-  The model to run the count on.
+  The model to count.
   Mutually exclusive with the `relation` argument.
   """
   model: String
@@ -689,7 +751,7 @@ directive @eq(
   Only required when this directive is used on a field.
   """
   value: EqValue
-) on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION | FIELD_DEFINITION
+)  on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION | FIELD_DEFINITION
 
 """
 Any constant literal value: https://graphql.github.io/graphql-spec/draft/#sec-Input-Values
@@ -708,7 +770,7 @@ directive @event(
   Specify the fully qualified class name (FQCN) of the event to dispatch.
   """
   dispatch: String!
-) on FIELD_DEFINITION
+)  on FIELD_DEFINITION
 
 # Directive class: Nuwave\Lighthouse\Schema\Directives\FieldDirective
 """
@@ -822,15 +884,20 @@ directive @hasMany(
 Options for the `type` argument of `@hasMany`.
 """
 enum HasManyType {
-  """
-  Offset-based pagination, similar to the Laravel default.
-  """
-  PAGINATOR
+    """
+    Offset-based pagination, similar to the Laravel default.
+    """
+    PAGINATOR
 
-  """
-  Cursor-based pagination, compatible with the Relay specification.
-  """
-  CONNECTION
+    """
+    Offset-based pagination like the Laravel "Simple Pagination", which does not count the total number of records.
+    """
+    SIMPLE
+
+    """
+    Cursor-based pagination, compatible with the Relay specification.
+    """
+    CONNECTION
 }
 
 # Directive class: Nuwave\Lighthouse\Schema\Directives\HasOneDirective
@@ -869,7 +936,7 @@ directive @in(
   Only required if database column has a different name than the attribute in your schema.
   """
   key: String
-) on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
+)  on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
 
 # Directive class: Nuwave\Lighthouse\Schema\Directives\InjectDirective
 """
@@ -889,7 +956,7 @@ directive @inject(
   within the incoming argument.
   """
   name: String!
-) on FIELD_DEFINITION
+)  on FIELD_DEFINITION
 
 # Directive class: Nuwave\Lighthouse\Schema\Directives\InterfaceDirective
 """
@@ -914,7 +981,7 @@ directive @lazyLoad(
   The names of the relationship methods to load.
   """
   relations: [String!]!
-) on FIELD_DEFINITION
+)  on FIELD_DEFINITION
 
 # Directive class: Nuwave\Lighthouse\Schema\Directives\LikeDirective
 """
@@ -942,7 +1009,7 @@ directive @like(
   Only used when the directive is added on a field.
   """
   value: String
-) on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION | FIELD_DEFINITION
+)  on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION | FIELD_DEFINITION
 
 # Directive class: Nuwave\Lighthouse\Schema\Directives\LimitDirective
 """
@@ -1023,15 +1090,20 @@ directive @morphMany(
 Options for the `type` argument of `@morphMany`.
 """
 enum MorphManyType {
-  """
-  Offset-based pagination, similar to the Laravel default.
-  """
-  PAGINATOR
+    """
+    Offset-based pagination, similar to the Laravel default.
+    """
+    PAGINATOR
 
-  """
-  Cursor-based pagination, compatible with the Relay specification.
-  """
-  CONNECTION
+    """
+    Offset-based pagination like the Laravel "Simple Pagination", which does not count the total number of records.
+    """
+    SIMPLE
+
+    """
+    Cursor-based pagination, compatible with the Relay specification.
+    """
+    CONNECTION
 }
 
 # Directive class: Nuwave\Lighthouse\Schema\Directives\MorphOneDirective
@@ -1102,7 +1174,7 @@ directive @neq(
   Only required if database column has a different name than the attribute in your schema.
   """
   key: String
-) on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
+)  on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
 
 # Directive class: Nuwave\Lighthouse\Schema\Directives\NestDirective
 """
@@ -1121,7 +1193,7 @@ directive @notIn(
   Only required if database column has a different name than the attribute in your schema.
   """
   key: String
-) on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
+)  on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
 
 # Directive class: Nuwave\Lighthouse\Schema\Directives\RenameArgsDirective
 """
@@ -1170,7 +1242,7 @@ directive @scope(
   The name of the scope.
   """
   name: String!
-) on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
+)  on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
 
 # Directive class: Nuwave\Lighthouse\Schema\Directives\SpreadDirective
 """
@@ -1184,25 +1256,25 @@ directive @spread on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
 Sets rate limit to access the field. Does the same as ThrottleRequests Laravel Middleware.
 """
 directive @throttle(
-  """
-  Named preconfigured rate limiter. Requires Laravel 8.x or later.
-  """
-  name: String
+    """
+    Named preconfigured rate limiter. Requires Laravel 8.x or later.
+    """
+    name: String
 
-  """
-  Maximum number of attempts in a specified time interval.
-  """
-  maxAttempts: Int = 60
+    """
+    Maximum number of attempts in a specified time interval.
+    """
+    maxAttempts: Int = 60
 
-  """
-  Time in minutes to reset attempts.
-  """
-  decayMinutes: Float = 1.0
+    """
+    Time in minutes to reset attempts.
+    """
+    decayMinutes: Float = 1.0
 
-  """
-  Prefix to distinguish several field groups.
-  """
-  prefix: String
+    """
+    Prefix to distinguish several field groups.
+    """
+    prefix: String
 ) on FIELD_DEFINITION
 
 # Directive class: Nuwave\Lighthouse\Schema\Directives\TransformArgsDirective
@@ -1310,7 +1382,7 @@ directive @whereBetween(
   Only required if database column has a different name than the attribute in your schema.
   """
   key: String
-) on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
+)  on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
 
 # Directive class: Nuwave\Lighthouse\Schema\Directives\WhereDirective
 """
@@ -1332,7 +1404,7 @@ directive @where(
   Use Laravel's where clauses upon the query builder.
   """
   clause: String
-) on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
+)  on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
 
 # Directive class: Nuwave\Lighthouse\Schema\Directives\WhereJsonContainsDirective
 """
@@ -1344,7 +1416,7 @@ directive @whereJsonContains(
   Only required if database column has a different name than the attribute in your schema.
   """
   key: String
-) on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
+)  on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
 
 # Directive class: Nuwave\Lighthouse\Schema\Directives\WhereNotBetweenDirective
 """
@@ -1359,7 +1431,7 @@ directive @whereNotBetween(
   Only required if database column has a different name than the attribute in your schema.
   """
   key: String
-) on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
+)  on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
 
 # Directive class: Nuwave\Lighthouse\Schema\Directives\WithCountDirective
 """
@@ -1379,7 +1451,7 @@ directive @withCount(
   Apply scopes to the underlying query.
   """
   scopes: [String!]
-) on FIELD_DEFINITION
+)  on FIELD_DEFINITION
 
 # Directive class: Nuwave\Lighthouse\Schema\Directives\WithDirective
 """
@@ -1396,4 +1468,4 @@ directive @with(
   Apply scopes to the underlying query.
   """
   scopes: [String!]
-) on FIELD_DEFINITION
+)  on FIELD_DEFINITION

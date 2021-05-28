@@ -6,23 +6,28 @@
   <title>
     {{env("APP_NAME")}}
   </title>
-  <link rel="stylesheet" href="{{mix("css/app.css")}}">
+  @if(! env("MIX_BUILD", true))
+    <link href="{{mix("css/app.css")}}" rel="stylesheet">
+  @endif
 </head>
 <body>
 <main id="root"></main>
-@if(env("APP_DEBUG"))
+@if(! env("MIX_BUILD", true))
+  <link href="{{env("APP_URL")}}:3000/node_modules/@fontsource/roboto/index.css" rel="stylesheet">
   <script>
     var global = window;
   </script>
   <script type="module">
-    import RefreshRuntime from "http://localhost:3000/@react-refresh"
+    import RefreshRuntime from "{{env("APP_URL")}}:3000/@react-refresh"
     RefreshRuntime.injectIntoGlobalHook(window)
     window.$RefreshReg$ = () => {}
     window.$RefreshSig$ = () => (type) => type
     window.__vite_plugin_react_preamble_installed__ = true
   </script>
-  <script type="module" src="http://localhost:3000/@vite/client"></script>
-  <script type="module" src="http://localhost:3000/vitejs/entry.ts"></script>
+  <script type="module" src="{{env("APP_URL")}}:3000/@vite/client"></script>
+  <script type="module" src="{{env("APP_URL")}}:3000/views/loader.tsx"></script>
+@else
+  <script src="{{mix("js/app.js")}}"></script>
 @endif
 
 </body>

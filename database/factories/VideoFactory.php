@@ -29,6 +29,8 @@ class VideoFactory extends Factory
     $content = Storage::get($name);
     $uploaded = UploadedFile::fake()->createWithContent($name,$content);
     $video->attachContent($uploaded);
+    $video->duration = $video->durationHelper();
+    $video->save();
   }
 
   public function configure()
@@ -37,9 +39,9 @@ class VideoFactory extends Factory
       //
     })->afterCreating(function (Video $video) {
       $this->addVideo($video);
-      Quiz::factory()->count(2)->create([
-        "video_id"=>$video->id
-      ]);
+//      Quiz::factory()->count(2)->create([
+//        "video_id"=>$video->id
+//      ]);
     });
   }
 }

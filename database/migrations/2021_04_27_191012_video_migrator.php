@@ -13,6 +13,7 @@ class VideoMigrator extends Migration
       $table->unsignedBigInteger('grade_id');
       $table->string("title");
       $table->string("caption");
+      $table->integer("duration")->default(0);
       $table->json("description");
       $table->softDeletes();
       $table->timestamps();

@@ -21,7 +21,10 @@ extend type Mutation {
   gradeEdit(id: ID! @eq, name: String): Grade @update
 }
 extend type Query {
-  grades: [Grade!]! @orderBy(column: "created_at", direction: DESC) @all
+  grades(search: String @where(key: "name", operator: "like")): [Grade!]!
+    @orderBy(column: "created_at", direction: DESC)
+    @paginate
+  gradeAll: [Grade!]! @orderBy(column: "name", direction :ASC) @all
   getStudentByGrade(grade_id: ID! @where): [StudentGrade!]!
     @orderBy(column: "created_at", direction: DESC)
     @paginate

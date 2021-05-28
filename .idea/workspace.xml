@@ -5,16 +5,197 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e94c46e-1c07-4efd-823c-bb31b961c4c7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/grade/list/create.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/grade/shared/grade-form.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/pages/grade/show/editor.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitejs/src/services/grade.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/GraphQL/.phpstorm.meta.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/GraphQL/Directives/HasFileDirective.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/GraphQL/_ide_helper.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/QuizMetadata.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Utils/AttachMedia.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Utils/DurationHelper.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/factories/QuizMetadataFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_26_104356_quiz_meta_data_migrator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/131-300x300.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/app.js.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/option-0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/option-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/option-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/option-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/quiz.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/app-routes.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/app.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/app.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/draft-js-viewer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/form-field/file-upload-field.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/form-field/form-field.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/form-field/form-helper.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/form-field/grade-field.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/form-field/select-field.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/form-field/text-editor-field.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/form-field/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/form-field/wrap-paginator.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/konva/rounded-box.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/loading-button.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/player.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/preload-page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/quiz/image-matcher/arrow-renderer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/quiz/image-matcher/colors.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/quiz/image-matcher/content-container.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/quiz/image-matcher/image-match-provider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/quiz/image-matcher/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/quiz/image-matcher/item-box.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/quiz/image-matcher/listeners.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/quiz/image-matcher/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/quiz/image-matcher/utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/quiz/image-matcher/view.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/quiz/multiple-choise/form/additional-image.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/quiz/multiple-choise/form/create-form.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/quiz/multiple-choise/form/image-preview.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/quiz/multiple-choise/form/options-field.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/quiz/multiple-choise/form/time-slider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/quiz/multiple-choise/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/quiz/multiple-choise/type.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/quiz/multiple-choise/utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/quiz/multiple-choise/viewer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/search-form.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/hooks/use-aspect-ratio-box.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/hooks/use-fetch-query.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/hooks/use-konva-responsive.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/hooks/use-navigate.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/hooks/use-node-dimension.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/hooks/use-node-ref.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/hooks/use-paginator.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/hooks/use-regex-keydown.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/hooks/use-responsive-cycles.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/hooks/use-success-modal.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/hooks/use-switch-value.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/hooks/use-toggle.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/hooks/use-upload-file.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/hooks/use-youtube-api.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/image-data.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/layout/admin/header.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/layout/admin/navigator.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/layout/admin/style.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/layout/app-theme.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/layout/layout-provider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/layout/theme.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/content/delete-form.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/content/edit-form.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/content/form-dialog.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/content/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/content/tab-content.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/content/utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/content/video-container.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/content/video-list.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/controller.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/create-video.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/discussion.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/provider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/student.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch/content.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch/controller.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch/form-drawer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch/provider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/form-node.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/provider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/quiz-list.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/side-bar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/type.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/viewer/component.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/viewer/delete-mode.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/viewer/form-mode.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/viewer/image-match-form.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/viewer/image-match-preview.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/viewer/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/viewer/multiple-choice-form.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/viewer/multiple-choice-preview.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/viewer/view-mode.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/shared/video-form.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/video/data-table.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/video/drawers/description.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/video/drawers/drawer-node.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/video/drawers/edit.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/video/drawers/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/video/drawers/watch.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/video/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/video/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/video/provider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/guest/home.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/guest/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/guest/login.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/guest/register.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/providers/app-provider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/providers/konva/konva-provider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/providers/service-provider/content/form-provider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/providers/service-provider/content/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/providers/service-provider/content/paginator-provider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/providers/service-provider/quiz/form-provider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/providers/service-provider/quiz/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/providers/service-provider/quiz/paginator-provider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/providers/service-provider/quiz/use-delete.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/routes/admin.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/routes/default-component.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/routes/guest.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/routes/type.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/services/auth-service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/services/batch-service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/services/content-service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/services/quiz-service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/utils/get-duration-time.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/utils/mutation-service-factory.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/utils/transform-gql-key.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/bisindo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bisindo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Laravel_4_28_21__4_44_AM.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Laravel_4_28_21__4_44_AM.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.extends.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.extends.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vitejs/src/components/preload-page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/components/preload-page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vitejs/src/hooks/use-success-modal.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/hooks/use-success-modal.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/grade/list/list-page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/pages/grade/list/list-page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/grade/show/show-page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/pages/grade/show/show-page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Commands/Development.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/Development.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/GraphQL/Directives/RoleBasedDirectiveDirective.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/GraphQL/QuizResolver.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/GraphQL/QuizResolver.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/GraphQL/VideoResolver.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/GraphQL/VideoResolver.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Grade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Grade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Quiz.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Quiz.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/QuizAnswer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/QuizAnswer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/StudentGrade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/StudentGrade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Video.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Video.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Shared/GraphqlResolver.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Shared/GraphqlResolver.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/lighthouse.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/lighthouse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/QuizFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/QuizFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/VideoFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/VideoFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_27_191012_video_migrator.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_27_191012_video_migrator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphql/grade.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/grade.graphql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphql/quiz.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/quiz.graphql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphql/schema.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/schema.graphql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphql/video.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/video.graphql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programmatic-types.graphql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schema-directives.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/schema-directives.graphql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schema.graphql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.extends.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vite.alias.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vite.alias.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/quiz/image-matcher/utility.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vitejs/src/components/quiz/image-matcher/utility.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +214,7 @@
       <list>
         <option value="CSS File" />
         <option value="GraphQL File" />
+        <option value="SCSS File" />
         <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
       </list>
@@ -49,140 +231,148 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8.0">
     <include_path>
-      <path value="$PROJECT_DIR$/vendor/mll-lab/laravel-graphql-playground" />
-      <path value="$PROJECT_DIR$/vendor/league/glide" />
-      <path value="$PROJECT_DIR$/vendor/maennchen/zipstream-php" />
-      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/psr/container" />
       <path value="$PROJECT_DIR$/vendor/psr/log" />
-      <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
-      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
       <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
       <path value="$PROJECT_DIR$/vendor/psy/psysh" />
       <path value="$PROJECT_DIR$/vendor/filp/whoops" />
       <path value="$PROJECT_DIR$/vendor/opis/closure" />
+      <path value="$PROJECT_DIR$/vendor/seld/jsonlint" />
+      <path value="$PROJECT_DIR$/vendor/seld/phar-utils" />
       <path value="$PROJECT_DIR$/vendor/voku/portable-ascii" />
       <path value="$PROJECT_DIR$/vendor/asm89/stack-cors" />
       <path value="$PROJECT_DIR$/vendor/brick/math" />
       <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/react/promise" />
       <path value="$PROJECT_DIR$/vendor/facade/flare-client-php" />
-      <path value="$PROJECT_DIR$/vendor/facade/ignition-contracts" />
       <path value="$PROJECT_DIR$/vendor/facade/ignition" />
-      <path value="$PROJECT_DIR$/vendor/league/mime-type-detection" />
+      <path value="$PROJECT_DIR$/vendor/facade/ignition-contracts" />
+      <path value="$PROJECT_DIR$/vendor/league/glide" />
       <path value="$PROJECT_DIR$/vendor/league/commonmark" />
       <path value="$PROJECT_DIR$/vendor/league/flysystem" />
+      <path value="$PROJECT_DIR$/vendor/league/mime-type-detection" />
       <path value="$PROJECT_DIR$/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/vendor/nuwave/lighthouse" />
       <path value="$PROJECT_DIR$/vendor/ramsey/collection" />
       <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/vendor/spatie/regex" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
+      <path value="$PROJECT_DIR$/vendor/spatie/temporary-directory" />
+      <path value="$PROJECT_DIR$/vendor/spatie/image" />
+      <path value="$PROJECT_DIR$/vendor/spatie/image-optimizer" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-medialibrary" />
       <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
-      <path value="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir" />
+      <path value="$PROJECT_DIR$/vendor/alchemy/binary-driver" />
       <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
-      <path value="$PROJECT_DIR$/vendor/laravel/sail" />
-      <path value="$PROJECT_DIR$/vendor/laravel/ui" />
       <path value="$PROJECT_DIR$/vendor/laravel/tinker" />
+      <path value="$PROJECT_DIR$/vendor/laravel/ui" />
+      <path value="$PROJECT_DIR$/vendor/laravel/sail" />
       <path value="$PROJECT_DIR$/vendor/laravel/framework" />
+      <path value="$PROJECT_DIR$/vendor/mll-lab/laravel-graphql-playground" />
+      <path value="$PROJECT_DIR$/vendor/mll-lab/graphql-php-scalars" />
       <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
       <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/php-enum" />
       <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/neutron/temporary-filesystem" />
       <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
-      <path value="$PROJECT_DIR$/vendor/intervention/image" />
       <path value="$PROJECT_DIR$/vendor/phar-io/version" />
       <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
       <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
       <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-invoker" />
       <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
-      <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
-      <path value="$PROJECT_DIR$/vendor/symfony/string" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
-      <path value="$PROJECT_DIR$/vendor/symfony/mime" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
-      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
-      <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
-      <path value="$PROJECT_DIR$/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
-      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
-      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
-      <path value="$PROJECT_DIR$/vendor/symfony/console" />
-      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
-      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
       <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
-      <path value="$PROJECT_DIR$/vendor/symfony/routing" />
-      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
-      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
-      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
-      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-iconv" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
       <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
       <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/vendor/webonyx/graphql-php" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-ide-helper" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/reflection-docblock" />
       <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
       <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
       <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
       <path value="$PROJECT_DIR$/vendor/fakerphp/faker" />
       <path value="$PROJECT_DIR$/vendor/hamcrest/hamcrest-php" />
+      <path value="$PROJECT_DIR$/vendor/evenement/evenement" />
       <path value="$PROJECT_DIR$/vendor/fideloper/proxy" />
       <path value="$PROJECT_DIR$/vendor/fruitcake/laravel-cors" />
+      <path value="$PROJECT_DIR$/vendor/laragraph/utils" />
+      <path value="$PROJECT_DIR$/vendor/maennchen/zipstream-php" />
+      <path value="$PROJECT_DIR$/vendor/mbezhanov/faker-provider-collection" />
+      <path value="$PROJECT_DIR$/vendor/mbezhanov/laravel-faker-provider-collection" />
       <path value="$PROJECT_DIR$/vendor/phpoption/phpoption" />
       <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/type" />
       <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
       <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
       <path value="$PROJECT_DIR$/vendor/sebastian/complexity" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/cli-parser" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
       <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/lines-of-code" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
       <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
       <path value="$PROJECT_DIR$/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/cli-parser" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
       <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/lines-of-code" />
       <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
       <path value="$PROJECT_DIR$/vendor/nunomaduro/collision" />
+      <path value="$PROJECT_DIR$/vendor/php-ffmpeg/php-ffmpeg" />
       <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/vendor/haydenpierce/class-finder" />
+      <path value="$PROJECT_DIR$/vendor/intervention/image" />
       <path value="$PROJECT_DIR$/vendor/tijsverkoyen/css-to-inline-styles" />
       <path value="$PROJECT_DIR$/vendor/dragonmantank/cron-expression" />
-      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
-      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/vendor/justinrainbow/json-schema" />
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
       <path value="$PROJECT_DIR$/vendor/graham-campbell/result-type" />
       <path value="$PROJECT_DIR$/vendor/thecodingmachine/safe" />
-      <path value="$PROJECT_DIR$/vendor/nuwave/lighthouse" />
-      <path value="$PROJECT_DIR$/vendor/webonyx/graphql-php" />
-      <path value="$PROJECT_DIR$/vendor/haydenpierce/class-finder" />
-      <path value="$PROJECT_DIR$/vendor/laragraph/utils" />
-      <path value="$PROJECT_DIR$/vendor/myclabs/php-enum" />
-      <path value="$PROJECT_DIR$/vendor/spatie/temporary-directory" />
-      <path value="$PROJECT_DIR$/vendor/spatie/image-optimizer" />
-      <path value="$PROJECT_DIR$/vendor/spatie/image" />
-      <path value="$PROJECT_DIR$/vendor/spatie/laravel-medialibrary" />
-      <path value="$PROJECT_DIR$/vendor/composer" />
-      <path value="$PROJECT_DIR$/vendor/mbezhanov/faker-provider-collection" />
-      <path value="$PROJECT_DIR$/vendor/mbezhanov/laravel-faker-provider-collection" />
-      <path value="$PROJECT_DIR$/vendor/neutron/temporary-filesystem" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
-      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
-      <path value="$PROJECT_DIR$/vendor/evenement/evenement" />
-      <path value="$PROJECT_DIR$/vendor/php-ffmpeg/php-ffmpeg" />
-      <path value="$PROJECT_DIR$/vendor/alchemy/binary-driver" />
-      <path value="$PROJECT_DIR$/vendor/mll-lab/graphql-php-scalars" />
-      <path value="$PROJECT_DIR$/vendor/spatie/regex" />
-      <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
     </include_path>
   </component>
   <component name="ProjectId" id="1rlns69HqaFSnQCRhYIThH1H1kj" />
@@ -198,8 +388,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/views/components" />
+    <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/node_modules/eslint" />
@@ -209,14 +399,23 @@
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/views/components" />
+      <recent name="$PROJECT_DIR$/views/components/quiz/image-matcher" />
+      <recent name="$PROJECT_DIR$/views" />
+      <recent name="$PROJECT_DIR$/views/components/form-field" />
+      <recent name="$PROJECT_DIR$/views/utils" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/views/components" />
+      <recent name="$PROJECT_DIR$/views/components/form-field" />
+      <recent name="$PROJECT_DIR$/views/layout" />
+      <recent name="$PROJECT_DIR$/views" />
       <recent name="$PROJECT_DIR$/vitejs/src" />
-      <recent name="$PROJECT_DIR$/vitejs/src/components/forms/quiz-form" />
-      <recent name="$PROJECT_DIR$/storage/app" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -242,16 +441,26 @@
       <command value="artisan lighthouse:ide-helper" />
       <command value="artisan make:notification --markdown InvitationNotification" />
       <command value="artisan make:notification --markdown=invitation InvitationNotification" />
-      <command value="artisan lighthouse:print-schema" />
       <command value="artisan lighthouse:print-schema --write --json" />
       <command value="artisan make:migration GradeMigrator --create=grades" />
       <command value="artisan make:migration StudentGradeMigrator --create=student_grades" />
       <command value="artisan make:model Grade" />
       <command value="artisan make:model StudentGrade" />
       <command value="artisan make:factory --model=Grade GradeFactory" />
-      <command value="artisan lighthouse:validate-schema" />
+      <command value="artisan route:clear" />
+      <command value="artisan lighthouse:print-schema" />
+      <command value="artisan config:cache" />
+      <command value="artisan optimize:clear" />
+      <command value="artisan lighthouse:clear-cache" />
+      <command value="artisan make:migration QuizMetaDataMigrator --create=quiz-metadatas" />
+      <command value="artisan make:model QuizMetadata --factory" />
+      <command value="artisan migrate" />
+      <command value="artisan ide-helper:generate" />
+      <command value="artisan ide-helper:meta" />
       <command value="artisan migrate:fresh" />
+      <command value="artisan ide-helper:models -W" />
       <command value="artisan dev" />
+      <command value="artisan lighthouse:validate-schema" />
     </option>
   </component>
   <component name="RunManager" selected="npm.start">
@@ -315,20 +524,20 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="npm.start" />
       <item itemvalue="npm.generate-model" />
       <item itemvalue="npm.mst-print-model" />
+      <item itemvalue="npm.print-schema" />
+      <item itemvalue="npm.start" />
       <item itemvalue="PHPUnit.phpunit.xml" />
       <item itemvalue="Shell Script.print-directive.sh" />
-      <item itemvalue="npm.print-schema" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="npm.start" />
         <item itemvalue="npm.mst-print-model" />
+        <item itemvalue="Shell Script.print-directive.sh" />
         <item itemvalue="npm.print-schema" />
         <item itemvalue="npm.generate-model" />
-        <item itemvalue="Shell Script.print-directive.sh" />
       </list>
     </recent_temporary>
   </component>
@@ -379,12 +588,209 @@
       <workItem from="1620780651703" duration="744000" />
       <workItem from="1621190948442" duration="15000" />
       <workItem from="1621340824705" duration="1048000" />
-      <workItem from="1621342508321" duration="11524000" />
+      <workItem from="1621342508321" duration="12423000" />
+      <workItem from="1621381454557" duration="14000" />
+      <workItem from="1621541183089" duration="5876000" />
+      <workItem from="1621548157272" duration="9052000" />
+      <workItem from="1621557984289" duration="2044000" />
+      <workItem from="1621560138053" duration="4124000" />
+      <workItem from="1621566144624" duration="2103000" />
+      <workItem from="1621591305756" duration="16347000" />
+      <workItem from="1621615962445" duration="24000" />
+      <workItem from="1621891623531" duration="1297000" />
+      <workItem from="1621931845228" duration="4000" />
+      <workItem from="1621932975308" duration="3292000" />
+      <workItem from="1621936512024" duration="620000" />
+      <workItem from="1621937615069" duration="2720000" />
+      <workItem from="1621945428597" duration="652000" />
+      <workItem from="1621948303919" duration="13231000" />
+      <workItem from="1621969790308" duration="8516000" />
+      <workItem from="1622009630558" duration="13240000" />
+      <workItem from="1622030209557" duration="13983000" />
+      <workItem from="1622046938968" duration="2735000" />
+      <workItem from="1622114202300" duration="4263000" />
+      <workItem from="1622122565615" duration="2522000" />
+      <workItem from="1622129328407" duration="29642000" />
+      <workItem from="1622166875991" duration="6520000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/views/pages/admin/quiz/viewer/view-mode.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/quiz/viewer/image-match-form.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/quiz/viewer/component.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/quiz/viewer/image-match-preview.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/quiz/viewer/multiple-choice-form.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/quiz/viewer/delete-mode.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/quiz/viewer/index.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/quiz/viewer/multiple-choice-preview.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/quiz/viewer/form-mode.js" />
+        <option value="$PROJECT_DIR$/views/components/quiz/image-matcher/listeners.js" />
+        <option value="$PROJECT_DIR$/views/components/quiz/image-matcher/view.js" />
+        <option value="$PROJECT_DIR$/views/components/quiz/image-matcher/types.js" />
+        <option value="$PROJECT_DIR$/views/components/quiz/image-matcher/content-container.js" />
+        <option value="$PROJECT_DIR$/views/components/quiz/image-matcher/image-match-provider.js" />
+        <option value="$PROJECT_DIR$/views/components/quiz/image-matcher/index.js" />
+        <option value="$PROJECT_DIR$/views/components/quiz/image-matcher/arrow-renderer.js" />
+        <option value="$PROJECT_DIR$/views/components/quiz/image-matcher/utils.js" />
+        <option value="$PROJECT_DIR$/views/components/quiz/image-matcher/colors.js" />
+        <option value="$PROJECT_DIR$/views/components/quiz/image-matcher/item-box.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/batch/controller.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/batch/index.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/batch/page.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/batch/provider.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/batch/form-drawer.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/batch/content.js" />
+        <option value="$PROJECT_DIR$/views/components/quiz/multiple-choise/form/time-slider.js" />
+        <option value="$PROJECT_DIR$/views/components/quiz/multiple-choise/form/additional-image.js" />
+        <option value="$PROJECT_DIR$/views/components/quiz/multiple-choise/form/create-form.js" />
+        <option value="$PROJECT_DIR$/views/components/quiz/multiple-choise/form/options-field.js" />
+        <option value="$PROJECT_DIR$/views/components/quiz/multiple-choise/form/image-preview.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/shared/video-form.js" />
+        <option value="$PROJECT_DIR$/views/components/preload-page.js" />
+        <option value="$PROJECT_DIR$/views/components/loading-button.js" />
+        <option value="$PROJECT_DIR$/views/components/search-form.js" />
+        <option value="$PROJECT_DIR$/views/components/draft-js-viewer.js" />
+        <option value="$PROJECT_DIR$/views/components/player.js" />
+        <option value="$PROJECT_DIR$/views/components/konva/rounded-box.js" />
+        <option value="$PROJECT_DIR$/views/components/form-field/types.js" />
+        <option value="$PROJECT_DIR$/views/components/form-field/select-field.js" />
+        <option value="$PROJECT_DIR$/views/components/form-field/grade-field.js" />
+        <option value="$PROJECT_DIR$/views/components/form-field/wrap-paginator.js" />
+        <option value="$PROJECT_DIR$/views/components/form-field/file-upload-field.js" />
+        <option value="$PROJECT_DIR$/views/components/form-field/form-field.js" />
+        <option value="$PROJECT_DIR$/views/components/form-field/form-helper.js" />
+        <option value="$PROJECT_DIR$/views/components/form-field/text-editor-field.js" />
+        <option value="$PROJECT_DIR$/views/components/quiz/multiple-choise/index.js" />
+        <option value="$PROJECT_DIR$/views/components/quiz/multiple-choise/viewer.js" />
+        <option value="$PROJECT_DIR$/views/components/quiz/multiple-choise/utils.js" />
+        <option value="$PROJECT_DIR$/views/components/quiz/multiple-choise/type.js" />
+        <option value="$PROJECT_DIR$/views/utils/transform-gql-key.js" />
+        <option value="$PROJECT_DIR$/views/utils/model-moment.js" />
+        <option value="$PROJECT_DIR$/views/utils/get-duration-time.js" />
+        <option value="$PROJECT_DIR$/views/utils/mutation-service-factory.js" />
+        <option value="$PROJECT_DIR$/views/pages/guest/index.js" />
+        <option value="$PROJECT_DIR$/views/pages/guest/register.js" />
+        <option value="$PROJECT_DIR$/views/pages/guest/home.js" />
+        <option value="$PROJECT_DIR$/views/pages/guest/login.js" />
+        <option value="$PROJECT_DIR$/views/services/batch-service.js" />
+        <option value="$PROJECT_DIR$/views/services/quiz-service.js" />
+        <option value="$PROJECT_DIR$/views/services/auth-service.js" />
+        <option value="$PROJECT_DIR$/views/services/content-service.js" />
+        <option value="$PROJECT_DIR$/views/providers/service-provider/content/index.js" />
+        <option value="$PROJECT_DIR$/views/providers/service-provider/content/form-provider.js" />
+        <option value="$PROJECT_DIR$/views/providers/service-provider/content/paginator-provider.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/index.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/quiz/form-node.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/quiz/index.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/quiz/page.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/quiz/side-bar.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/quiz/provider.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/quiz/utils.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/quiz/quiz-list.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/quiz/type.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/video/index.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/video/page.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/video/provider.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/video/data-table.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/batch-show/student.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/batch-show/discussion.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/batch-show/create-video.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/batch-show/index.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/batch-show/controller.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/batch-show/page.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/batch-show/provider.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/video/drawers/drawer-node.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/video/drawers/description.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/video/drawers/index.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/video/drawers/watch.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/video/drawers/edit.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/batch-show/content/video-container.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/batch-show/content/tab-content.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/batch-show/content/delete-form.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/batch-show/content/video-list.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/batch-show/content/edit-form.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/batch-show/content/index.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/batch-show/content/utils.js" />
+        <option value="$PROJECT_DIR$/views/pages/admin/batch-show/content/form-dialog.js" />
+        <option value="$PROJECT_DIR$/views/app-routes.js" />
+        <option value="$PROJECT_DIR$/views/loader.js" />
+        <option value="$PROJECT_DIR$/views/app.js" />
+        <option value="$PROJECT_DIR$/views/hooks/use-fetch-query.js" />
+        <option value="$PROJECT_DIR$/views/hooks/use-responsive-cycles.js" />
+        <option value="$PROJECT_DIR$/views/hooks/use-breakpoint.js" />
+        <option value="$PROJECT_DIR$/views/hooks/use-paginator.js" />
+        <option value="$PROJECT_DIR$/views/hooks/use-youtube-api.js" />
+        <option value="$PROJECT_DIR$/views/hooks/use-success-modal.js" />
+        <option value="$PROJECT_DIR$/views/hooks/use-toggle.js" />
+        <option value="$PROJECT_DIR$/views/hooks/use-node-dimension.js" />
+        <option value="$PROJECT_DIR$/views/hooks/use-upload-file.js" />
+        <option value="$PROJECT_DIR$/views/hooks/use-node-ref.js" />
+        <option value="$PROJECT_DIR$/views/hooks/use-navigate.js" />
+        <option value="$PROJECT_DIR$/views/hooks/use-switch-value.js" />
+        <option value="$PROJECT_DIR$/views/hooks/use-regex-keydown.js" />
+        <option value="$PROJECT_DIR$/views/hooks/use-aspect-ratio-box.js" />
+        <option value="$PROJECT_DIR$/views/hooks/use-konva-responsive.js" />
+        <option value="$PROJECT_DIR$/views/layout/layout-provider.js" />
+        <option value="$PROJECT_DIR$/views/layout/index.js" />
+        <option value="$PROJECT_DIR$/views/models/GradePaginatorModel.base.js" />
+        <option value="$PROJECT_DIR$/views/models/VideoModel.base.js" />
+        <option value="$PROJECT_DIR$/views/models/RootStore.js" />
+        <option value="$PROJECT_DIR$/views/models/PaginatorInfoModel.js" />
+        <option value="$PROJECT_DIR$/views/models/QuizPaginatorModel.js" />
+        <option value="$PROJECT_DIR$/views/models/VideoPaginatorModel.base.js" />
+        <option value="$PROJECT_DIR$/views/models/StudentGradeModel.js" />
+        <option value="$PROJECT_DIR$/views/models/SortOrderEnum.js" />
+        <option value="$PROJECT_DIR$/views/models/UserModel.base.js" />
+        <option value="$PROJECT_DIR$/views/models/ModelBase.js" />
+        <option value="$PROJECT_DIR$/views/models/QuizModel.base.js" />
+        <option value="$PROJECT_DIR$/views/models/StudentGradeModel.base.js" />
+        <option value="$PROJECT_DIR$/views/models/QuizTypeEnum.js" />
+        <option value="$PROJECT_DIR$/views/models/GradeModel.base.js" />
+        <option value="$PROJECT_DIR$/views/models/QuizPaginatorModel.base.js" />
+        <option value="$PROJECT_DIR$/views/models/SimplePaginatorInfoModel.js" />
+        <option value="$PROJECT_DIR$/views/models/UserModel.js" />
+        <option value="$PROJECT_DIR$/views/models/QuizModel.js" />
+        <option value="$PROJECT_DIR$/views/models/QuizAnswerModel.js" />
+        <option value="$PROJECT_DIR$/views/models/reactUtils.js" />
+        <option value="$PROJECT_DIR$/views/models/AppRoleEnum.js" />
+        <option value="$PROJECT_DIR$/views/models/VideoPaginatorModel.js" />
+        <option value="$PROJECT_DIR$/views/models/StudentGradePaginatorModel.base.js" />
+        <option value="$PROJECT_DIR$/views/models/GradeModel.js" />
+        <option value="$PROJECT_DIR$/views/models/PageInfoModel.js" />
+        <option value="$PROJECT_DIR$/views/models/QuizAnswerModel.base.js" />
+        <option value="$PROJECT_DIR$/views/models/StudentGradePaginatorModel.js" />
+        <option value="$PROJECT_DIR$/views/models/TrashedEnum.js" />
+        <option value="$PROJECT_DIR$/views/models/MultipleChoiseModel.js" />
+        <option value="$PROJECT_DIR$/views/models/MultipleChoiseModel.base.js" />
+        <option value="$PROJECT_DIR$/views/models/index.js" />
+        <option value="$PROJECT_DIR$/views/models/RootStore.base.js" />
+        <option value="$PROJECT_DIR$/views/models/GradePaginatorModel.js" />
+        <option value="$PROJECT_DIR$/views/models/SimplePaginatorInfoModel.base.js" />
+        <option value="$PROJECT_DIR$/views/models/PageInfoModel.base.js" />
+        <option value="$PROJECT_DIR$/views/models/PaginatorInfoModel.base.js" />
+        <option value="$PROJECT_DIR$/views/models/VideoModel.js" />
+        <option value="$PROJECT_DIR$/views/routes/admin.js" />
+        <option value="$PROJECT_DIR$/views/routes/default-component.js" />
+        <option value="$PROJECT_DIR$/views/routes/guest.js" />
+        <option value="$PROJECT_DIR$/views/routes/type.js" />
+        <option value="$PROJECT_DIR$/views/providers/app-provider.js" />
+        <option value="$PROJECT_DIR$/views/layout/user/component.js" />
+        <option value="$PROJECT_DIR$/views/layout/admin/navigator.js" />
+        <option value="$PROJECT_DIR$/views/layout/admin/header.js" />
+        <option value="$PROJECT_DIR$/views/layout/admin/style.js" />
+        <option value="$PROJECT_DIR$/views/layout/admin/component.js" />
+        <option value="$PROJECT_DIR$/views/layout/guest/component.js" />
+        <option value="$PROJECT_DIR$/views/providers/konva/konva-provider.js" />
+        <option value="$PROJECT_DIR$/views/providers/service-provider/quiz/index.js" />
+        <option value="$PROJECT_DIR$/views/providers/service-provider/quiz/form-provider.js" />
+        <option value="$PROJECT_DIR$/views/providers/service-provider/quiz/paginator-provider.js" />
+        <option value="$PROJECT_DIR$/views/providers/service-provider/quiz/use-delete.js" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

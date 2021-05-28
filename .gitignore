@@ -7,7 +7,6 @@
 .env
 .env.backup
 .phpunit.result.cache
-/views
 docker-compose.override.yml
 Homestead.json
 Homestead.yaml
@@ -15,3 +14,4 @@ npm-debug.log
 yarn-error.log
 node/node_modules
 storage/media-library/*
+views/compiled

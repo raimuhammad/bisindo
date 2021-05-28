@@ -4,8 +4,10 @@
 namespace App\GraphQL;
 
 
+use App\Models\Grade;
 use App\Models\Video;
 use App\Shared\GraphqlResolver;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -26,6 +28,7 @@ class VideoResolver extends GraphqlResolver
   {
     return ["content"];
   }
+
   public function makeModel(): Model
   {
     if (isset($this->modelArguments['id'])){
@@ -35,16 +38,25 @@ class VideoResolver extends GraphqlResolver
     }
     return Video::create($this->modelArguments);
   }
+
   protected function afterCreate()
   {
     $this->customModelUpdate(
       [["content", "attachContent"]]
     );
   }
+
   protected function afterUpdate()
   {
     $this->customModelUpdate(
       [["content", "attachContent"]]
     );
+  }
+
+  public function search($builder, string $value){
+    if (! $value) return $builder;
+    $gradeIds = Grade::where("name", "like", $value)->select("id")->get()->pluck("id");
+    $videoIds = Video::where("title", "like", $value)->select("id")->get()->pluck("id");
+    return $builder->whereIn("id", $videoIds)->orWhereIn("grade_id", $gradeIds);
   }
 }
