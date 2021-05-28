@@ -151,7 +151,7 @@ return [
      * thumbnails and have installed the php-ffmpeg/php-ffmpeg composer
      * dependency.
      */
-    'ffmpeg_path' => env('FFMPEG_PATH', $getDefault("ffpeg")),
+    'ffmpeg_path' => env('FFMPEG_PATH', $getDefault("ffmpeg")),
     'ffprobe_path' => env('FFPROBE_PATH', $getDefault('ffprobe')),
 
     /*

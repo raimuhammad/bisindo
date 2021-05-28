@@ -42,7 +42,10 @@ const Dev = observer(() => {
 
   const doLogin = () =>
     setQuery((store: RootModel) =>
-      store.mutateLogin({ email: "imandidikr@gmail.com", password: "password" })
+      store.mutateLogin({
+        email: "raihansiregar@gmail.com",
+        password: "password",
+      })
     );
   const qAuth = () => setQuery((store: RootModel) => store.queryAuth());
 

@@ -5,20 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e94c46e-1c07-4efd-823c-bb31b961c4c7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/docker/7.4/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/7.4/php.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/7.4/start-container" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/7.4/supervisord.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/8.0/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/8.0/php.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/8.0/start-container" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/8.0/supervisord.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/bisindo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bisindo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/media-library.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/media-library.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/providers/app-provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/providers/app-provider.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -435,7 +424,7 @@
       <workItem from="1622114202300" duration="4263000" />
       <workItem from="1622122565615" duration="2522000" />
       <workItem from="1622129328407" duration="29642000" />
-      <workItem from="1622166875991" duration="10936000" />
+      <workItem from="1622166875991" duration="11419000" />
     </task>
     <servers />
   </component>
