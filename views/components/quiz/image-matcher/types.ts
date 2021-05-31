@@ -5,6 +5,10 @@ export type CommonArgs<T extends Record<string, any> = Record<string, any>> = {
   layer: Konva.Layer;
 } & T;
 
+export type ListenerArgs = {
+  items: BoxItem[];
+  arrow: ArrowState;
+};
 export type LetterBoxOpt = CommonArgs<{
   setter(arrow: Konva.Arrow): void;
   arrows: ArrowState[];
@@ -15,6 +19,8 @@ export type ArrowState = {
   arrowId: string;
   letterId: string;
   imageId: string;
+  fromLetter: string;
+  targetLetter: string;
 };
 
 export type ArrowStateNode = {

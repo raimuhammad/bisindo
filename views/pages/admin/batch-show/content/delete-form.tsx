@@ -15,9 +15,7 @@ export const DeleteForm = observer(() => {
     },
   });
   useFormCallback({
-    result,
     loading,
-    message: "Video berhasil di hapus",
   });
   return !selected ? (
     <></>

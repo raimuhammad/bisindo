@@ -9,4 +9,5 @@ export type ViewerType = {
   question: string;
   additional_image: string;
   choises: ViewerOption[];
+  questionAnswer?: number;
 };

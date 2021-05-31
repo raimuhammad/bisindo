@@ -6,7 +6,9 @@
   <title>
     {{env("APP_NAME")}}
   </title>
-  @if(! env("MIX_BUILD", true))
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+
+@if(env("MIX_BUILD", true))
     <link href="{{mix("css/app.css")}}" rel="stylesheet">
   @endif
 </head>

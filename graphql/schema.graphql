@@ -13,6 +13,7 @@ scalar Upload
 #import quiz_answer.graphql
 #import user.graphql
 #import grade.graphql
+#import student-grade.graphql
 
 enum AppRole {
   ADMIN @enum(value: "admin")
@@ -37,7 +38,7 @@ type Mutation {
   login(
     email: String!
       @rules(
-        apply: ["required", "email", "exists:users,email"]
+        apply: ["required", "email"]
         messages: [{ rule: "exists", message: "pengguna tidak di temukan" }]
       )
     password: String! @rules(apply: ["required"])

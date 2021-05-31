@@ -1,0 +1,25 @@
+type Progress @model(class:"App\\Models\\Progress") {
+  id: ID!
+  videoHistory: String!
+  completion: Float!
+}
+
+type StudentGrade {
+  id: ID!
+  created_at: Date!
+  updated_at: Date
+  student: User!
+  grade: Grade!
+  progress: Progress!
+}
+
+extend type Query {
+  progress: Progress @whereAuth(relation: "user") @find
+  studentGrades(
+    grade_id: String @where
+    search: String @builder(method: "App\\Models\\StudentGrade@search")
+  ): [StudentGrade]
+    @builder(method: "App\\Models\\StudentGrade@builder")
+    @paginate
+  gradeByAuth: StudentGrade @whereAuth(relation: "student") @find
+}

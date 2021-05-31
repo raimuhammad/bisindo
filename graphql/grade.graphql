@@ -8,13 +8,6 @@ type Grade {
   created_at: Date!
   updated_at: Date
 }
-type StudentGrade {
-  id: ID!
-  created_at: Date!
-  updated_at: Date
-  student: User!
-  grade: Grade!
-}
 
 extend type Mutation {
   grade(name: String!): Grade @create
@@ -24,9 +17,11 @@ extend type Query {
   grades(search: String @where(key: "name", operator: "like")): [Grade!]!
     @orderBy(column: "created_at", direction: DESC)
     @paginate
-  gradeAll: [Grade!]! @orderBy(column: "name", direction :ASC) @all
+  gradeAll: [Grade!]! @orderBy(column: "name", direction: ASC) @all
   getStudentByGrade(grade_id: ID! @where): [StudentGrade!]!
     @orderBy(column: "created_at", direction: DESC)
     @paginate
   gradeById(id: ID! @eq): Grade @find
+  gradeQuizes(grade_id: ID! @builder(method: "App\\GraphQL\\StudentGradeResolver@quiz")): [Quiz]
+    @all
 }

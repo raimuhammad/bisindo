@@ -11,6 +11,13 @@ export const useClasses = makeStyles((theme: Theme) => ({
     transition: "all ease .3s",
     ...theme.shape,
   },
+  hint: {
+    backgroundColor: theme.palette.info.main,
+    color: "white",
+    "&:hover": {
+      backgroundColor: theme.palette.info.main,
+    },
+  },
   container: {
     cursor: "pointer",
     "&:hover": {
@@ -24,11 +31,18 @@ export const useClasses = makeStyles((theme: Theme) => ({
   },
 }));
 
-export function useMultipleChouse() {
+export function useMultipleChouse(showHint = false) {
   const [answer, setAnswer] = useState<number>(-1);
+
+  const setter = (n: number) => {
+    if (!showHint) {
+      setAnswer(n);
+    }
+  };
+
   return {
     answer,
-    setAnswer,
+    setAnswer: setter,
   };
 }
 

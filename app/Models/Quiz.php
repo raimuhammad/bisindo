@@ -47,6 +47,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
  * @property-read int|null $media_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\QuizMetadata[] $metadatas
  * @property-read int|null $metadatas_count
+ * @property-read mixed $image_matcher
  */
 class Quiz extends Model implements HasMedia
 {
@@ -78,8 +79,18 @@ class Quiz extends Model implements HasMedia
     if ($this->type !== "MULTIPLE_CHOICE"){
       return "";
     }
-    return $this->parseMetadata("question");
+    return $this->parseMetadata("question") ?? "";
   }
+  /**
+   * @attributes
+   */
+  public function getQuestionAnswerAttribute(){
+    if ($this->type !== "MULTIPLE_CHOICE"){
+      return -1;
+    }
+    return (int) $this->parseMetadata("answer");
+  }
+
   /**
    * @attributes
    */

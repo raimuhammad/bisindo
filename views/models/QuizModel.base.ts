@@ -26,13 +26,14 @@ export const QuizModelBase = withTypedRefs<Refs>()(ModelBase
   .props({
     __typename: types.optional(types.literal("Quiz"), "Quiz"),
     id: types.identifier,
+    video_id: types.union(types.undefined, types.string),
     created_at: types.union(types.undefined, types.frozen()),
     updated_at: types.union(types.undefined, types.null, types.frozen()),
-    video_id: types.union(types.undefined, types.string),
     show_at: types.union(types.undefined, types.number),
     type: types.union(types.undefined, QuizTypeEnumType),
     choises: types.union(types.undefined, types.array(MSTGQLRef(types.late((): any => MultipleChoiseModel)))),
     question: types.union(types.undefined, types.string),
+    questionAnswer: types.union(types.undefined, types.integer),
     additional_image: types.union(types.undefined, types.string),
     image_matcher: types.union(types.undefined, types.string),
   })
@@ -44,12 +45,13 @@ export const QuizModelBase = withTypedRefs<Refs>()(ModelBase
 
 export class QuizModelSelector extends QueryBuilder {
   get id() { return this.__attr(`id`) }
+  get video_id() { return this.__attr(`video_id`) }
   get created_at() { return this.__attr(`created_at`) }
   get updated_at() { return this.__attr(`updated_at`) }
-  get video_id() { return this.__attr(`video_id`) }
   get show_at() { return this.__attr(`show_at`) }
   get type() { return this.__attr(`type`) }
   get question() { return this.__attr(`question`) }
+  get questionAnswer() { return this.__attr(`questionAnswer`) }
   get additional_image() { return this.__attr(`additional_image`) }
   get image_matcher() { return this.__attr(`image_matcher`) }
   choises(builder?: string | MultipleChoiseModelSelector | ((selector: MultipleChoiseModelSelector) => MultipleChoiseModelSelector)) { return this.__child(`choises`, MultipleChoiseModelSelector, builder) }
@@ -58,4 +60,4 @@ export function selectFromQuiz() {
   return new QuizModelSelector()
 }
 
-export const quizModelPrimitives = selectFromQuiz().created_at.updated_at.video_id.show_at.type.question.additional_image.image_matcher
+export const quizModelPrimitives = selectFromQuiz().video_id.created_at.updated_at.show_at.type.question.questionAnswer.additional_image.image_matcher

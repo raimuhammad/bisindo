@@ -5,6 +5,7 @@ import voca from "voca";
 import { useQuery } from "@models/index";
 import { useRouteMatch } from "react-router-dom";
 import { observer } from "mobx-react";
+import { FullPageLoader } from "@components/loaders";
 
 type Props = {
   root: RootModel;
@@ -33,7 +34,7 @@ export function preloadPageFactory<T>(
 ) {
   const Node = observer(() => {
     const [model, setModel] = React.useState<null | T>(null);
-    const { data, setQuery } = useQuery<any>();
+    const { data, setQuery, loading } = useQuery<any>();
     const resultKey = voca(queryKey)
       .replaceAll("query", "")
       .camelCase()
@@ -55,6 +56,10 @@ export function preloadPageFactory<T>(
     React.useEffect(() => {
       fetch();
     }, []);
+
+    if (loading) {
+      return <FullPageLoader />;
+    }
     return !model ? null : (
       <Context.Provider value={{ model, refetch: fetch }}>
         <Component model={model} refetch={fetch} />

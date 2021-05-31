@@ -1,21 +1,29 @@
 /* eslint-disable */
 import * as React from "react";
+import { useEffect, useState } from "react";
 import { GraphQLClient } from "graphql-request";
 import {
+  AppRole,
   RootStore,
   RootStoreType,
   StoreContext,
   useQuery,
-  AppRole as Role,
+  UserModelType,
 } from "@model";
 import { observer } from "mobx-react";
 import { useToggle } from "@hooks/use-toggle";
 import { SpeedDial, SpeedDialAction, SpeedDialIcon } from "@material-ui/lab";
 import { VerifiedUser } from "@material-ui/icons";
-import { AdminLayout as Layout } from "@layout/admin/component";
+import { AdminLayout, GuestLayout, UserLayout } from "@layout/index";
 import { AppRoutes } from "../app-routes";
-import { Route } from "@root/routes/type";
 import { routes as AdminRoute } from "../routes/admin";
+import { routes as GuestRoute } from "../routes/guest";
+import { routes as UserRoute } from "../routes/user";
+import emailConfig from "@root/email.json";
+import { useFetchQuery } from "@hooks/use-fetch-query";
+import { RootStoreBaseQueries } from "@root-model";
+import { FullPageLoader } from "@components/loaders";
+import { LogoutProvider } from "./logout-provider";
 
 const rootStore = RootStore.create(undefined, {
   gqlHttpClient: new GraphQLClient("/graphql", {
@@ -35,18 +43,21 @@ export function useApp() {
   return React.useContext(Context) as UseApp;
 }
 
+type AppMode = AppRole | "guest";
+
+const LayoutMap: Record<AppMode, any> = {
+  guest: GuestLayout,
+  [AppRole.ADMIN]: AdminLayout,
+  [AppRole.STUDENT]: UserLayout,
+};
+
 const Dev = observer(() => {
   const { data, setQuery } = useQuery<any>((root) => root.queryAuth());
   const { setUser, user } = useApp();
   const [hover, { force }] = useToggle();
 
   const doLogin = () =>
-    setQuery((store: RootModel) =>
-      store.mutateLogin({
-        email: "raihansiregar@gmail.com",
-        password: "password",
-      })
-    );
+    setQuery((store: RootModel) => store.mutateLogin(emailConfig));
   const qAuth = () => setQuery((store: RootModel) => store.queryAuth());
 
   React.useEffect(() => {
@@ -83,57 +94,102 @@ const Dev = observer(() => {
   );
 });
 
-export class AppProvider extends React.Component<any, State> {
-  constructor(props: any) {
-    super(props);
-    this.state = {
-      user: null,
-      loading: true,
-      mode: "GUEST",
-    };
+const useGetLayoutNode = ({ user, mode }: any) => {
+  if (!user) {
+    return GuestLayout;
   }
-
-  updateMode = (mode: State["mode"]) => {
-    this.setState({ mode });
+  const { role } = user;
+  return LayoutMap[role as AppMode];
+};
+const useGetRoutes = ({ user, mode }: any) => {
+  if (!user) {
+    return GuestRoute;
+  }
+  const map = {
+    ADMIN: AdminRoute,
+    STUDENT: UserRoute,
   };
+  // @ts-ignore
+  return map[mode];
+};
 
-  updateUser = (user: State["user"]) => {
-    this.setState({
-      user,
-      loading: false,
-      mode: user?.role as Role,
-    });
-  };
-
-  getContextValue = (): UseApp => ({
-    ...this.state,
-    setUser: this.updateUser,
+export const AppProvider = observer(() => {
+  const [state, setter] = useState<Omit<State, "loading">>({
+    mode: "GUEST",
+    user: null,
   });
 
-  getRoutes = (): Route[] => {
-    const { mode, user } = this.state;
-    if (user) {
-      return AdminRoute;
-    }
-    return [];
+  const [auth, { fetch, loading }] = useFetchQuery<UserModelType>({
+    queryKey: RootStoreBaseQueries.queryAuth,
+  });
+
+  const shouldRender = typeof auth !== "undefined" && !loading;
+
+  const [render, { inline }] = useToggle();
+
+  const checkAuth = () =>
+    rootStore
+      .queryAuth({})
+      .currentPromise()
+      .then((data) => {
+        setter({
+          user: data.auth,
+          mode: data.auth.role as AppRole,
+        });
+        inline(true);
+      })
+      .catch(() => inline(true));
+
+  useEffect(() => {
+    checkAuth();
+  }, []);
+
+  const Layout = useGetLayoutNode(state);
+
+  const router = useGetRoutes(state);
+
+  const updateMode = (mode: State["mode"]) => {
+    return setter({ ...state, mode });
   };
 
-  render() {
-    const { loading } = this.state;
-    return (
-      <Context.Provider value={this.getContextValue()}>
-        <StoreContext.Provider value={rootStore}>
-          {loading ? null : (
+  const updateUser = (user: UserModelType) => {
+    if (user) {
+      setter({
+        ...state,
+        user,
+        mode: user.role as AppRole,
+      });
+    } else {
+      setter({
+        user: null,
+        mode: "GUEST",
+      });
+    }
+  };
+
+  const context: UseApp = {
+    ...state,
+    setUser: updateUser,
+    loading,
+  };
+
+  return (
+    <Context.Provider value={context}>
+      <StoreContext.Provider value={rootStore}>
+        <LogoutProvider handler={() => setter({ mode: "GUEST", user: null })}>
+          {!render ? (
+            <FullPageLoader />
+          ) : (
             <Layout>
-              <AppRoutes routes={this.getRoutes()} />
+              <AppRoutes routes={router} />
             </Layout>
           )}
           <Dev />
-        </StoreContext.Provider>
-      </Context.Provider>
-    );
-  }
-}
+        </LogoutProvider>
+      </StoreContext.Provider>
+    </Context.Provider>
+  );
+});
 
 declare global {
   interface Window {

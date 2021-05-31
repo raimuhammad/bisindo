@@ -5,14 +5,22 @@ input CreateUserInput {
 }
 
 extend type Query {
-  students: [User!]! @field(resolver: "App\\GraphQL\\UserResolver@students")
+  students(
+    search: String @builder(method: "App\\GraphQL\\StudentGradeResolver@search")
+    grade_id: String @where(key: "grades.id")
+  ): [StudentGrade]
+    @builder(method: "App\\GraphQL\\StudentGradeResolver@builder")
+    @paginate
+  isUniqueEmail(email: String!): Boolean
+    @field(resolver: "App\\GraphQL\\UserResolver@isUniqEmail")
 }
 
 extend type Mutation {
   user(args: CreateUserInput! @spread): User
     @field(resolver: "App\\GraphQL\\UserResolver@create")
   loginWithInvitation(
-    invitation: String @rules(apply: ["required", "exists:users,invitation"])
+    invitation: String! @rules(apply: ["required", "exists:users,invitation"])
+    password: String! @rules(apply: ["required"])
   ): Boolean @field(resolver: "App\\GraphQL\\UserResolver@loginWithInvitation")
   userChangeUserPassword(
     password: String!
@@ -23,4 +31,13 @@ extend type Mutation {
   sentInvitation(
     id: String! @rules(apply: ["required", "exists:users,id"])
   ): Boolean @field(resolver: "App\\GraphQL\\UserResolver@sendInvitation")
+  userEdit(
+    id: String! @eq
+    name: String @rules(apply: ["sometimes"])
+    email: String @rules(apply: ["unique:users,email"])
+  ): User @update
+  userActivation(
+    id: String! @eq
+    password: String! @rules(apply: ["required", "string", "min:6"])
+  ): User @field(resolver: "App\\GraphQL\\UserResolver@activation")
 }

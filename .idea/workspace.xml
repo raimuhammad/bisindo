@@ -5,9 +5,701 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e94c46e-1c07-4efd-823c-bb31b961c4c7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/GraphQL/StudentGradeResolver.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Progress.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Utils/VideoProgressHelper.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_30_175518_student_progress_migrator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/576.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/576.js.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/_js_app.ae9fa0777aea3e1143ec.hot-update.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/app.ae9fa0777aea3e1143ec.hot-update.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/app/576.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/app/576.js.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/app/node_modules_stencil_core_internal_client_shadow-css_js.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/node_modules_stencil_core_internal_client_shadow-css_js.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/change-admin-email.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/check-deps.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/env.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/local-tunnel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/webpack-alias.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/webpack-config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/webpack-refresh.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/webpack-rules.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/webpack-server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/form-field/auto-complete.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/components/loaders.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/email.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/layout/guest/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/layout/user/context.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/layout/user/header.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/layout/user/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/layout/user/navigator.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/layout/user/user-bar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/layout/user/video-switcher.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/models/ProgressModel.base.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/models/ProgressModel.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/student/component.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/student/data-table.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/student/drawer-controller.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/student/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/student/page-controller.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/student/search-bar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/student/utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/shared/grade-field.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/shared/page-drawer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/shared/user-data-table.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/student/context.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/student/datatable.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/student/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/admin/student/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/guest/invitation.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/shared/user-management/action-components.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/shared/user-management/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/shared/user-management/provider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/shared/user-management/student-form.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/shared/user-management/type.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/student/account/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/student/account/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/student/home/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/student/home/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/student/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/student/study-show/controller.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/student/study-show/drawer-controller.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/student/study-show/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/student/study-show/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/student/study-show/quiz-list.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/student/study-show/video-info.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/student/study/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/student/study/list-content.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/student/study/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/student/study/quiz-list.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/student/study/video-list.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/providers/logout-provider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/providers/service-provider/paginator-factory.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/providers/service-provider/student-grade/paginator.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/providers/service-provider/student/paginator-provider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/providers/student-app-provider/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/providers/student-app-provider/provider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/providers/student-app-provider/use-get-video-percentage.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/providers/student-app-provider/use-grade-info.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/providers/student-app-provider/use-progress.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/providers/student-app-provider/use-quiz-list.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/providers/study-provider/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/providers/study-provider/provider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/routes/user.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/services/student-services.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/utils/provider-wrapper.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/media-library.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/media-library.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Commands/Development.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/Development.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/GraphQL/AuthResolver.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/GraphQL/AuthResolver.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/GraphQL/UserResolver.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/GraphQL/UserResolver.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Quiz.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Quiz.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/QuizMetadata.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/QuizMetadata.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/StudentGrade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/StudentGrade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Video.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Video.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_Magick++_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_Magick++_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_MagickCore_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_MagickCore_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_MagickWand_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_MagickWand_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_bzlib_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_bzlib_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_cairo_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_cairo_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_exr_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_exr_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_flif_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_flif_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_glib_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_glib_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_jp2_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_jp2_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_jpeg_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_jpeg_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_lcms_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_lcms_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_libraw_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_libraw_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_librsvg_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_librsvg_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_libxml_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_libxml_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_lqr_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_lqr_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_openjpeg_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_openjpeg_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_pango_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_pango_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_png_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_png_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_tiff_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_tiff_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_ttf_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_ttf_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_webp_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_webp_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_zlib_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CORE_RL_zlib_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/FILTER_analyze_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/FILTER_analyze_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IMDisplay.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IMDisplay.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_aai_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_aai_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_art_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_art_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_avs_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_avs_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_bgr_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_bgr_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_bmp_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_bmp_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_braille_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_braille_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_cals_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_cals_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_caption_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_caption_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_cin_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_cin_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_cip_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_cip_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_clip_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_clip_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_clipboard_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_clipboard_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_cmyk_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_cmyk_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_cut_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_cut_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_dcm_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_dcm_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_dds_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_dds_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_debug_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_debug_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_dib_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_dib_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_djvu_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_djvu_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_dng_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_dng_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_dot_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_dot_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_dps_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_dps_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_dpx_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_dpx_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_emf_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_emf_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_ept_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_ept_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_exr_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_exr_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_fax_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_fax_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_fd_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_fd_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_fits_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_fits_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_flif_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_flif_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_fpx_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_fpx_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_gif_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_gif_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_gradient_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_gradient_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_gray_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_gray_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_hald_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_hald_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_hdr_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_hdr_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_histogram_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_histogram_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_hrz_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_hrz_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_html_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_html_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_icon_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_icon_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_info_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_info_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_inline_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_inline_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_ipl_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_ipl_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_jbig_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_jbig_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_jnx_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_jnx_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_jp2_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_jp2_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_jpeg_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_jpeg_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_json_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_json_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_label_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_label_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_mac_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_mac_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_magick_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_magick_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_map_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_map_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_mask_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_mask_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_mat_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_mat_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_matte_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_matte_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_meta_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_meta_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_miff_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_miff_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_mono_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_mono_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_mpc_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_mpc_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_mpeg_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_mpeg_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_mpr_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_mpr_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_msl_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_msl_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_mtv_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_mtv_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_mvg_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_mvg_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_null_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_null_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_otb_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_otb_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_palm_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_palm_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_pango_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_pango_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_pattern_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_pattern_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_pcd_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_pcd_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_pcl_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_pcl_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_pcx_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_pcx_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_pdb_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_pdb_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_pdf_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_pdf_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_pes_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_pes_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_pgx_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_pgx_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_pict_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_pict_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_pix_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_pix_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_plasma_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_plasma_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_png_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_png_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_pnm_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_pnm_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_ps2_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_ps2_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_ps3_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_ps3_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_ps_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_ps_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_psd_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_psd_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_pwp_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_pwp_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_raw_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_raw_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_rgb_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_rgb_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_rgf_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_rgf_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_rla_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_rla_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_rle_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_rle_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_scr_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_scr_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_screenshot_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_screenshot_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_sct_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_sct_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_sfw_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_sfw_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_sgi_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_sgi_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_sixel_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_sixel_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_stegano_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_stegano_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_sun_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_sun_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_svg_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_svg_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_tga_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_tga_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_thumbnail_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_thumbnail_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_tiff_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_tiff_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_tile_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_tile_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_tim_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_tim_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_ttf_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_ttf_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_txt_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_txt_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_uil_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_uil_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_url_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_url_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_uyvy_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_uyvy_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_vicar_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_vicar_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_vid_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_vid_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_viff_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_viff_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_vips_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_vips_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_wbmp_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_wbmp_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_webp_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_webp_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_wmf_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_wmf_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_wpg_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_wpg_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_xbm_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_xbm_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_xc_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_xc_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_xcf_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_xcf_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_xpm_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_xpm_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_xps_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_xps_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_xtrn_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_xtrn_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_ycbcr_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_ycbcr_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_yuv_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/IM_MOD_RL_yuv_.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/ImageMagickObject.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/ImageMagickObject.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/compare.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/compare.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/composite.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/composite.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/conjure.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/conjure.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/convert.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/convert.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dcraw.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dcraw.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/ext/php_imagick.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/identify.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/identify.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/magick.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/magick.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/mogrify.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/mogrify.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/montage.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/montage.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/stream.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/stream.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphql/grade.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/grade.graphql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphql/quiz.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/quiz.graphql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphql/schema.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/schema.graphql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphql/user.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/user.graphql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphql/video.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/video.graphql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/invitation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/invitation.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/app-routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/app-routes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/views/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/components/player.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/components/player.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/components/preload-page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/components/preload-page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/components/quiz/image-matcher/image-match-provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/components/quiz/image-matcher/image-match-provider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/components/quiz/image-matcher/item-box.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/components/quiz/image-matcher/item-box.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/components/quiz/image-matcher/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/views/components/quiz/image-matcher/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/components/quiz/image-matcher/view.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/components/quiz/image-matcher/view.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/components/quiz/multiple-choise/type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/views/components/quiz/multiple-choise/type.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/components/quiz/multiple-choise/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/views/components/quiz/multiple-choise/utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/components/quiz/multiple-choise/viewer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/components/quiz/multiple-choise/viewer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/components/search-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/components/search-form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layout/admin/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout/admin/header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layout/admin/style.ts" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout/admin/style.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layout/guest/component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout/guest/component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layout/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layout/user/component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout/user/component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/loader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/loader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/models/QuizModel.base.ts" beforeDir="false" afterPath="$PROJECT_DIR$/views/models/QuizModel.base.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/models/QuizModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/views/models/QuizModel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/models/RootStore.base.ts" beforeDir="false" afterPath="$PROJECT_DIR$/views/models/RootStore.base.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/models/StudentGradeModel.base.ts" beforeDir="false" afterPath="$PROJECT_DIR$/views/models/StudentGradeModel.base.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/models/VideoModel.base.ts" beforeDir="false" afterPath="$PROJECT_DIR$/views/models/VideoModel.base.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/models/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/views/models/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/admin/batch-show/content/delete-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/content/delete-form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/admin/batch-show/content/edit-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/content/edit-form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/admin/batch-show/content/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/content/utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/admin/batch-show/content/video-container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/content/video-container.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/admin/batch-show/create-video.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/admin/batch-show/create-video.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/admin/batch-show/student.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/admin/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/admin/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/admin/quiz/provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/admin/quiz/provider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/admin/shared/video-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/admin/shared/video-form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/admin/video/data-table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/admin/video/data-table.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/admin/video/drawers/drawer-node.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/admin/video/drawers/drawer-node.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/admin/video/drawers/edit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/admin/video/drawers/edit.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/admin/video/drawers/watch.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/admin/video/drawers/watch.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/admin/video/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/admin/video/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/admin/video/provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/admin/video/provider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/guest/home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/guest/home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/guest/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/guest/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/guest/register.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/views/providers/app-provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/providers/app-provider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/providers/service-provider/content/paginator-provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/providers/service-provider/content/paginator-provider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/providers/service-provider/quiz/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/views/providers/service-provider/quiz/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/providers/service-provider/quiz/paginator-provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/providers/service-provider/quiz/paginator-provider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/routes/admin.ts" beforeDir="false" afterPath="$PROJECT_DIR$/views/routes/admin.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/routes/guest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/views/routes/guest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/services/auth-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/views/services/auth-service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/app.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/app.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/entry.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/global.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/routing.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/classes/letter-puzzle/letter-puzzle-item.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/classes/letter-puzzle/letter-puzzle.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/classes/letter-puzzle/type.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/classes/letter-puzzle/utility.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/animated-faded.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/coming-soon.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/data-table/data-table.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/data-table/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/draft-js-viewer.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/form-fields/file-upload-field.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/form-fields/form-field.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/form-fields/form-helper.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/form-fields/grade-field.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/form-fields/select-field.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/form-fields/text-editor-field.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/form-fields/types.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/form-fields/video-field.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/form-wrapper.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/forms/quiz-form/form-option.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/forms/quiz-form/image-match-field.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/forms/quiz-form/letter-sequence-field.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/forms/quiz-form/multiple-choice-field.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/forms/quiz-form/properties.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/forms/quiz-form/quiz-form.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/forms/quiz-form/time-slider.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/konva/image-node.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/konva/types.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/loading-backdrop.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/model-page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/page-layout/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/page-layout/page-layout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/page-layout/store.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/page-layout/styles.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/page-layout/types.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/page-route.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/player.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/preload-page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/quiz/image-matcher/box.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/quiz/image-matcher/controller.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/quiz/image-matcher/image-container.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/quiz/image-matcher/image-matcher-provider.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/quiz/image-matcher/image-matcher.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/quiz/image-matcher/letter-container.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/quiz/image-matcher/types.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/quiz/image-matcher/utility.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/quiz/letter-puzzle/letter-container.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/quiz/letter-puzzle/letter-puzzle-provider.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/quiz/letter-puzzle/letter-puzzle.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/quiz/letter-puzzle/provider.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/quiz/letter-puzzle/question-container.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/quiz/letter-puzzle/types.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/quiz/letter-puzzle/utilities.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/quiz/question-quiz/question-quiz.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/tables/table-base.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/tables/user/user-data-table.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/tables/video/VideoDialog.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/tables/video/delete.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/tables/video/edit.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/tables/video/provider.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/tables/video/row.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/tables/video/utils.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/tables/video/video-data-table.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/components/tables/video/view.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/gapi.example.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/gapi.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/hooks/use-aspect-ratio-box.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/hooks/use-fetch-query.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/hooks/use-form-factory-generator.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/hooks/use-konva-responsive.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/hooks/use-mutation.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/hooks/use-navigate.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/hooks/use-node-dimension.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/hooks/use-node-ref.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/hooks/use-paginate.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/hooks/use-regex-keydown.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/hooks/use-responsive-cycles.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/hooks/use-success-modal.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/hooks/use-switch-value.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/hooks/use-toggle.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/hooks/use-upload-file.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/hooks/use-youtube-api.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/image-data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/layout/desktop-nav.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/layout/header.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/layout/layout.store.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/layout/layout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/layout/sidebar/navigation.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/layout/sidebar/sidebar-container.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/layout/sidebar/styles.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/layout/styles.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/layout/theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/models/stores/AppRoleEnum.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/models/stores/GradeModel.base.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/models/stores/GradeModel.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/models/stores/ModelBase.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/models/stores/PageInfoModel.base.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/models/stores/PageInfoModel.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/models/stores/PaginatorInfoModel.base.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/models/stores/PaginatorInfoModel.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/models/stores/QuizAnswerModel.base.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/models/stores/QuizAnswerModel.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/models/stores/QuizModel.base.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/models/stores/QuizModel.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/models/stores/QuizTypeEnum.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/models/stores/RootStore.base.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/models/stores/RootStore.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/models/stores/SortOrderEnum.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/models/stores/StudentGradeModel.base.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/models/stores/StudentGradeModel.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/models/stores/StudentGradePaginatorModel.base.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/models/stores/StudentGradePaginatorModel.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/models/stores/TrashedEnum.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/models/stores/UserModel.base.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/models/stores/UserModel.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/models/stores/VideoModel.base.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/models/stores/VideoModel.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/models/stores/VideoPaginatorModel.base.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/models/stores/VideoPaginatorModel.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/models/stores/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/models/stores/reactUtils.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/account-pages/confirm/confirm-account-page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/account-pages/confirm/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/account-pages/edit/edit-account-page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/account-pages/edit/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/account-pages/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/add-video-page/form-options.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/add-video-page/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/add-video-page/info-field.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/add-video-page/page-properties.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/add-video-page/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/add-video-page/store.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/add-video-page/video-field.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/change-password-page/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/change-password-page/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/change-password-page/properties.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/dashboard/dashboard-page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/dashboard/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/edit-video-page/edit-video-page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/edit-video-page/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/grade-detail-page/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/grade-detail-page/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/grade-detail-page/provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/grade-list-page/add-grade-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/student-grade.graphql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/grade-list-page/grade-card.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/grade-list-page/grade-form.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/grade-list-page/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/grade-list-page/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/grade-list-page/provider.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/grade-list-page/utils.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/grade-list-page/video-list.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/grade/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/grade/list/card.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/grade/list/create.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/grade/list/list-page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/grade/shared/grade-form.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/grade/shared/providers.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/grade/shared/type.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/grade/show/discussion.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/grade/show/editor.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/grade/show/show-page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/grade/show/students.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/grade/show/type.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/grade/show/video.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/list-video-page/description-viewer.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/list-video-page/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/list-video-page/page-properties.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/list-video-page/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/list-video-page/row.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/login-page/field-container.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/login-page/form-options.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/login-page/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/login-page/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/login-page/styles.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/login-page/welcome-text.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/register-page/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/register-page/register-page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/student-list-page/add-user-form.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/student-list-page/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/student-list-page/row.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/student-list-page/student-list-page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/student-list-page/user-drawer.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/student-list-page/utils.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/study/comment.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/study/quiz-container.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/study/quiz.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/study/study-page-provider.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/study/study.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/study/teather.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/study/video-container.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/study/video-info-container.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/study/video-list.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/video-quiz-list-page/add-quiz-form.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/video-quiz-list-page/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/video-quiz-list-page/row.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/pages/video-quiz-list-page/video-quiz-list-page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/providers/app-provider-utils.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/providers/app-provider.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/providers/konva/container.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/providers/konva/konva-provider.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/providers/youtube-player-provider.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/services/grade.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/shared/form-factory/factory.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/shared/form-factory/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/shared/form-factory/interface.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/shared/list-page/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/shared/list-page/stores.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/shared/list-page/with-list-page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/utils/get-duration-time.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/utils/mutation-service-factory.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/utils/resolver-factory.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vitejs/src/utils/validation-response.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,9 +717,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="GraphQL File" />
         <option value="SCSS File" />
+        <option value="GraphQL File" />
         <option value="TypeScript File" />
+        <option value="JavaScript File" />
         <option value="TypeScript JSX File" />
       </list>
     </option>
@@ -201,7 +894,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/views/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/views/pages/student/account" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -212,16 +905,16 @@
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/views/pages/student/account" />
+      <recent name="$PROJECT_DIR$/views/pages/student/home" />
       <recent name="$PROJECT_DIR$/views/components" />
       <recent name="$PROJECT_DIR$/views/components/quiz/image-matcher" />
       <recent name="$PROJECT_DIR$/views" />
-      <recent name="$PROJECT_DIR$/views/components/form-field" />
-      <recent name="$PROJECT_DIR$/views/utils" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/views/components" />
@@ -264,16 +957,18 @@
       <command value="artisan lighthouse:print-schema" />
       <command value="artisan config:cache" />
       <command value="artisan optimize:clear" />
-      <command value="artisan lighthouse:clear-cache" />
       <command value="artisan make:migration QuizMetaDataMigrator --create=quiz-metadatas" />
       <command value="artisan make:model QuizMetadata --factory" />
       <command value="artisan migrate" />
       <command value="artisan ide-helper:generate" />
       <command value="artisan ide-helper:meta" />
-      <command value="artisan migrate:fresh" />
-      <command value="artisan ide-helper:models -W" />
-      <command value="artisan dev" />
+      <command value="artisan make:migration StudentProgressMigrator --create=student_progresses" />
+      <command value="artisan make:model Progress" />
       <command value="artisan lighthouse:validate-schema" />
+      <command value="artisan lighthouse:clear-cache" />
+      <command value="artisan ide-helper:models -W" />
+      <command value="artisan migrate:fresh" />
+      <command value="artisan dev" />
     </option>
   </component>
   <component name="RunManager" selected="npm.start">
@@ -293,16 +988,6 @@
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="EXECUTE_IN_TERMINAL" value="true" />
       <option name="EXECUTE_SCRIPT_FILE" value="true" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="generate-model" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="generate-model" />
-      </scripts>
-      <node-interpreter value="project" />
       <envs />
       <method v="2" />
     </configuration>
@@ -336,21 +1021,31 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="tunnel" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="tunnel" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <list>
-      <item itemvalue="npm.generate-model" />
       <item itemvalue="npm.mst-print-model" />
       <item itemvalue="npm.print-schema" />
       <item itemvalue="npm.start" />
+      <item itemvalue="npm.tunnel" />
       <item itemvalue="PHPUnit.phpunit.xml" />
       <item itemvalue="Shell Script.print-directive.sh" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="npm.start" />
+        <item itemvalue="npm.tunnel" />
         <item itemvalue="npm.mst-print-model" />
         <item itemvalue="Shell Script.print-directive.sh" />
         <item itemvalue="npm.print-schema" />
-        <item itemvalue="npm.generate-model" />
       </list>
     </recent_temporary>
   </component>
@@ -424,186 +1119,26 @@
       <workItem from="1622114202300" duration="4263000" />
       <workItem from="1622122565615" duration="2522000" />
       <workItem from="1622129328407" duration="29642000" />
-      <workItem from="1622166875991" duration="11419000" />
+      <workItem from="1622166875991" duration="13163000" />
+      <workItem from="1622181104920" duration="1473000" />
+      <workItem from="1622242586047" duration="1269000" />
+      <workItem from="1622260604932" duration="23000" />
+      <workItem from="1622294358316" duration="9130000" />
+      <workItem from="1622310277661" duration="598000" />
+      <workItem from="1622311244356" duration="23000" />
+      <workItem from="1622312189973" duration="14418000" />
+      <workItem from="1622354936995" duration="7676000" />
+      <workItem from="1622363593687" duration="397000" />
+      <workItem from="1622364533328" duration="24141000" />
+      <workItem from="1622396050276" duration="6500000" />
+      <workItem from="1622403102111" duration="5481000" />
+      <workItem from="1622412808222" duration="34809000" />
+      <workItem from="1622470299142" duration="17085000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-    <option name="exactExcludedFiles">
-      <list>
-        <option value="$PROJECT_DIR$/views/pages/admin/quiz/viewer/view-mode.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/quiz/viewer/image-match-form.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/quiz/viewer/component.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/quiz/viewer/image-match-preview.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/quiz/viewer/multiple-choice-form.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/quiz/viewer/delete-mode.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/quiz/viewer/index.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/quiz/viewer/multiple-choice-preview.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/quiz/viewer/form-mode.js" />
-        <option value="$PROJECT_DIR$/views/components/quiz/image-matcher/listeners.js" />
-        <option value="$PROJECT_DIR$/views/components/quiz/image-matcher/view.js" />
-        <option value="$PROJECT_DIR$/views/components/quiz/image-matcher/types.js" />
-        <option value="$PROJECT_DIR$/views/components/quiz/image-matcher/content-container.js" />
-        <option value="$PROJECT_DIR$/views/components/quiz/image-matcher/image-match-provider.js" />
-        <option value="$PROJECT_DIR$/views/components/quiz/image-matcher/index.js" />
-        <option value="$PROJECT_DIR$/views/components/quiz/image-matcher/arrow-renderer.js" />
-        <option value="$PROJECT_DIR$/views/components/quiz/image-matcher/utils.js" />
-        <option value="$PROJECT_DIR$/views/components/quiz/image-matcher/colors.js" />
-        <option value="$PROJECT_DIR$/views/components/quiz/image-matcher/item-box.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/batch/controller.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/batch/index.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/batch/page.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/batch/provider.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/batch/form-drawer.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/batch/content.js" />
-        <option value="$PROJECT_DIR$/views/components/quiz/multiple-choise/form/time-slider.js" />
-        <option value="$PROJECT_DIR$/views/components/quiz/multiple-choise/form/additional-image.js" />
-        <option value="$PROJECT_DIR$/views/components/quiz/multiple-choise/form/create-form.js" />
-        <option value="$PROJECT_DIR$/views/components/quiz/multiple-choise/form/options-field.js" />
-        <option value="$PROJECT_DIR$/views/components/quiz/multiple-choise/form/image-preview.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/shared/video-form.js" />
-        <option value="$PROJECT_DIR$/views/components/preload-page.js" />
-        <option value="$PROJECT_DIR$/views/components/loading-button.js" />
-        <option value="$PROJECT_DIR$/views/components/search-form.js" />
-        <option value="$PROJECT_DIR$/views/components/draft-js-viewer.js" />
-        <option value="$PROJECT_DIR$/views/components/player.js" />
-        <option value="$PROJECT_DIR$/views/components/konva/rounded-box.js" />
-        <option value="$PROJECT_DIR$/views/components/form-field/types.js" />
-        <option value="$PROJECT_DIR$/views/components/form-field/select-field.js" />
-        <option value="$PROJECT_DIR$/views/components/form-field/grade-field.js" />
-        <option value="$PROJECT_DIR$/views/components/form-field/wrap-paginator.js" />
-        <option value="$PROJECT_DIR$/views/components/form-field/file-upload-field.js" />
-        <option value="$PROJECT_DIR$/views/components/form-field/form-field.js" />
-        <option value="$PROJECT_DIR$/views/components/form-field/form-helper.js" />
-        <option value="$PROJECT_DIR$/views/components/form-field/text-editor-field.js" />
-        <option value="$PROJECT_DIR$/views/components/quiz/multiple-choise/index.js" />
-        <option value="$PROJECT_DIR$/views/components/quiz/multiple-choise/viewer.js" />
-        <option value="$PROJECT_DIR$/views/components/quiz/multiple-choise/utils.js" />
-        <option value="$PROJECT_DIR$/views/components/quiz/multiple-choise/type.js" />
-        <option value="$PROJECT_DIR$/views/utils/transform-gql-key.js" />
-        <option value="$PROJECT_DIR$/views/utils/model-moment.js" />
-        <option value="$PROJECT_DIR$/views/utils/get-duration-time.js" />
-        <option value="$PROJECT_DIR$/views/utils/mutation-service-factory.js" />
-        <option value="$PROJECT_DIR$/views/pages/guest/index.js" />
-        <option value="$PROJECT_DIR$/views/pages/guest/register.js" />
-        <option value="$PROJECT_DIR$/views/pages/guest/home.js" />
-        <option value="$PROJECT_DIR$/views/pages/guest/login.js" />
-        <option value="$PROJECT_DIR$/views/services/batch-service.js" />
-        <option value="$PROJECT_DIR$/views/services/quiz-service.js" />
-        <option value="$PROJECT_DIR$/views/services/auth-service.js" />
-        <option value="$PROJECT_DIR$/views/services/content-service.js" />
-        <option value="$PROJECT_DIR$/views/providers/service-provider/content/index.js" />
-        <option value="$PROJECT_DIR$/views/providers/service-provider/content/form-provider.js" />
-        <option value="$PROJECT_DIR$/views/providers/service-provider/content/paginator-provider.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/index.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/quiz/form-node.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/quiz/index.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/quiz/page.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/quiz/side-bar.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/quiz/provider.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/quiz/utils.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/quiz/quiz-list.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/quiz/type.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/video/index.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/video/page.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/video/provider.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/video/data-table.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/batch-show/student.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/batch-show/discussion.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/batch-show/create-video.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/batch-show/index.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/batch-show/controller.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/batch-show/page.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/batch-show/provider.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/video/drawers/drawer-node.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/video/drawers/description.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/video/drawers/index.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/video/drawers/watch.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/video/drawers/edit.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/batch-show/content/video-container.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/batch-show/content/tab-content.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/batch-show/content/delete-form.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/batch-show/content/video-list.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/batch-show/content/edit-form.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/batch-show/content/index.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/batch-show/content/utils.js" />
-        <option value="$PROJECT_DIR$/views/pages/admin/batch-show/content/form-dialog.js" />
-        <option value="$PROJECT_DIR$/views/app-routes.js" />
-        <option value="$PROJECT_DIR$/views/loader.js" />
-        <option value="$PROJECT_DIR$/views/app.js" />
-        <option value="$PROJECT_DIR$/views/hooks/use-fetch-query.js" />
-        <option value="$PROJECT_DIR$/views/hooks/use-responsive-cycles.js" />
-        <option value="$PROJECT_DIR$/views/hooks/use-breakpoint.js" />
-        <option value="$PROJECT_DIR$/views/hooks/use-paginator.js" />
-        <option value="$PROJECT_DIR$/views/hooks/use-youtube-api.js" />
-        <option value="$PROJECT_DIR$/views/hooks/use-success-modal.js" />
-        <option value="$PROJECT_DIR$/views/hooks/use-toggle.js" />
-        <option value="$PROJECT_DIR$/views/hooks/use-node-dimension.js" />
-        <option value="$PROJECT_DIR$/views/hooks/use-upload-file.js" />
-        <option value="$PROJECT_DIR$/views/hooks/use-node-ref.js" />
-        <option value="$PROJECT_DIR$/views/hooks/use-navigate.js" />
-        <option value="$PROJECT_DIR$/views/hooks/use-switch-value.js" />
-        <option value="$PROJECT_DIR$/views/hooks/use-regex-keydown.js" />
-        <option value="$PROJECT_DIR$/views/hooks/use-aspect-ratio-box.js" />
-        <option value="$PROJECT_DIR$/views/hooks/use-konva-responsive.js" />
-        <option value="$PROJECT_DIR$/views/layout/layout-provider.js" />
-        <option value="$PROJECT_DIR$/views/layout/index.js" />
-        <option value="$PROJECT_DIR$/views/models/GradePaginatorModel.base.js" />
-        <option value="$PROJECT_DIR$/views/models/VideoModel.base.js" />
-        <option value="$PROJECT_DIR$/views/models/RootStore.js" />
-        <option value="$PROJECT_DIR$/views/models/PaginatorInfoModel.js" />
-        <option value="$PROJECT_DIR$/views/models/QuizPaginatorModel.js" />
-        <option value="$PROJECT_DIR$/views/models/VideoPaginatorModel.base.js" />
-        <option value="$PROJECT_DIR$/views/models/StudentGradeModel.js" />
-        <option value="$PROJECT_DIR$/views/models/SortOrderEnum.js" />
-        <option value="$PROJECT_DIR$/views/models/UserModel.base.js" />
-        <option value="$PROJECT_DIR$/views/models/ModelBase.js" />
-        <option value="$PROJECT_DIR$/views/models/QuizModel.base.js" />
-        <option value="$PROJECT_DIR$/views/models/StudentGradeModel.base.js" />
-        <option value="$PROJECT_DIR$/views/models/QuizTypeEnum.js" />
-        <option value="$PROJECT_DIR$/views/models/GradeModel.base.js" />
-        <option value="$PROJECT_DIR$/views/models/QuizPaginatorModel.base.js" />
-        <option value="$PROJECT_DIR$/views/models/SimplePaginatorInfoModel.js" />
-        <option value="$PROJECT_DIR$/views/models/UserModel.js" />
-        <option value="$PROJECT_DIR$/views/models/QuizModel.js" />
-        <option value="$PROJECT_DIR$/views/models/QuizAnswerModel.js" />
-        <option value="$PROJECT_DIR$/views/models/reactUtils.js" />
-        <option value="$PROJECT_DIR$/views/models/AppRoleEnum.js" />
-        <option value="$PROJECT_DIR$/views/models/VideoPaginatorModel.js" />
-        <option value="$PROJECT_DIR$/views/models/StudentGradePaginatorModel.base.js" />
-        <option value="$PROJECT_DIR$/views/models/GradeModel.js" />
-        <option value="$PROJECT_DIR$/views/models/PageInfoModel.js" />
-        <option value="$PROJECT_DIR$/views/models/QuizAnswerModel.base.js" />
-        <option value="$PROJECT_DIR$/views/models/StudentGradePaginatorModel.js" />
-        <option value="$PROJECT_DIR$/views/models/TrashedEnum.js" />
-        <option value="$PROJECT_DIR$/views/models/MultipleChoiseModel.js" />
-        <option value="$PROJECT_DIR$/views/models/MultipleChoiseModel.base.js" />
-        <option value="$PROJECT_DIR$/views/models/index.js" />
-        <option value="$PROJECT_DIR$/views/models/RootStore.base.js" />
-        <option value="$PROJECT_DIR$/views/models/GradePaginatorModel.js" />
-        <option value="$PROJECT_DIR$/views/models/SimplePaginatorInfoModel.base.js" />
-        <option value="$PROJECT_DIR$/views/models/PageInfoModel.base.js" />
-        <option value="$PROJECT_DIR$/views/models/PaginatorInfoModel.base.js" />
-        <option value="$PROJECT_DIR$/views/models/VideoModel.js" />
-        <option value="$PROJECT_DIR$/views/routes/admin.js" />
-        <option value="$PROJECT_DIR$/views/routes/default-component.js" />
-        <option value="$PROJECT_DIR$/views/routes/guest.js" />
-        <option value="$PROJECT_DIR$/views/routes/type.js" />
-        <option value="$PROJECT_DIR$/views/providers/app-provider.js" />
-        <option value="$PROJECT_DIR$/views/layout/user/component.js" />
-        <option value="$PROJECT_DIR$/views/layout/admin/navigator.js" />
-        <option value="$PROJECT_DIR$/views/layout/admin/header.js" />
-        <option value="$PROJECT_DIR$/views/layout/admin/style.js" />
-        <option value="$PROJECT_DIR$/views/layout/admin/component.js" />
-        <option value="$PROJECT_DIR$/views/layout/guest/component.js" />
-        <option value="$PROJECT_DIR$/views/providers/konva/konva-provider.js" />
-        <option value="$PROJECT_DIR$/views/providers/service-provider/quiz/index.js" />
-        <option value="$PROJECT_DIR$/views/providers/service-provider/quiz/form-provider.js" />
-        <option value="$PROJECT_DIR$/views/providers/service-provider/quiz/paginator-provider.js" />
-        <option value="$PROJECT_DIR$/views/providers/service-provider/quiz/use-delete.js" />
-      </list>
-    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

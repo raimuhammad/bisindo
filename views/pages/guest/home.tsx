@@ -1,21 +1,48 @@
 import * as React from "react";
-import { Box, Button, Typography } from "@material-ui/core";
+import {
+  Box,
+  Container,
+  Grid,
+  Paper,
+  Typography,
+  useTheme,
+} from "@material-ui/core";
+import { LoginForm } from "@pages/shared/user-management";
+import { useLayout } from "@root/layout";
 
 export const Home = () => {
+  const theme = useTheme();
+  const { getContentHeight } = useLayout();
   return (
     <div>
-      <Box
-        height="50vh"
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-      >
-        <Box textAlign="center">
-          <Typography variant="h1">Selamat datang di bisindo</Typography>
-          <Button size="large" variant="outlined">
-            Login
-          </Button>
-        </Box>
+      <Box bgcolor={theme.palette.primary.dark} height={getContentHeight(0)}>
+        <Container>
+          <Grid
+            container
+            alignItems="center"
+            style={{ height: getContentHeight(0) }}
+          >
+            <Grid item sm={12} md={8}>
+              <>
+                <Box padding={2} color="white">
+                  <Typography variant="h3" color="inherit">
+                    Selamat datang di bisindo
+                  </Typography>
+                  <Typography color="inherit">
+                    Silahkan login dengan akun anda
+                  </Typography>
+                </Box>
+              </>
+            </Grid>
+            <Grid item md={4} sm={12}>
+              <Paper>
+                <Box padding={1}>
+                  <LoginForm />
+                </Box>
+              </Paper>
+            </Grid>
+          </Grid>
+        </Container>
       </Box>
     </div>
   );

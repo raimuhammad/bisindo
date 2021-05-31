@@ -29,17 +29,19 @@ export const ItemBox = ({
   alignment = "left",
   type = "TEXT",
 }: ItemBoxProps) => {
-  const { letterHandler, items } = useStore();
+  const { letterHandler, items, shufledItems } = useStore();
   const dimension = useDimension();
   const isImage = type === "IMAGE";
+
   return (
     <>
-      {items.map((item, index) => (
+      {(isImage ? shufledItems : items).map((item, index) => (
         <ContentContainer
           {...dimension}
           data-color={item.bgColor}
+          data-letter={item.letter}
           type={type}
-          id={item.id}
+          id={`${item.id}-${isImage ? "image" : "text"}`}
           align={alignment}
           key={item.id}
           index={index}

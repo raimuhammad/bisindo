@@ -29,6 +29,8 @@ use Spatie\MediaLibrary\InteractsWithMedia;
  * @method static \Illuminate\Database\Eloquent\Builder|QuizMetadata whereQuizId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|QuizMetadata whereUpdatedAt($value)
  * @property-read mixed $image
+ * @property-read mixed $index
+ * @property-read mixed $text
  */
 class QuizMetadata extends Model implements HasMedia
 {

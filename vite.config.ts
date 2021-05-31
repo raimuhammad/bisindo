@@ -20,7 +20,7 @@ export default ({ command }: any) => ({
   optimizeDeps: {
     include: ["voca", "lodash", "mobx", "mobx-state-tree", "moment"],
   },
-  esbuildOptions: {
+  esbuild: {
     keepNames: true,
   },
   resolve: {

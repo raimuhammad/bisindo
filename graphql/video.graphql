@@ -9,6 +9,7 @@ type Video {
   thumbnail: String!
   duration: Int!
   grade: Grade!
+  quizes: [Quiz!]!
 }
 extend type Query {
   video(id: ID! @eq): Video @find

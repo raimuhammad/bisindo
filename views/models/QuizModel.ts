@@ -2,6 +2,7 @@ import { Instance } from "mobx-state-tree";
 import { QuizModelBase } from "./QuizModel.base";
 import { modelMoment } from "@utils/model-moment";
 import { QuizType } from "@models/QuizTypeEnum";
+import { getDurationTimeText } from "@utils/get-duration-time";
 
 /* The TypeScript type of an instance of QuizModel */
 export interface QuizModelType extends Instance<typeof QuizModel.Type> {}
@@ -33,4 +34,9 @@ export const QuizModel = QuizModelBase.actions((self) => ({
       return typeMapLabel[self.type as QuizType];
     },
   }))
-  .views(modelMoment);
+  .views(modelMoment)
+  .views((self) => ({
+    get durationText() {
+      return getDurationTimeText(self.show_at ?? 0);
+    },
+  }));

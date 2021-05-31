@@ -20,6 +20,10 @@
     "baseUrl": ".",
     "paths": {
       "@admin-routes": ["views/routes/admin.ts"],
+      "@student-routes": ["views/routes/user.ts"],
+      "@admin-pages/*": ["views/pages/admin/*"],
+      "@student-pages/*": ["views/pages/student/*"],
+      "@student-page": ["views/pages/student"],
       "@root/*": ["views/*"],
       "@components/*": ["views/components/*"],
       "@guest-page": ["views/pages/guest/index.ts"],

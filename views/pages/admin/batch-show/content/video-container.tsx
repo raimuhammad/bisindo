@@ -49,12 +49,11 @@ export const VideoContainer = ({ model }: { model: VideoModelType }) => {
 
   return (
     <div style={{ minHeight: contentHeight + 10 }}>
-      <div style={{ maxHeight, backgroundColor: "black" }}>
+      <div style={{ backgroundColor: "black" }}>
         <Player
           url={model.content as string}
           onContainerClick={toggle}
           play={playing}
-          height={maxHeight}
         />
       </div>
       <Box padding={2}>

@@ -3,7 +3,6 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { Mode } from "@pages/admin/quiz/type";
 import {
   FormProvider,
-  IQuizPaginatorProvider,
   UseQuizForm,
   useQuizPaginator,
 } from "@service-provider/quiz";
@@ -11,12 +10,12 @@ import { observer } from "mobx-react";
 import { QuizType } from "@root/models";
 import { useParams } from "react-router-dom";
 
-interface QuizPageStore extends IQuizPaginatorProvider {
+type QuizPageStore = ReturnType<typeof useQuizPaginator> & {
   modeHandler(mode: Mode): void;
   mode: Mode;
   formType: QuizType;
   updateFormType(q: QuizType): void;
-}
+};
 
 const Context = React.createContext<QuizPageStore | null>(null);
 

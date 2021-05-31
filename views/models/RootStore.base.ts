@@ -13,6 +13,12 @@ import { GradeModel, GradeModelType } from "./GradeModel"
 import { gradeModelPrimitives, GradeModelSelector } from "./GradeModel.base"
 import { StudentGradeModel, StudentGradeModelType } from "./StudentGradeModel"
 import { studentGradeModelPrimitives, StudentGradeModelSelector } from "./StudentGradeModel.base"
+import { ProgressModel, ProgressModelType } from "./ProgressModel"
+import { progressModelPrimitives, ProgressModelSelector } from "./ProgressModel.base"
+import { QuizModel, QuizModelType } from "./QuizModel"
+import { quizModelPrimitives, QuizModelSelector } from "./QuizModel.base"
+import { MultipleChoiseModel, MultipleChoiseModelType } from "./MultipleChoiseModel"
+import { multipleChoiseModelPrimitives, MultipleChoiseModelSelector } from "./MultipleChoiseModel.base"
 import { QuizAnswerModel, QuizAnswerModelType } from "./QuizAnswerModel"
 import { quizAnswerModelPrimitives, QuizAnswerModelSelector } from "./QuizAnswerModel.base"
 import { VideoPaginatorModel, VideoPaginatorModelType } from "./VideoPaginatorModel"
@@ -21,14 +27,10 @@ import { PaginatorInfoModel, PaginatorInfoModelType } from "./PaginatorInfoModel
 import { paginatorInfoModelPrimitives, PaginatorInfoModelSelector } from "./PaginatorInfoModel.base"
 import { QuizPaginatorModel, QuizPaginatorModelType } from "./QuizPaginatorModel"
 import { quizPaginatorModelPrimitives, QuizPaginatorModelSelector } from "./QuizPaginatorModel.base"
-import { QuizModel, QuizModelType } from "./QuizModel"
-import { quizModelPrimitives, QuizModelSelector } from "./QuizModel.base"
-import { MultipleChoiseModel, MultipleChoiseModelType } from "./MultipleChoiseModel"
-import { multipleChoiseModelPrimitives, MultipleChoiseModelSelector } from "./MultipleChoiseModel.base"
-import { GradePaginatorModel, GradePaginatorModelType } from "./GradePaginatorModel"
-import { gradePaginatorModelPrimitives, GradePaginatorModelSelector } from "./GradePaginatorModel.base"
 import { StudentGradePaginatorModel, StudentGradePaginatorModelType } from "./StudentGradePaginatorModel"
 import { studentGradePaginatorModelPrimitives, StudentGradePaginatorModelSelector } from "./StudentGradePaginatorModel.base"
+import { GradePaginatorModel, GradePaginatorModelType } from "./GradePaginatorModel"
+import { gradePaginatorModelPrimitives, GradePaginatorModelSelector } from "./GradePaginatorModel.base"
 import { SimplePaginatorInfoModel, SimplePaginatorInfoModelType } from "./SimplePaginatorInfoModel"
 import { simplePaginatorInfoModelPrimitives, SimplePaginatorInfoModelSelector } from "./SimplePaginatorInfoModel.base"
 import { PageInfoModel, PageInfoModelType } from "./PageInfoModel"
@@ -70,9 +72,10 @@ type Refs = {
   videos: ObservableMap<string, VideoModelType>,
   grades: ObservableMap<string, GradeModelType>,
   studentGrades: ObservableMap<string, StudentGradeModelType>,
-  quizAnswers: ObservableMap<string, QuizAnswerModelType>,
+  progresses: ObservableMap<string, ProgressModelType>,
   quizzes: ObservableMap<string, QuizModelType>,
-  multipleChoises: ObservableMap<string, MultipleChoiseModelType>
+  multipleChoises: ObservableMap<string, MultipleChoiseModelType>,
+  quizAnswers: ObservableMap<string, QuizAnswerModelType>
 }
 
 
@@ -83,14 +86,19 @@ export enum RootStoreBaseQueries {
 queryAuth="queryAuth",
 queryVideo="queryVideo",
 queryQuizAnswers="queryQuizAnswers",
-queryStudents="queryStudents",
+queryIsUniqueEmail="queryIsUniqueEmail",
 queryGradeAll="queryGradeAll",
 queryGradeById="queryGradeById",
+queryGradeQuizes="queryGradeQuizes",
+queryProgress="queryProgress",
+queryGradeByAuth="queryGradeByAuth",
 queryVideos="queryVideos",
 queryGetVideoByGrade="queryGetVideoByGrade",
 queryQuizes="queryQuizes",
+queryStudents="queryStudents",
 queryGrades="queryGrades",
-queryGetStudentByGrade="queryGetStudentByGrade"
+queryGetStudentByGrade="queryGetStudentByGrade",
+queryStudentGrades="queryStudentGrades"
 }
 export enum RootStoreBaseMutations {
 mutateLogin="mutateLogin",
@@ -106,6 +114,8 @@ mutateUser="mutateUser",
 mutateLoginWithInvitation="mutateLoginWithInvitation",
 mutateUserChangeUserPassword="mutateUserChangeUserPassword",
 mutateSentInvitation="mutateSentInvitation",
+mutateUserEdit="mutateUserEdit",
+mutateUserActivation="mutateUserActivation",
 mutateGrade="mutateGrade",
 mutateGradeEdit="mutateGradeEdit"
 }
@@ -115,15 +125,16 @@ mutateGradeEdit="mutateGradeEdit"
 */
 export const RootStoreBase = withTypedRefs<Refs>()(MSTGQLStore
   .named("RootStore")
-  .extend(configureStoreMixin([['User', () => UserModel], ['Video', () => VideoModel], ['Grade', () => GradeModel], ['StudentGrade', () => StudentGradeModel], ['QuizAnswer', () => QuizAnswerModel], ['VideoPaginator', () => VideoPaginatorModel], ['PaginatorInfo', () => PaginatorInfoModel], ['QuizPaginator', () => QuizPaginatorModel], ['Quiz', () => QuizModel], ['MultipleChoise', () => MultipleChoiseModel], ['GradePaginator', () => GradePaginatorModel], ['StudentGradePaginator', () => StudentGradePaginatorModel], ['SimplePaginatorInfo', () => SimplePaginatorInfoModel], ['PageInfo', () => PageInfoModel]], ['User', 'Video', 'Grade', 'StudentGrade', 'QuizAnswer', 'Quiz', 'MultipleChoise'], "js"))
+  .extend(configureStoreMixin([['User', () => UserModel], ['Video', () => VideoModel], ['Grade', () => GradeModel], ['StudentGrade', () => StudentGradeModel], ['Progress', () => ProgressModel], ['Quiz', () => QuizModel], ['MultipleChoise', () => MultipleChoiseModel], ['QuizAnswer', () => QuizAnswerModel], ['VideoPaginator', () => VideoPaginatorModel], ['PaginatorInfo', () => PaginatorInfoModel], ['QuizPaginator', () => QuizPaginatorModel], ['StudentGradePaginator', () => StudentGradePaginatorModel], ['GradePaginator', () => GradePaginatorModel], ['SimplePaginatorInfo', () => SimplePaginatorInfoModel], ['PageInfo', () => PageInfoModel]], ['User', 'Video', 'Grade', 'StudentGrade', 'Progress', 'Quiz', 'MultipleChoise', 'QuizAnswer'], "js"))
   .props({
     users: types.optional(types.map(types.late((): any => UserModel)), {}),
     videos: types.optional(types.map(types.late((): any => VideoModel)), {}),
     grades: types.optional(types.map(types.late((): any => GradeModel)), {}),
     studentGrades: types.optional(types.map(types.late((): any => StudentGradeModel)), {}),
-    quizAnswers: types.optional(types.map(types.late((): any => QuizAnswerModel)), {}),
+    progresses: types.optional(types.map(types.late((): any => ProgressModel)), {}),
     quizzes: types.optional(types.map(types.late((): any => QuizModel)), {}),
-    multipleChoises: types.optional(types.map(types.late((): any => MultipleChoiseModel)), {})
+    multipleChoises: types.optional(types.map(types.late((): any => MultipleChoiseModel)), {}),
+    quizAnswers: types.optional(types.map(types.late((): any => QuizAnswerModel)), {})
   })
   .actions(self => ({
     queryAuth(variables?: {  }, resultSelector: string | ((qb: UserModelSelector) => UserModelSelector) = userModelPrimitives.toString(), options: QueryOptions = {}) {
@@ -141,10 +152,8 @@ export const RootStoreBase = withTypedRefs<Refs>()(MSTGQLStore
         ${typeof resultSelector === "function" ? resultSelector(new QuizAnswerModelSelector()).toString() : resultSelector}
       } }`, variables, options)
     },
-    queryStudents(variables?: {  }, resultSelector: string | ((qb: UserModelSelector) => UserModelSelector) = userModelPrimitives.toString(), options: QueryOptions = {}) {
-      return self.query<{ students: UserModelType[]}>(`query students { students {
-        ${typeof resultSelector === "function" ? resultSelector(new UserModelSelector()).toString() : resultSelector}
-      } }`, variables, options)
+    queryIsUniqueEmail(variables: { email: string }, options: QueryOptions = {}) {
+      return self.query<{ isUniqueEmail: boolean }>(`query isUniqueEmail($email: String!) { isUniqueEmail(email: $email) }`, variables, options)
     },
     queryGradeAll(variables?: {  }, resultSelector: string | ((qb: GradeModelSelector) => GradeModelSelector) = gradeModelPrimitives.toString(), options: QueryOptions = {}) {
       return self.query<{ gradeAll: GradeModelType[]}>(`query gradeAll { gradeAll {
@@ -154,6 +163,21 @@ export const RootStoreBase = withTypedRefs<Refs>()(MSTGQLStore
     queryGradeById(variables: { id: string }, resultSelector: string | ((qb: GradeModelSelector) => GradeModelSelector) = gradeModelPrimitives.toString(), options: QueryOptions = {}) {
       return self.query<{ gradeById: GradeModelType}>(`query gradeById($id: ID!) { gradeById(id: $id) {
         ${typeof resultSelector === "function" ? resultSelector(new GradeModelSelector()).toString() : resultSelector}
+      } }`, variables, options)
+    },
+    queryGradeQuizes(variables: { gradeId: string }, resultSelector: string | ((qb: QuizModelSelector) => QuizModelSelector) = quizModelPrimitives.toString(), options: QueryOptions = {}) {
+      return self.query<{ gradeQuizes: QuizModelType[]}>(`query gradeQuizes($gradeId: ID!) { gradeQuizes(grade_id: $gradeId) {
+        ${typeof resultSelector === "function" ? resultSelector(new QuizModelSelector()).toString() : resultSelector}
+      } }`, variables, options)
+    },
+    queryProgress(variables?: {  }, resultSelector: string | ((qb: ProgressModelSelector) => ProgressModelSelector) = progressModelPrimitives.toString(), options: QueryOptions = {}) {
+      return self.query<{ progress: ProgressModelType}>(`query progress { progress {
+        ${typeof resultSelector === "function" ? resultSelector(new ProgressModelSelector()).toString() : resultSelector}
+      } }`, variables, options)
+    },
+    queryGradeByAuth(variables?: {  }, resultSelector: string | ((qb: StudentGradeModelSelector) => StudentGradeModelSelector) = studentGradeModelPrimitives.toString(), options: QueryOptions = {}) {
+      return self.query<{ gradeByAuth: StudentGradeModelType}>(`query gradeByAuth { gradeByAuth {
+        ${typeof resultSelector === "function" ? resultSelector(new StudentGradeModelSelector()).toString() : resultSelector}
       } }`, variables, options)
     },
     queryVideos(variables: { gradeId?: string, search?: string, first?: number, page?: number }, resultSelector: string | ((qb: VideoPaginatorModelSelector) => VideoPaginatorModelSelector) = videoPaginatorModelPrimitives.toString(), options: QueryOptions = {}) {
@@ -171,6 +195,11 @@ export const RootStoreBase = withTypedRefs<Refs>()(MSTGQLStore
         ${typeof resultSelector === "function" ? resultSelector(new QuizPaginatorModelSelector()).toString() : resultSelector}
       } }`, variables, options)
     },
+    queryStudents(variables: { search?: string, gradeId?: string, first?: number, page?: number }, resultSelector: string | ((qb: StudentGradePaginatorModelSelector) => StudentGradePaginatorModelSelector) = studentGradePaginatorModelPrimitives.toString(), options: QueryOptions = {}) {
+      return self.query<{ students: StudentGradePaginatorModelType}>(`query students($search: String, $gradeId: String, $first: Int, $page: Int) { students(search: $search, grade_id: $gradeId, first: $first, page: $page) {
+        ${typeof resultSelector === "function" ? resultSelector(new StudentGradePaginatorModelSelector()).toString() : resultSelector}
+      } }`, variables, options)
+    },
     queryGrades(variables: { search?: string, first?: number, page?: number }, resultSelector: string | ((qb: GradePaginatorModelSelector) => GradePaginatorModelSelector) = gradePaginatorModelPrimitives.toString(), options: QueryOptions = {}) {
       return self.query<{ grades: GradePaginatorModelType}>(`query grades($search: String, $first: Int, $page: Int) { grades(search: $search, first: $first, page: $page) {
         ${typeof resultSelector === "function" ? resultSelector(new GradePaginatorModelSelector()).toString() : resultSelector}
@@ -178,6 +207,11 @@ export const RootStoreBase = withTypedRefs<Refs>()(MSTGQLStore
     },
     queryGetStudentByGrade(variables: { gradeId: string, first?: number, page?: number }, resultSelector: string | ((qb: StudentGradePaginatorModelSelector) => StudentGradePaginatorModelSelector) = studentGradePaginatorModelPrimitives.toString(), options: QueryOptions = {}) {
       return self.query<{ getStudentByGrade: StudentGradePaginatorModelType}>(`query getStudentByGrade($gradeId: ID!, $first: Int, $page: Int) { getStudentByGrade(grade_id: $gradeId, first: $first, page: $page) {
+        ${typeof resultSelector === "function" ? resultSelector(new StudentGradePaginatorModelSelector()).toString() : resultSelector}
+      } }`, variables, options)
+    },
+    queryStudentGrades(variables: { gradeId?: string, search?: string, first?: number, page?: number }, resultSelector: string | ((qb: StudentGradePaginatorModelSelector) => StudentGradePaginatorModelSelector) = studentGradePaginatorModelPrimitives.toString(), options: QueryOptions = {}) {
+      return self.query<{ studentGrades: StudentGradePaginatorModelType}>(`query studentGrades($gradeId: String, $search: String, $first: Int, $page: Int) { studentGrades(grade_id: $gradeId, search: $search, first: $first, page: $page) {
         ${typeof resultSelector === "function" ? resultSelector(new StudentGradePaginatorModelSelector()).toString() : resultSelector}
       } }`, variables, options)
     },
@@ -227,14 +261,24 @@ export const RootStoreBase = withTypedRefs<Refs>()(MSTGQLStore
         ${typeof resultSelector === "function" ? resultSelector(new UserModelSelector()).toString() : resultSelector}
       } }`, variables, optimisticUpdate)
     },
-    mutateLoginWithInvitation(variables: { invitation?: string }, optimisticUpdate?: () => void) {
-      return self.mutate<{ loginWithInvitation: boolean }>(`mutation loginWithInvitation($invitation: String) { loginWithInvitation(invitation: $invitation) }`, variables, optimisticUpdate)
+    mutateLoginWithInvitation(variables: { invitation: string, password: string }, optimisticUpdate?: () => void) {
+      return self.mutate<{ loginWithInvitation: boolean }>(`mutation loginWithInvitation($invitation: String!, $password: String!) { loginWithInvitation(invitation: $invitation, password: $password) }`, variables, optimisticUpdate)
     },
     mutateUserChangeUserPassword(variables: { password: string, passwordConfirmation: string }, optimisticUpdate?: () => void) {
       return self.mutate<{ userChangeUserPassword: boolean }>(`mutation userChangeUserPassword($password: String!, $passwordConfirmation: String!) { userChangeUserPassword(password: $password, password_confirmation: $passwordConfirmation) }`, variables, optimisticUpdate)
     },
     mutateSentInvitation(variables: { id: string }, optimisticUpdate?: () => void) {
       return self.mutate<{ sentInvitation: boolean }>(`mutation sentInvitation($id: String!) { sentInvitation(id: $id) }`, variables, optimisticUpdate)
+    },
+    mutateUserEdit(variables: { id: string, name?: string, email?: string }, resultSelector: string | ((qb: UserModelSelector) => UserModelSelector) = userModelPrimitives.toString(), optimisticUpdate?: () => void) {
+      return self.mutate<{ userEdit: UserModelType}>(`mutation userEdit($id: String!, $name: String, $email: String) { userEdit(id: $id, name: $name, email: $email) {
+        ${typeof resultSelector === "function" ? resultSelector(new UserModelSelector()).toString() : resultSelector}
+      } }`, variables, optimisticUpdate)
+    },
+    mutateUserActivation(variables: { id: string, password: string }, resultSelector: string | ((qb: UserModelSelector) => UserModelSelector) = userModelPrimitives.toString(), optimisticUpdate?: () => void) {
+      return self.mutate<{ userActivation: UserModelType}>(`mutation userActivation($id: String!, $password: String!) { userActivation(id: $id, password: $password) {
+        ${typeof resultSelector === "function" ? resultSelector(new UserModelSelector()).toString() : resultSelector}
+      } }`, variables, optimisticUpdate)
     },
     mutateGrade(variables: { name: string }, resultSelector: string | ((qb: GradeModelSelector) => GradeModelSelector) = gradeModelPrimitives.toString(), optimisticUpdate?: () => void) {
       return self.mutate<{ grade: GradeModelType}>(`mutation grade($name: String!) { grade(name: $name) {

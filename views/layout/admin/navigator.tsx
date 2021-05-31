@@ -6,15 +6,19 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
+  Button,
 } from "@material-ui/core";
 import { Route } from "@root/routes/type";
 import { useNavigate } from "@hooks/use-navigate";
+import { ExitToApp } from "@material-ui/icons";
+import { useLogout } from "@providers/logout-provider";
 
 type Props = {
   routes: Route[];
 };
 export const Navigator = ({ routes }: Props) => {
   const { navigateHandler } = useNavigate();
+  const { openDialog } = useLogout();
   return (
     <>
       <Toolbar />
@@ -28,6 +32,9 @@ export const Navigator = ({ routes }: Props) => {
         ))}
       </List>
       <Divider />
+      <Button onClick={openDialog} startIcon={<ExitToApp />} fullWidth>
+        Logout
+      </Button>
     </>
   );
 };

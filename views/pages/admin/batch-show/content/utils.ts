@@ -6,7 +6,6 @@ import {
   useState,
 } from "react";
 import { useToggle } from "@hooks/use-toggle";
-import { useSuccessModal } from "@hooks/use-success-modal";
 import { useContentPaginator } from "@service-provider/content";
 import { VideoModelType } from "@root/models";
 import { useStore } from "@pages/admin/batch-show/provider";
@@ -44,15 +43,11 @@ export function useAction(): UseVideoAction {
 }
 
 type UseFormCallbackOption = {
-  result: undefined | VideoModelType;
   loading: boolean;
-  message: string;
   disableRefresh?: boolean;
 };
 
 export function useFormCallback({
-  result,
-  message,
   loading,
   disableRefresh = false,
 }: UseFormCallbackOption) {
@@ -62,16 +57,12 @@ export function useFormCallback({
   useEffect(() => {
     whenLoading(loading);
   }, [loading]);
-  useSuccessModal({
-    callback() {
-      if (!disableRefresh) {
-        reset();
-        refetch();
-      }
-      whenLoading(false);
-      close();
-    },
-    message,
-    depedencies: Boolean(result),
-  });
+  return () => {
+    if (!disableRefresh) {
+      reset();
+      refetch();
+    }
+    whenLoading(false);
+    close();
+  };
 }

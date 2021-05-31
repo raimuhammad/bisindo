@@ -5,13 +5,20 @@ import { Provider, useStore } from "./provider";
 import { observer } from "mobx-react";
 import { DataTable } from "./data-table";
 import { DrawerNode } from "./drawers";
+import { useNodeDimension } from "@hooks/use-node-dimension";
+import { useLayout } from "@root/layout";
 
 const VideoPage = observer(() => {
   const { updateVars, loading } = useStore();
+  const {
+    nodeRef,
+    dimension: { height },
+  } = useNodeDimension();
+  const { getContentHeight } = useLayout();
   return (
     <>
       <DrawerNode />
-      <AppBar position="relative">
+      <AppBar ref={nodeRef} position="relative">
         <Toolbar>
           <SearchForm handler={updateVars} />
         </Toolbar>
@@ -21,9 +28,11 @@ const VideoPage = observer(() => {
           </Box>
         ) : null}
       </AppBar>
-      <Box padding={2}>
-        <DataTable />
-      </Box>
+      {!height ? null : (
+        <Box height={getContentHeight(height)} overflow="auto" paddingX={2}>
+          <DataTable />
+        </Box>
+      )}
     </>
   );
 });

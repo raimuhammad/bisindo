@@ -7,6 +7,8 @@ import { MSTGQLRef, QueryBuilder, withTypedRefs } from "mst-gql"
 import { ModelBase } from "./ModelBase"
 import { GradeModel, GradeModelType } from "./GradeModel"
 import { GradeModelSelector } from "./GradeModel.base"
+import { ProgressModel, ProgressModelType } from "./ProgressModel"
+import { ProgressModelSelector } from "./ProgressModel.base"
 import { UserModel, UserModelType } from "./UserModel"
 import { UserModelSelector } from "./UserModel.base"
 import { RootStoreType } from "./index"
@@ -16,6 +18,7 @@ import { RootStoreType } from "./index"
 type Refs = {
   student: UserModelType;
   grade: GradeModelType;
+  progress: ProgressModelType;
 }
 
 /**
@@ -31,6 +34,7 @@ export const StudentGradeModelBase = withTypedRefs<Refs>()(ModelBase
     updated_at: types.union(types.undefined, types.null, types.frozen()),
     student: types.union(types.undefined, MSTGQLRef(types.late((): any => UserModel))),
     grade: types.union(types.undefined, MSTGQLRef(types.late((): any => GradeModel))),
+    progress: types.union(types.undefined, MSTGQLRef(types.late((): any => ProgressModel))),
   })
   .views(self => ({
     get store() {
@@ -44,6 +48,7 @@ export class StudentGradeModelSelector extends QueryBuilder {
   get updated_at() { return this.__attr(`updated_at`) }
   student(builder?: string | UserModelSelector | ((selector: UserModelSelector) => UserModelSelector)) { return this.__child(`student`, UserModelSelector, builder) }
   grade(builder?: string | GradeModelSelector | ((selector: GradeModelSelector) => GradeModelSelector)) { return this.__child(`grade`, GradeModelSelector, builder) }
+  progress(builder?: string | ProgressModelSelector | ((selector: ProgressModelSelector) => ProgressModelSelector)) { return this.__child(`progress`, ProgressModelSelector, builder) }
 }
 export function selectFromStudentGrade() {
   return new StudentGradeModelSelector()

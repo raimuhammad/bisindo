@@ -17,6 +17,7 @@ input MultipleChoiseInput {
 }
 type Quiz {
   id: ID!
+  video_id: String!
   created_at: DateTime!
   updated_at: DateTime
   video_id: String!
@@ -25,6 +26,7 @@ type Quiz {
   choises: [MultipleChoise!]!
 
   question: String!
+  questionAnswer: Int!
   additional_image: String!
   image_matcher: String!
 }

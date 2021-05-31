@@ -74,6 +74,12 @@ class Video extends Model implements HasMedia
   public function grade(){
     return $this->belongsTo(Grade::class);
   }
+  /**
+   * @utility
+   */
+  public function quizes(){
+    return $this->hasMany(Quiz::class);
+  }
   public function durationHelper() : int{
     $video = $this->getFirstMedia('content');
     $helper = new DurationHelper();
@@ -99,7 +105,8 @@ class Video extends Model implements HasMedia
    * @return string
    */
   public function getContentAttribute() : string {
-    return $this->getFirstMediaUrl("content");
+    $path = \Str::replace(env('APP_URL'), "", $this->getFirstMediaUrl("content"));
+    return $path;
   }
   /**
    * @attributes

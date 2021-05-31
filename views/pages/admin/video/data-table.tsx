@@ -15,6 +15,7 @@ import {
   TableRow,
   Typography,
 } from "@material-ui/core";
+import { Pagination } from "@material-ui/lab";
 import { VideoModelType } from "@root/models";
 import { useNodeDimension } from "@hooks/use-node-dimension";
 import { Apps } from "@material-ui/icons";
@@ -38,7 +39,6 @@ const useMenuClass = makeStyles(() => ({
 const buttons = [
   { title: "Edit", action: "EDIT" },
   { title: "Tampilkan konten", action: "WATCH" },
-  { title: "Deskripsi", action: "DESCRIPTION" },
   { title: "Quis", action: "QUIZ" },
 ];
 
@@ -109,6 +109,19 @@ const Row = ({ model }: { model: VideoModelType }) => {
   );
 };
 
+const TablePagination = () => {
+  const { paginator, go, loading } = useStore();
+  if (!paginator.count) return <></>;
+  return (
+    <Pagination
+      page={paginator.currentPage}
+      count={paginator.lastPage}
+      onChange={(e, n) => go(n)}
+      disabled={loading}
+    />
+  );
+};
+
 export const DataTable = () => {
   const { data } = useStore();
   const {
@@ -140,12 +153,12 @@ export const DataTable = () => {
       )}
       <Box
         component="div"
-        padding={2}
+        padding={1}
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         ref={(nodeRef as unknown) as any}
       >
-        <h1>LOL</h1>
+        <TablePagination />
       </Box>
     </Paper>
   );

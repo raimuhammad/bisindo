@@ -52,7 +52,7 @@ export const routes: Route[] = [
   },
   {
     path: "/student",
-    component: DefaultComponent,
+    component: pages.StudentListPage,
     icon: createElement(People),
     title: "Siswa",
     order: 7,

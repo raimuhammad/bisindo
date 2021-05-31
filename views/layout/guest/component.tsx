@@ -1,11 +1,14 @@
 import React from "react";
 import { AppBar, Box, Button, Toolbar, Typography } from "@material-ui/core";
 import { Lock } from "@material-ui/icons";
+import { ProviderWrapper } from "@utils/provider-wrapper";
+import { LayoutProvider, useLayout } from "../layout-provider";
 
-export const Component = ({ children }: any) => {
+const Node = ({ children }: any) => {
+  const { appBarRef } = useLayout();
   return (
     <>
-      <AppBar position='sticky'>
+      <AppBar ref={appBarRef} position="sticky">
         <Toolbar>
           <Typography variant="h6">BISINDO</Typography>
           <Box marginLeft="auto">
@@ -15,7 +18,9 @@ export const Component = ({ children }: any) => {
           </Box>
         </Toolbar>
       </AppBar>
-      {children}
+      <>{children}</>
     </>
   );
 };
+
+export const Component = ProviderWrapper(LayoutProvider, Node);

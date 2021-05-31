@@ -7,7 +7,7 @@ import { usePaginatorContext } from "@hooks/use-paginator";
 import { useNavigate } from "@hooks/use-navigate";
 import { observer } from "mobx-react";
 
-export type Action = "WATCH" | "EDIT" | "QUIZ" | "DESCRIPTION";
+export type Action = "WATCH" | "EDIT" | "QUIZ";
 
 interface State {
   action: Action | null;

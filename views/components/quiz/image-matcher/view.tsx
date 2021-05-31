@@ -4,20 +4,25 @@ import { useNodeDimension } from "@hooks/use-node-dimension";
 import { ImageMatchProvider } from "./image-match-provider";
 import { ItemBox } from "./item-box";
 import { ArrowRenderer } from "./arrow-renderer";
+import { ArrowState, ListenerArgs } from "./types";
 
-const percentOfWindow = (n: number, k: "innerWidth" | "innerHeight") => {
-  return (n / 100) * window[k];
+type Props = {
+  text: string;
+  height: number;
+  width: number;
+  showHint?: boolean;
+  answers?: Array<ArrowState>;
+  listener?(args: ListenerArgs): void;
 };
 
 export const View = ({
   text,
   height,
   width,
-}: {
-  text: string;
-  height: number;
-  width: number;
-}) => {
+  showHint = false,
+  listener,
+  answers = [],
+}: Props) => {
   const { nodeRef, dimension } = useNodeDimension();
   return (
     <>
@@ -30,7 +35,12 @@ export const View = ({
       >
         {!dimension.height ? null : (
           <KonvaProvider height={dimension.height} width={dimension.width}>
-            <ImageMatchProvider text={text}>
+            <ImageMatchProvider
+              answers={answers}
+              listener={listener}
+              showHint={showHint}
+              text={text}
+            >
               <ItemBox alignment="left" type="TEXT" />
               <ItemBox alignment="right" type="IMAGE" />
               <ArrowRenderer />

@@ -1,30 +1,36 @@
 import * as React from "react";
 import { useStore, Action } from "../provider";
 import {
-  Dialog,
-  DialogTitle,
-  DialogContent,
+  AppBar,
   Box,
+  Button,
+  Drawer,
+  makeStyles,
+  Toolbar,
   Typography,
-  IconButton,
 } from "@material-ui/core";
 import { Watch } from "./watch";
 import { Edit } from "./edit";
-import { Description } from "./description";
 import { Close } from "@material-ui/icons";
+import { useNodeDimension } from "@hooks/use-node-dimension";
 
 const cMap: Record<Action, React.ComponentType> = {
   WATCH: Watch,
-  DESCRIPTION: Description,
   EDIT: Edit,
   QUIZ: React.Fragment,
 };
 const TMap: Record<Action, string> = {
   WATCH: "Video",
-  DESCRIPTION: "Deskripsi",
-  EDIT: "Edit konten",
-  QUIZ: "Qui",
+  EDIT: "Edit informasi video",
+  QUIZ: "Quis",
 };
+
+const useClasses = makeStyles(() => ({
+  root: {
+    height: "80vh",
+    backgroundColor: "#e5e5e5",
+  },
+}));
 
 export const DrawerNode = () => {
   const { action, selected, close } = useStore();
@@ -33,27 +39,36 @@ export const DrawerNode = () => {
 
   const Component = action ? cMap[action] : React.Fragment;
   const title = action ? TMap[action] : "";
-
+  const classes = useClasses();
+  const {
+    nodeRef,
+    dimension: { height },
+  } = useNodeDimension();
+  const contentHeight = `calc(70vh = ${height}px)`;
   return (
-    <Dialog
-      fullWidth
-      fullScreen={action === "DESCRIPTION" || action === "EDIT"}
+    <Drawer
+      PaperProps={{ className: classes.root }}
       open={isOpen}
+      anchor="bottom"
       onClose={close}
     >
-      <DialogTitle>
-        <Box alignItems="center" component="span" width="100%" display="flex">
-          <Typography style={{ flexGrow: 1 }} component="span">
-            {title}
-          </Typography>
-          <IconButton onClick={close}>
-            <Close />
-          </IconButton>
-        </Box>
-      </DialogTitle>
-      <DialogContent>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h4">{title}</Typography>
+          <Button
+            onClick={close}
+            style={{ marginLeft: "auto" }}
+            variant="contained"
+            color="secondary"
+            startIcon={<Close />}
+          >
+            Tutup
+          </Button>
+        </Toolbar>
+      </AppBar>
+      <div style={{ height: contentHeight, overflow: "auto" }}>
         <Component />
-      </DialogContent>
-    </Dialog>
+      </div>
+    </Drawer>
   );
 };

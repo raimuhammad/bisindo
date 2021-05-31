@@ -11,7 +11,9 @@ use App\Notifications\InvitationNotification;
 use App\Shared\GraphqlResolver;
 use Faker\Factory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Testing\Fluent\Concerns\Has;
 
 /**
  * Class UserResolver
@@ -67,6 +69,21 @@ class UserResolver extends GraphqlResolver
     parent::afterCreate();
   }
 
+  private function changePassword(User $user, string $hashedPassword){
+    $user->password = $hashedPassword;
+    $user->invitation = "";
+    $user->active = true;
+    $user->save();
+  }
+
+  public function activation($_, array $args){
+    $user = User::find($args['id']);
+    if (! $user) return null;
+    $this->changePassword($user, Hash::make($args['password']));
+    $user->refresh();
+    return $user;
+  }
+
   public function changeDefaultPassword($_, array $args){
     $password = Hash::make($args['password']);
     /**
@@ -74,10 +91,7 @@ class UserResolver extends GraphqlResolver
      */
     $user = auth()->user();
     if ($user && $user->invitation){
-      $user->password = $password;
-      $user->invitation = "";
-      $user->active = true;
-      $user->save();
+      $this->changePassword($user, $password);
       return true;
     }
     return false;
@@ -99,9 +113,12 @@ class UserResolver extends GraphqlResolver
     $check = $query->count();
     if ($check){
       $user = $query->get()->first();
-      auth()->login($user);
+      $this->changePassword($user, Hash::make($args['password']));
       return true;
     }
     return false;
+  }
+  public function isUniqEmail($_, $args) : bool{
+    return User::where("email", $args['email'])->count() === 0;
   }
 }

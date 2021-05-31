@@ -7,6 +7,7 @@ type Props<T extends string = "search"> = {
   fieldName?: T;
   handler(value: Record<T, string | undefined>): void;
   placeholder?: string;
+  children?(classname: string): React.ReactNode;
 };
 
 const useClasses = makeStyles(() => ({
@@ -26,6 +27,7 @@ export const SearchForm = ({
   fieldName = "search",
   handler,
   placeholder = "Pencarian",
+  children,
 }: Props) => {
   const form = useForm({
     defaultValues: {
@@ -33,13 +35,28 @@ export const SearchForm = ({
     },
   });
   const onSubmit = form.handleSubmit((data) => {
-    handler({
+    const args: any = {
       [fieldName]: data[fieldName] ? `%${data[fieldName]}%` : undefined,
+    };
+    Object.keys(data).map((k) => {
+      if (k === fieldName) {
+        args[fieldName] = data[fieldName] ? `%${data[fieldName]}%` : undefined;
+      } else {
+        args[k] = data[k as keyof typeof data]
+          ? data[k as keyof typeof data]
+          : undefined;
+      }
     });
+    handler(args);
   });
   const onReset = () => {
-    handler({ [fieldName]: undefined });
-    form.setValue(fieldName, "");
+    const values = form.getValues();
+    const arg: any = {};
+    Object.keys(values).forEach((k) => {
+      arg[k] = undefined;
+    });
+    handler(arg);
+    form.reset({});
   };
   const classes = useClasses();
   return (
@@ -56,6 +73,13 @@ export const SearchForm = ({
             }}
             inputProps={{ className: classes.input }}
           />
+          {children ? (
+            <>
+              <Divider orientation="vertical" className={classes.divider} />
+              {children(classes.input)}
+              <Divider orientation="vertical" className={classes.divider} />
+            </>
+          ) : null}
           <Button type="submit" className={classes.button} size="small">
             Cari
           </Button>

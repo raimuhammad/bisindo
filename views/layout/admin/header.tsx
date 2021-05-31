@@ -27,7 +27,7 @@ export const Header = ({ toggle, open }: { toggle(): void; open: boolean }) => {
           <Menu />
         </IconButton>
         <Typography variant="h6" noWrap>
-          Mini variant drawer
+          Bisindo
         </Typography>
       </Toolbar>
     </AppBar>

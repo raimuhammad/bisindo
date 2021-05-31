@@ -1,7 +1,7 @@
 import { PaginatorInfoModelType } from "@root/models/PaginatorInfoModel";
 export const paginator = {
   defaultInput: {
-    first: 30,
+    first: 10,
     page: 1,
   },
   defaultPaginator: {

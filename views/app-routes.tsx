@@ -1,6 +1,8 @@
 import * as React from "react";
 import { Route } from "./routes/type";
 import { Route as DomRoute, Switch, Redirect } from "react-router-dom";
+import "@vime/core/themes/default.css";
+import "@vime/core/themes/light.css";
 
 type Props = {
   routes: Route[];
