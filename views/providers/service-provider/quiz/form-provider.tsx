@@ -29,14 +29,12 @@ export function useQuizForm(): UseQuizForm {
 }
 
 const SchemaMap: Record<QuizType, any> = {
-  LETTER_SEQUENCE: {},
+  LETTER_SEQUENCE: ImageMatchSchema,
   IMAGE_MATCH: ImageMatchSchema,
   MULTIPLE_CHOICE: multipleChoiceSchema,
 };
 const mutateMap: Record<QuizType, RootStoreBaseMutations> = {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  LETTER_SEQUENCE: "",
+  LETTER_SEQUENCE: RootStoreBaseMutations.mutateLetterSequenceQuiz,
   IMAGE_MATCH: RootStoreBaseMutations.mutateImageMatchQuiz,
   MULTIPLE_CHOICE: RootStoreBaseMutations.mutateMultipleChoiseQuiz,
 };
@@ -72,6 +70,8 @@ export const FormProvider = observer(
     const Provider = form.provider;
     useEffect(() => {
       form.updateSchema(SchemaMap[type]);
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       form.updateMutation(mutateMap[type]);
     }, [type]);
     useEffect(() => {

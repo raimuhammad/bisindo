@@ -100,10 +100,38 @@ const Common = () => {
   );
 };
 
+const LetterSequence = () => {
+  const { loading, handler } = useQuizForm();
+
+  return (
+    <Box padding={2}>
+      <FormField
+        fullWidth
+        variant="outlined"
+        name="text"
+        label="Masukan kata yang di gunakan"
+      />
+      <ShowAtField />
+      <Box paddingY={2}>
+        <LoadingButton
+          fullWidth
+          onClick={handler}
+          variant="contained"
+          color="primary"
+          loading={loading}
+          icon={<Save />}
+        >
+          Simpan
+        </LoadingButton>
+      </Box>
+    </Box>
+  );
+};
+
 const nodeMap: Record<QuizType, React.ComponentType> = {
   MULTIPLE_CHOICE: MultipleChoice,
   IMAGE_MATCH: Common,
-  LETTER_SEQUENCE: Common,
+  LETTER_SEQUENCE: LetterSequence,
 };
 
 export const FormNode = () => {

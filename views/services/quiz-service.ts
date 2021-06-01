@@ -57,10 +57,19 @@ const paginatorOptions = {
   modelBuilder: builder,
 };
 
+const createLetterSequence = mutationServiceFactory<
+  QuizModelType,
+  RootStoreBaseMutations.mutateLetterSequenceQuiz
+>({
+  schema: ImageMatchSchema,
+  mutation: RootStoreBaseMutations.mutateLetterSequenceQuiz,
+});
+
 export const service = {
   create: {
     [QuizType.MULTIPLE_CHOICE]: createMultipleChoice,
     [QuizType.IMAGE_MATCH]: createImageMatch,
+    [QuizType.LETTER_SEQUENCE]: createLetterSequence,
   },
   paginatorOptions,
 };

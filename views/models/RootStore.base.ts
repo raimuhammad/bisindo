@@ -109,6 +109,7 @@ mutateVideoDelete="mutateVideoDelete",
 mutateQuizDelete="mutateQuizDelete",
 mutateMultipleChoiseQuiz="mutateMultipleChoiseQuiz",
 mutateImageMatchQuiz="mutateImageMatchQuiz",
+mutateLetterSequenceQuiz="mutateLetterSequenceQuiz",
 mutateQuizAnswer="mutateQuizAnswer",
 mutateUser="mutateUser",
 mutateLoginWithInvitation="mutateLoginWithInvitation",
@@ -248,6 +249,11 @@ export const RootStoreBase = withTypedRefs<Refs>()(MSTGQLStore
     },
     mutateImageMatchQuiz(variables: { videoId: string, showAt: number, text: string }, resultSelector: string | ((qb: QuizModelSelector) => QuizModelSelector) = quizModelPrimitives.toString(), optimisticUpdate?: () => void) {
       return self.mutate<{ imageMatchQuiz: QuizModelType}>(`mutation imageMatchQuiz($videoId: String!, $showAt: Int!, $text: String!) { imageMatchQuiz(video_id: $videoId, show_at: $showAt, text: $text) {
+        ${typeof resultSelector === "function" ? resultSelector(new QuizModelSelector()).toString() : resultSelector}
+      } }`, variables, optimisticUpdate)
+    },
+    mutateLetterSequenceQuiz(variables: { videoId: string, showAt: number, text: string }, resultSelector: string | ((qb: QuizModelSelector) => QuizModelSelector) = quizModelPrimitives.toString(), optimisticUpdate?: () => void) {
+      return self.mutate<{ letterSequenceQuiz: QuizModelType}>(`mutation letterSequenceQuiz($videoId: String!, $showAt: Int!, $text: String!) { letterSequenceQuiz(video_id: $videoId, show_at: $showAt, text: $text) {
         ${typeof resultSelector === "function" ? resultSelector(new QuizModelSelector()).toString() : resultSelector}
       } }`, variables, optimisticUpdate)
     },

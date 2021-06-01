@@ -29,7 +29,7 @@ class QuizResolver extends GraphqlResolver
         unset($arguments['question']);
       }
     }
-    if ($arguments['type'] === "IMAGE_MATCH"){
+    if ($arguments['type'] === "IMAGE_MATCH" || $arguments['type'] === "LETTER_SEQUENCE"){
       $arguments['meta_data'] = json_encode([
         "text"=>$arguments['text']
       ]);
@@ -53,7 +53,8 @@ class QuizResolver extends GraphqlResolver
   private function getType($v){
     $map = [
       "multipleChoiseQuiz"=>'MULTIPLE_CHOICE',
-      "imageMatchQuiz"=>"IMAGE_MATCH"
+      "imageMatchQuiz"=>"IMAGE_MATCH",
+      "letterSequenceQuiz"=>"LETTER_SEQUENCE"
     ];
     return $map[$v];
   }

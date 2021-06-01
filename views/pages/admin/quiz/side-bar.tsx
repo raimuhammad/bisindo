@@ -11,6 +11,7 @@ import { QuizList } from "./quiz-list";
 const TypeSwitcher = selectFieldFactory([
   { label: "Pilihan ganda", value: QuizType.MULTIPLE_CHOICE },
   { label: "Pencocokan gambar", value: QuizType.IMAGE_MATCH },
+  { label: "Susun gambar", value: QuizType.LETTER_SEQUENCE },
 ]);
 
 const CreateFormSwitcher = () => {

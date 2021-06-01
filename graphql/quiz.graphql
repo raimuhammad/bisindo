@@ -46,6 +46,11 @@ extend type Mutation {
     show_at: Int! @rules(apply: ["required", "min:1"])
     text: String! @rules(apply: ["required"])
   ): Quiz! @field(resolver: "App\\GraphQL\\QuizResolver@create")
+  letterSequenceQuiz(
+    video_id: String! @rules(apply: ["required", "exists:videos,id"])
+    show_at: Int! @rules(apply: ["required", "min:1"])
+    text: String! @rules(apply: ["required"])
+  ): Quiz! @field(resolver: "App\\GraphQL\\QuizResolver@create")
 }
 extend type Query {
   quizes(videoId: String! @where(key: "video_id")): [Quiz!]!

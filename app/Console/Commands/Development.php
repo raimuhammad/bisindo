@@ -104,7 +104,7 @@ class Development extends Command
     return $lettter;
   }
 
-  public function makeImageMatchQuiz($video){
+  public function makeImageMatchQuiz($video, bool $isLetter = false){
     $letters = [];
 
     for ($i = 0; $i < 5; $i ++){
@@ -116,7 +116,7 @@ class Development extends Command
         "text"=>join("", $letters)
       ]),
       "show_at"=>$this->faker->numberBetween(1, $video->duration),
-      "type"=>"IMAGE_MATCH",
+      "type"=>$isLetter ? "IMAGE_MATCH" : "LETTER_SEQUENCE",
     ]);
   }
 
@@ -130,11 +130,15 @@ class Development extends Command
       ->create([
         "grade_id"=>$grade->id
       ])->each(function (Video $video){
-        for ($i = 0; $i < 3; $i++){
+        for ($i = 0; $i < 5; $i++){
           if ($i === 0){
             $this->makeImageMatchQuiz($video);
           }else{
-            $this->makeMultipleChoiseQuiz($i, $video);
+            if ($i % 5 === 0){
+              $this->makeImageMatchQuiz($video, true);
+            }else{
+              $this->makeMultipleChoiseQuiz($i, $video);
+            }
           }
         }
       });

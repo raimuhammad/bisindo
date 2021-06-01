@@ -3,13 +3,13 @@ import { QuizType } from "@root/models";
 import { ImageMatchForm } from "./image-match-form";
 import { MultipleChoiceForm } from "./multiple-choice-form";
 import { useStore } from "../provider";
+import { LetterSequenceForm } from "./letter-sequence-form";
 
-const DefaultComponent = () => <h1>Wait for implementation</h1>;
 
 const formMap: Record<QuizType, React.ComponentType> = {
   MULTIPLE_CHOICE: MultipleChoiceForm,
   IMAGE_MATCH: ImageMatchForm,
-  LETTER_SEQUENCE: DefaultComponent,
+  LETTER_SEQUENCE: LetterSequenceForm,
 };
 export const FormMode = () => {
   const { formType } = useStore();

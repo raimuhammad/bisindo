@@ -3,6 +3,7 @@ import {
   AppBar,
   Box,
   Button,
+  ButtonGroup,
   Dialog,
   Grid,
   Paper,
@@ -20,8 +21,9 @@ import { ImageMatcherViewer } from "@components/quiz/image-matcher";
 import { ArrowState, ListenerArgs } from "@components/quiz/image-matcher/types";
 import { ViewerType } from "@components/quiz/multiple-choise/type";
 import { useToggle } from "@hooks/use-toggle";
-import { useState } from "react";
-import { isEqual } from "lodash";
+import { useRef, useState } from "react";
+import { LetterSequence as LetterSequenceView } from "@components/quiz/letter-sequence";
+import { ILetterCheck } from "@components/quiz/letter-sequence/type";
 
 type ChildProps = {
   helper: QuizHelper;
@@ -122,10 +124,115 @@ const ImageMatcher = ({ appbarHeight, helper }: ChildProps) => {
   );
 };
 
+const LetterSequence = ({ appbarHeight, helper }: ChildProps) => {
+  const { nodeRef } = useNodeDimension();
+  const [hasConfirm, hasConfirmAction] = useToggle();
+  const [readOnly, readOnlyAction] = useToggle();
+  const [showHint, hintAction] = useToggle();
+  const [useImage, useImageAction] = useToggle(true);
+  const letterRef = useRef<ILetterCheck>();
+
+  const getMessage = () => {
+    if (letterRef.current) {
+      if (hasConfirm) {
+        return letterRef.current?.isCorrect
+          ? "Jawaban anda benar"
+          : "Maaf jawaban anda kurang tepat";
+      }
+    }
+    return "";
+  };
+  const getMessageColor = () => {
+    if (letterRef.current) {
+      return letterRef.current?.isCorrect ? "primary" : "secondary";
+    }
+    return "inherit";
+  };
+
+  const onConfirm = () => {
+    if (!hasConfirm) {
+      hasConfirmAction.inline(true);
+    }
+    readOnlyAction.inline(true);
+    hintAction.inline(false);
+  };
+  const onShowHint = () => {
+    hintAction.inline(true);
+    readOnlyAction.inline(true);
+  };
+  const { onSubmitted: onSubmit } = useVideoPage();
+
+  const onSubmitted = () => {
+    if (letterRef.current) {
+      const { isCorrect } = letterRef.current;
+      onSubmit(helper, isCorrect);
+    }
+  };
+
+  const contentHeight = nodeRef.current
+    ? window.innerHeight -
+      (nodeRef.current?.getBoundingClientRect().height + appbarHeight)
+    : 0;
+  const theme = useTheme();
+
+  return (
+    <Box
+      overflow="auto"
+      style={{ overflowX: "hidden" }}
+      height={`calc(100vh - ${appbarHeight}px)`}
+    >
+      <div ref={nodeRef as any}>
+        <Paper>
+          <Box padding={2} alignItems="center" paddingBottom={1} display="flex">
+            <Box flex={1}>
+              <ButtonGroup>
+                <Button onClick={onConfirm}>Periksa jawaban</Button>
+                <Button onClick={onShowHint} disabled={!hasConfirm}>
+                  Tampilkan jawaban
+                </Button>
+                <Button disabled={!hasConfirm} onClick={useImageAction.toggle}>
+                  {useImage ? "Tampilkan huruf" : "Tampilkan gambar"}
+                </Button>
+              </ButtonGroup>
+            </Box>
+            {hasConfirm ? (
+              <Typography
+                style={{ flex: 1 }}
+                align="right"
+                color={getMessageColor()}
+              >
+                {getMessage()}
+              </Typography>
+            ) : null}
+            <Box marginLeft={2}>
+              <Button onClick={onSubmitted} disabled={!hasConfirm}>
+                Tutup
+              </Button>
+            </Box>
+          </Box>
+        </Paper>
+        {contentHeight ? (
+          <Box paddingY={2} height={contentHeight}>
+            <LetterSequenceView
+              useImage={useImage}
+              readOnly={readOnly}
+              showHint={showHint}
+              letterCheckRef={letterRef}
+              text={helper.image_matcher as string}
+              height={contentHeight - theme.spacing(4)}
+              width={window.innerWidth - theme.spacing(2)}
+            />
+          </Box>
+        ) : null}
+      </div>
+    </Box>
+  );
+};
+
 const childMap: Record<QuizType, React.ComponentType<ChildProps>> = {
   [QuizType.IMAGE_MATCH]: ImageMatcher,
   [QuizType.MULTIPLE_CHOICE]: MultipleChoiceController,
-  [QuizType.LETTER_SEQUENCE]: () => <h1>Letter sequnce</h1>,
+  [QuizType.LETTER_SEQUENCE]: LetterSequence,
 };
 
 export const DrawerController = () => {

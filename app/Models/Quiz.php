@@ -108,7 +108,7 @@ class Quiz extends Model implements HasMedia
    * @attributes
    */
   public function getImageMatcherAttribute(){
-    if ($this->type !== "IMAGE_MATCH"){
+    if ($this->type === "MULTIPLE_CHOICE"){
       return "";
     }
     return $this->parseMetadata("text");

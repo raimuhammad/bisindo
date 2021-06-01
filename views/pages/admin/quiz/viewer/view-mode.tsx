@@ -3,13 +3,13 @@ import { QuizType } from "@root/models";
 import { MultipleChoicePreview } from "./multiple-choice-preview";
 import { ImageMatchPreview } from "./image-match-preview";
 import { useStore } from "../provider";
+import { LetterSequencePreview } from "./letter-sequence-preview";
 
-const DefaultComponent = () => <h1>Wait for implementation</h1>;
 
 const viewMap: Record<QuizType, React.ComponentType<any>> = {
   MULTIPLE_CHOICE: MultipleChoicePreview,
   IMAGE_MATCH: ImageMatchPreview,
-  LETTER_SEQUENCE: DefaultComponent,
+  LETTER_SEQUENCE: LetterSequencePreview,
 };
 
 export const ViewMode = () => {
