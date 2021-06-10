@@ -7,7 +7,7 @@ const findSrc = (letter: string) => {
   const f = DataSource.find(
     (item) => item.letter.toLocaleLowerCase() === letter
   );
-  return f ? f.image : "";
+  return f ? "/letters/" + f.letter.toLocaleLowerCase() + "./png" : "";
 };
 
 export function parse(text: string, showHint: boolean): Array<ItemState> {

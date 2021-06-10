@@ -5,28 +5,60 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e94c46e-1c07-4efd-823c-bb31b961c4c7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/views/components/quiz/letter-sequence/component.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/quiz/letter-sequence/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/quiz/letter-sequence/item-box.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/quiz/letter-sequence/provider.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/quiz/letter-sequence/type.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/components/quiz/letter-sequence/utils.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/viewer/letter-sequence-form.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/pages/admin/quiz/viewer/letter-sequence-preview.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/a0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/b.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/b0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/c.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/c0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/d.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/d0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/e.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/e0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/f.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/f0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/g.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/g0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/h0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/i.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/i0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/j.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/j0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/k.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/k0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/l.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/l0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/m0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/m1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/n.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/n0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/o.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/o0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/p.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/p0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/q.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/q0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/r.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/r0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/s.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/s0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/t.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/t0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/u.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/u0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/v.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/v0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/w.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/w0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/x0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/y.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/y0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/z.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/letters/z0.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Commands/Development.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/Development.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/GraphQL/QuizResolver.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/GraphQL/QuizResolver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Quiz.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Quiz.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphql/quiz.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/quiz.graphql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/loader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/loader.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/models/RootStore.base.ts" beforeDir="false" afterPath="$PROJECT_DIR$/views/models/RootStore.base.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/admin/quiz/form-node.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/admin/quiz/form-node.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/admin/quiz/side-bar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/admin/quiz/side-bar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/admin/quiz/viewer/form-mode.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/admin/quiz/viewer/form-mode.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/admin/quiz/viewer/view-mode.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/admin/quiz/viewer/view-mode.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/student/study-show/drawer-controller.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/student/study-show/drawer-controller.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/providers/service-provider/quiz/form-provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/views/providers/service-provider/quiz/form-provider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/services/quiz-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/views/services/quiz-service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/image-data.json" beforeDir="false" afterPath="$PROJECT_DIR$/views/image-data.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +253,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/views/pages/student/account" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -462,7 +494,9 @@
       <workItem from="1622412808222" duration="34809000" />
       <workItem from="1622470299142" duration="27639000" />
       <workItem from="1622507186259" duration="2886000" />
-      <workItem from="1622536372356" duration="8124000" />
+      <workItem from="1622536372356" duration="9121000" />
+      <workItem from="1622555972513" duration="19000" />
+      <workItem from="1623355452799" duration="571000" />
     </task>
     <servers />
   </component>

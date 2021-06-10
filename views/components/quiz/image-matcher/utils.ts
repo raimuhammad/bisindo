@@ -69,7 +69,7 @@ function findImageSource(letter: string) {
   const find = ImageSource.find(
     (item) => item.letter.toUpperCase() === letter.toUpperCase()
   );
-  return find ? find.image : "";
+  return find ? "/letters/" + find.letter.toUpperCase() + "./png" : "";
 }
 const currents: Array<string> = [];
 const alphabetItems: Array<any> = [];
@@ -81,7 +81,7 @@ for (const index in ImageSource) {
   alphabetItems.push({
     letter,
     bgColor: color,
-    image: ImageSource[index].image,
+    image: "/letters" + ImageSource[index].letter.toLocaleLowerCase(),
   });
 }
 
