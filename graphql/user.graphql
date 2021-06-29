@@ -13,6 +13,14 @@ extend type Query {
     @paginate
   isUniqueEmail(email: String!): Boolean
     @field(resolver: "App\\GraphQL\\UserResolver@isUniqEmail")
+  userByGrade(grade_id: ID!): [User!]!
+    @field(resolver: "App\\GraphQL\\UserResolver@getUserByGrade")
+  videoByGrade(grade_id: ID! @where(key: "grade_id")): [Video!]! @all
+  quizByGrade(
+    grade_id: ID! @builder(method: "App\\GraphQL\\QuizResolver@getByGrade")
+  ): [Quiz!]! @all
+  progressByGrade(grade_id: ID!):[Progress!]!
+  @field(resolver: "App\\GraphQL\\ProgressResolver@getByGrade")
 }
 
 extend type Mutation {

@@ -20,7 +20,6 @@ type Quiz {
   video_id: String!
   created_at: DateTime!
   updated_at: DateTime
-  video_id: String!
   show_at: Float!
   type: QuizType!
   choises: [MultipleChoise!]!

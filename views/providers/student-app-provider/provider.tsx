@@ -1,5 +1,6 @@
 import * as React from "react";
 import {
+  GradeModelType,
   ProgressModelType,
   QuizModelType,
   UserModelType,
@@ -19,6 +20,7 @@ interface IStudentProvider {
   user: UserModelType;
   progress: ProgressModelType;
   title: string;
+  grade: GradeModelType;
   updateTitle(title: string): void;
   updateProgress(): void;
   getVideoPercentage(video: VideoModelType): number;
@@ -48,6 +50,7 @@ export const StudentAppProvider = observer(({ children }: any) => {
       .map((item) => item.student)
       .filter((item) => item.id !== user.id);
   };
+
   const ctx: IStudentProvider = {
     videos: videos(),
     classmates: classmates(),
@@ -58,6 +61,7 @@ export const StudentAppProvider = observer(({ children }: any) => {
     updateTitle: setTitle,
     updateProgress,
     getVideoPercentage,
+    grade: result?.grade as GradeModelType,
   };
   const render = !loading && result && progress;
   return (

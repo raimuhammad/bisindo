@@ -16,6 +16,10 @@ export type VideoHistory = {
   time: number;
   video_id: string;
 };
+export type QuizHistory = {
+  id: string;
+  correct: boolean;
+};
 
 /**
  * ProgressModel
@@ -27,8 +31,14 @@ export const ProgressModel = ProgressModelBase.actions((self) => ({
   },
 })).views((model) => ({
   get videoHistories(): VideoHistory[] {
-    if (model.videoHistory) {
-      return JSON.parse(model.videoHistory);
+    if (model.video_histories) {
+      return JSON.parse(model.video_histories);
+    }
+    return [];
+  },
+  get quizHistories(): QuizHistory[] {
+    if (model.quiz_histories) {
+      return JSON.parse(model.quiz_histories);
     }
     return [];
   },

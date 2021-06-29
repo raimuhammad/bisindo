@@ -59,4 +59,9 @@ class VideoResolver extends GraphqlResolver
     $videoIds = Video::where("title", "like", $value)->select("id")->get()->pluck("id");
     return $builder->whereIn("id", $videoIds)->orWhereIn("grade_id", $gradeIds);
   }
+
+  public function getByGrade($builder, string $gradeId){
+    return Video::whereGradeId($gradeId);
+  }
+
 }

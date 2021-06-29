@@ -6,6 +6,8 @@ import {
   Container,
   Divider,
   Grid,
+  makeStyles,
+  Theme,
   Typography,
   useTheme,
 } from "@material-ui/core";
@@ -15,8 +17,9 @@ import { useStudent } from "@providers/student-app-provider";
 import { Player } from "@components/player";
 import { VideoModelType } from "@root/models";
 import { DrawerController } from "./drawer-controller";
-import { Controller } from "./controller";
 import { VideoInfo } from "./video-info";
+import { VideoSwitcher } from "./video-switcher";
+import { QuizList } from "@student-pages/study-show/quiz-list";
 
 const VideoPlayer = ({ model: video }: { model: VideoModelType }) => {
   const { quizes, setPreparedQuiz, pause, play, playing } = useVideoPage();
@@ -41,6 +44,25 @@ const VideoPlayer = ({ model: video }: { model: VideoModelType }) => {
   );
 };
 
+const useClasses = makeStyles((theme: Theme) => ({
+  root: {
+    minHeight: "100vh",
+    background: theme.palette.primary.dark,
+  },
+  container: {
+    paddingBlock: theme.spacing(4),
+  },
+  videoTitle: {
+    fontWeight: "bolder",
+    color: "white",
+  },
+  videoGrid: {
+    overflowX: "auto",
+    display: "flex",
+    background: "white",
+  },
+}));
+
 const Page = () => {
   const { video } = useVideoPage();
   const { updateTitle } = useStudent();
@@ -48,36 +70,39 @@ const Page = () => {
     updateTitle(video.title as string);
   }, []);
   const theme = useTheme();
+  const classes = useClasses();
   return (
-    <>
+    <div className={classes.root}>
       <DrawerController />
-      <Box paddingY={4} bgcolor={theme.palette.primary.dark}>
+      <div className={classes.container}>
         <Container>
           <Box marginBottom={2}>
-            <Typography
-              style={{ color: "white", fontWeight: "bolder" }}
-              variant="h4"
-            >
+            <Typography className={classes.videoTitle} variant="h4">
               {video.title}
             </Typography>
             <Divider />
           </Box>
           <Grid container>
-            <Grid item sm={12} md={8}>
+            <Grid item sm={12}>
               <VideoPlayer model={video} />
             </Grid>
-            <Grid item md={4} sm={12}>
-              <Controller />
+            <Grid style={{ background: "white" }} container item sm={12}>
+              <Grid item sm={4}>
+                <QuizList />
+              </Grid>
+              <Grid item sm={8} className={classes.videoGrid}>
+                <VideoSwitcher />
+              </Grid>
             </Grid>
           </Grid>
         </Container>
-      </Box>
-      <Box marginTop={2}>
+      </div>
+      <Box bgcolor={theme.palette.primary.dark} paddingY={2}>
         <Container>
           <VideoInfo />
         </Container>
       </Box>
-    </>
+    </div>
   );
 };
 

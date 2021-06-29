@@ -25,7 +25,7 @@ import { RootStoreBaseQueries } from "@root-model";
 import { FullPageLoader } from "@components/loaders";
 import { LogoutProvider } from "./logout-provider";
 
-const rootStore = RootStore.create(undefined, {
+export const rootStore = RootStore.create(undefined, {
   gqlHttpClient: new GraphQLClient("/graphql", {
     credentials: "include",
   }),
@@ -173,6 +173,13 @@ export const AppProvider = observer(() => {
     loading,
   };
 
+  const getDefaultRoute = () => {
+    if (!state.user) {
+      return "/";
+    }
+    return state.user.role === AppRole.ADMIN ? "/batch" : "/dashboard";
+  };
+  console.log(getDefaultRoute())
   return (
     <Context.Provider value={context}>
       <StoreContext.Provider value={rootStore}>
@@ -181,7 +188,7 @@ export const AppProvider = observer(() => {
             <FullPageLoader />
           ) : (
             <Layout>
-              <AppRoutes routes={router} />
+              <AppRoutes defaultRoute={getDefaultRoute()} routes={router} />
             </Layout>
           )}
           <Dev />

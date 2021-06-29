@@ -4,6 +4,7 @@ import { useFetchQuery } from "@hooks/use-fetch-query";
 import { PaginatorInfoModelSelector, PaginatorInfoModelType } from "@model";
 import { paginator } from "@root/app";
 import { uniqBy } from "lodash";
+import { detach } from "mobx-state-tree";
 
 const DefaultPaginator = paginator.defaultPaginator;
 const DefaultInput = paginator.defaultInput;
@@ -107,7 +108,12 @@ export function usePaginator<
     }
   }, [result]);
 
-  const reset = () => fetch(v);
+  const reset = () => {
+    fetch(v);
+    if (keepResult) {
+      setItems([]);
+    }
+  };
 
   useEffect(() => {
     fetch({ ...paginatorInput });

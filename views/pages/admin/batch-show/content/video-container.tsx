@@ -26,6 +26,13 @@ const ActionController = () => {
   return (
     <ButtonGroup>
       <Button
+        onClick={navigateHandler("/quiz/:videoId/check", {
+          videoId: selected ? selected.id : "",
+        })}
+      >
+        Periksa quis
+      </Button>
+      <Button
         onClick={navigateHandler("/quiz/:videoId", {
           videoId: selected ? selected.id : "",
         })}
@@ -40,7 +47,6 @@ const ActionController = () => {
 
 export const VideoContainer = ({ model }: { model: VideoModelType }) => {
   const { contentHeight } = useStore();
-  const maxHeight = (70 / 100) * contentHeight;
   const [playing, { toggle, inline }] = useToggle();
 
   React.useEffect(() => {

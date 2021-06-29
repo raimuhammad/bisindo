@@ -128,6 +128,7 @@ export function mutationServiceFactory<
         if (inputParser) {
           args = inputParser(args);
         }
+        //@ts-ignore
         return setQuery((model: RootModel) => model[mutateKey](args));
       },
       [injectInput, mutateKey]

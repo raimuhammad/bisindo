@@ -22,7 +22,7 @@ type ItemBoxProps = {
 
 const ImageNode = ({ image, height }: BoxItem & { height: number }) => {
   const [src] = useImage(image);
-  return <Image image={src} width={height} height={height} fill="blue" />;
+  return <Image image={src} width={height} height={height} fill="white" />;
 };
 
 export const ItemBox = ({

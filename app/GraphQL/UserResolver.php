@@ -121,4 +121,8 @@ class UserResolver extends GraphqlResolver
   public function isUniqEmail($_, $args) : bool{
     return User::where("email", $args['email'])->count() === 0;
   }
+  public function getUserByGrade($_, array $args){
+    $studentIds = StudentGrade::whereGradeId($args['grade_id'])->get()->pluck("user_id");
+    return User::whereIn('id',$studentIds)->get();
+  }
 }

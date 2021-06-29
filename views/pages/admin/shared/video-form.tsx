@@ -24,7 +24,7 @@ export const FileController = () => {
   const { clickHandler, previewUrl } = useFileUpload();
   const { contentHeight } = useStore();
 
-  const vContainerH = (70 / 100) * contentHeight;
+  // const vContainerH = (30 / 100) * contentHeight;
 
   const [playing, { toggle, inline }] = useToggle();
 
@@ -36,8 +36,8 @@ export const FileController = () => {
     justifyContent: "center",
     alignItems: "center",
     color: "white",
-    height: vContainerH,
-    position: "relative",
+    // height: vContainerH,
+    // position: "relative",
   };
   if (!previewUrl) {
     styles.display = "flex";
@@ -61,11 +61,7 @@ export const FileController = () => {
         {previewUrl ? "Ganti video" : "Upload video"}
       </Button>
       {!previewUrl ? null : (
-        <Player
-          url={previewUrl}
-          onContainerClick={toggle}
-          play={playing}
-        />
+        <Player url={previewUrl} onContainerClick={toggle} play={playing} />
       )}
     </Box>
   );

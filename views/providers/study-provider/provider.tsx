@@ -2,6 +2,7 @@ import * as React from "react";
 import { useFetchQuery } from "@hooks/use-fetch-query";
 import {
   QuizModelType,
+  useQuery,
   VideoModelSelector,
   VideoModelType,
 } from "@root/models";
@@ -13,8 +14,7 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "@hooks/use-navigate";
 import { sortBy } from "lodash";
 import { useSnackbar } from "notistack";
-import { toJS } from "mobx";
-import { getSnapshot, SnapshotOut } from "mobx-state-tree";
+import { useFetchProgress } from "@providers/student-progress-provider/use-fetch-progress";
 
 export type QuizHelper = QuizModelType & {
   show: boolean;
@@ -48,11 +48,36 @@ const mapping = (item: QuizModelType): QuizHelper => {
 
 const useQuizUtility = (quizes: Array<QuizModelType>) => {
   const [quizUtils, setQuizUtils] = useState<Array<QuizHelper>>([]);
+  const [progress, progressLoading] = useFetchProgress();
+  console.log(progress?.quizHistories);
 
   useEffect(() => {
-    const mapped = quizes.map(mapping);
-    if (!quizUtils.length && mapped.length) setQuizUtils([...mapped]);
-  }, [quizes]);
+    if (!quizUtils.length && progress) {
+      const mapped = quizes.map(mapping).map(
+        (item): QuizHelper => {
+          const checkShowing = (c: any) => {
+            return c.id.toString() === item.id.toString();
+          };
+          const getRightAnswer = () => {
+            const check = progress.quizHistories.find(
+              (c) => c.id.toString() === item.id.toString()
+            );
+            if (check) {
+              return check.correct;
+            }
+            return false;
+          };
+          return {
+            ...item,
+            isRightAnswer: getRightAnswer(),
+            show: Boolean(progress.quizHistories.find(checkShowing)),
+          };
+        }
+      );
+      console.log(mapped);
+      setQuizUtils([...mapped]);
+    }
+  }, [quizes, progress]);
 
   const [preparedQuiz, setPreparedQuiz] = useState<null | QuizHelper>(null);
 
@@ -68,6 +93,8 @@ const useQuizUtility = (quizes: Array<QuizModelType>) => {
     }
   }, [showQuiz, preparedQuiz]);
 
+  const { setQuery } = useQuery();
+
   const onSubmitted = (helper: QuizHelper, isRightAnswer = false) => {
     const mapped = quizUtils.map((item) => {
       if (item.id === helper.id) {
@@ -75,6 +102,12 @@ const useQuizUtility = (quizes: Array<QuizModelType>) => {
         item.isRightAnswer = isRightAnswer;
       }
       return item;
+    });
+    setQuery((store) => {
+      return store.mutateUpdateQuizProgress({
+        quizId: helper.id,
+        correct: isRightAnswer,
+      });
     });
     setQuizUtils([...mapped]);
     setPreparedQuiz(null);
@@ -92,21 +125,29 @@ const useQuizUtility = (quizes: Array<QuizModelType>) => {
       });
     }
   }, [preparedQuiz]);
+
+  const preparedQuizSetter = (helper: QuizHelper) => {
+    if (!helper.show) {
+      setPreparedQuiz(helper);
+    }
+  };
+
   return {
     quizes: quizUtils,
     showQuiz,
     playing,
     play: force(true),
     pause: force(false),
-    setPreparedQuiz,
+    setPreparedQuiz: preparedQuizSetter,
     preparedQuiz,
     onSubmitted,
+    progressLoading,
+    progress,
   };
 };
 
 export const Provider = observer(({ children }: any) => {
   const params = useParams<{ videoId: string }>();
-
   const [video, { loading, fetch, isNull }] = useFetchQuery<VideoModelType>({
     queryKey: RootStoreBaseQueries.queryVideo,
     builder(instance: VideoModelSelector) {
@@ -138,9 +179,14 @@ export const Provider = observer(({ children }: any) => {
     ...quisUtils,
   } as IVideoPage;
 
-  return (
-    <Context.Provider value={context}>
-      {!loading && video ? children : null}
-    </Context.Provider>
-  );
+  const getChild = () => {
+    if (loading || !video) {
+      return null;
+    }
+    if (!quisUtils.progress || quisUtils.progressLoading) {
+      return null;
+    }
+    return children;
+  };
+  return <Context.Provider value={context}>{getChild()}</Context.Provider>;
 });

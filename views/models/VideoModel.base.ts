@@ -8,6 +8,8 @@ import { MSTGQLRef, QueryBuilder, withTypedRefs } from "mst-gql"
 import { ModelBase } from "./ModelBase"
 import { GradeModel, GradeModelType } from "./GradeModel"
 import { GradeModelSelector } from "./GradeModel.base"
+import { ProgressModel, ProgressModelType } from "./ProgressModel"
+import { ProgressModelSelector } from "./ProgressModel.base"
 import { QuizModel, QuizModelType } from "./QuizModel"
 import { QuizModelSelector } from "./QuizModel.base"
 import { RootStoreType } from "./index"
@@ -17,6 +19,7 @@ import { RootStoreType } from "./index"
 type Refs = {
   grade: GradeModelType;
   quizes: IObservableArray<QuizModelType>;
+  student_progress: IObservableArray<ProgressModelType>;
 }
 
 /**
@@ -38,6 +41,7 @@ export const VideoModelBase = withTypedRefs<Refs>()(ModelBase
     duration: types.union(types.undefined, types.integer),
     grade: types.union(types.undefined, MSTGQLRef(types.late((): any => GradeModel))),
     quizes: types.union(types.undefined, types.array(MSTGQLRef(types.late((): any => QuizModel)))),
+    student_progress: types.union(types.undefined, types.array(MSTGQLRef(types.late((): any => ProgressModel)))),
   })
   .views(self => ({
     get store() {
@@ -57,6 +61,7 @@ export class VideoModelSelector extends QueryBuilder {
   get duration() { return this.__attr(`duration`) }
   grade(builder?: string | GradeModelSelector | ((selector: GradeModelSelector) => GradeModelSelector)) { return this.__child(`grade`, GradeModelSelector, builder) }
   quizes(builder?: string | QuizModelSelector | ((selector: QuizModelSelector) => QuizModelSelector)) { return this.__child(`quizes`, QuizModelSelector, builder) }
+  student_progress(builder?: string | ProgressModelSelector | ((selector: ProgressModelSelector) => ProgressModelSelector)) { return this.__child(`student_progress`, ProgressModelSelector, builder) }
 }
 export function selectFromVideo() {
   return new VideoModelSelector()

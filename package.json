@@ -43,6 +43,7 @@
     "react-hot-keys": "^2.6.2",
     "react-konva": "^17.0.2-0",
     "react-player": "^2.9.0",
+    "react-responsive-carousel": "^3.2.18",
     "react-router-dom": "^5.2.0",
     "use-image": "^1.0.7",
     "voca": "^1.4.0",

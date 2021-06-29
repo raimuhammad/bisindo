@@ -64,7 +64,7 @@ export const TabContent = observer(() => {
       <EditForm />
       <DeleteForm />
       <Box height={contentHeight} overflow="auto">
-        <Grid container>
+        <Grid justify='center' container>
           {model.video_count ? (
             <Grid item component={Paper} sm={12} md={3}>
               <VideoList />

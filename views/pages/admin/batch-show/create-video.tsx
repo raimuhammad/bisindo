@@ -23,31 +23,27 @@ export const CreateVideo = () => {
   return (
     <Provider>
       <Box style={{ height: contentHeight }} overflow="auto">
-        <FileUploadProvider name="content" accept="video/*">
-          <FileController />
-        </FileUploadProvider>
-        <Box padding={2}>
-          <Typography variant="h4">Informasi konten</Typography>
-          <Grid container>
-            <Grid item sm={12} md={4}>
+        <Grid container>
+          <Grid item sm={4}>
+            <Box padding={1}>
+              <FileUploadProvider name="content" accept="video/*">
+                <FileController />
+              </FileUploadProvider>
+            </Box>
+          </Grid>
+          <Grid item sm={8}>
+            <Box marginBottom={2}>
               <Paper>
                 <Box padding={2}>
+                  <Typography variant="h4">Informasi konten</Typography>
                   <CommonFields />
+                  <DescriptionField />
                   <Submitter {...submitProps} />
                 </Box>
               </Paper>
-            </Grid>
-            <Grid sm={12} md={8} item>
-              <Box paddingX={2}>
-                <Paper>
-                  <Box padding={2}>
-                    <DescriptionField />
-                  </Box>
-                </Paper>
-              </Box>
-            </Grid>
+            </Box>
           </Grid>
-        </Box>
+        </Grid>
       </Box>
     </Provider>
   );

@@ -6,6 +6,7 @@ namespace App\GraphQL;
 
 use App\Models\Quiz;
 use App\Models\QuizMetadata;
+use App\Models\Video;
 use App\Shared\GraphqlResolver;
 use Illuminate\Database\Eloquent\Model;
 
@@ -97,4 +98,10 @@ class QuizResolver extends GraphqlResolver
     $args["type"] = $this->getType($fieldInfo->fieldDefinition->name);
     return parent::create($_, $args, $ctx, $fieldInfo);
   }
+
+  public function getByGrade($_, $gradeId){
+    $videos = Video::whereGradeId($gradeId)->get()->pluck("id");
+    return $_->whereIn("video_id", $videos);
+  }
+
 }

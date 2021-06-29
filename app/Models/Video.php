@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Constants\AppRole;
 use App\Utils\AttachMedia;
 use App\Utils\DurationHelper;
 use FFMpeg\FFProbe;
@@ -114,5 +115,18 @@ class Video extends Model implements HasMedia
    */
   public function getThumbnailAttribute() : string {
     return $this->getFirstMediaUrl("content", 'thumbnail');
+  }
+
+
+  public function getStudentProgressAttribute(){
+    if (auth()->user()->hasRole(AppRole::ADMIN)){
+      return Progress::all()->filter(function (Progress $progress){
+        $current = collect(\Safe\json_decode($progress->video_histories, true));
+        return $current->first(function ($item){
+          return $item['video_id'] == $this->id;
+        });
+      });
+    }
+    return [];
   }
 }

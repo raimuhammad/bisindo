@@ -18,6 +18,7 @@ export const Controller = () => {
         <Tab label="Video" value="VIDEO" />
         <Tab label="Tambah video" value="VIDEO-ADD" />
         <Tab label="Siswa" value="STUDENT" />
+        <Tab label="Periksa kuis" value="QUIS-CHECK" />
         <Tab label="Diskusi" value="DISCUSSION" />
       </Tabs>
     </Box>

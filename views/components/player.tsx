@@ -1,12 +1,10 @@
 /* eslint-disable */
-import { useAspectRatioBox } from "@hooks/use-aspect-ratio-box";
 import * as React from "react";
 import "@vime/core/themes/default.css";
 import "@vime/core/themes/light.css";
 import {
   Player as Vime,
   Video,
-  PlayerProps as P,
   Ui,
   Controls,
   ScrubberControl,
@@ -32,20 +30,18 @@ export const Player = ({
 }: PlayerProps) => {
   const p = {};
   const playerRef = useRef<HTMLVmPlayerElement | null>(null);
-  console.log(playerRef.current);
   useEffect(() => {
     if (playerRef.current) {
       if (play) {
         playerRef.current?.play();
       } else {
-        console.log("paused");
         playerRef.current?.pause();
       }
     }
   }, [play, playerRef]);
 
   return (
-    <div onClick={onContainerClick}>
+    <>
       <Vime
         playsinline
         ref={playerRef}
@@ -58,7 +54,7 @@ export const Player = ({
             : null
         }
       >
-        <Video style={{ height: 200 }} crossOrigin="">
+        <Video crossOrigin="">
           <source data-src={url} />
         </Video>
         <Ui>
@@ -74,6 +70,6 @@ export const Player = ({
           </Controls>
         </Ui>
       </Vime>
-    </div>
+    </>
   );
 };

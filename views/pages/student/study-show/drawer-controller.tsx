@@ -185,7 +185,12 @@ const LetterSequence = ({ appbarHeight, helper }: ChildProps) => {
         <Paper>
           <Box padding={2} alignItems="center" paddingBottom={1} display="flex">
             <Box flex={1}>
-              <ButtonGroup>
+              <Box paddingX={2}>
+                <Typography>
+                  Susun huruf menjadi kata berikut : {helper.image_matcher}
+                </Typography>
+              </Box>
+              <ButtonGroup size="small">
                 <Button onClick={onConfirm}>Periksa jawaban</Button>
                 <Button onClick={onShowHint} disabled={!hasConfirm}>
                   Tampilkan jawaban

@@ -105,10 +105,10 @@ const ItemContainer = (props: ItemState) => {
       draggable={!readOnly}
     >
       {imageMode ? (
-        <Image image={src} width={pos.width} height={pos.width} fill="blue" />
+        <Image image={src} width={pos.width} height={pos.width} fill="white" />
       ) : (
         <>
-          <Rect height={pos.width} width={pos.width} fill="red" />
+          <Rect height={pos.width} width={pos.width} fill="white" />
           <Text
             align="center"
             width={pos.width}

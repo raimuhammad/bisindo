@@ -2,16 +2,21 @@
 import * as React from "react";
 import { useState } from "react";
 import { useStudent } from "@providers/student-app-provider";
-import {Box, Button, List, ListItem, ListItemText, Typography} from "@material-ui/core";
+import {
+  Box,
+  Button,
+  List,
+  ListItem,
+  ListItemText,
+  Typography,
+  useTheme,
+} from "@material-ui/core";
 import { FormField } from "@components/form-field/form-field";
 import { useNodeDimension } from "@hooks/use-node-dimension";
 import { ArrowBack } from "@material-ui/icons";
+import { useNavigate } from "@hooks/use-navigate";
 
-type Props = {
-  height: number;
-};
-
-export const VideoSwitcher = ({ height }: Props) => {
+export const VideoSwitcher = () => {
   const [search, setSearch] = useState<string>("");
 
   const { videos } = useStudent();
@@ -23,20 +28,28 @@ export const VideoSwitcher = ({ height }: Props) => {
           .includes(search.toLowerCase());
       })
     : videos;
+  const { navigateHandler } = useNavigate();
 
-  const { nodeRef, dimension } = useNodeDimension();
-  const listHeight = height - dimension.height;
   return (
-    <Box display='flex' bgcolor="white" height={height} overflow="hidden">
-      {
-        items.map(item=>(
-          <Box key={item.id} width='256px'>
-            <Typography>
-              {item.title}
-            </Typography>
+    <Box flexWrap="wrap" width="100%" overflow="hidden" display="flex">
+      {items.map((item) => (
+        <Box
+          onClick={navigateHandler("/study/:videoId", { videoId: item.id })}
+          width="25%"
+          style={{ cursor: "pointer" }}
+          role="button"
+          key={item.id}
+        >
+          <Box position="relative" padding={1}>
+            <img
+              src={item.thumbnail}
+              style={{ width: "100%", borderRadius: 4 }}
+              alt=""
+            />
+            <Typography>{item.title}</Typography>
           </Box>
-        ))
-      }
+        </Box>
+      ))}
     </Box>
   );
 };

@@ -28,25 +28,34 @@ export const QuizList = () => {
     if (!helper.show) return <Book />;
     return helper.isRightAnswer ? <Check /> : <Close />;
   };
+
+  const getHandler = (item: QuizHelper) => {
+    if (!item.show) {
+      setPreparedQuiz(item);
+    }
+  };
+
   return (
-    <ListContent
-      data={quizes}
-      itemClassname={getClass}
-      onItemClick={setPreparedQuiz}
-      getLabel={(quiz: QuizHelper, index) => {
-        return (
-          <Box component="span" display="flex" justifyContent="space-between">
-            <Typography
-              style={{ display: "flex", alignItems: "center" }}
-              component="span"
-            >
-              {getIcon(quiz)} <span> Quis {index + 1} </span>
-            </Typography>
-            <Typography component="span">{quiz.durationText}</Typography>
-          </Box>
-        );
-      }}
-      title=""
-    />
+    <Box bgcolor="white">
+      <ListContent
+        data={quizes}
+        itemClassname={getClass}
+        onItemClick={getHandler}
+        getLabel={(quiz: QuizHelper, index) => {
+          return (
+            <Box component="span" display="flex" justifyContent="space-between">
+              <Typography
+                style={{ display: "flex", alignItems: "center" }}
+                component="span"
+              >
+                {getIcon(quiz)} <span> Quis {index + 1} </span>
+              </Typography>
+              <Typography component="span">{quiz.durationText}</Typography>
+            </Box>
+          );
+        }}
+        title=""
+      />
+    </Box>
   );
 };

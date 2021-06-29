@@ -3,6 +3,7 @@ import * as React from "react";
 import { useNavigate } from "@hooks/use-navigate";
 import { useState } from "react";
 import { useLogout } from "@providers/logout-provider";
+import { Home, ExitToApp } from "@material-ui/icons";
 
 const classrooms = [
   { path: "/dashboard", label: "Dashboard" },
@@ -64,13 +65,24 @@ const MenuContainer = ({
 
 export const Navigator = ({ height }: { height: number }) => {
   const { openDialog } = useLogout();
+  const { navigateHandler } = useNavigate();
 
   return (
-    <Box marginLeft="auto">
-      <MenuContainer title="Ruang kelas" items={classrooms} />
-      <MenuContainer title="Akun" items={account}>
-        <MenuItem onClick={openDialog}>Logout</MenuItem>
-      </MenuContainer>
+    <Box marginLeft="auto" color="white">
+      <Button
+        onClick={navigateHandler("/dashboard")}
+        style={{ color: "white" }}
+        startIcon={<Home />}
+      >
+        Dashboard
+      </Button>
+      <Button
+        style={{ color: "white" }}
+        onClick={openDialog}
+        startIcon={<ExitToApp />}
+      >
+        Logout
+      </Button>
     </Box>
   );
 };

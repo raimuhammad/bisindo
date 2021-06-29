@@ -1,0 +1,18 @@
+type Progress{
+  id: ID!
+  user_id: String!
+  user: User!
+  video_histories: String!
+  quiz_histories: String!
+}
+
+extend type Query{
+  studentProgress(user_id: ID! @where(key: "user_id")) : Progress @first
+}
+
+extend type Mutation {
+  updateVideoProgress(video_id: ID!) : Progress!
+  @field(resolver: "App\\GraphQL\\ProgressResolver@updateVideoProgress")
+  updateQuizProgress(quiz_id: ID!, correct: Boolean!) : Progress!
+  @field(resolver: "App\\GraphQL\\ProgressResolver@updateQuizProgress")
+}

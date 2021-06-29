@@ -14,7 +14,7 @@ type StudentGrade {
 }
 
 extend type Query {
-  progress: Progress @whereAuth(relation: "user") @find
+  progress: Progress @field(resolver: "App\\GraphQL\\ProgressResolver@find")
   studentGrades(
     grade_id: String @where
     search: String @builder(method: "App\\Models\\StudentGrade@search")

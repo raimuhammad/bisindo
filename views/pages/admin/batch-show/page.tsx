@@ -8,9 +8,10 @@ import { Controller } from "./controller";
 import { TABS } from "./provider";
 import { Content } from "./content";
 import { Student } from "./student";
-import { Discussion } from "./discussion";
 import { CreateVideo } from "./create-video";
 import { FormProvider } from "@service-provider/content";
+import { Page as QuizCheck } from "./quiz-check";
+import { Discussion } from "./discussion";
 
 const FormWrapper = FormProvider(CreateVideo);
 
@@ -22,8 +23,9 @@ const Form = () => {
 const CMAP: Record<TABS, React.ComponentType> = {
   VIDEO: Content,
   STUDENT: Student,
-  DISCUSSION: Discussion,
+  "QUIS-CHECK": QuizCheck,
   "VIDEO-ADD": Form,
+  DISCUSSION: Discussion,
 };
 
 const BatchShow = observer(() => {

@@ -6,13 +6,6 @@ import * as pages from "@pages/admin";
 
 export const routes: Route[] = [
   {
-    path: "/",
-    component: DefaultComponent,
-    icon: createElement(Home),
-    title: "Dashboard",
-    order: 0,
-  },
-  {
     path: "/batch/:id",
     component: pages.BatchShow,
     title: "Batch",
@@ -26,12 +19,6 @@ export const routes: Route[] = [
     order: 1,
   },
   {
-    path: "/quiz/:id/check",
-    component: DefaultComponent,
-    title: "Quiz",
-    order: 3,
-  },
-  {
     path: "/video/:id/quiz",
     component: DefaultComponent,
     title: "Quiz",
@@ -40,6 +27,12 @@ export const routes: Route[] = [
   {
     path: "/quiz/:videoId",
     component: pages.QuizPaginator,
+    title: "Quiz",
+    order: 5,
+  },
+  {
+    path: "/batch/quiz/check",
+    component: pages.CheckQuizPage,
     title: "Quiz",
     order: 5,
   },

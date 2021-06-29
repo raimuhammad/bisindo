@@ -7,5 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Discussion extends Model
 {
-    use HasFactory;
+  use HasFactory;
+
+  public function user(){
+    return $this->belongsTo(User::class);
+  }
+  public function replies(){
+    return $this->hasMany(DiscussionReply::class)->orderBy("created_at", "desc");
+  }
+
 }

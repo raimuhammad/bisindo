@@ -143,7 +143,6 @@ export const selectFieldFactory = (options: Option[]) => {
           };
 
     if (!form || noUseForm) {
-      console.log(controllerProps)
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       return <SelectField {...(controllerProps as Props)} />;

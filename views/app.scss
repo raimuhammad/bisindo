@@ -1,9 +1,13 @@
+@import "~@vime/core/themes/default.css";
+@import "~@vime/core/themes/light.css";
 * {
   padding: 0;
   margin: 0;
   font-family: "Roboto", serif;
 }
 
-body, #root, html{
+body,
+#root,
+html {
   background-color: #e5e5e5;
 }

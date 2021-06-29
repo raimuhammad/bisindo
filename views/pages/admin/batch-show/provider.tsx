@@ -7,7 +7,12 @@ import { RootStoreBaseQueries } from "@root-model";
 import { useNodeDimension } from "@hooks/use-node-dimension";
 import { useLayout } from "@root/layout";
 
-export type TABS = "DISCUSSION" | "STUDENT" | "VIDEO" | "VIDEO-ADD";
+export type TABS =
+  | "QUIS-CHECK"
+  | "STUDENT"
+  | "VIDEO"
+  | "VIDEO-ADD"
+  | "DISCUSSION";
 interface BatchShowPage extends UseBatchPage {
   activeTab: TABS;
   changeTab(t: TABS): void;
@@ -22,7 +27,7 @@ const Store = ({
   children,
   ...rest
 }: React.PropsWithChildren<UseBatchPage>) => {
-  const [activeTab, setActiveTab] = useState<TABS>("VIDEO");
+  const [activeTab, setActiveTab] = useState<TABS>("DISCUSSION");
   const {
     nodeRef,
     dimension: { height },

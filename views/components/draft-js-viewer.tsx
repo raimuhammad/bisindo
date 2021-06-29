@@ -19,10 +19,18 @@ const useClassses = makeStyles((theme) => ({
   },
 }));
 
+const parser = (data: any): any => {
+  const parse = JSON.parse(data);
+  if (typeof parse === "string") {
+    return parser(parse);
+  }
+  return parse;
+};
+
 export const DraftJsViewer = ({ data }: Props) => {
   const classes = useClassses();
   try {
-    const parsed = convertFromRaw(JSON.parse(data));
+    const parsed = convertFromRaw(parser(data));
     const state = EditorState.createWithContent(parsed);
     return (
       <div className={classes.root}>
@@ -36,6 +44,7 @@ export const DraftJsViewer = ({ data }: Props) => {
       </div>
     );
   } catch (e) {
+    console.log(e);
     return null;
   }
 };

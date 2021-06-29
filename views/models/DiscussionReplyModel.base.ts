@@ -27,7 +27,7 @@ export const DiscussionReplyModelBase = withTypedRefs<Refs>()(ModelBase
   .props({
     __typename: types.optional(types.literal("DiscussionReply"), "DiscussionReply"),
     id: types.identifier,
-    user_id: types.identifier,
+    user_id: types.union(types.undefined, types.string),
     user: types.union(types.undefined, MSTGQLRef(types.late((): any => UserModel))),
     discussion: types.union(types.undefined, MSTGQLRef(types.late((): any => DiscussionModel))),
     content: types.union(types.undefined, types.string),

@@ -6,8 +6,8 @@ import { Class, Home } from "@material-ui/icons";
 
 export const routes: Route[] = [
   {
-    path: "/",
-    component: DefaultComponent,
+    path: "/dashboard",
+    component: pages.Dashboard,
     icon: createElement(Home),
     title: "Dashboard",
     order: 0,

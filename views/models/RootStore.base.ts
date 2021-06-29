@@ -31,6 +31,12 @@ import { StudentGradePaginatorModel, StudentGradePaginatorModelType } from "./St
 import { studentGradePaginatorModelPrimitives, StudentGradePaginatorModelSelector } from "./StudentGradePaginatorModel.base"
 import { GradePaginatorModel, GradePaginatorModelType } from "./GradePaginatorModel"
 import { gradePaginatorModelPrimitives, GradePaginatorModelSelector } from "./GradePaginatorModel.base"
+import { DiscussionPaginatorModel, DiscussionPaginatorModelType } from "./DiscussionPaginatorModel"
+import { discussionPaginatorModelPrimitives, DiscussionPaginatorModelSelector } from "./DiscussionPaginatorModel.base"
+import { DiscussionModel, DiscussionModelType } from "./DiscussionModel"
+import { discussionModelPrimitives, DiscussionModelSelector } from "./DiscussionModel.base"
+import { DiscussionReplyModel, DiscussionReplyModelType } from "./DiscussionReplyModel"
+import { discussionReplyModelPrimitives, DiscussionReplyModelSelector } from "./DiscussionReplyModel.base"
 import { SimplePaginatorInfoModel, SimplePaginatorInfoModelType } from "./SimplePaginatorInfoModel"
 import { simplePaginatorInfoModelPrimitives, SimplePaginatorInfoModelSelector } from "./SimplePaginatorInfoModel.base"
 import { PageInfoModel, PageInfoModelType } from "./PageInfoModel"
@@ -75,7 +81,9 @@ type Refs = {
   progresses: ObservableMap<string, ProgressModelType>,
   quizzes: ObservableMap<string, QuizModelType>,
   multipleChoises: ObservableMap<string, MultipleChoiseModelType>,
-  quizAnswers: ObservableMap<string, QuizAnswerModelType>
+  quizAnswers: ObservableMap<string, QuizAnswerModelType>,
+  discussions: ObservableMap<string, DiscussionModelType>,
+  discussionReplies: ObservableMap<string, DiscussionReplyModelType>
 }
 
 
@@ -87,18 +95,24 @@ queryAuth="queryAuth",
 queryVideo="queryVideo",
 queryQuizAnswers="queryQuizAnswers",
 queryIsUniqueEmail="queryIsUniqueEmail",
+queryUserByGrade="queryUserByGrade",
+queryVideoByGrade="queryVideoByGrade",
+queryQuizByGrade="queryQuizByGrade",
+queryProgressByGrade="queryProgressByGrade",
 queryGradeAll="queryGradeAll",
 queryGradeById="queryGradeById",
 queryGradeQuizes="queryGradeQuizes",
 queryProgress="queryProgress",
 queryGradeByAuth="queryGradeByAuth",
+queryStudentProgress="queryStudentProgress",
 queryVideos="queryVideos",
 queryGetVideoByGrade="queryGetVideoByGrade",
 queryQuizes="queryQuizes",
 queryStudents="queryStudents",
 queryGrades="queryGrades",
 queryGetStudentByGrade="queryGetStudentByGrade",
-queryStudentGrades="queryStudentGrades"
+queryStudentGrades="queryStudentGrades",
+queryDiscussion="queryDiscussion"
 }
 export enum RootStoreBaseMutations {
 mutateLogin="mutateLogin",
@@ -118,7 +132,15 @@ mutateSentInvitation="mutateSentInvitation",
 mutateUserEdit="mutateUserEdit",
 mutateUserActivation="mutateUserActivation",
 mutateGrade="mutateGrade",
-mutateGradeEdit="mutateGradeEdit"
+mutateGradeEdit="mutateGradeEdit",
+mutateUpdateVideoProgress="mutateUpdateVideoProgress",
+mutateUpdateQuizProgress="mutateUpdateQuizProgress",
+mutateDiscussion="mutateDiscussion",
+mutateDiscussionReply="mutateDiscussionReply",
+mutateUpdateDiscussion="mutateUpdateDiscussion",
+mutateUpdateDiscussionReply="mutateUpdateDiscussionReply",
+mutateDeleteDiscussion="mutateDeleteDiscussion",
+mutateDeleteDiscussionReply="mutateDeleteDiscussionReply"
 }
 
 /**
@@ -126,7 +148,7 @@ mutateGradeEdit="mutateGradeEdit"
 */
 export const RootStoreBase = withTypedRefs<Refs>()(MSTGQLStore
   .named("RootStore")
-  .extend(configureStoreMixin([['User', () => UserModel], ['Video', () => VideoModel], ['Grade', () => GradeModel], ['StudentGrade', () => StudentGradeModel], ['Progress', () => ProgressModel], ['Quiz', () => QuizModel], ['MultipleChoise', () => MultipleChoiseModel], ['QuizAnswer', () => QuizAnswerModel], ['VideoPaginator', () => VideoPaginatorModel], ['PaginatorInfo', () => PaginatorInfoModel], ['QuizPaginator', () => QuizPaginatorModel], ['StudentGradePaginator', () => StudentGradePaginatorModel], ['GradePaginator', () => GradePaginatorModel], ['SimplePaginatorInfo', () => SimplePaginatorInfoModel], ['PageInfo', () => PageInfoModel]], ['User', 'Video', 'Grade', 'StudentGrade', 'Progress', 'Quiz', 'MultipleChoise', 'QuizAnswer'], "js"))
+  .extend(configureStoreMixin([['User', () => UserModel], ['Video', () => VideoModel], ['Grade', () => GradeModel], ['StudentGrade', () => StudentGradeModel], ['Progress', () => ProgressModel], ['Quiz', () => QuizModel], ['MultipleChoise', () => MultipleChoiseModel], ['QuizAnswer', () => QuizAnswerModel], ['VideoPaginator', () => VideoPaginatorModel], ['PaginatorInfo', () => PaginatorInfoModel], ['QuizPaginator', () => QuizPaginatorModel], ['StudentGradePaginator', () => StudentGradePaginatorModel], ['GradePaginator', () => GradePaginatorModel], ['DiscussionPaginator', () => DiscussionPaginatorModel], ['Discussion', () => DiscussionModel], ['DiscussionReply', () => DiscussionReplyModel], ['SimplePaginatorInfo', () => SimplePaginatorInfoModel], ['PageInfo', () => PageInfoModel]], ['User', 'Video', 'Grade', 'StudentGrade', 'Progress', 'Quiz', 'MultipleChoise', 'QuizAnswer', 'Discussion', 'DiscussionReply'], "js"))
   .props({
     users: types.optional(types.map(types.late((): any => UserModel)), {}),
     videos: types.optional(types.map(types.late((): any => VideoModel)), {}),
@@ -135,7 +157,9 @@ export const RootStoreBase = withTypedRefs<Refs>()(MSTGQLStore
     progresses: types.optional(types.map(types.late((): any => ProgressModel)), {}),
     quizzes: types.optional(types.map(types.late((): any => QuizModel)), {}),
     multipleChoises: types.optional(types.map(types.late((): any => MultipleChoiseModel)), {}),
-    quizAnswers: types.optional(types.map(types.late((): any => QuizAnswerModel)), {})
+    quizAnswers: types.optional(types.map(types.late((): any => QuizAnswerModel)), {}),
+    discussions: types.optional(types.map(types.late((): any => DiscussionModel)), {}),
+    discussionReplies: types.optional(types.map(types.late((): any => DiscussionReplyModel)), {})
   })
   .actions(self => ({
     queryAuth(variables?: {  }, resultSelector: string | ((qb: UserModelSelector) => UserModelSelector) = userModelPrimitives.toString(), options: QueryOptions = {}) {
@@ -155,6 +179,26 @@ export const RootStoreBase = withTypedRefs<Refs>()(MSTGQLStore
     },
     queryIsUniqueEmail(variables: { email: string }, options: QueryOptions = {}) {
       return self.query<{ isUniqueEmail: boolean }>(`query isUniqueEmail($email: String!) { isUniqueEmail(email: $email) }`, variables, options)
+    },
+    queryUserByGrade(variables: { gradeId: string }, resultSelector: string | ((qb: UserModelSelector) => UserModelSelector) = userModelPrimitives.toString(), options: QueryOptions = {}) {
+      return self.query<{ userByGrade: UserModelType[]}>(`query userByGrade($gradeId: ID!) { userByGrade(grade_id: $gradeId) {
+        ${typeof resultSelector === "function" ? resultSelector(new UserModelSelector()).toString() : resultSelector}
+      } }`, variables, options)
+    },
+    queryVideoByGrade(variables: { gradeId: string }, resultSelector: string | ((qb: VideoModelSelector) => VideoModelSelector) = videoModelPrimitives.toString(), options: QueryOptions = {}) {
+      return self.query<{ videoByGrade: VideoModelType[]}>(`query videoByGrade($gradeId: ID!) { videoByGrade(grade_id: $gradeId) {
+        ${typeof resultSelector === "function" ? resultSelector(new VideoModelSelector()).toString() : resultSelector}
+      } }`, variables, options)
+    },
+    queryQuizByGrade(variables: { gradeId: string }, resultSelector: string | ((qb: QuizModelSelector) => QuizModelSelector) = quizModelPrimitives.toString(), options: QueryOptions = {}) {
+      return self.query<{ quizByGrade: QuizModelType[]}>(`query quizByGrade($gradeId: ID!) { quizByGrade(grade_id: $gradeId) {
+        ${typeof resultSelector === "function" ? resultSelector(new QuizModelSelector()).toString() : resultSelector}
+      } }`, variables, options)
+    },
+    queryProgressByGrade(variables: { gradeId: string }, resultSelector: string | ((qb: ProgressModelSelector) => ProgressModelSelector) = progressModelPrimitives.toString(), options: QueryOptions = {}) {
+      return self.query<{ progressByGrade: ProgressModelType[]}>(`query progressByGrade($gradeId: ID!) { progressByGrade(grade_id: $gradeId) {
+        ${typeof resultSelector === "function" ? resultSelector(new ProgressModelSelector()).toString() : resultSelector}
+      } }`, variables, options)
     },
     queryGradeAll(variables?: {  }, resultSelector: string | ((qb: GradeModelSelector) => GradeModelSelector) = gradeModelPrimitives.toString(), options: QueryOptions = {}) {
       return self.query<{ gradeAll: GradeModelType[]}>(`query gradeAll { gradeAll {
@@ -179,6 +223,11 @@ export const RootStoreBase = withTypedRefs<Refs>()(MSTGQLStore
     queryGradeByAuth(variables?: {  }, resultSelector: string | ((qb: StudentGradeModelSelector) => StudentGradeModelSelector) = studentGradeModelPrimitives.toString(), options: QueryOptions = {}) {
       return self.query<{ gradeByAuth: StudentGradeModelType}>(`query gradeByAuth { gradeByAuth {
         ${typeof resultSelector === "function" ? resultSelector(new StudentGradeModelSelector()).toString() : resultSelector}
+      } }`, variables, options)
+    },
+    queryStudentProgress(variables: { userId: string }, resultSelector: string | ((qb: ProgressModelSelector) => ProgressModelSelector) = progressModelPrimitives.toString(), options: QueryOptions = {}) {
+      return self.query<{ studentProgress: ProgressModelType}>(`query studentProgress($userId: ID!) { studentProgress(user_id: $userId) {
+        ${typeof resultSelector === "function" ? resultSelector(new ProgressModelSelector()).toString() : resultSelector}
       } }`, variables, options)
     },
     queryVideos(variables: { gradeId?: string, search?: string, first?: number, page?: number }, resultSelector: string | ((qb: VideoPaginatorModelSelector) => VideoPaginatorModelSelector) = videoPaginatorModelPrimitives.toString(), options: QueryOptions = {}) {
@@ -214,6 +263,11 @@ export const RootStoreBase = withTypedRefs<Refs>()(MSTGQLStore
     queryStudentGrades(variables: { gradeId?: string, search?: string, first?: number, page?: number }, resultSelector: string | ((qb: StudentGradePaginatorModelSelector) => StudentGradePaginatorModelSelector) = studentGradePaginatorModelPrimitives.toString(), options: QueryOptions = {}) {
       return self.query<{ studentGrades: StudentGradePaginatorModelType}>(`query studentGrades($gradeId: String, $search: String, $first: Int, $page: Int) { studentGrades(grade_id: $gradeId, search: $search, first: $first, page: $page) {
         ${typeof resultSelector === "function" ? resultSelector(new StudentGradePaginatorModelSelector()).toString() : resultSelector}
+      } }`, variables, options)
+    },
+    queryDiscussion(variables: { gradeId: string, first?: number, page?: number }, resultSelector: string | ((qb: DiscussionPaginatorModelSelector) => DiscussionPaginatorModelSelector) = discussionPaginatorModelPrimitives.toString(), options: QueryOptions = {}) {
+      return self.query<{ discussion: DiscussionPaginatorModelType}>(`query discussion($gradeId: ID!, $first: Int, $page: Int) { discussion(grade_id: $gradeId, first: $first, page: $page) {
+        ${typeof resultSelector === "function" ? resultSelector(new DiscussionPaginatorModelSelector()).toString() : resultSelector}
       } }`, variables, options)
     },
     mutateLogin(variables: { email: string, password: string }, optimisticUpdate?: () => void) {
@@ -294,6 +348,46 @@ export const RootStoreBase = withTypedRefs<Refs>()(MSTGQLStore
     mutateGradeEdit(variables: { id: string, name?: string }, resultSelector: string | ((qb: GradeModelSelector) => GradeModelSelector) = gradeModelPrimitives.toString(), optimisticUpdate?: () => void) {
       return self.mutate<{ gradeEdit: GradeModelType}>(`mutation gradeEdit($id: ID!, $name: String) { gradeEdit(id: $id, name: $name) {
         ${typeof resultSelector === "function" ? resultSelector(new GradeModelSelector()).toString() : resultSelector}
+      } }`, variables, optimisticUpdate)
+    },
+    mutateUpdateVideoProgress(variables: { videoId: string }, resultSelector: string | ((qb: ProgressModelSelector) => ProgressModelSelector) = progressModelPrimitives.toString(), optimisticUpdate?: () => void) {
+      return self.mutate<{ updateVideoProgress: ProgressModelType}>(`mutation updateVideoProgress($videoId: ID!) { updateVideoProgress(video_id: $videoId) {
+        ${typeof resultSelector === "function" ? resultSelector(new ProgressModelSelector()).toString() : resultSelector}
+      } }`, variables, optimisticUpdate)
+    },
+    mutateUpdateQuizProgress(variables: { quizId: string, correct: boolean }, resultSelector: string | ((qb: ProgressModelSelector) => ProgressModelSelector) = progressModelPrimitives.toString(), optimisticUpdate?: () => void) {
+      return self.mutate<{ updateQuizProgress: ProgressModelType}>(`mutation updateQuizProgress($quizId: ID!, $correct: Boolean!) { updateQuizProgress(quiz_id: $quizId, correct: $correct) {
+        ${typeof resultSelector === "function" ? resultSelector(new ProgressModelSelector()).toString() : resultSelector}
+      } }`, variables, optimisticUpdate)
+    },
+    mutateDiscussion(variables: { gradeId: string, userId: string, content: string }, resultSelector: string | ((qb: DiscussionModelSelector) => DiscussionModelSelector) = discussionModelPrimitives.toString(), optimisticUpdate?: () => void) {
+      return self.mutate<{ discussion: DiscussionModelType}>(`mutation discussion($gradeId: ID!, $userId: ID!, $content: String!) { discussion(grade_id: $gradeId, user_id: $userId, content: $content) {
+        ${typeof resultSelector === "function" ? resultSelector(new DiscussionModelSelector()).toString() : resultSelector}
+      } }`, variables, optimisticUpdate)
+    },
+    mutateDiscussionReply(variables: { userId: string, discussionId: string, content: string }, resultSelector: string | ((qb: DiscussionReplyModelSelector) => DiscussionReplyModelSelector) = discussionReplyModelPrimitives.toString(), optimisticUpdate?: () => void) {
+      return self.mutate<{ discussionReply: DiscussionReplyModelType}>(`mutation discussionReply($userId: ID!, $discussionId: ID!, $content: String!) { discussionReply(user_id: $userId, discussion_id: $discussionId, content: $content) {
+        ${typeof resultSelector === "function" ? resultSelector(new DiscussionReplyModelSelector()).toString() : resultSelector}
+      } }`, variables, optimisticUpdate)
+    },
+    mutateUpdateDiscussion(variables: { id: string, content: string }, resultSelector: string | ((qb: DiscussionModelSelector) => DiscussionModelSelector) = discussionModelPrimitives.toString(), optimisticUpdate?: () => void) {
+      return self.mutate<{ updateDiscussion: DiscussionModelType}>(`mutation updateDiscussion($id: ID!, $content: String!) { updateDiscussion(id: $id, content: $content) {
+        ${typeof resultSelector === "function" ? resultSelector(new DiscussionModelSelector()).toString() : resultSelector}
+      } }`, variables, optimisticUpdate)
+    },
+    mutateUpdateDiscussionReply(variables: { id: string, content: string }, resultSelector: string | ((qb: DiscussionReplyModelSelector) => DiscussionReplyModelSelector) = discussionReplyModelPrimitives.toString(), optimisticUpdate?: () => void) {
+      return self.mutate<{ updateDiscussionReply: DiscussionReplyModelType}>(`mutation updateDiscussionReply($id: ID!, $content: String!) { updateDiscussionReply(id: $id, content: $content) {
+        ${typeof resultSelector === "function" ? resultSelector(new DiscussionReplyModelSelector()).toString() : resultSelector}
+      } }`, variables, optimisticUpdate)
+    },
+    mutateDeleteDiscussion(variables: { id: string }, resultSelector: string | ((qb: DiscussionModelSelector) => DiscussionModelSelector) = discussionModelPrimitives.toString(), optimisticUpdate?: () => void) {
+      return self.mutate<{ deleteDiscussion: DiscussionModelType}>(`mutation deleteDiscussion($id: ID!) { deleteDiscussion(id: $id) {
+        ${typeof resultSelector === "function" ? resultSelector(new DiscussionModelSelector()).toString() : resultSelector}
+      } }`, variables, optimisticUpdate)
+    },
+    mutateDeleteDiscussionReply(variables: { id: string }, resultSelector: string | ((qb: DiscussionReplyModelSelector) => DiscussionReplyModelSelector) = discussionReplyModelPrimitives.toString(), optimisticUpdate?: () => void) {
+      return self.mutate<{ deleteDiscussionReply: DiscussionReplyModelType}>(`mutation deleteDiscussionReply($id: ID!) { deleteDiscussionReply(id: $id) {
+        ${typeof resultSelector === "function" ? resultSelector(new DiscussionReplyModelSelector()).toString() : resultSelector}
       } }`, variables, optimisticUpdate)
     },
   })))

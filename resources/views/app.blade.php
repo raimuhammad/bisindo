@@ -7,7 +7,14 @@
     {{env("APP_NAME")}}
   </title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
-
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@vime/core@^5/themes/default.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@vime/core@^5/themes/light.css"
+  />
 @if(env("MIX_BUILD", true))
     <link href="{{mix("css/app.css")}}" rel="stylesheet">
   @endif
