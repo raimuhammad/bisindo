@@ -1,6 +1,6 @@
 import { useFormContext } from "react-hook-form";
 import * as React from "react";
-import { Box, FormLabel, Slider, Typography } from "@material-ui/core";
+import { Box, FormLabel, Slider, Typography } from "@mui/material";
 import { useToggle } from "@hooks/use-toggle";
 import { VideoModelType } from "@root/models";
 import { Player } from "@components/player";

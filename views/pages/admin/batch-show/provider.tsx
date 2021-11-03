@@ -27,7 +27,7 @@ const Store = ({
   children,
   ...rest
 }: React.PropsWithChildren<UseBatchPage>) => {
-  const [activeTab, setActiveTab] = useState<TABS>("DISCUSSION");
+  const [activeTab, setActiveTab] = useState<TABS>("VIDEO");
   const {
     nodeRef,
     dimension: { height },

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import { FileUploadProvider } from "@components/form-field/file-upload-field";
-import { Box, Button, Grid, Typography } from "@material-ui/core";
+import { Box, Button, Grid, Typography } from "@mui/material";
 import { AdditionalImage } from "./additional-image";
 import { OptionsField } from "./options-field";
 import { FormField } from "@components/form-field/form-field";

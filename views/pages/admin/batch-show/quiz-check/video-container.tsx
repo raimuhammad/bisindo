@@ -8,7 +8,7 @@ import {
   TableHead,
   TableRow,
   Typography,
-} from "@material-ui/core";
+} from "@mui/material";
 import { QuizModelType, VideoModelType } from "@root/models";
 import { useQuizCheck } from "./data-provider";
 

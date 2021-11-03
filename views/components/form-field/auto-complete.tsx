@@ -8,8 +8,8 @@ import {
   UseControllerReturn,
   useFormContext,
 } from "react-hook-form";
-import { Autocomplete } from "@material-ui/lab";
-import { TextField } from "@material-ui/core";
+import { Autocomplete } from '@mui/material';
+import { TextField } from "@mui/material";
 
 type QueryOptions = {
   query: RootStoreBaseQueries;
@@ -129,7 +129,7 @@ class Field extends React.Component<FieldProps, State> {
         onChange={this.onChange}
         value={this.getValue()}
         getOptionLabel={this.getOptionLabel}
-        getOptionSelected={this.getOptionValue}
+        isOptionEqualToValue={this.getOptionValue}
         getOptionDisabled={(opt) => opt.value === "__disabled__"}
       />
     );

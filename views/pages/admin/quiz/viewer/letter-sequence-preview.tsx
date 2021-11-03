@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useLayout } from "@root/layout";
 import { useNodeDimension } from "@hooks/use-node-dimension";
-import { Box, Typography, useTheme } from "@material-ui/core";
+import { Box, Typography, useTheme } from "@mui/material";
 import { LetterSequence } from "@components/quiz/letter-sequence";
 import { QuizModelType } from "@root/models";
 

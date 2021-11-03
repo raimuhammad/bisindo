@@ -1,10 +1,9 @@
 import * as pages from "@student-page";
-import { Route } from "@root/routes/type";
-import { DefaultComponent } from "@root/routes/default-component";
+import { DefaultComponent } from "./default-component";
 import { createElement } from "react";
-import { Class, Home } from "@material-ui/icons";
+import { Class, Home } from "@mui/icons-material";
 
-export const routes: Route[] = [
+export const routes: RouteDefinition[] = [
   {
     path: "/dashboard",
     component: pages.Dashboard,
@@ -39,4 +38,14 @@ export const routes: Route[] = [
     title: "",
     order: 3,
   },
-];
+].map(
+  (item): RouteDefinition =>
+    (({
+      ...item,
+      route: item.path,
+      noCollapse: true,
+      key: item.path,
+      type: "",
+      name: item.title,
+    } as unknown) as RouteDefinition)
+);

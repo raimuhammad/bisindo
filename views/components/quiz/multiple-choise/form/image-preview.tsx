@@ -1,6 +1,6 @@
 import { useFileUpload } from "@components/form-field/file-upload-field";
-import { IconButton, Tooltip } from "@material-ui/core";
-import { Delete } from "@material-ui/icons";
+import { IconButton, Tooltip } from "@mui/material";
+import { Delete } from "@mui/icons-material";
 import * as React from "react";
 
 export const ImagePreview = () => {

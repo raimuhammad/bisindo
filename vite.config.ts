@@ -1,34 +1,31 @@
-import reactRefresh from "@vitejs/plugin-react-refresh";
-import aliases from "./vite.alias.config";
+import react from "@vitejs/plugin-react";
 import { readFileSync } from "fs";
 import { resolve } from "path";
+import tsconfig from "vite-tsconfig-paths";
 
 const homedir = process.env["HOME"] ?? "";
-const host = "bisindo.d";
+const host = "bisindo.test";
 
 export default ({ command }: any) => ({
-  base: command === "serve" ? "" : "/build/",
-  publicDir: "fake_dir_so_nothing_gets_copied",
   build: {
     manifest: true,
-    outDir: "public/build",
+    outDir: "vite-build",
     rollupOptions: {
       input: "views/loader.tsx",
     },
   },
-  plugins: [reactRefresh()],
+  plugins: [tsconfig(), react()],
   optimizeDeps: {
-    include: ["voca", "lodash", "mobx", "mobx-state-tree", "moment"],
-  },
-  esbuild: {
-    keepNames: true,
-  },
-  resolve: {
-    alias: aliases,
+    include: ["react", "voca", "lodash", "mobx", "mobx-state-tree", "moment"],
   },
   server: {
     port: "3000",
-    host: "bisindo.d",
+    host: "bisindo.test",
+    hmr: {
+      protocol: "wss",
+      host: "bisindo.test",
+      port: 3000,
+    },
     https: {
       key: readFileSync(
         resolve(homedir, `.valet/Certificates/${host}.key`)

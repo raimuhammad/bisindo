@@ -1,6 +1,6 @@
 import { useStudentGradePaginator } from "@service-provider/student-grade/paginator";
 import { UsePaginator } from "@hooks/use-paginator";
-import { Pagination } from "@material-ui/lab";
+import { Pagination } from '@mui/material';
 import * as React from "react";
 
 export const PageController = () => {

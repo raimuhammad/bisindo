@@ -1,5 +1,5 @@
 import * as React from "react";
-import { AppBar, Box, Container, Tab, Tabs } from "@material-ui/core";
+import { AppBar, Box, Container, Tab, Tabs } from "@mui/material";
 import { observer } from "mobx-react";
 import { pageStore } from "./store";
 

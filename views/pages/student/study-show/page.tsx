@@ -1,16 +1,8 @@
 import * as React from "react";
 import { ProviderWrapper } from "@utils/provider-wrapper";
 import { StudyProvider } from "@providers/study-provider";
-import {
-  Box,
-  Container,
-  Divider,
-  Grid,
-  makeStyles,
-  Theme,
-  Typography,
-  useTheme,
-} from "@material-ui/core";
+import { Box, Container, Divider, Grid, Theme, Typography, useTheme } from "@mui/material";
+import makeStyles from '@mui/styles/makeStyles';
 import { useVideoPage } from "@providers/study-provider/provider";
 import { useEffect } from "react";
 import { useStudent } from "@providers/student-app-provider";

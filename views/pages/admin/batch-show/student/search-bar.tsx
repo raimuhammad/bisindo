@@ -8,7 +8,7 @@ import {
   Divider,
   Toolbar,
   Typography,
-} from "@material-ui/core";
+} from "@mui/material";
 import { SearchForm } from "@components/search-form";
 import * as React from "react";
 import { useToggle } from "@hooks/use-toggle";

@@ -12,7 +12,7 @@ import {
   Toolbar,
   Typography,
   useTheme,
-} from "@material-ui/core";
+} from "@mui/material";
 import { QuizHelper, useVideoPage } from "@providers/study-provider/provider";
 import { QuizType } from "@root/models";
 import { useNodeDimension } from "@hooks/use-node-dimension";
@@ -43,7 +43,7 @@ const MultipleChoiceController = ({ helper }: ChildProps) => {
         overflow: "auto",
       }}
     >
-      <Grid container justify="center">
+      <Grid container justifyContent="center">
         <Grid item sm={12} md={8}>
           <Box display="flex" alignItems="center">
             <MultipleChoiceViewer

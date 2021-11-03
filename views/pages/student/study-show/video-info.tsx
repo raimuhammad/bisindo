@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box, Divider, Paper, Typography } from "@material-ui/core";
+import { Box, Divider, Paper, Typography } from "@mui/material";
 import { DraftJsViewer } from "@components/draft-js-viewer";
 import { useVideoPage } from "@providers/study-provider/provider";
 

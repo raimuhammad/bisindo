@@ -7,10 +7,10 @@ import {
   ListItemIcon,
   ListItemText,
   Button,
-} from "@material-ui/core";
+} from "@mui/material";
 import { Route } from "@root/routes/type";
 import { useNavigate } from "@hooks/use-navigate";
-import { ExitToApp } from "@material-ui/icons";
+import { ExitToApp } from "@mui/icons-material";
 import { useLogout } from "@providers/logout-provider";
 
 type Props = {

@@ -3,7 +3,7 @@ import { useStore } from "@pages/admin/batch-show/provider";
 import { useToggle } from "@hooks/use-toggle";
 import * as React from "react";
 import { Player } from "@components/player";
-import { Box, Button, ButtonGroup, Paper, Typography } from "@material-ui/core";
+import { Box, Button, ButtonGroup, Paper, Typography } from "@mui/material";
 import { DraftJsViewer } from "@components/draft-js-viewer";
 import { useAction } from "./utils";
 import { useNavigate } from "@hooks/use-navigate";

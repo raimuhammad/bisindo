@@ -1,5 +1,5 @@
 import * as React from "react";
-import { AppBar, Box, LinearProgress, Toolbar } from "@material-ui/core";
+import { AppBar, Box, LinearProgress, Toolbar } from "@mui/material";
 import { SearchForm } from "@components/search-form";
 import { Provider, useStore } from "./provider";
 import { observer } from "mobx-react";

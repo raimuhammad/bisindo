@@ -8,7 +8,7 @@ import {
   Grid,
   Paper,
   Typography,
-} from "@material-ui/core";
+} from "@mui/material";
 import * as React from "react";
 import { VideoContainer } from "./video-container";
 import { VideoList } from "./video-list";
@@ -63,20 +63,20 @@ export const TabContent = observer(() => {
     <Ctx.Provider value={ctx}>
       <EditForm />
       <DeleteForm />
-      <Box height={contentHeight} overflow="auto">
-        <Grid justify='center' container>
-          {model.video_count ? (
-            <Grid item component={Paper} sm={12} md={3}>
-              <VideoList />
-            </Grid>
-          ) : null}
-          <Grid item sm={12} md={!isEmpty ? 9 : 12}>
-            <Box minHeight={contentHeight}>
-              {selected ? <VideoContainer model={selected} /> : <Informer />}
-            </Box>
-          </Grid>
-        </Grid>
-      </Box>
+      <VideoList />
+      {/*<Box height={contentHeight} overflow="auto">*/}
+      {/*  <Grid justifyContent="center" container>*/}
+      {/*    {model.video_count ? (*/}
+      {/*      <Grid item component={Paper} sm={12} md={3}>*/}
+      {/*      </Grid>*/}
+      {/*    ) : null}*/}
+      {/*    <Grid item sm={12} md={!isEmpty ? 9 : 12}>*/}
+      {/*      <Box minHeight={contentHeight}>*/}
+      {/*        {selected ? <VideoContainer model={selected} /> : <Informer />}*/}
+      {/*      </Box>*/}
+      {/*    </Grid>*/}
+      {/*  </Grid>*/}
+      {/*</Box>*/}
     </Ctx.Provider>
   );
 });

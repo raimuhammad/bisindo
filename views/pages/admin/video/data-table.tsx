@@ -3,7 +3,6 @@ import { useStore, Action } from "./provider";
 import {
   Box,
   IconButton,
-  makeStyles,
   Menu,
   MenuItem,
   Paper,
@@ -14,11 +13,12 @@ import {
   TableHead,
   TableRow,
   Typography,
-} from "@material-ui/core";
-import { Pagination } from "@material-ui/lab";
+} from "@mui/material";
+import makeStyles from '@mui/styles/makeStyles';
+import { Pagination } from '@mui/material';
 import { VideoModelType } from "@root/models";
 import { useNodeDimension } from "@hooks/use-node-dimension";
-import { Apps } from "@material-ui/icons";
+import { Apps } from "@mui/icons-material";
 
 const useMenuClass = makeStyles(() => ({
   paper: {
@@ -64,34 +64,32 @@ const RowMenu = ({ model }: { model: VideoModelType }) => {
 
   const classes = useMenuClass();
 
-  return (
-    <>
-      <IconButton onClick={handleClick} className={classes.icon}>
-        <Apps />
-      </IconButton>
-      <Menu
-        style={{ width: 500, padding: 0 }}
-        MenuListProps={{ className: classes.menu }}
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-      >
-        <div style={{ padding: 0 }}>
-          <img alt="img" style={{ width: 350 }} src={thumbnail} />
-        </div>
-        {buttons.map((item) => (
-          <MenuItem
-            key={item.action}
-            className={classes.menuItem}
-            onClick={handler(item.action as Action)}
-          >
-            {item.title}
-          </MenuItem>
-        ))}
-      </Menu>
-    </>
-  );
+  return <>
+    <IconButton onClick={handleClick} className={classes.icon} size="large">
+      <Apps />
+    </IconButton>
+    <Menu
+      style={{ width: 500, padding: 0 }}
+      MenuListProps={{ className: classes.menu }}
+      anchorEl={anchorEl}
+      keepMounted
+      open={Boolean(anchorEl)}
+      onClose={handleClose}
+    >
+      <div style={{ padding: 0 }}>
+        <img alt="img" style={{ width: 350 }} src={thumbnail} />
+      </div>
+      {buttons.map((item) => (
+        <MenuItem
+          key={item.action}
+          className={classes.menuItem}
+          onClick={handler(item.action as Action)}
+        >
+          {item.title}
+        </MenuItem>
+      ))}
+    </Menu>
+  </>;
 };
 
 const Row = ({ model }: { model: VideoModelType }) => {

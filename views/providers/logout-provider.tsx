@@ -7,7 +7,7 @@ import {
   DialogContent,
   DialogTitle,
   Typography,
-} from "@material-ui/core";
+} from "@mui/material";
 import { useQuery } from "@root/models";
 import { LoadingButton } from "@components/loading-button";
 import { useEffect } from "react";

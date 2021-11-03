@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useStore } from "./provider";
-import { Box, Button } from "@material-ui/core";
-import { Add, ArrowBack } from "@material-ui/icons";
+import { Box, Button } from "@mui/material";
+import { Add, ArrowBack } from "@mui/icons-material";
 import { selectFieldFactory } from "@components/form-field/select-field";
 import { QuizType } from "@root/models";
 import { FormNode } from "./form-node";

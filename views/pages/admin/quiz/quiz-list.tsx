@@ -8,13 +8,13 @@ import {
   ListItem,
   ListItemSecondaryAction,
   ListItemText,
-  makeStyles,
   Theme,
   Tooltip,
-} from "@material-ui/core";
+} from "@mui/material";
+import makeStyles from '@mui/styles/makeStyles';
 import { QuizModelType } from "@root/models";
 import { getDurationTimeText } from "@utils/get-duration-time";
-import { Delete, Book } from "@material-ui/icons";
+import { Delete, Book } from "@mui/icons-material";
 import { useStore } from "./provider";
 
 const useClasses = makeStyles((theme: Theme) => ({

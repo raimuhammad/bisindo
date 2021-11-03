@@ -3,8 +3,8 @@ import { FormProvider } from "react-hook-form";
 import { TextEditor } from "@components/form-field/text-editor-field";
 import { LoadingButton } from "@components/loading-button";
 import { useDiscussion } from "./provider";
-import { Save } from "@material-ui/icons";
-import { Box, Button, Collapse } from "@material-ui/core";
+import { Save } from "@mui/icons-material";
+import { Box, Button, Collapse } from "@mui/material";
 import { observer } from "mobx-react";
 
 type Props = {

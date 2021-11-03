@@ -1,6 +1,6 @@
 import React from "react";
-import { AppBar, Box, Button, Toolbar, Typography } from "@material-ui/core";
-import { Lock } from "@material-ui/icons";
+import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
+import { Lock } from "@mui/icons-material";
 import { ProviderWrapper } from "@utils/provider-wrapper";
 import { LayoutProvider, useLayout } from "../layout-provider";
 

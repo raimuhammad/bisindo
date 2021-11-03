@@ -5,6 +5,8 @@ import { AppProvider as App } from "./providers/app-provider";
 import * as AppTheme from "./layout/app-theme";
 import { SnackbarProvider } from "notistack";
 import "./app.scss";
+import "@vime/core/themes/default.css";
+import "@vime/core/themes/light.css";
 
 render(
   <BrowserRouter>

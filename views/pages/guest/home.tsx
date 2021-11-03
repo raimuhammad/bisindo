@@ -6,7 +6,7 @@ import {
   Paper,
   Typography,
   useTheme,
-} from "@material-ui/core";
+} from "@mui/material";
 import { LoginForm } from "@pages/shared/user-management";
 import { useLayout } from "@root/layout";
 

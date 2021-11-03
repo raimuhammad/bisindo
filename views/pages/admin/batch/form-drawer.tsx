@@ -7,14 +7,14 @@ import {
   Dialog,
   DialogContent,
   DialogTitle,
-} from "@material-ui/core";
+} from "@mui/material";
 import { useToggle } from "@hooks/use-toggle";
 import { services } from "@services/batch-service";
 import { FormField } from "@components/form-field/form-field";
 import { observer } from "mobx-react";
 import { useEffect } from "react";
 import { useSuccessModal } from "@hooks/use-success-modal";
-import { Save } from "@material-ui/icons";
+import { Save } from "@mui/icons-material";
 
 const { create, update } = services;
 

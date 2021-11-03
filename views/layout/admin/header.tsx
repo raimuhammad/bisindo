@@ -1,8 +1,8 @@
 import * as React from "react";
-import { AppBar, Toolbar, IconButton, Typography } from "@material-ui/core";
+import { AppBar, Toolbar, IconButton, Typography } from "@mui/material";
 import clsx from "clsx";
 import { useStyles } from "./style";
-import { Menu } from "@material-ui/icons";
+import { Menu } from "@mui/icons-material";
 import { useLayout } from "../layout-provider";
 
 export const Header = ({ toggle, open }: { toggle(): void; open: boolean }) => {
@@ -23,7 +23,7 @@ export const Header = ({ toggle, open }: { toggle(): void; open: boolean }) => {
           onClick={toggle}
           edge="start"
           className={clsx(classes.menuButton)}
-        >
+          size="large">
           <Menu />
         </IconButton>
         <Typography variant="h6" noWrap>

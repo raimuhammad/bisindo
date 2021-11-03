@@ -2,7 +2,7 @@ import * as React from "react";
 import { useStore } from "../provider";
 import { Player } from "@components/player";
 import { useToggle } from "@hooks/use-toggle";
-import { Box, Paper, Typography } from "@material-ui/core";
+import { Box, Paper, Typography } from "@mui/material";
 import { DraftJsViewer } from "@components/draft-js-viewer";
 
 const ContentContainer = ({ children }: any) => {

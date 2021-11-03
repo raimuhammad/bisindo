@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useLayout } from "@root/layout";
 import { useNodeDimension } from "@hooks/use-node-dimension";
-import { Box, Typography, useTheme } from "@material-ui/core";
+import { Box, Typography, useTheme } from "@mui/material";
 import { View as ImageMatcherView } from "@components/quiz/image-matcher/view";
 import { QuizModelType } from "@root/models";
 

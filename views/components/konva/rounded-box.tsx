@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useCallback } from "react";
-import { useTheme } from "@material-ui/core";
+import { useTheme } from "@mui/material";
 import { Group } from "react-konva";
 
 type Props = React.ComponentProps<typeof Group> & {

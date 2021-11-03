@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useFormState } from "react-hook-form";
-import { FormHelperText } from "@material-ui/core";
+import { FormHelperText } from "@mui/material";
 
 type Props = {
   name: string;

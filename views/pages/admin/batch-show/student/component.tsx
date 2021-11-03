@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useStore } from "@admin-pages/batch-show/provider";
-import { Box } from "@material-ui/core";
+import { Box } from "@mui/material";
 import { useDimension } from "./utils";
 import { SearchBar } from "./search-bar";
 import { PageController } from "./page-controller";

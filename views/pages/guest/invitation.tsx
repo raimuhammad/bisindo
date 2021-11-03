@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useLayout } from "@root/layout";
-import { Box, Grid, Paper, Typography } from "@material-ui/core";
+import { Box, Grid, Paper, Typography } from "@mui/material";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useNavigate } from "@hooks/use-navigate";

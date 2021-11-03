@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import * as React from "react";
-import { Box, Typography, useTheme } from "@material-ui/core";
+import { Box, Typography, useTheme } from "@mui/material";
 import { useStudent } from "@providers/student-app-provider";
 import { useLayout } from "@root/layout";
 

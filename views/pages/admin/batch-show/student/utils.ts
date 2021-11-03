@@ -1,6 +1,6 @@
 import { useNodeDimension } from "@hooks/use-node-dimension";
 import { useStore } from "@admin-pages/batch-show/provider";
-import { useTheme } from "@material-ui/core";
+import { useTheme } from "@mui/material";
 
 export const useDimension = () => {
   const appbar = useNodeDimension();

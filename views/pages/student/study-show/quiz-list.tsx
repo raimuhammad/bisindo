@@ -1,8 +1,9 @@
-import { Box, makeStyles, Theme, Typography } from "@material-ui/core";
+import { Box, Theme, Typography } from "@mui/material";
+import makeStyles from '@mui/styles/makeStyles';
 import { QuizHelper, useVideoPage } from "@providers/study-provider/provider";
 import { ListContent } from "@student-pages/study/list-content";
 import * as React from "react";
-import { Book, Check, Close } from "@material-ui/icons";
+import { Book, Check, Close } from "@mui/icons-material";
 
 const useClasses = makeStyles((theme: Theme) => ({
   right: {

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useFileUpload } from "@components/form-field/file-upload-field";
-import { Box, Button } from "@material-ui/core";
+import { Box, Button } from "@mui/material";
 import { ImagePreview } from "./image-preview";
 
 export const AdditionalImage = () => {

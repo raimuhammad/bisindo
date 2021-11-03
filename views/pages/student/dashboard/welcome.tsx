@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useStudent } from "@providers/student-app-provider";
-import { Box, Container, Paper, Typography, useTheme } from "@material-ui/core";
+import { Box, Container, Paper, Typography, useTheme } from "@mui/material";
 
 export const Welcome = () => {
   const { user } = useStudent();

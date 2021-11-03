@@ -1,4 +1,4 @@
-import { Box, Button, ButtonGroup } from "@material-ui/core";
+import { Box, Button, ButtonGroup } from "@mui/material";
 import * as React from "react";
 import { useStore } from "./provider";
 

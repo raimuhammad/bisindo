@@ -5,7 +5,7 @@ import {
   SelectField,
 } from "@components/form-field/select-field";
 import { useQuizCheck } from "./data-provider";
-import { Box, List, ListItem, ListItemText } from "@material-ui/core";
+import { Box, List, ListItem, ListItemText } from "@mui/material";
 
 export const UserSelector = () => {
   const { students, student, updateStudent } = useQuizCheck();

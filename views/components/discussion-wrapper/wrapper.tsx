@@ -2,7 +2,7 @@ import * as React from "react";
 import { GradeModelType } from "@root/models";
 import { useApp } from "@providers/app-provider";
 import { Provider } from "./provider";
-import { Box, Grid, Paper } from "@material-ui/core";
+import { Box, Grid, Paper } from "@mui/material";
 import { CreateForm } from "./create-form";
 import { ThreadSwitcher } from "./thread-switcher";
 import { DiscussionView } from "./discussion-view";

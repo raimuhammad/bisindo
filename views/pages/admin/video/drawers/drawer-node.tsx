@@ -1,17 +1,10 @@
 import * as React from "react";
 import { useStore, Action } from "../provider";
-import {
-  AppBar,
-  Box,
-  Button,
-  Drawer,
-  makeStyles,
-  Toolbar,
-  Typography,
-} from "@material-ui/core";
+import { AppBar, Box, Button, Drawer, Toolbar, Typography } from "@mui/material";
+import makeStyles from '@mui/styles/makeStyles';
 import { Watch } from "./watch";
 import { Edit } from "./edit";
-import { Close } from "@material-ui/icons";
+import { Close } from "@mui/icons-material";
 import { useNodeDimension } from "@hooks/use-node-dimension";
 
 const cMap: Record<Action, React.ComponentType> = {

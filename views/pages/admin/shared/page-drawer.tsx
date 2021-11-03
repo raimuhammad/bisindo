@@ -1,14 +1,7 @@
 import * as React from "react";
-import {
-  AppBar,
-  Box,
-  Button,
-  Drawer,
-  makeStyles,
-  Toolbar,
-  Typography,
-} from "@material-ui/core";
-import { Close } from "@material-ui/icons";
+import { AppBar, Box, Button, Drawer, Toolbar, Typography } from "@mui/material";
+import makeStyles from '@mui/styles/makeStyles';
+import { Close } from "@mui/icons-material";
 
 type Props = {
   isCloseDisable: boolean;

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box, Button, Grid, Paper, Typography } from "@material-ui/core";
+import { Box, Button, Grid, Paper, Typography } from "@mui/material";
 import { useClasses, useMultipleChouse } from "./utils";
 import { ViewerOption, ViewerType } from "./type";
 import { useToggle } from "@hooks/use-toggle";

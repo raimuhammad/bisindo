@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useKonva } from "@providers/konva/konva-provider";
 import { Group, Rect } from "react-konva";
-import { useTheme } from "@material-ui/core";
+import { useTheme } from "@mui/material";
 import voca from "voca";
 
 type Props = {

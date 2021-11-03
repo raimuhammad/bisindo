@@ -1,13 +1,8 @@
 /* eslint-disable */
 import * as React from "react";
-import {
-  Box,
-  Divider,
-  makeStyles,
-  Paper,
-  Theme,
-  Typography,
-} from "@material-ui/core";
+import { Box, Divider, Paper, Theme, Typography } from "@mui/material";
+
+import makeStyles from '@mui/styles/makeStyles';
 
 type Props<T = any> = {
   data: Array<T>;

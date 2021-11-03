@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Welcome } from "./welcome";
 import { Controller } from "./controller";
-import { Box, Container } from "@material-ui/core";
+import { Box, Container } from "@mui/material";
 import { observer } from "mobx-react";
 import { VideoContainer } from "./video-container";
 import { DiscussionContainer } from "./discussion-container";

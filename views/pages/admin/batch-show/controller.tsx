@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box, Tab, Tabs } from "@material-ui/core";
+import { Box, Tab, Tabs } from "@mui/material";
 import { useStore } from "./provider";
 
 export const Controller = () => {

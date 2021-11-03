@@ -1,9 +1,9 @@
 import { createElement } from "react";
 import { Route } from "./type";
-import { Home, Lock } from "@material-ui/icons";
+import { Home, Lock } from "@mui/icons-material";
 import * as pages from "@guest-page";
 
-export const routes: Route[] = [
+export const routes: RouteDefinition[] = [
   {
     path: "/",
     component: pages.Home,
@@ -25,4 +25,14 @@ export const routes: Route[] = [
     title: "Login",
     order: 1,
   },
-];
+].map(
+  (item): RouteDefinition =>
+    (({
+      ...item,
+      route: item.path,
+      noCollapse: true,
+      key: item.path,
+      type: "",
+      name: item.title,
+    } as unknown) as RouteDefinition)
+);

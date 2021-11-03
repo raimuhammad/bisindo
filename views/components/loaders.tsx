@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box, CircularProgress, useTheme } from "@material-ui/core";
+import { Box, CircularProgress, useTheme } from "@mui/material";
 
 export const FullPageLoader = () => {
   const height = window.innerHeight;

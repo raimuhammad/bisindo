@@ -10,7 +10,7 @@ import {
   Submitter,
   SubmitterProps,
 } from "@admin-pages/shared/video-form";
-import { Box, Grid, Paper } from "@material-ui/core";
+import { Box, Grid, Paper } from "@mui/material";
 import { FormProvider, useVideoForm } from "@service-provider/content";
 import { RootStoreBaseMutations } from "@root-model";
 

@@ -10,10 +10,10 @@ import {
   ListItemText,
   Typography,
   useTheme,
-} from "@material-ui/core";
+} from "@mui/material";
 import { FormField } from "@components/form-field/form-field";
 import { useNodeDimension } from "@hooks/use-node-dimension";
-import { ArrowBack } from "@material-ui/icons";
+import { ArrowBack } from "@mui/icons-material";
 import { useNavigate } from "@hooks/use-navigate";
 
 export const VideoSwitcher = () => {

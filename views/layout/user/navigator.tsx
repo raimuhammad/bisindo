@@ -1,9 +1,9 @@
-import { Box, Button, Menu, MenuItem } from "@material-ui/core";
+import { Box, Button, Menu, MenuItem } from "@mui/material";
 import * as React from "react";
 import { useNavigate } from "@hooks/use-navigate";
 import { useState } from "react";
 import { useLogout } from "@providers/logout-provider";
-import { Home, ExitToApp } from "@material-ui/icons";
+import { Home, ExitToApp } from "@mui/icons-material";
 
 const classrooms = [
   { path: "/dashboard", label: "Dashboard" },

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box, Grid, Paper, Typography } from "@material-ui/core";
+import { Box, Grid, Paper, Typography } from "@mui/material";
 import { useStore } from "./provider";
 import { FileUploadProvider } from "@components/form-field/file-upload-field";
 import {

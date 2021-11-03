@@ -12,18 +12,20 @@ import {
 } from "@model";
 import { observer } from "mobx-react";
 import { useToggle } from "@hooks/use-toggle";
-import { SpeedDial, SpeedDialAction, SpeedDialIcon } from "@material-ui/lab";
-import { VerifiedUser } from "@material-ui/icons";
+import { SpeedDial, SpeedDialAction, SpeedDialIcon } from "@mui/material";
+import { VerifiedUser } from "@mui/icons-material";
 import { AdminLayout, GuestLayout, UserLayout } from "@layout/index";
 import { AppRoutes } from "../app-routes";
 import { routes as AdminRoute } from "../routes/admin";
 import { routes as GuestRoute } from "../routes/guest";
 import { routes as UserRoute } from "../routes/user";
+// @ts-ignore
 import emailConfig from "@root/email.json";
 import { useFetchQuery } from "@hooks/use-fetch-query";
 import { RootStoreBaseQueries } from "@root-model";
 import { FullPageLoader } from "@components/loaders";
 import { LogoutProvider } from "./logout-provider";
+import { SoftUiProvider } from "../soft-ui/libs/soft-ui";
 
 export const rootStore = RootStore.create(undefined, {
   gqlHttpClient: new GraphQLClient("/graphql", {
@@ -179,7 +181,7 @@ export const AppProvider = observer(() => {
     }
     return state.user.role === AppRole.ADMIN ? "/batch" : "/dashboard";
   };
-  console.log(getDefaultRoute())
+  console.log(state.user);
   return (
     <Context.Provider value={context}>
       <StoreContext.Provider value={rootStore}>
@@ -188,7 +190,19 @@ export const AppProvider = observer(() => {
             <FullPageLoader />
           ) : (
             <Layout>
-              <AppRoutes defaultRoute={getDefaultRoute()} routes={router} />
+              <SoftUiProvider
+                appName="Bisindo"
+                uiType={
+                  state.user
+                    ? state.user.role === "ADMIN"
+                      ? "dashboard"
+                      : "normal"
+                    : "normal"
+                }
+                routes={router}
+                getCurrentRoute={() => false}
+                authFunctions={async () => "ready"}
+              />
             </Layout>
           )}
           <Dev />

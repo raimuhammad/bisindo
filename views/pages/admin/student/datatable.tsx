@@ -8,11 +8,11 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-} from "@material-ui/core";
+} from "@mui/material";
 import { observer } from "mobx-react";
 import { Row } from "@admin-pages/shared/user-data-table";
 import { UsePaginator } from "@hooks/use-paginator";
-import { Pagination } from "@material-ui/lab";
+import { Pagination } from '@mui/material';
 import { useNodeDimension } from "@hooks/use-node-dimension";
 import { DrawerController } from "../batch-show/student/drawer-controller";
 

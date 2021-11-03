@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useStudent } from "@providers/student-app-provider";
-import { Box, Grid } from "@material-ui/core";
+import { Box, Grid } from "@mui/material";
 import { VideoList } from "./video-list";
 import { QuizList } from "./quiz-list";
 import { useStudentLayout } from "@root/layout";

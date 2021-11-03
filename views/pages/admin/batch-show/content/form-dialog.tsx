@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Dialog, DialogContent } from "@material-ui/core";
+import { Dialog, DialogContent } from "@mui/material";
 import { Action, useAction } from "./utils";
 
 type Props = {

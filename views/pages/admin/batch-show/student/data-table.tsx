@@ -6,7 +6,7 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-} from "@material-ui/core";
+} from "@mui/material";
 import { StudentGradeModelType } from "@root/models";
 import { Row } from "@admin-pages/shared/user-data-table";
 import { useStudentGradePaginator } from "@service-provider/student-grade/paginator";

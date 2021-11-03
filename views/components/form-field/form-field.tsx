@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useController, useFormContext } from "react-hook-form";
-import { TextField, TextFieldProps } from "@material-ui/core";
+import { TextField, TextFieldProps } from "@mui/material";
 
 type Props = Omit<TextFieldProps, "onChange"> & {
   controller?: ReturnType<typeof useController> | null;

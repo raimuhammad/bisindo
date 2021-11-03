@@ -1,5 +1,5 @@
 import * as React from "react";
-import { AppBar, Box, LinearProgress, Toolbar } from "@material-ui/core";
+import { AppBar, Box, LinearProgress, Toolbar } from "@mui/material";
 import { usePaginatorContext } from "@hooks/use-paginator";
 import { observer } from "mobx-react";
 import { Controller } from "./controller";
@@ -12,17 +12,23 @@ const BatchList = observer(() => {
   const { loading, updateVars } = usePaginatorContext() as BatchPaginator;
   return (
     <>
+      {loading ? (
+        <Box position="fixed" width="100%" left={0} top={0}>
+          <LinearProgress />
+        </Box>
+      ) : null}
+
       <FormDrawer />
-      <AppBar position="relative">
+      <AppBar
+        color="transparent"
+        variant="outlined"
+        sx={{ borderRadius: 2 }}
+        position="relative"
+      >
         <Toolbar>
           <SearchForm handler={updateVars} />
           <Controller />
         </Toolbar>
-        {loading ? (
-          <Box position="absolute" width="100%" bottom={0}>
-            <LinearProgress />
-          </Box>
-        ) : null}
       </AppBar>
       <Content />
     </>

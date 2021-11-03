@@ -4,11 +4,11 @@ import { useSuccessModal } from "@hooks/use-success-modal";
 import { service } from "@services/student-services";
 import { useEffect } from "react";
 import { observer } from "mobx-react";
-import { Box } from "@material-ui/core";
+import { Box } from "@mui/material";
 import { FormField } from "@components/form-field/form-field";
 import { GradeField } from "@admin-pages/shared/grade-field";
 import { LoadingButton } from "@components/loading-button";
-import { Save } from "@material-ui/icons";
+import { Save } from "@mui/icons-material";
 
 const { withGradeSchema, withouthGradeSchema, create } = service;
 

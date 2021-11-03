@@ -9,9 +9,9 @@ import {
   Dialog,
   DialogContent,
   Typography,
-} from "@material-ui/core";
+} from "@mui/material";
 import { LoadingButton } from "@components/loading-button";
-import { Delete, Close } from "@material-ui/icons";
+import { Delete, Close } from "@mui/icons-material";
 import { observer } from "mobx-react";
 
 export const DeleteMode = observer(() => {

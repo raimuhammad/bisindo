@@ -3,7 +3,7 @@ import { useStudent } from "@providers/student-app-provider";
 import * as React from "react";
 import { ListContent } from "./list-content";
 import { VideoModelType } from "@root/models";
-import { Box, LinearProgress } from "@material-ui/core";
+import { Box, LinearProgress } from "@mui/material";
 import { useNavigate } from "@hooks/use-navigate";
 
 const Percentage = ({ model }: { model: VideoModelType }) => {

@@ -6,9 +6,9 @@ import {
   Button,
   CircularProgress,
   Typography,
-} from "@material-ui/core";
+} from "@mui/material";
 import { useSuccessModal } from "@hooks/use-success-modal";
-import { CloudUpload, Save } from "@material-ui/icons";
+import { CloudUpload, Save } from "@mui/icons-material";
 import { useFileUpload } from "@components/form-field/file-upload-field";
 import { useStore } from "@admin-pages/batch-show/provider";
 import { useToggle } from "@hooks/use-toggle";

@@ -1,6 +1,6 @@
 import * as React from "react";
-import { ButtonProps } from "@material-ui/core/Button";
-import { Button, CircularProgress } from "@material-ui/core";
+import { ButtonProps } from "@mui/material/Button";
+import { Button, CircularProgress } from "@mui/material";
 
 type Props = Omit<ButtonProps, "startIcon"> & {
   loading: boolean;

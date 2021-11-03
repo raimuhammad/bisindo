@@ -6,8 +6,8 @@ import {
   MenuItem,
   TableCell,
   TableRow,
-} from "@material-ui/core";
-import { Apps } from "@material-ui/icons";
+} from "@mui/material";
+import { Apps } from "@mui/icons-material";
 import { useCallback, useState } from "react";
 import { Action } from "@pages/shared/user-management/type";
 import { useUserManagement } from "@pages/shared/user-management/provider";

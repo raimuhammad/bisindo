@@ -8,7 +8,8 @@ import {
 } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-import { Theme, withTheme } from "@material-ui/core";
+import { Theme } from "@mui/material";
+import withTheme from '@mui/styles/withTheme';
 import { FormHelper } from "./form-helper";
 import { MutableRefObject } from "react";
 

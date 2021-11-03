@@ -6,7 +6,7 @@ import {
   Container,
   Toolbar,
   Typography,
-} from "@material-ui/core";
+} from "@mui/material";
 import { useLayout } from "../layout-provider";
 import { Navigator } from "./navigator";
 

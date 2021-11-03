@@ -4,7 +4,7 @@ import {
   UseControllerReturn,
   useFormContext,
 } from "react-hook-form";
-import { MenuItem, TextField, TextFieldProps } from "@material-ui/core";
+import { MenuItem, TextField, TextFieldProps } from "@mui/material";
 import { Controller } from "react-hook-form";
 import { FormFieldProps } from "./form-field";
 

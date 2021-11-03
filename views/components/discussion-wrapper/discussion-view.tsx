@@ -5,7 +5,7 @@ import {
   Paper,
   Typography,
   useTheme,
-} from "@material-ui/core";
+} from "@mui/material";
 import { useDiscussion } from "./provider";
 import { DraftJsViewer } from "../draft-js-viewer";
 import { observer } from "mobx-react";
@@ -17,7 +17,7 @@ import {
 } from "@root/models";
 import { ReplyForm } from "./create-form";
 import moment from "moment";
-import { Delete, Edit } from "@material-ui/icons";
+import { Delete, Edit } from "@mui/icons-material";
 import { useEditDiscussion } from "./use-edit-discussion";
 import { Form } from "./create-form";
 import { FormProvider } from "react-hook-form";
@@ -51,7 +51,7 @@ const DeleteNode = observer(
     };
 
     return (
-      <IconButton onClick={handler} disabled={loading}>
+      <IconButton onClick={handler} disabled={loading} size="large">
         <Delete />
       </IconButton>
     );
@@ -74,14 +74,14 @@ const View = observer(
           </Box>
           {allowEdit ? (
             <Box>
-              <IconButton onClick={toggle}>
+              <IconButton onClick={toggle} size="large">
                 <Edit />
               </IconButton>
               <DeleteNode model={model} />
             </Box>
           ) : null}
         </Box>
-        <Box bgcolor="#e5e5e5" padding={1} borderRadius={theme.spacing(1)}>
+        <Box bgcolor="#e5e5e5" padding={1} borderRadius="undefinedpx">
           {editMode ? (
             <FormProvider {...form}>
               <Form loading={loading} onSubmit={onSubmit} />

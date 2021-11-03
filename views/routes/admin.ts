@@ -1,15 +1,16 @@
 import { createElement } from "react";
 import { DefaultComponent } from "./default-component";
 import { Route } from "./type";
-import { Class, Home, VideoLibrary, People } from "@material-ui/icons";
+import { Class, Home, VideoLibrary, People } from "@mui/icons-material";
 import * as pages from "@pages/admin";
 
-export const routes: Route[] = [
+export const routes: RouteDefinition[] = [
   {
     path: "/batch/:id",
     component: pages.BatchShow,
     title: "Batch",
     order: 2,
+    hideInMenu: true,
   },
   {
     path: "/batch",
@@ -23,18 +24,21 @@ export const routes: Route[] = [
     component: DefaultComponent,
     title: "Quiz",
     order: 4,
+    hideInMenu: true,
   },
   {
     path: "/quiz/:videoId",
     component: pages.QuizPaginator,
     title: "Quiz",
     order: 5,
+    hideInMenu: true,
   },
   {
     path: "/batch/quiz/check",
     component: pages.CheckQuizPage,
     title: "Quiz",
     order: 5,
+    hideInMenu: true,
   },
   {
     path: "/video",
@@ -50,4 +54,14 @@ export const routes: Route[] = [
     title: "Siswa",
     order: 7,
   },
-];
+].map(
+  (item): RouteDefinition =>
+    (({
+      ...item,
+      route: item.path,
+      noCollapse: true,
+      key: item.path,
+      type: "",
+      name: item.title,
+    } as unknown) as RouteDefinition)
+);

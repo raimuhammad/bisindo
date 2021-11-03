@@ -1,85 +1,101 @@
 import * as React from "react";
-import { GradeModelType } from "@root/models";
-import {
-  Box,
-  Button,
-  Grid,
-  IconButton,
-  Paper,
-  Typography,
-  useTheme,
-} from "@material-ui/core";
+import type { GradeModelType } from "@models/GradeModel";
+import { Box, Button, Divider, Paper, Typography } from "@mui/material";
 import { usePaginatorContext } from "@hooks/use-paginator";
-import { useToggle } from "@hooks/use-toggle";
-import { Edit } from "@material-ui/icons";
 import { useStore } from "./provider";
 import { useNavigate } from "@hooks/use-navigate";
 
+const styles = {
+  container: {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+    "& > .item": {
+      width: { sm: "100%", lg: "49%" },
+      paddingY: 2,
+    },
+  },
+  contentItems: {
+    root: {
+      position: "relative",
+      display: "flex",
+      borderRadius: 4,
+      padding: 3,
+      "& button": {
+        textTransform: "capitalize",
+      },
+    },
+    infoContainer: {
+      display: "flex",
+      justifyContent: "space-between",
+    },
+    controlContainer: {
+      width: "30%",
+      bgcolor: "secondary.light",
+      borderRadius: 4,
+      padding: 2,
+      "& button": {
+        marginY: 2,
+        borderRadius: 2,
+      },
+    },
+    container: {
+      padding: 2,
+      width: "70%",
+    },
+  },
+};
+
 const ContentItem = ({ model }: { model: GradeModelType }) => {
-  const theme = useTheme();
-  const [mouseEnter, { force }] = useToggle();
   const { setSelected } = useStore();
   const { navigateHandler } = useNavigate();
+  const css = styles.contentItems;
   return (
-    <Paper
-      onMouseEnter={force(true)}
-      onMouseLeave={force(false)}
-      elevation={3}
-      style={{ position: "relative" }}
-    >
-      <Box
-        display={mouseEnter ? "block" : "none"}
-        position="absolute"
-        top=".5rem"
-        right=".5rem"
-      >
-        <IconButton size="small" onClick={() => setSelected(model)}>
-          <Edit />
-        </IconButton>
-      </Box>
-      <Box padding={2}>
-        <Typography variant="h5">{model.name}</Typography>
-      </Box>
-      <Box bgcolor={theme.palette.primary.light} color="white" display="flex">
-        <Button
-          onClick={navigateHandler("/batch/:id", { id: model.id })}
-          color="inherit"
-          fullWidth
-        >
-          Detail
-        </Button>
-        <Box
-          width="100%"
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
+    <Paper sx={css.root as any}>
+      <Box sx={css.container} padding={2} width="70%">
+        <Typography sx={{ marginBottom: 1 }} variant="h2">
+          {model.name}
+        </Typography>
+        <Divider />
+        <Box sx={css.infoContainer}>
           <Typography variant="body2">{model.student_count} siswa</Typography>
-        </Box>
-        <Box
-          width="100%"
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
-          {model.video_count} video
+          <Typography variant="body2">{model.video_count} video</Typography>
         </Box>
       </Box>
+      <Paper elevation={4} sx={css.controlContainer}>
+        <Box>
+          <Button
+            onClick={navigateHandler("/batch/:id", { id: model.id })}
+            fullWidth
+            variant="contained"
+          >
+            Detail
+          </Button>
+          <Button
+            onClick={() => setSelected(model)}
+            fullWidth
+            variant="contained"
+          >
+            Ganti nama
+          </Button>
+        </Box>
+      </Paper>
     </Paper>
   );
 };
 
 export const Content = () => {
   const { data } = usePaginatorContext() as BatchPaginator;
+  const css = styles.container;
   return (
-    <Grid container>
-      {data.map((item) => (
-        <Grid item lg={4} md={6} sm={12} key={item.id}>
-          <Box marginBottom={2} margin={2}>
+    <Box sx={css as any}>
+      {data.map((item) => {
+        return (
+          <Box className="item" key={item.id}>
             <ContentItem model={item} />
           </Box>
-        </Grid>
-      ))}
-    </Grid>
+        );
+      })}
+    </Box>
   );
 };

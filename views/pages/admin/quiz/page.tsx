@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Wrapper } from "@service-provider/quiz/paginator-provider";
-import { Grid, Paper } from "@material-ui/core";
+import { Grid, Paper } from "@mui/material";
 import { useLayout } from "@root/layout";
 import { QuizPreview } from "./viewer";
 import { SideBar } from "./side-bar";

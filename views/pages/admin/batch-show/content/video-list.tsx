@@ -1,66 +1,51 @@
 import { useContentPaginator } from "@service-provider/content";
-import {
-  Avatar,
-  Box,
-  Divider,
-  List,
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
-  makeStyles,
-  Typography,
-} from "@material-ui/core";
-import * as React from "react";
+import { Box, Divider, Typography } from "@mui/material";
+import { VideoListItem } from "./video-list-item";
+import { AddVideoButton } from "./add-video-button";
 
-const useClasses = makeStyles((theme) => ({
+const useClasses = () => ({
   container: {
     position: "sticky",
     top: 0,
+    display: "flex",
+    "& .content": {
+      display: "flex",
+      flexWrap: "wrap",
+    },
   },
   listItem: {
     "&.Mui-selected": {
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor: "primary.main",
       color: "white",
     },
     "&:hover": {
       "&.Mui-selected": {
-        backgroundColor: theme.palette.primary.main,
+        backgroundColor: "primary.main",
         color: "white",
       },
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor: "primary.main",
       color: "white",
     },
   },
-}));
+});
 
 export const VideoList = () => {
-  const { data, loading, selected, setSelected } = useContentPaginator();
+  const { data } = useContentPaginator();
   const classes = useClasses();
   return (
-    <Box className={classes.container}>
-      <Box padding={2}>
-        <Typography variant="h5">Video</Typography>
-        <Divider />
+    <Box sx={classes.container as any}>
+      <Box sx={{ width: "100%" }}>
+        <Box padding={2}>
+          <Typography variant="h5">Video pembelajaran</Typography>
+          <Divider />
+        </Box>
+        <Box className="content">
+          <AddVideoButton />
+          {data.map((item) => {
+            return <VideoListItem model={item} key={item.id} />;
+          })}
+        </Box>
       </Box>
-      <List>
-        {data.map((model) => (
-          <ListItem
-            button
-            className={classes.listItem}
-            onClick={() => setSelected(model)}
-            selected={Boolean(selected && selected.id === model.id)}
-            key={model.id}
-          >
-            <ListItemAvatar>
-              <Avatar src={model.thumbnail} variant="square" />
-            </ListItemAvatar>
-            <ListItemText
-              primary={model.title}
-              secondary={model.durationText}
-            />
-          </ListItem>
-        ))}
-      </List>
     </Box>
   );
 };

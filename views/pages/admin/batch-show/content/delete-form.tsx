@@ -1,8 +1,8 @@
 import * as React from "react";
 import { FormDialog } from "./form-dialog";
 import { useContentPaginator, useDelete } from "@service-provider/content";
-import { Box, Button, Typography } from "@material-ui/core";
-import { Close, Save } from "@material-ui/icons";
+import { Box, Button, Typography } from "@mui/material";
+import { Close, Save } from "@mui/icons-material";
 import { LoadingButton } from "@components/loading-button";
 import { observer } from "mobx-react";
 import { useFormCallback } from "./utils";

@@ -1,6 +1,7 @@
 import * as React from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import { Box, Button, Divider, makeStyles } from "@material-ui/core";
+import { Box, Button, Divider } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
 import { FormField } from "@components/form-field/form-field";
 
 type Props<T extends string = "search"> = {
@@ -16,7 +17,7 @@ const useClasses = makeStyles(() => ({
     width: 2,
   },
   input: {
-    padding: 0,
+    // padding: 0,
   },
   button: {
     borderRadius: 0,
@@ -62,16 +63,16 @@ export const SearchForm = ({
   return (
     <FormProvider {...form}>
       <form onSubmit={onSubmit}>
-        <Box paddingLeft={2} alignItems="center" bgcolor="white" display="flex">
+        <Box alignItems="center" bgcolor="white" display="flex">
           <FormField
             name="search"
             size="small"
-            placeholder={placeholder}
-            InputProps={{
-              disableUnderline: true,
-              className: classes.input,
+            variant="standard"
+            sx={{
+              padding: 1,
+              borderRadius: 2,
             }}
-            inputProps={{ className: classes.input }}
+            placeholder={placeholder}
           />
           {children ? (
             <>

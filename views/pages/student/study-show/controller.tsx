@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box, Tab, Tabs, Typography } from "@material-ui/core";
+import { Box, Tab, Tabs, Typography } from "@mui/material";
 import { useState } from "react";
 import { QuizList } from "./quiz-list";
 import { useStudent } from "@providers/student-app-provider";

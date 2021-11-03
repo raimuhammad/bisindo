@@ -5,10 +5,10 @@ import { service } from "@services/auth-service";
 import { useUserManagement } from "./provider";
 import { useSuccessModal } from "@hooks/use-success-modal";
 import { useEffect } from "react";
-import { Box, Button, ButtonGroup, Typography } from "@material-ui/core";
+import { Box, Button, ButtonGroup, Typography } from "@mui/material";
 import { observer } from "mobx-react";
 import { LoadingButton } from "@components/loading-button";
-import { AccountBox, Save, Send } from "@material-ui/icons";
+import { AccountBox, Save, Send } from "@mui/icons-material";
 import { FormField } from "@components/form-field/form-field";
 import { useNavigate } from "@hooks/use-navigate";
 import { useToggle } from "@hooks/use-toggle";
@@ -46,7 +46,7 @@ const FieldContainer = ({ children }: any) => {
 };
 export const InfoBox = ({ children }: any) => {
   return (
-    <Box padding={2} marginBottom={2} border="solid 1px gray" borderRadius={5}>
+    <Box padding={2} marginBottom={2} border="solid 1px gray" borderRadius="5px">
       {children}
     </Box>
   );

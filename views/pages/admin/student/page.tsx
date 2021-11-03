@@ -8,7 +8,7 @@ import {
   LinearProgress,
   Paper,
   Toolbar,
-} from "@material-ui/core";
+} from "@mui/material";
 import { SearchForm } from "@components/search-form";
 import { observer } from "mobx-react";
 import { GradeField } from "@admin-pages/shared/grade-field";
