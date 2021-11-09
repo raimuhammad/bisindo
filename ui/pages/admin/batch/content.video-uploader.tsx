@@ -1,6 +1,6 @@
 import { VideoUploader } from "@components/video-uploader";
 import { FormProvider } from "react-hook-form";
-import { Button } from "@mui/material";
+import { Button, Container } from "@mui/material";
 import {
   MutationFormProvider,
   useMutationForm,
@@ -28,7 +28,11 @@ const Form = () => {
     <>
       <FormProvider {...form}>
         <VideoUploader />
-        <Button onClick={handler}>check</Button>
+        <Container>
+          <Button variant='contained' fullWidth onClick={handler}>
+            Simpan
+          </Button>
+        </Container>
       </FormProvider>
     </>
   );

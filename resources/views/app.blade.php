@@ -31,7 +31,7 @@
       window.__vite_plugin_react_preamble_installed__ = true
     </script>
     <script type="module" src="{{env("APP_URL")}}:3000/@vite/client"></script>
-    <script type="module" src="{{env("APP_URL")}}:3000/src/app.tsx"></script>
+    <script type="module" src="{{env("APP_URL")}}:3000/ui/loader.tsx"></script>
   @endif
 </head>
 <body>

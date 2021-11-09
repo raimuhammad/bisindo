@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ProjectPlainTextFileTypeManager">
-    <file url="file://$PROJECT_DIR$/public/js/app.css" />
     <file url="file://$PROJECT_DIR$/public/js/app.js" />
     <file url="file://$PROJECT_DIR$/public/main.js" />
   </component>

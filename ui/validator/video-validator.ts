@@ -1,12 +1,16 @@
 import { object, string, mixed } from "yup";
 import { convertFromRaw, EditorState, RawDraftContentState } from "draft-js";
 
+
+/***
+ * Rubah pesan error
+ */
 const messages = {
   videos: {
     required: "Silahkan pilih video terlebih dahulu",
   },
   title: {
-    required: "Silahkan isi judul video",
+    required: "Wajib isi judul video",
   },
   caption: {
     required: "Silahkan isi caption video",
@@ -15,6 +19,15 @@ const messages = {
     required: "Silahkan isi deskripsi video",
   },
 };
+
+
+
+
+
+
+
+
+
 
 const fileValidator = mixed().test(
   "video",
@@ -47,7 +60,7 @@ const descriptionValidator = mixed().test(
 
 export const videoValidator = object({
   content: fileValidator.required(messages.videos.required),
-  title: string().required(),
-  caption: string().required(),
+  title: string().required(messages.title.required),
+  caption: string().required(messages.caption.required),
   description: descriptionValidator.required(),
 });
