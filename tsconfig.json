@@ -1,24 +1,21 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "types": ["vite/client", "node"],
+    "allowJs": false,
     "skipLibCheck": true,
-    "esModuleInterop": true,
-    "noEmit": true,
+    "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "resolveJsonModule": true,
-    "sourceMap": true,
-    "outDir": "views/compiled",
+    "isolatedModules": true,
+    "noEmit": true,
     "jsx": "react-jsx",
-    "experimentalDecorators": true,
-    "useDefineForClassFields": true,
-    "baseUrl": "views",
+    "baseUrl": "ui",
     "paths": {
       "@colors": ["assets/theme/base/colors.ts"],
       "@globals": ["assets/theme/base/globals.ts"],
@@ -48,5 +45,6 @@
       "@root-model": ["models/RootStore.base.ts"]
     }
   },
-  "exclude": ["views/compiled", "node_modules", "vitejs"]
+  "include": ["src", "vite.config.ts", "cypress"],
+  "exclude": ["node_modules", "src.old"]
 }

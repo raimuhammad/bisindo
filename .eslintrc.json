@@ -25,10 +25,7 @@
     "@typescript-eslint/no-explicit-any": "off",
     "react/react-in-jsx-scope": "off"
   },
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended"
-  ],
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
   "env": {
     "browser": true,
     "node": true,

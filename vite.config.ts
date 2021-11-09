@@ -1,31 +1,42 @@
 import react from "@vitejs/plugin-react";
+import tsconfig from "vite-tsconfig-paths";
 import { readFileSync } from "fs";
 import { resolve } from "path";
-import tsconfig from "vite-tsconfig-paths";
 
 const homedir = process.env["HOME"] ?? "";
 const host = "bisindo.test";
-
-export default ({ command }: any) => ({
-  build: {
-    manifest: true,
-    outDir: "vite-build",
-    rollupOptions: {
-      input: "views/loader.tsx",
-    },
-  },
-  plugins: [tsconfig(), react()],
-  optimizeDeps: {
-    include: ["react", "voca", "lodash", "mobx", "mobx-state-tree", "moment"],
-  },
+const config = () => ({
+  plugins: [
+    tsconfig(),
+    react({
+      babel: {
+        plugins: [
+          [
+            "@emotion",
+            {
+              importMap: {
+                "@mui/material": {
+                  styled: {
+                    canonicalImport: ["@emotion/styled", "default"],
+                    styledBaseImport: ["@mui/material", "styled"],
+                  },
+                },
+                "@mui/material/styles": {
+                  styled: {
+                    canonicalImport: ["@emotion/styled", "default"],
+                    styledBaseImport: ["@mui/material/styles", "styled"],
+                  },
+                },
+              },
+            },
+          ],
+        ],
+      },
+    }),
+  ],
   server: {
     port: "3000",
     host: "bisindo.test",
-    hmr: {
-      protocol: "wss",
-      host: "bisindo.test",
-      port: 3000,
-    },
     https: {
       key: readFileSync(
         resolve(homedir, `.valet/Certificates/${host}.key`)
@@ -36,3 +47,12 @@ export default ({ command }: any) => ({
     },
   },
 });
+const configWindows = () => {
+  const {server : _, ...rest} = config();
+  return {...rest}
+}
+let conf : any = config;
+if (process.platform === "win32"){
+  conf = configWindows
+}
+export default conf;

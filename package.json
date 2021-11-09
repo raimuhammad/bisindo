@@ -1,14 +1,12 @@
 {
-  "name": "bisindo",
-  "version": "1.0.0",
-  "description": "app-script for development",
+  "name": "vite-ts-material-ui",
+  "version": "0.0.0",
   "scripts": {
-    "server-dev": "php artisan serve --host=0.0.0.0 --port=8000",
-    "start": "vite",
-    "tunnel": "node scripts/local-tunnel.js",
-    "print-schema": "php artisan lighthouse:print-schema --write --json",
-    "mst-print-model": "php artisan lighthouse:print-schema --write --json && mst-gql --format ts --outDir views/models storage/app/lighthouse-schema.json",
-    "generate-model": "sucrase-node node/schema-printer.ts"
+    "format": "prettier --write src",
+    "lint": "eslint --ext .ts,.tsx src",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview"
   },
   "dependencies": {
     "@egoist/md-colors": "^1.2.2",
@@ -17,10 +15,10 @@
     "@fontsource/roboto": "^4.3.0",
     "@hookform/resolvers": "^2.4.0",
     "@mui/icons-material": "^5.0.5",
+    "@mui/lab": "^5.0.0-alpha.54",
     "@mui/material": "^5.0.6",
     "@mui/styles": "^5.0.2",
     "@stencil/core": "2.8.1",
-    "@types/yup": "^0.29.11",
     "@vime/core": "^5.0.34",
     "@vime/react": "^5.0.34",
     "axios": "^0.21",
@@ -33,6 +31,7 @@
     "invert-color": "^2.0.0",
     "jss-rtl": "^0.3.0",
     "konva": "^7.2.5",
+    "lodash": "^4.17.19",
     "mobx": "^6.3.0",
     "mobx-react": "^7.1.0",
     "mobx-state-tree": "^5.0.1",
@@ -50,14 +49,13 @@
     "react-player": "^2.9.0",
     "react-responsive-carousel": "^3.2.18",
     "react-router-dom": "^5.2.0",
+    "react-use": "^17.3.1",
     "use-image": "^1.0.7",
     "vite-tsconfig-paths": "^3.3.17",
     "voca": "^1.4.0",
     "yup": "^0.32.9"
   },
   "devDependencies": {
-    "@babel/preset-react": "^7.13.13",
-    "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
     "@types/draft-js": "^0.11.1",
     "@types/faker": "^5.5.5",
     "@types/lodash": "^4.14.176",
@@ -68,45 +66,30 @@
     "@types/react-draft-wysiwyg": "^1.13.2",
     "@types/react-router-dom": "^5.1.7",
     "@types/voca": "^1.4.0",
+    "@types/yup": "^0.29.11",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "4.21.0",
-    "@vitejs/plugin-react": "^1.0.7",
-    "@vitejs/plugin-react-refresh": "^1.3.3",
-    "concurrently": "^6.0.2",
-    "dotenv": "^8.2.0",
-    "envfile": "^6.14.0",
-    "eslint": "^7.0.0",
+    "@vitejs/plugin-react": "^1.0.1",
+    "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.26.1",
-    "localtunnel": "^2.0.1",
-    "lodash": "^4.17.19",
-    "node-sass": "^5.0.0",
-    "postcss": "^8.1",
-    "prettier": "^2.0.5",
-    "prompts": "^2.4.1",
-    "react-refresh": "^0.10.0",
-    "react-refresh-typescript": "^2.0.1",
-    "resolve-url-loader": "^3.1.2",
-    "sass": "^1.34.0",
-    "sass-loader": "^11.1.1",
-    "sucrase": "^3.18.1",
-    "ts-loader": "^9.2.2",
-    "typescript": "^4.4.4",
+    "prettier": "^2.4.1",
+    "rc": "^1.2.8",
+    "react-scripts": "^4.0.3",
+    "sass": "^1.43.4",
+    "typescript": "^4.1.2",
     "vite": "^2.6.13",
-    "vite-plugin-swc-react": "^0.1.9"
+    "vite-plugin-checker": "^0.3.4",
+    "vite-tsconfig-paths": "^3.3.17"
   },
-  "directories": {
-    "test": "tests"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/raimuhammad/bisindo.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/raimuhammad/bisindo/issues"
-  },
-  "homepage": "https://github.com/raimuhammad/bisindo#readme"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead"
+    ],
+    "development": [
+      "last 1 chrome version"
+    ]
+  }
 }
