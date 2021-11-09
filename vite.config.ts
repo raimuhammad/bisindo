@@ -5,36 +5,40 @@ import { resolve } from "path";
 
 const homedir = process.env["HOME"] ?? "";
 const host = "bisindo.test";
-const config = () => ({
-  plugins: [
-    tsconfig(),
-    react({
-      babel: {
-        plugins: [
-          [
-            "@emotion",
-            {
-              importMap: {
-                "@mui/material": {
-                  styled: {
-                    canonicalImport: ["@emotion/styled", "default"],
-                    styledBaseImport: ["@mui/material", "styled"],
-                  },
+
+const plugins = [
+  tsconfig(),
+  react({
+    babel: {
+      plugins: [
+        [
+          "@emotion",
+          {
+            importMap: {
+              "@mui/material": {
+                styled: {
+                  canonicalImport: ["@emotion/styled", "default"],
+                  styledBaseImport: ["@mui/material", "styled"],
                 },
-                "@mui/material/styles": {
-                  styled: {
-                    canonicalImport: ["@emotion/styled", "default"],
-                    styledBaseImport: ["@mui/material/styles", "styled"],
-                  },
+              },
+              "@mui/material/styles": {
+                styled: {
+                  canonicalImport: ["@emotion/styled", "default"],
+                  styledBaseImport: ["@mui/material/styles", "styled"],
                 },
               },
             },
-          ],
+          },
         ],
-      },
-    }),
-  ],
-  server: {
+      ],
+    },
+  }),
+];
+const config = (withserver :boolean = true) => {
+  if(! withserver){
+    return {plugins}
+  }
+  const server = {
     port: "3000",
     host: "bisindo.test",
     https: {
@@ -45,11 +49,11 @@ const config = () => ({
         resolve(homedir, `.valet/Certificates/${host}.crt`)
       ).toString(),
     },
-  },
-});
+  };
+  return {plugins, server};
+};
 const configWindows = () => {
-  const {server : _, ...rest} = config();
-  return {...rest}
+  return config(false);
 }
 let conf : any = config;
 if (process.platform === "win32"){
