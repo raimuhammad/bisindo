@@ -34,29 +34,18 @@ const plugins = [
     },
   }),
 ];
-const config = (withserver :boolean = true) => {
-  if(! withserver){
-    return {plugins}
+const config = (withserver: boolean = true) => {
+  if (!withserver) {
+    return { plugins };
   }
-  const server = {
-    port: "3000",
-    host: "bisindo.test",
-    https: {
-      key: readFileSync(
-        resolve(homedir, `.valet/Certificates/${host}.key`)
-      ).toString(),
-      cert: readFileSync(
-        resolve(homedir, `.valet/Certificates/${host}.crt`)
-      ).toString(),
-    },
-  };
-  return {plugins, server};
+  const server = {};
+  return { plugins, server };
 };
 const configWindows = () => {
   return config(false);
-}
-let conf : any = config;
-if (process.platform === "win32"){
-  conf = configWindows
+};
+let conf: any = config;
+if (process.platform === "win32") {
+  conf = configWindows;
 }
 export default conf;
