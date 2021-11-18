@@ -1,6 +1,6 @@
 import { useAdminLayout } from "@layout/admin.context";
 import { useEffect } from "react";
-import { Box, Button, Container, Typography } from "@mui/material";
+import { Box, LinearProgress, Typography } from "@mui/material";
 import pagesetting from "./page-setting.json";
 import { PageBanner } from "@components/page-banner";
 import {
@@ -8,74 +8,44 @@ import {
   usePaginator,
 } from "@providers/model-provider/paginators";
 import { useBatchPage, useBatchProvider, BatchContext } from "./provider";
-import { Create } from "./create";
-import { BatchItem } from "./batch-item";
-import { useIsSm } from "@hooks/use-media";
-import { PageControl } from "./page-control";
-import { ContentContext, useContentProvider } from "./content.context";
-import { TabContext } from "@mui/lab";
-import { PageSwitcher } from "./page-switcher";
-import { List } from "@providers/model-provider/lists";
+import { Create } from './create'
+import { SearchBar } from './search-bar'
+import { Content } from './content'
 
-const sx = {
-  display: ["block", "flex"],
-  minHeight: "100vh",
-  "& > div": {
-    minHeight: "100vh",
-  },
-  "& > .list-container": {
-    width: ["100%", "20%"],
-  },
+const PageContent = () => {
+  return <div>Page content</div>;
+};
+
+const PageInfo = ({
+  status,
+  loading,
+}: {
+  status: string;
+  loading: boolean;
+}) => {
+  return (
+    <Box sx={{ textAlign: "center" }}>
+      {loading ? <LinearProgress /> : null}
+      <Typography sx={{ py: 3 }} variant="h6">
+        {loading ? "Loading" : status}
+      </Typography>
+    </Box>
+  );
 };
 
 const Page = () => {
-  const { initialFetch, loading } = usePaginator();
+  const { initialFetch, loading, isEmpty, hasResponse } = usePaginator();
   const { selected } = useBatchPage();
   useEffect(() => {
     initialFetch();
   }, []);
-  const isSm = useIsSm();
-  const contentProvider = useContentProvider();
   return (
     <>
       <PageBanner {...pagesetting}>
-        <Create />
+        <Create/>
       </PageBanner>
-      <ContentContext.Provider value={contentProvider}>
-        <TabContext value={contentProvider[0].tab}>
-          <Box sx={{ display: ["block", "flex"], zIndex: 100 }}>
-            <PageControl />
-          </Box>
-          <Box sx={{ display: ["block", "flex"], zIndex: 99 }}>
-            {!isSm ? (
-              <Box sx={{ height: ["auto", "100vh"], width: ["auto", "20%"] }}>
-                <BatchItem />
-              </Box>
-            ) : (
-              <></>
-            )}
-            <Box sx={{ width: ["100%", "80%"] }}>
-              <PageSwitcher />
-            </Box>
-          </Box>
-        </TabContext>
-      </ContentContext.Provider>
-      {/*<Box sx={sx as any}>*/}
-      {/*  <Box className="list-container">*/}
-      {/*    <Box*/}
-      {/*      sx={{*/}
-      {/*        height: ["auto", "100vh"],*/}
-      {/*        overflowY: "auto",*/}
-      {/*        overflowX: "hidden",*/}
-      {/*      }}*/}
-      {/*    >*/}
-      {/*      <BatchItem />*/}
-      {/*    </Box>*/}
-      {/*  </Box>*/}
-      {/*  <Box sx={{ flex: 1 }}>*/}
-      {/*    <ContentContainer />*/}
-      {/*  </Box>*/}
-      {/*</Box>*/}
+      <SearchBar/>
+      <Content/>
     </>
   );
 };
@@ -93,12 +63,7 @@ export const Batch = () => {
   return (
     <PaginatorProvider dataKey="grades">
       <BatchContext.Provider value={context}>
-        <List
-          dataKey="videoByGrade"
-          props={{ gradeId: selected ? selected.id : "" }}
-        >
-          <Page />
-        </List>
+        <Page />
       </BatchContext.Provider>
     </PaginatorProvider>
   );

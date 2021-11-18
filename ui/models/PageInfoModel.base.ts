@@ -12,7 +12,7 @@ import { RootStoreType } from "./index"
  * PageInfoBase
  * auto generated base class for the model PageInfoModel.
  *
- * Pagination information about the corresponding list of items.
+ * Information about pagination using a Relay style cursor connection.
  */
 export const PageInfoModelBase = ModelBase
   .named('PageInfo')
@@ -22,18 +22,18 @@ export const PageInfoModelBase = ModelBase
     hasNextPage: types.union(types.undefined, types.boolean),
     /** When paginating backwards, are there more items? */
     hasPreviousPage: types.union(types.undefined, types.boolean),
-    /** When paginating backwards, the cursor to continue. */
+    /** The cursor to continue paginating backwards. */
     startCursor: types.union(types.undefined, types.null, types.string),
-    /** When paginating forwards, the cursor to continue. */
+    /** The cursor to continue paginating forwards. */
     endCursor: types.union(types.undefined, types.null, types.string),
-    /** Total number of node in connection. */
-    total: types.union(types.undefined, types.null, types.integer),
-    /** Count of nodes in current request. */
-    count: types.union(types.undefined, types.null, types.integer),
-    /** Current page of request. */
-    currentPage: types.union(types.undefined, types.null, types.integer),
-    /** Last page in connection. */
-    lastPage: types.union(types.undefined, types.null, types.integer),
+    /** Total number of nodes in the paginated connection. */
+    total: types.union(types.undefined, types.integer),
+    /** Number of nodes in the current page. */
+    count: types.union(types.undefined, types.integer),
+    /** Index of the current page. */
+    currentPage: types.union(types.undefined, types.integer),
+    /** Index of the last available page. */
+    lastPage: types.union(types.undefined, types.integer),
   })
   .views(self => ({
     get store() {

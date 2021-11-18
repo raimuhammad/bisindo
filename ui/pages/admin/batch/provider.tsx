@@ -10,9 +10,9 @@ import {
 import type { GradeModelType } from "@root/models";
 import { useIsSm } from "@hooks/use-media";
 
-export type BatchTabType = "videos" | "student" | "editor";
+export type BatchTabType = "videos" | "student" | "editor" | 'discussion';
 
-const tablist: BatchTabType[] = ["videos", "student", "editor"];
+const tablist: BatchTabType[] = ["videos", "student", "editor", "discussion"];
 
 type State = {
   selected: GradeModelType | null;

@@ -8,8 +8,7 @@ import {videoValidator} from "@root/validator/video-validator";
 
 import type { PropsWithChildren } from "react";
 import type { GradeModelType, VideoModelType } from "@root/models";
-
-
+import {userValidator} from "@root/validator/user-validator";
 export const mutations = {
   createBatch: formMutationfactory<GradeModelType>({
     api: RootStoreBaseMutations.mutateGrade,
@@ -23,8 +22,11 @@ export const mutations = {
     api: RootStoreBaseMutations.mutateVideo,
     rule: videoValidator,
   }),
+  addUser: formMutationfactory<VideoModelType>({
+    api: RootStoreBaseMutations.mutateUser,
+    rule: userValidator,
+  }),
 };
-
 type Props = PropsWithChildren<{
   mutateKey: keyof typeof mutations;
   merge?: Record<string, any>;

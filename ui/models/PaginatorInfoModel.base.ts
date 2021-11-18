@@ -12,27 +12,27 @@ import { RootStoreType } from "./index"
  * PaginatorInfoBase
  * auto generated base class for the model PaginatorInfoModel.
  *
- * Pagination information about the corresponding list of items.
+ * Information about pagination using a fully featured paginator.
  */
 export const PaginatorInfoModelBase = ModelBase
   .named('PaginatorInfo')
   .props({
     __typename: types.optional(types.literal("PaginatorInfo"), "PaginatorInfo"),
-    /** Count of available items in the page. */
+    /** Number of items in the current page. */
     count: types.union(types.undefined, types.integer),
-    /** Current pagination page. */
+    /** Index of the current page. */
     currentPage: types.union(types.undefined, types.integer),
-    /** Index of first item in the current page. */
+    /** Index of the first item in the current page. */
     firstItem: types.union(types.undefined, types.null, types.integer),
-    /** If collection has more pages. */
+    /** Are there more pages after this one? */
     hasMorePages: types.union(types.undefined, types.boolean),
-    /** Index of last item in the current page. */
+    /** Index of the last item in the current page. */
     lastItem: types.union(types.undefined, types.null, types.integer),
-    /** Last page number of the collection. */
+    /** Index of the last available page. */
     lastPage: types.union(types.undefined, types.integer),
-    /** Number of items per page in the collection. */
+    /** Number of items per page. */
     perPage: types.union(types.undefined, types.integer),
-    /** Total items available in the collection. */
+    /** Number of total available items. */
     total: types.union(types.undefined, types.integer),
   })
   .views(self => ({

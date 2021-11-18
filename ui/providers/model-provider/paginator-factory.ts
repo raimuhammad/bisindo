@@ -54,6 +54,7 @@ const useFetch = (api: RootStoreBaseQueries, selector: any) => {
     result,
     fetch,
     loading,
+    hasResponse: Boolean(data)
   };
 };
 
@@ -130,7 +131,7 @@ const useQueryAction = ({
 };
 
 function usePaginatorService<T>({ includeQuery, api, selector }: Options) {
-  const { fetch, loading, result } = useFetch(api, selector);
+  const { fetch, loading, result, hasResponse } = useFetch(api, selector);
   const { parameter, updateParameter, removeParam } = useQueryParameter({
     include: includeQuery,
     callback: fetch,
@@ -143,7 +144,7 @@ function usePaginatorService<T>({ includeQuery, api, selector }: Options) {
   const initialFetch = useCallback(() => {
     fetch({ page: 1, first: 10, ...includeQuery });
   }, [includeQuery]);
-
+  const isEmpty = hasResponse && result.data.length === 0;
   return {
     result,
     actions: {
@@ -154,6 +155,8 @@ function usePaginatorService<T>({ includeQuery, api, selector }: Options) {
     },
     loading,
     initialFetch,
+    isEmpty,
+    hasResponse
   };
 }
 
@@ -162,7 +165,9 @@ export interface IPaginatorOf<T> {
   actions: ReturnType<typeof useQueryParameter> &
     ReturnType<typeof useQueryAction>;
   loading: boolean;
+  hasResponse: boolean
   initialFetch(): void;
+  isEmpty: boolean;
 }
 
 export function paginatorFactory<T>(api: RootStoreBaseQueries, selector: any) {

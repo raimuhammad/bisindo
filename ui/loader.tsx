@@ -34,7 +34,7 @@ const Loader = () => {
       return {
         name: auth.name as string,
         email: auth.email as string,
-        role: auth.role as string
+        role: auth.role as string,
       };
     }
     return null;
@@ -54,13 +54,11 @@ const root = document.getElementById("root");
 if (root) {
   render(
     <BrowserRouter>
-      <SnackbarProvider
-        anchorOrigin={{
-          horizontal: "right",
-          vertical: "top"
-        }}
-      >
-        <ModelProvider url="/graphql">
+      <SnackbarProvider anchorOrigin={{
+        horizontal:"right",
+        vertical:"top"
+      }}>
+        <ModelProvider url={(import.meta.env.VITE_BACKEND as string) + "/graphql"}>
           <Loader />
         </ModelProvider>
       </SnackbarProvider>

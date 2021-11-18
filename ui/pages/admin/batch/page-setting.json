@@ -1,4 +1,9 @@
 {
   "title": "Menagemen batch",
-  "subtitle": "Menampilkan informasi , tambah, hapus, dan manage setiap batch yang terdaftar pada sistem."
+  "subtitle": "Menampilkan informasi , tambah, hapus, dan manage setiap batch yang terdaftar pada sistem.",
+  "batchEmpty": "Silahkan membuat batch terlebih dahulu",
+  "videos": {
+    "noVideoAvailable": "Batch ini belum memiliki video pelajaran",
+    "noVideoAvailableButton": "Klik disini untuk upload video"
+  }
 }

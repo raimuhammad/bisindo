@@ -133,6 +133,7 @@ mutateUserEdit="mutateUserEdit",
 mutateUserActivation="mutateUserActivation",
 mutateGrade="mutateGrade",
 mutateGradeEdit="mutateGradeEdit",
+mutateGradeDelete="mutateGradeDelete",
 mutateUpdateVideoProgress="mutateUpdateVideoProgress",
 mutateUpdateQuizProgress="mutateUpdateQuizProgress",
 mutateDiscussion="mutateDiscussion",
@@ -347,6 +348,11 @@ export const RootStoreBase = withTypedRefs<Refs>()(MSTGQLStore
     },
     mutateGradeEdit(variables: { id: string, name?: string }, resultSelector: string | ((qb: GradeModelSelector) => GradeModelSelector) = gradeModelPrimitives.toString(), optimisticUpdate?: () => void) {
       return self.mutate<{ gradeEdit: GradeModelType}>(`mutation gradeEdit($id: ID!, $name: String) { gradeEdit(id: $id, name: $name) {
+        ${typeof resultSelector === "function" ? resultSelector(new GradeModelSelector()).toString() : resultSelector}
+      } }`, variables, optimisticUpdate)
+    },
+    mutateGradeDelete(variables: { id: string }, resultSelector: string | ((qb: GradeModelSelector) => GradeModelSelector) = gradeModelPrimitives.toString(), optimisticUpdate?: () => void) {
+      return self.mutate<{ gradeDelete: GradeModelType}>(`mutation gradeDelete($id: ID!) { gradeDelete(id: $id) {
         ${typeof resultSelector === "function" ? resultSelector(new GradeModelSelector()).toString() : resultSelector}
       } }`, variables, optimisticUpdate)
     },

@@ -33,7 +33,7 @@ export const Create = () => {
       >
         {!open ? "Tambah batch baru" : "Tutup"}
       </Button>
-      <Collapse in={open} sx={{ marginTop: 2 }} timeout="auto">
+      <Collapse in={open} sx={{ marginTop: 2, paddingBottom:2 }} timeout="auto">
         <MutationFormProvider mutateKey="createBatch">
           <Paper variant='outlined' sx={{ padding: 2, borderRadius: 0 }}>
             <Form onSuccess={onSuccess} />

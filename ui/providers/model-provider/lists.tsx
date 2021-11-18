@@ -1,9 +1,10 @@
-import { listFactory, IListResultOf } from "./list-factory";
-import type { VideoModelType } from "@root/models";
-import { RootStoreBaseQueries } from "@root-model";
-import { observer } from "mobx-react";
-import type { PropsWithChildren } from "react";
-import { createContext, useContext } from "react";
+import {IListResultOf, listFactory} from "./list-factory";
+import type {StudentGradeModelType, VideoModelType} from "@root/models";
+import {RootStoreBaseQueries} from "@root-model";
+import {observer} from "mobx-react";
+import type {PropsWithChildren} from "react";
+import {createContext, useContext} from "react";
+
 export type { IListResultOf } from './list-factory'
 /**
  * Ambil data video berdasarkan batch
@@ -14,6 +15,9 @@ const useVideoByGrade = listFactory<VideoModelType, { gradeId: any }>(
 
 const lists = {
   videoByGrade: useVideoByGrade,
+  studentByGrade: listFactory<StudentGradeModelType,{gradeId: any}>(
+    RootStoreBaseQueries.queryStudents
+  )
 };
 
 type ListProps = {

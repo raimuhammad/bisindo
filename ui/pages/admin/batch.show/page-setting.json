@@ -1,0 +1,9 @@
+{
+  "videos": {
+    "noVideoText": "Silahkan pilih video terlebih dahulu",
+    "noVideoTextButton": "Pilih video",
+    "changeVideoTextButton": "Ganti video",
+    "changeVideoTextButton1": "Pilih video lainya",
+    "uploadVideoSuccess": "Video berhasil di tambahkan"
+  }
+}

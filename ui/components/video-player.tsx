@@ -38,7 +38,7 @@ export const VideoPlayer = ({ url, onPlaying, play = false }: Props) => {
         }
       >
         {url ? (
-          <Video crossOrigin="">
+          <Video crossOrigin='use-credentials'>
             <source data-src={url} />
           </Video>
         ) : (

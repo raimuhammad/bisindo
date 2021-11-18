@@ -8,6 +8,7 @@ export type IListResultOf<T> = {
   loading: boolean;
   isEmpty: boolean;
   fetch(): void;
+  hasResponse: boolean;
 };
 
 function useList<T, Props extends Record<string, any> = {}>(
@@ -44,6 +45,7 @@ function useList<T, Props extends Record<string, any> = {}>(
     isEmpty: isEmpty(),
     loading,
     fetch,
+    hasResponse:Boolean(data)
   };
 }
 

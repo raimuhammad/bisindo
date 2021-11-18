@@ -16,8 +16,8 @@
     href="https://cdn.jsdelivr.net/npm/@vime/core@^5/themes/light.css"
   />
 @if(env("VITE_PROD", true))
-    <link href="{{env("APP_URL")}}/assets/app.css" rel="stylesheet">
-    <script type="module" src="{{env("APP_URL")}}/assets/app.js"></script>
+    <link href="/assets/app.css" rel="stylesheet">
+    <script type="module" src="/assets/app.js"></script>
   @else
     <link href="{{env("APP_URL")}}:3000/node_modules/@fontsource/roboto/index.css" rel="stylesheet">
     <script>

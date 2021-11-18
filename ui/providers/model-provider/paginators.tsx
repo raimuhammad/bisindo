@@ -1,7 +1,13 @@
 import type { IPaginatorOf } from "./paginator-factory";
 import { paginatorFactory } from "./paginator-factory";
-import type { GradeModelType } from "@root/models";
-import { gradeModelPrimitives } from "@root/models";
+import type { GradeModelType, StudentGradeModelType } from "@root/models";
+import {
+  gradeModelPrimitives,
+  paginatorInfoModelPrimitives,
+  StudentGradeModelSelector,
+  StudentGradePaginatorModelSelector,
+  userModelPrimitives,
+} from "@root/models";
 import { RootStoreBaseQueries } from "@models/RootStore.base";
 import { createContext, PropsWithChildren, useContext } from "react";
 import { observer } from "mobx-react";
@@ -13,6 +19,11 @@ export const paginators = {
     RootStoreBaseQueries.queryGrades,
     gradeModelPrimitives
   ) as UseIPaginatorOf<GradeModelType>,
+  students: paginatorFactory(
+    RootStoreBaseQueries.queryStudents,
+    (v: StudentGradeModelSelector) =>
+      v.id.student(userModelPrimitives).grade((v) => v.id.name)
+  ) as UseIPaginatorOf<StudentGradeModelType>,
 };
 
 const PaginatorContext = createContext<null | IPaginatorOf<any>>(null);

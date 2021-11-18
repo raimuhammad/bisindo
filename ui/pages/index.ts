@@ -2,6 +2,7 @@ import { DefaultComponent } from "./default-component";
 import { Fragment } from "react";
 import { Login } from "./guest/login";
 import { Batch } from "./admin/batch";
+import { BatchShow } from "./admin/batch.show";
 import { People, OndemandVideo, School } from "@mui/icons-material";
 
 const hideInMenu = true;
@@ -18,8 +19,8 @@ export const admin: RouteDefinition[] = [
     icon: People,
   },
   {
-    path: "/batch/:id",
-    component: AdminDefault,
+    path: "/batch/:slug/:id",
+    component: BatchShow,
     name: "batch-show",
     key: "batch-show",
     icon: Fragment,
