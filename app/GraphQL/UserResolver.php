@@ -56,6 +56,7 @@ class UserResolver extends GraphqlResolver
   {
     $data = $this->modelArguments;
     $data['invitation'] = $this->generateToken();
+    $data['password'] = Hash::make("password");
     return User::create($data);
   }
   protected function afterCreate()

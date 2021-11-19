@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9e94c46e-1c07-4efd-823c-bb31b961c4c7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Video.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Video.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/assets/index.016b17d0.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/assets/index.c99be630.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/assets/vendor.b691a630.js" beforeDir="false" />
