@@ -114,10 +114,8 @@ class Video extends Model implements HasMedia
    * @return string
    */
   public function getThumbnailAttribute() : string {
-    return $this->getFirstMediaUrl("content", 'thumbnail');
+		return str_replace(env("APP_URL"), "",$this->getFirstMediaUrl("content", 'thumbnail') );
   }
-
-
   public function getStudentProgressAttribute(){
     if (auth()->user()->hasRole(AppRole::ADMIN)){
       return Progress::all()->filter(function (Progress $progress){

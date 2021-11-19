@@ -80,7 +80,7 @@ class Field extends React.Component<FieldProps, State> {
       // @ts-ignore
       window.rootStore[query]({}, builder)
         .currentPromise()
-        .then((data) => {
+        .then((data: any) => {
           if (data && data[resultKey as keyof typeof data]) {
             const options = (data[
               resultKey as keyof typeof data

@@ -23,8 +23,8 @@ export const GradeField = observer(({ gradeId, ...props }: Props) => {
   };
 
   const fetch = () => {
-    setQuery((model: RootModel) =>
-      model.queryGradeAll({}, (instance) => instance.name.id)
+    setQuery((model: any) =>
+      model.queryGradeAll({}, (instance: any) => instance.name.id)
     );
   };
   const form = useFormContext();

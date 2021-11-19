@@ -6,40 +6,13 @@ import { resolve } from "path";
 const homedir = process.env["HOME"] ?? "";
 const host = "bisindo.test";
 
-const plugins = [
-  tsconfig(),
-  react({
-    babel: {
-      plugins: [
-        [
-          "@emotion",
-          {
-            importMap: {
-              "@mui/material": {
-                styled: {
-                  canonicalImport: ["@emotion/styled", "default"],
-                  styledBaseImport: ["@mui/material", "styled"],
-                },
-              },
-              "@mui/material/styles": {
-                styled: {
-                  canonicalImport: ["@emotion/styled", "default"],
-                  styledBaseImport: ["@mui/material/styles", "styled"],
-                },
-              },
-            },
-          },
-        ],
-      ],
-    },
-  }),
-];
+const plugins = [tsconfig(), react({})];
 const config = (withserver: boolean = true) => {
   if (!withserver) {
     return { plugins };
   }
   const server = {};
-  return { plugins, server };
+  return { plugins, server, publicDir: "vite_public" };
 };
 const configWindows = () => {
   return config(false);
