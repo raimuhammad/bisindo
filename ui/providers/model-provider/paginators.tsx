@@ -2,10 +2,9 @@ import type { IPaginatorOf } from "./paginator-factory";
 import { paginatorFactory } from "./paginator-factory";
 import type { GradeModelType, StudentGradeModelType } from "@root/models";
 import {
+  DiscussionModelSelector,
   gradeModelPrimitives,
-  paginatorInfoModelPrimitives,
   StudentGradeModelSelector,
-  StudentGradePaginatorModelSelector,
   userModelPrimitives,
 } from "@root/models";
 import { RootStoreBaseQueries } from "@models/RootStore.base";
@@ -24,6 +23,16 @@ export const paginators = {
     (v: StudentGradeModelSelector) =>
       v.id.student(userModelPrimitives).grade((v) => v.id.name)
   ) as UseIPaginatorOf<StudentGradeModelType>,
+  discussion: paginatorFactory(
+    RootStoreBaseQueries.queryDiscussion,
+    (v: DiscussionModelSelector) => {
+      return v.id.content.created_at.user_id
+        .user((u) => u.name.id)
+        .replies(
+          (r) => r.user_id.id.user((u) => u.name).content.user_id.created_at
+        );
+    }
+  ),
 };
 
 const PaginatorContext = createContext<null | IPaginatorOf<any>>(null);

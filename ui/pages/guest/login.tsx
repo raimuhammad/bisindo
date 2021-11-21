@@ -68,7 +68,7 @@ const useOnAuthenticated = () => {
         const { name } = user;
         enqueueSnackbar(`Selamat datang ${name}`);
         history.push(user.role === AppRole.ADMIN ? "/batch" : "/study");
-        app.setUser(user);
+        app.setUser(user as any);
       }
     });
   };

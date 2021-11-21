@@ -29,7 +29,6 @@ const parser = (data: any): any => {
 export const DraftJsViewer = ({ data }: Props) => {
   const classes = useClassses();
   try {
-    console.log("Parsed : ",data)
     const parsed = convertFromRaw(parser(data));
     const state = EditorState.createWithContent(parsed);
     return (

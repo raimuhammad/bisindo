@@ -5,20 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e94c46e-1c07-4efd-823c-bb31b961c4c7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ui/components/discussion/discussion-card.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/components/discussion/discussion-container.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/components/discussion/discussion-form.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/components/discussion/discussion-list.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/components/discussion/discussion-reply-list.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/components/discussion/form-message.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/components/discussion/provider.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/hooks/use-delete-api.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/validator/discussion-validator.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Video.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Video.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/assets/index.016b17d0.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/assets/index.c99be630.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/assets/vendor.b691a630.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/cors.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/cors.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/index.778defca.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/index.c99be630.css" beforeDir="false" afterPath="$PROJECT_DIR$/dist/assets/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/vendor.4a4b580c.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/assets/vendor.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/vendor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/components/form-field/auto-complete.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/form-field/auto-complete.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/components/form-field/grade-field.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/form-field/grade-field.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/components/draft-js-viewer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/draft-js-viewer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/hooks/use-popup.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/hooks/use-popup.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/loader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/loader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/pages/admin/batch.show/discussion.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/pages/admin/batch.show/discussion.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/pages/guest/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/pages/guest/login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/providers/model-provider/form-mutation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/providers/model-provider/form-mutation.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/providers/model-provider/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/providers/model-provider/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/providers/model-provider/mutation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/providers/model-provider/mutation.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/providers/model-provider/paginators.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/providers/model-provider/paginators.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -514,6 +527,7 @@
       <workItem from="1636116473883" duration="629000" />
       <workItem from="1636471454081" duration="2459000" />
       <workItem from="1636474236034" duration="1346000" />
+      <workItem from="1637514783674" duration="497000" />
     </task>
     <servers />
   </component>

@@ -13,6 +13,7 @@ interface RouteDefinition extends BaseRoutes {
 }
 
 interface AppUser {
+  id: string;
   role?: string;
   name: string;
   email: string;

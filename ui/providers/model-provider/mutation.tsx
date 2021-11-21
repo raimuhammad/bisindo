@@ -2,13 +2,18 @@ import type { IFormMutationOf } from "./form-mutation";
 import { formMutationfactory } from "./form-mutation";
 import { RootStoreBaseMutations } from "@root-model";
 import { batchValidator } from "@root/validator/batch-validator";
+import type { PropsWithChildren } from "react";
 import { createContext, useContext } from "react";
 import { observer } from "mobx-react";
-import {videoValidator} from "@root/validator/video-validator";
+import { videoValidator } from "@root/validator/video-validator";
+import type {
+  DiscussionModelType,
+  GradeModelType,
+  VideoModelType,
+} from "@root/models";
+import { userValidator } from "@root/validator/user-validator";
+import { discussionContentValidator } from "@root/validator/discussion-validator";
 
-import type { PropsWithChildren } from "react";
-import type { GradeModelType, VideoModelType } from "@root/models";
-import {userValidator} from "@root/validator/user-validator";
 export const mutations = {
   createBatch: formMutationfactory<GradeModelType>({
     api: RootStoreBaseMutations.mutateGrade,
@@ -26,11 +31,30 @@ export const mutations = {
     api: RootStoreBaseMutations.mutateUser,
     rule: userValidator,
   }),
+  addDiscussion: formMutationfactory<DiscussionModelType>({
+    api: RootStoreBaseMutations.mutateDiscussion,
+    rule: discussionContentValidator,
+  }),
+  editDiscussion: formMutationfactory<DiscussionModelType>({
+    api: RootStoreBaseMutations.mutateUpdateDiscussion,
+    rule: discussionContentValidator,
+  }),
+  addDiscussionReply: formMutationfactory<DiscussionModelType>({
+    api: RootStoreBaseMutations.mutateDiscussionReply,
+    rule: discussionContentValidator,
+  }),
+  editDiscussionReply: formMutationfactory<DiscussionModelType>({
+    api: RootStoreBaseMutations.mutateUpdateDiscussionReply,
+    rule: discussionContentValidator,
+  }),
 };
+
+export type KeyOfMutation = keyof typeof mutations;
+
 type Props = PropsWithChildren<{
   mutateKey: keyof typeof mutations;
   merge?: Record<string, any>;
-  parser?:(v: any)=>any
+  parser?: (v: any) => any;
 }>;
 
 const MutationContext = createContext<null | IFormMutationOf<any>>(null);
@@ -40,7 +64,7 @@ export function useMutationForm<T>(): IFormMutationOf<T> {
 }
 
 export const MutationFormProvider = observer(
-  ({ mutateKey, merge = {}, parser,children }: PropsWithChildren<Props>) => {
+  ({ mutateKey, merge = {}, parser, children }: PropsWithChildren<Props>) => {
     const callback = mutations[mutateKey];
     if (!callback) {
       throw new Error(`Please implemented mutation ${mutateKey}`);

@@ -30,6 +30,7 @@ export function useAuthFunctions() {
     if (callback && response && response.auth) {
       const { auth } = response;
       return callback({
+        id: auth.id as string,
         name: auth.name as string,
         email: auth.email as string,
         role: auth.role as string,
@@ -38,6 +39,7 @@ export function useAuthFunctions() {
     if (response && response.auth) {
       const { auth } = response;
       return {
+        id: auth.id as string,
         name: auth.name as string,
         email: auth.email as string,
         role: auth.role as string,

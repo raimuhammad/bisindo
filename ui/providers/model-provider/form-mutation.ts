@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useQuery } from "@root/models";
 import { parseMutationQuerykey } from "./utils";
-import { useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 type Options = {
   api: RootStoreBaseMutations;
@@ -23,14 +23,31 @@ function formMutation<T = any>({
     resolver: yupResolver(rule),
   });
   const resultKey = parseMutationQuerykey(api);
-  const { data, loading, setQuery } = useQuery<Record<typeof resultKey, T>>();
-
-  const formCallback = useCallback((data: Record<string, any>) => {
-    return setQuery((root: any) => {
+  const { data, store } = useQuery<Record<typeof resultKey, T>>();
+  const [loading, setLoading] = useState(false);
+  const [formResult, setFormResult] = useState<{
+    response: null | T;
+  }>({
+    response: null,
+  });
+  const formCallback = useCallback(
+    (data: Record<string, any>) => {
+      setFormResult({
+        response: null,
+      });
       const dt = parser ? parser({ ...data, ...merge }) : { ...data, ...merge };
-      return root[api](dt);
-    });
-  }, []);
+      setLoading(true)
+      return (store as any)[api](dt)
+        .currentPromise()
+        .then((response: any) => {
+          setLoading(false)
+          if (response && response[resultKey]) {
+            setFormResult({ response });
+          }
+        });
+    },
+    [api]
+  );
   const handler = form.handleSubmit(formCallback);
   const reset = useCallback(() => {
     form.reset({});
@@ -42,7 +59,7 @@ function formMutation<T = any>({
   }, []);
 
   return {
-    response: data && data[resultKey] ? data[resultKey] : null,
+    response: formResult.response,
     form,
     setFormValue,
     reset,

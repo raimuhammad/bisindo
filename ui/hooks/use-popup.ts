@@ -31,6 +31,14 @@ export function usePopup({
       variant,
     });
   };
+
+  useEffect(()=>{
+    closeSnackbar()
+    return ()=>{
+      closeSnackbar()
+    }
+  }, [])
+
   useEffect(() => {
     if (autoShow && show) {
       if (callback) {
