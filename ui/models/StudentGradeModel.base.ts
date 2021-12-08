@@ -32,8 +32,8 @@ export const StudentGradeModelBase = withTypedRefs<Refs>()(ModelBase
     id: types.identifier,
     created_at: types.union(types.undefined, types.frozen()),
     updated_at: types.union(types.undefined, types.null, types.frozen()),
-    student: types.union(types.undefined, MSTGQLRef(types.late((): any => UserModel))),
-    grade: types.union(types.undefined, MSTGQLRef(types.late((): any => GradeModel))),
+    student: types.union(types.undefined, types.null, MSTGQLRef(types.late((): any => UserModel))),
+    grade: types.union(types.undefined, types.null, MSTGQLRef(types.late((): any => GradeModel))),
     progress: types.union(types.undefined, MSTGQLRef(types.late((): any => ProgressModel))),
   })
   .views(self => ({

@@ -12,6 +12,7 @@ type UseMutation<T> = [
   {
     loading: boolean;
     response: null | T;
+    error: any
   },
   (v: Record<string, any>) => void
 ];
@@ -33,6 +34,7 @@ export function useMutation<T = any>({
     {
       loading,
       response: data ? data[resultKey] : null,
+      error,
     },
     handler,
   ];

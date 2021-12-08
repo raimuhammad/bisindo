@@ -19,15 +19,21 @@ import { SubmitButton } from "@components/submit-button";
 import { Add } from "@mui/icons-material";
 import { usePopup } from "@hooks/use-popup";
 import { WithBatchShow } from "@admin-pages/batch.show/with-batch-show";
+import { useStudentFormProvider, StudentFormContext, useStudentForm  } from './student/provider'
+import { DrawerForm } from './student/drawer-form'
 
 const columns: GridColDef[] = [
   { field: "name", headerName: "Nama siswa", flex: 1 },
+  {
+    field: "email",
+    headerName: "Alamat email", flex:1,
+  },
   {
     field: "status",
     headerName: "Status",
     flex: 0.2,
     valueGetter(v) {
-      return v ? "Aktif" : "Non aktif";
+      return v.row.status ? "Aktif" : "Non aktif";
     },
   },
 ];
@@ -36,7 +42,6 @@ const AddStudentForm = observer(() => {
   const [open, { toggle, force }] = useToggle();
   const { loading, form, handler, response } = useMutationForm();
   const { initialFetch } = usePaginator();
-  console.log(form.formState.errors);
   usePopup({
     message: "Siswa berhasil di tambahkan",
     show: Boolean(response),
@@ -99,12 +104,15 @@ const Content = observer(() => {
   }, []);
   const sources = result.data.map((item) => ({
     name: item.student.name,
+    email: item.student.email,
     id: item.student.id,
-    status: item.student.need_change_password,
+    status: item.student.active,
   }));
+  const { changeStudent } = useStudentForm();
   return (
     <Box sx={{ py: 2 }}>
       <Datagrid
+        onRowClick={changeStudent}
         paginationHandler={go}
         paginator={result.paginator}
         columns={columns}
@@ -116,6 +124,7 @@ const Content = observer(() => {
 
 export const StudentList = WithBatchShow(() => {
   const { modelId } = useBatchShow();
+  const formctx = useStudentFormProvider();
   return (
     <PaginatorProvider dataKey="students" includes={{ gradeId: modelId }}>
       <MutationFormProvider
@@ -125,7 +134,10 @@ export const StudentList = WithBatchShow(() => {
       >
         <AddStudentForm />
       </MutationFormProvider>
-      <Content />
+      <StudentFormContext.Provider value={formctx}>
+        <DrawerForm/>
+        <Content />
+      </StudentFormContext.Provider>
     </PaginatorProvider>
   );
 });

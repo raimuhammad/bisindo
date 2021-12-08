@@ -2,8 +2,8 @@ type StudentGrade {
   id: ID!
   created_at: Date!
   updated_at: Date
-  student: User!
-  grade: Grade!
+  student: User
+  grade: Grade
   progress: Progress!
 }
 

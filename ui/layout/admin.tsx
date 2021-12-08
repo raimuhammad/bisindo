@@ -1,7 +1,12 @@
 import {
   CssBaseline,
+  styled,
   Box,
+  AppBar as MuiAppBar,
   Toolbar,
+  Typography,
+  IconButton,
+  Container,
 } from "@mui/material";
 import { useAdminStateProvider, AdminContext } from "./admin.context";
 import { Header } from "./components/header";

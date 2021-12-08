@@ -1,21 +1,14 @@
-import type { IFormMutationOf } from "./form-mutation";
-import { formMutationfactory } from "./form-mutation";
-import { RootStoreBaseMutations } from "@root-model";
-import { batchValidator } from "@root/validator/batch-validator";
-import type { PropsWithChildren } from "react";
-import { createContext, useContext } from "react";
-import { observer } from "mobx-react";
-import {
-  videoValidator,
-  videoUpdateValidator,
-} from "@root/validator/video-validator";
-import type {
-  DiscussionModelType,
-  GradeModelType,
-  VideoModelType,
-} from "@root/models";
-import { userValidator } from "@root/validator/user-validator";
-import { discussionContentValidator } from "@root/validator/discussion-validator";
+import type {IFormMutationOf} from "./form-mutation";
+import {formMutationfactory} from "./form-mutation";
+import {RootStoreBaseMutations} from "@root-model";
+import {batchValidator} from "@root/validator/batch-validator";
+import type {PropsWithChildren} from "react";
+import {createContext, useContext} from "react";
+import {observer} from "mobx-react";
+import {videoUpdateValidator, videoValidator,} from "@root/validator/video-validator";
+import type {DiscussionModelType, GradeModelType, UserModelType, VideoModelType,} from "@root/models";
+import {userValidator, activationValidator} from "@root/validator/user-validator";
+import {discussionContentValidator} from "@root/validator/discussion-validator";
 
 export const mutations = {
   createBatch: formMutationfactory<GradeModelType>({
@@ -54,6 +47,14 @@ export const mutations = {
     api: RootStoreBaseMutations.mutateVideoUpdate,
     rule: videoUpdateValidator,
   }),
+  activation:formMutationfactory<UserModelType>({
+    api: RootStoreBaseMutations.mutateUserActivation,
+    rule: activationValidator
+  }),
+  editUser:formMutationfactory<UserModelType>({
+    api: RootStoreBaseMutations.mutateUserEdit,
+    rule: userValidator
+  })
 };
 
 export type KeyOfMutation = keyof typeof mutations;

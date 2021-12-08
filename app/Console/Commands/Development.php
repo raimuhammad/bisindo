@@ -172,16 +172,6 @@ class Development extends Command
     $student = $this->makeUser(env("STUDENT_EMAIL", "student@app.com"), AppRole::SUBSCRIBER, true);
     Grade::factory()->count(5)->create()->each(function (Grade $grade){
       $this->makeVideos($grade);
-      User::factory()->count(20)->create()->each(function (User $user) use ($grade){
-        $user->assignRole(AppRole::SUBSCRIBER);
-        StudentGrade::create([
-          "user_id"=>$user->id,
-          "grade_id"=>$grade->id,
-        ]);
-        $this->makeProgress(
-          $user, $grade
-        );
-      });
     });
     StudentGrade::create([
       "grade_id"=>Grade::all()->first()->id,

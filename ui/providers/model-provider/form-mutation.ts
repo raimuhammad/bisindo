@@ -25,6 +25,7 @@ function formMutation<T = any>({
   const resultKey = parseMutationQuerykey(api);
   const { data, store } = useQuery<Record<typeof resultKey, T>>();
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const [formResult, setFormResult] = useState<{
     response: null | T;
   }>({
@@ -32,6 +33,7 @@ function formMutation<T = any>({
   });
   const formCallback = useCallback(
     (data: Record<string, any>) => {
+      setError(false);
       setFormResult({
         response: null,
       });
@@ -44,6 +46,11 @@ function formMutation<T = any>({
           if (response && response[resultKey]) {
             setFormResult({ response });
           }
+          setError(false);
+        }).catch(()=>{
+          console.log("Error")
+          setError(true);
+          setLoading(false);
         });
     },
     [api]
@@ -65,6 +72,7 @@ function formMutation<T = any>({
     reset,
     loading,
     handler,
+    error,
   };
 }
 
@@ -75,6 +83,7 @@ export interface IFormMutationOf<T> {
   setFormValue(v: Record<string, any>): void;
   reset(): void;
   handler(): void;
+  error: any
 }
 
 export function formMutationfactory<T>({

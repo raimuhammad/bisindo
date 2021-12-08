@@ -27,6 +27,7 @@ class StudentGradeResolver
     return $b
       ->join("users", "users.id", "student_grades.user_id")
       ->join("grades", "grades.id", "student_grades.grade_id")
+	    ->whereNull("users.deleted_at")
       ->select(["student_grades.*"])
       ->orderBy("users.name","ASC");
   }

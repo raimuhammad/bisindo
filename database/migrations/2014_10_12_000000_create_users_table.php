@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
       $table->string('invitation');
       $table->boolean('active')->default(false);
       $table->rememberToken();
+			$table->softDeletes();
       $table->timestamps();
     });
   }

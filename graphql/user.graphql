@@ -15,14 +15,14 @@ extend type Query {
     @field(resolver: "App\\GraphQL\\UserResolver@isUniqEmail")
   userByGrade(grade_id: ID!): [User!]!
     @field(resolver: "App\\GraphQL\\UserResolver@getUserByGrade")
-  videoByGrade(grade_id: ID!
-  @builder(method: "App\\GraphQL\\VideoResolver@getByGrade")
+  videoByGrade(
+    grade_id: ID! @builder(method: "App\\GraphQL\\VideoResolver@getByGrade")
   ): [Video!]! @all
   quizByGrade(
     grade_id: ID! @builder(method: "App\\GraphQL\\QuizResolver@getByGrade")
   ): [Quiz!]! @all
-  progressByGrade(grade_id: ID!):[Progress!]!
-  @field(resolver: "App\\GraphQL\\ProgressResolver@getByGrade")
+  progressByGrade(grade_id: ID!): [Progress!]!
+    @field(resolver: "App\\GraphQL\\ProgressResolver@getByGrade")
 }
 
 extend type Mutation {
@@ -50,4 +50,5 @@ extend type Mutation {
     id: String! @eq
     password: String! @rules(apply: ["required", "string", "min:6"])
   ): User @field(resolver: "App\\GraphQL\\UserResolver@activation")
+  userDelete(id: String! @eq): User! @delete
 }

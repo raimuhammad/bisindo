@@ -135,6 +135,7 @@ mutateUserChangeUserPassword="mutateUserChangeUserPassword",
 mutateSentInvitation="mutateSentInvitation",
 mutateUserEdit="mutateUserEdit",
 mutateUserActivation="mutateUserActivation",
+mutateUserDelete="mutateUserDelete",
 mutateGrade="mutateGrade",
 mutateGradeEdit="mutateGradeEdit",
 mutateAddVideoInGrade="mutateAddVideoInGrade",
@@ -348,6 +349,11 @@ export const RootStoreBase = withTypedRefs<Refs>()(MSTGQLStore
     },
     mutateUserActivation(variables: { id: string, password: string }, resultSelector: string | ((qb: UserModelSelector) => UserModelSelector) = userModelPrimitives.toString(), optimisticUpdate?: () => void) {
       return self.mutate<{ userActivation: UserModelType}>(`mutation userActivation($id: String!, $password: String!) { userActivation(id: $id, password: $password) {
+        ${typeof resultSelector === "function" ? resultSelector(new UserModelSelector()).toString() : resultSelector}
+      } }`, variables, optimisticUpdate)
+    },
+    mutateUserDelete(variables: { id: string }, resultSelector: string | ((qb: UserModelSelector) => UserModelSelector) = userModelPrimitives.toString(), optimisticUpdate?: () => void) {
+      return self.mutate<{ userDelete: UserModelType}>(`mutation userDelete($id: String!) { userDelete(id: $id) {
         ${typeof resultSelector === "function" ? resultSelector(new UserModelSelector()).toString() : resultSelector}
       } }`, variables, optimisticUpdate)
     },
