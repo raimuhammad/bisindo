@@ -33,19 +33,18 @@ class Grade extends Model
   use HasFactory;
   protected $guarded = ["id"];
 
-
   public function students(){
     return $this->hasMany(StudentGrade::class);
   }
-  public function videos(){
-    return $this->hasMany(Video::class);
-  }
-
+	public function getVideosAttribute(){
+		$builder = VideoGrade::where(["grade_id"=>$this->id])->get()->pluck("video_id");
+		return Video::whereIn("id",$builder);
+	}
   public function getStudentCountAttribute(){
     return $this->students()->count();
   }
   public function getVideoCountAttribute(){
-    return $this->videos()->count();
+    return $this->videos->count();
   }
 
 }

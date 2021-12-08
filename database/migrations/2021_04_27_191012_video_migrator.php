@@ -10,7 +10,6 @@ class VideoMigrator extends Migration
   {
     Schema::create('videos', function (Blueprint $table) {
       $table->id();
-      $table->unsignedBigInteger('grade_id');
       $table->string("title");
       $table->string("caption");
       $table->integer("duration")->default(0);
@@ -18,7 +17,6 @@ class VideoMigrator extends Migration
       $table->softDeletes();
       $table->timestamps();
     });
-    \App\Shared\RelationHelper::AttachRelation('videos', ['grade_id']);
   }
   public function down()
   {

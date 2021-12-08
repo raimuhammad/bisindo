@@ -5,7 +5,10 @@ import { batchValidator } from "@root/validator/batch-validator";
 import type { PropsWithChildren } from "react";
 import { createContext, useContext } from "react";
 import { observer } from "mobx-react";
-import { videoValidator } from "@root/validator/video-validator";
+import {
+  videoValidator,
+  videoUpdateValidator,
+} from "@root/validator/video-validator";
 import type {
   DiscussionModelType,
   GradeModelType,
@@ -46,6 +49,10 @@ export const mutations = {
   editDiscussionReply: formMutationfactory<DiscussionModelType>({
     api: RootStoreBaseMutations.mutateUpdateDiscussionReply,
     rule: discussionContentValidator,
+  }),
+  editVideo: formMutationfactory<VideoModelType>({
+    api: RootStoreBaseMutations.mutateVideoUpdate,
+    rule: videoUpdateValidator,
   }),
 };
 

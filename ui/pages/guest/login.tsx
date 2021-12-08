@@ -17,7 +17,7 @@ import { useComponentMapper } from "@hooks/use-component-mapper";
 import { ExitToApp } from "@mui/icons-material";
 import { useSnackbar } from "notistack";
 import { useApp } from "@providers/application-provider";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { AppRole } from "@root/models";
 
 const sx = {
@@ -61,13 +61,13 @@ const useOnAuthenticated = () => {
   const authFunction = useAuthFunctions();
   const { enqueueSnackbar } = useSnackbar();
   const app = useApp();
-  const history = useHistory();
+  const push = useNavigate();
   return () => {
     authFunction().then((user) => {
       if (user) {
         const { name } = user;
         enqueueSnackbar(`Selamat datang ${name}`);
-        history.push(user.role === AppRole.ADMIN ? "/batch" : "/study");
+        push(user.role === AppRole.ADMIN ? "/classroom" : "/");
         app.setUser(user as any);
       }
     });

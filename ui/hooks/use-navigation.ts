@@ -1,7 +1,7 @@
-import {useHistory} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 export function useNavigation(path : string = ""){
-  const { push } = useHistory();
+  const push  = useNavigate();
   const to = (path: string) => () => {
     return push(path);
   }

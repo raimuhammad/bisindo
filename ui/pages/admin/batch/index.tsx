@@ -1,37 +1,15 @@
 import { useAdminLayout } from "@layout/admin.context";
-import { useEffect } from "react";
-import { Box, LinearProgress, Typography } from "@mui/material";
-import pagesetting from "./page-setting.json";
-import { PageBanner } from "@components/page-banner";
+import { Fragment, useEffect } from "react";
+import { Box, Container, LinearProgress, Typography } from "@mui/material";
 import {
   PaginatorProvider,
   usePaginator,
 } from "@providers/model-provider/paginators";
 import { useBatchPage, useBatchProvider, BatchContext } from "./provider";
-import { Create } from './create'
-import { SearchBar } from './search-bar'
-import { Content } from './content'
-
-const PageContent = () => {
-  return <div>Page content</div>;
-};
-
-const PageInfo = ({
-  status,
-  loading,
-}: {
-  status: string;
-  loading: boolean;
-}) => {
-  return (
-    <Box sx={{ textAlign: "center" }}>
-      {loading ? <LinearProgress /> : null}
-      <Typography sx={{ py: 3 }} variant="h6">
-        {loading ? "Loading" : status}
-      </Typography>
-    </Box>
-  );
-};
+import { Create } from "./create";
+import { SearchBar } from "./search-bar";
+import { Content } from "./content";
+import { useLayout } from "@layout/layout-provider";
 
 const Page = () => {
   const { initialFetch, loading, isEmpty, hasResponse } = usePaginator();
@@ -41,19 +19,21 @@ const Page = () => {
   }, []);
   return (
     <>
-      <PageBanner {...pagesetting}>
-        <Create/>
-      </PageBanner>
-      <SearchBar/>
-      <Content/>
+      <Container>
+        <Create />
+      </Container>
+      <SearchBar />
+      <Content />
     </>
   );
 };
 
-export const Batch = () => {
+const Index = () => {
   const { setTitle } = useAdminLayout();
+  const { updateNavs } = useLayout();
   useEffect(() => {
     setTitle("Menagemen batch");
+    updateNavs([])
     return () => {
       setTitle("");
     };
@@ -67,4 +47,8 @@ export const Batch = () => {
       </BatchContext.Provider>
     </PaginatorProvider>
   );
+};
+
+export const Batch = () => {
+  return <Index />;
 };

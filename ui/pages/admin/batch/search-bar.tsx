@@ -1,4 +1,4 @@
-import { Typography, Box, InputAdornment, Button } from "@mui/material";
+import {Typography, Box, InputAdornment, Button, Container} from "@mui/material";
 import { FormField } from "@components/form-field/form-field";
 import { Refresh, Search } from "@mui/icons-material";
 import { useState } from "react";
@@ -7,7 +7,7 @@ import { usePaginator } from "@providers/model-provider/paginators";
 
 export const SearchBar = () => {
   const [search, setSearch] = useState<string>("");
-  const handleChange = (e: any) => setSearch(e.target.value);
+  const handleChange = (e: any) => setSearch(e);
   const {
     actions: { removeParam, parameter, updateParameter },
     result,
@@ -15,7 +15,7 @@ export const SearchBar = () => {
     hasResponse,
   } = usePaginator();
   const onSubmit = (e: any) => {
-    updateParameter("search")(search);
+    updateParameter("search")(`%${search}%`);
     e.preventDefault();
   };
   const onReset = () => {
@@ -23,7 +23,7 @@ export const SearchBar = () => {
     setSearch("");
   };
   return (
-    <PageContentContainer>
+    <Container>
       <form onSubmit={onSubmit} onReset={onReset}>
         <FormField
           fullWidth
@@ -68,6 +68,6 @@ export const SearchBar = () => {
           </Box>
         </Box>
       </form>
-    </PageContentContainer>
+    </Container>
   );
 };

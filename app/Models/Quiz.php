@@ -96,7 +96,7 @@ class Quiz extends Model implements HasMedia
    */
   public function getAdditionalImageAttribute(){
     $media = $this->getFirstMediaUrl("additional-image");
-    return $media ?? "";
+    return str_replace(env("APP_URL"), "",$media ?? "");
   }
   /**
    * @attributes

@@ -1,9 +1,3 @@
-type Progress @model(class:"App\\Models\\Progress") {
-  id: ID!
-  videoHistory: String!
-  completion: Float!
-}
-
 type StudentGrade {
   id: ID!
   created_at: Date!

@@ -3,8 +3,8 @@ import { observer } from "mobx-react";
 import { usePaginator } from "@providers/model-provider/paginators";
 import { ReactNode, useEffect, useState } from "react";
 import { PageContentContainer } from "@components/page-content-container";
-import { Box, Button, Paper, Typography } from "@mui/material";
-import {Delete, OndemandVideo, Save, School} from "@mui/icons-material";
+import {Box, Button, Container, Paper, Typography} from "@mui/material";
+import { Delete, OndemandVideo, Save, School } from "@mui/icons-material";
 import { FormDialog } from "@components/form-dialog";
 import { FormProvider, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -14,8 +14,8 @@ import { useMutation } from "@hooks/use-mutation";
 import { RootStoreBaseMutations } from "@root-model";
 import { SubmitButton } from "@components/submit-button";
 import { usePopup } from "@hooks/use-popup";
-import {useNavigation} from "@hooks/use-navigation";
-import voca from 'voca'
+import { useNavigation } from "@hooks/use-navigation";
+import voca from "voca";
 
 type State = {
   selected: null | GradeModelType;
@@ -42,10 +42,17 @@ const Info = ({ icon, text }: { text: string; icon: ReactNode }) => {
  * Komponen penampil batch
  */
 const BatchCard = observer(({ batch, onSelect }: Props) => {
-  const path = `/batch/${voca(batch.name).slugify().value()}/${batch.id}`
-  const { navigate } = useNavigation(path)
+  const path = `/classroom/${voca(batch.name).slugify().value()}/${batch.id}/videos`;
+  const { navigate } = useNavigation(path);
   return (
-    <Paper variant='outlined' sx={{ borderRadius: 0,p: 2, mx: [1, 0], mb: 2, display: ["block", "flex"] }}>
+    <Paper
+      sx={{
+        p: 2,
+        mx: [1, 0],
+        mb: 2,
+        display: ["block", "flex"],
+      }}
+    >
       <Box sx={{ width: ["100%", "80%"] }}>
         <Typography variant="h4" sx={{ textTransform: "capitalize" }}>
           {batch.name}
@@ -128,58 +135,60 @@ const UpdateForm = observer(
     );
   }
 );
-const DeleteForm = observer( ({
-  selected,
-  action,
-  handleClose,
-}: State & { handleClose(): void }) => {
-  const [{ response, loading }, dispatch] = useMutation<GradeModelType>({
-    api: RootStoreBaseMutations.mutateGradeDelete,
-    merge: { id: selected ? selected.id : "" },
-  });
-  const showPopUp = usePopup({
-    message: response ? `${response.name} berhasil di hapus` : "",
-    autoShow: false,
-    variant: "success", show: Boolean(response),
-  });
-  const { initialFetch } = usePaginator();
-  useEffect(() => {
-    if (response) {
-      showPopUp();
-      initialFetch();
-      handleClose();
-    }
-  }, [response]);
-  return (
-    <FormDialog
-      handleClose={handleClose}
-      open={action === "delete"}
-      isCloseDisabled={loading}
-    >
-      <Typography variant="h5">
-        Apakah anda yakin untuk menghapus {selected ? selected.name : ""} ?
-      </Typography>
-      <Box
-        sx={{
-          pt: 4,
-          width: ["100%", "50%"],
-          "& > button": {
-            textTransform: "capitalize",
-          },
-        }}
+const DeleteForm = observer(
+  ({ selected, action, handleClose }: State & { handleClose(): void }) => {
+    const [{ response, loading }, dispatch] = useMutation<GradeModelType>({
+      // @ts-ignore
+      api: RootStoreBaseMutations.mutateGradeDelete,
+      merge: { id: selected ? selected.id : "" },
+    });
+    const showPopUp = usePopup({
+      message: response ? `${response.name} berhasil di hapus` : "",
+      autoShow: false,
+      variant: "success",
+      show: Boolean(response),
+    });
+    const { initialFetch } = usePaginator();
+    useEffect(() => {
+      if (response) {
+        showPopUp();
+        initialFetch();
+        handleClose();
+      }
+    }, [response]);
+    return (
+      <FormDialog
+        handleClose={handleClose}
+        open={action === "delete"}
+        isCloseDisabled={loading}
       >
-        <SubmitButton onClick={()=>dispatch({})} icon={
-          <Delete/>
-        } loading={loading}>
-          Hapus
-        </SubmitButton>
-        <Button variant="outlined" disabled={loading} onClick={handleClose}>
-          Batal
-        </Button>
-      </Box>
-    </FormDialog>
-  );
-});
+        <Typography variant="h5">
+          Apakah anda yakin untuk menghapus {selected ? selected.name : ""} ?
+        </Typography>
+        <Box
+          sx={{
+            pt: 4,
+            width: ["100%", "50%"],
+            "& > button": {
+              textTransform: "capitalize",
+            },
+          }}
+        >
+          <SubmitButton
+            onClick={() => dispatch({})}
+            icon={<Delete />}
+            loading={loading}
+          >
+            Hapus
+          </SubmitButton>
+          <Button variant="outlined" disabled={loading} onClick={handleClose}>
+            Batal
+          </Button>
+        </Box>
+      </FormDialog>
+    );
+  }
+);
 export const Content = observer(() => {
   const {
     result: { data },
@@ -209,12 +218,12 @@ export const Content = observer(() => {
     }, 1000);
   };
   return (
-    <PageContentContainer>
+    <Container>
       {data.map((item) => (
         <BatchCard key={item.id} batch={item} onSelect={handleState} />
       ))}
       <UpdateForm {...state} handleClose={handleClose} />
       <DeleteForm {...state} handleClose={handleClose} />
-    </PageContentContainer>
+    </Container>
   );
 });

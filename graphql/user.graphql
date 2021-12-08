@@ -15,7 +15,9 @@ extend type Query {
     @field(resolver: "App\\GraphQL\\UserResolver@isUniqEmail")
   userByGrade(grade_id: ID!): [User!]!
     @field(resolver: "App\\GraphQL\\UserResolver@getUserByGrade")
-  videoByGrade(grade_id: ID! @where(key: "grade_id")): [Video!]! @all
+  videoByGrade(grade_id: ID!
+  @builder(method: "App\\GraphQL\\VideoResolver@getByGrade")
+  ): [Video!]! @all
   quizByGrade(
     grade_id: ID! @builder(method: "App\\GraphQL\\QuizResolver@getByGrade")
   ): [Quiz!]! @all

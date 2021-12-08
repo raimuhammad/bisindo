@@ -4,7 +4,9 @@ import { useShowProvider } from "@hooks/use-show-provider";
 import { RootStoreBaseQueries } from "@root-model";
 import { createContext, useContext, useEffect, useState } from "react";
 import { useAdminLayout } from "@layout/admin.context";
-import voca from "voca";
+import { usePageSwitcher } from "@components/admin-page-content";
+import { useLocation, useParams, useNavigate } from "react-router-dom";
+import { useLayout } from "@layout/layout-provider";
 
 const items = [
   "VIDEOS",
@@ -21,23 +23,41 @@ type PageControl = {
 };
 
 function usePageControll() {
-  const [state, setPage] = useState<PageControl>({
-    page: "VIDEOS",
-    animate: "opacity",
+  const pageControl = usePageSwitcher(items as unknown as string[]);
+  const push  = useNavigate();
+  const { pathname } = useLocation();
+  const [page, setPage] = useState<string>("Videos");
+  const [state, setState] = useState<Omit<PageControl, 'page'>>({
+    animate: "x",
     animateDirection: "left",
   });
+  const { id, slug } = useParams<any>();
+  useEffect(() => {
+    let type = pathname.split("/").pop();
+    if (type === "batch") {
+      type = "videos";
+    }
+    if (type) {
+      const isExist = items.includes((type as any).toLocaleUpperCase());
+      if (!isExist) {
+        // push(`/batch/${slug}/${id}/videos`);
+        return;
+      }
+      setPage(type.toLocaleUpperCase());
+    }
+  }, [pathname]);
+
   const changeContent = (content: typeof items[number]) => {
     const nextIndex = items.findIndex((item) => item === content);
-    const currentIndex = items.findIndex((item) => item === state.page);
+    const currentIndex = items.findIndex((item) => item === page);
     const animateDirection = nextIndex > currentIndex ? "left" : "right";
-    setPage({
-      page: content,
+    setState({
       animateDirection,
       animate: "x",
     });
   };
   return {
-    pageControll: [state, changeContent] as [PageControl, (v: string) => void],
+    pageControll: [{...state, page}, changeContent] as [PageControl, (v: string) => void],
   };
 }
 
@@ -75,14 +95,47 @@ export const Context = createContext<IBatchShowPage | null>(null);
 export function useBatchShow() {
   return useContext(Context) as IBatchShowPage;
 }
-export function useBatchShowProvider(location: any) {
-  const { id, slug } = location.match.params;
+
+export function useBatchShowProvider(params: any) {
+  const { id, slug } = params;
   const { setTitle } = useAdminLayout();
+  const { updateNavs } = useLayout();
+
   useEffect(() => {
     setTitle(" ");
+    updateNavs([]);
+    const getPath = ({ path, label }: any) => {
+      return {
+        path: `/classroom/${slug}/${id}/${path}`,
+        label,
+      };
+    };
+    const navs = [
+      {
+        label: "Video",
+        path: "videos",
+      },
+      {
+        label: "Tambah video",
+        path: `add-video`,
+      },
+      {
+        label: "Siswa",
+        path: `students`,
+      },
+      {
+        label: "Periksa quis",
+        path: `quiz-check`,
+      },
+      {
+        label: "Diskusi",
+        path: `discussion`,
+      },
+    ].map(getPath);
+    updateNavs(navs);
     return () => {
       setTitle("");
     };
-  }, []);
+  }, [id]);
   return useShowProvider(getOptions(id)) as IBatchShowPage;
 }

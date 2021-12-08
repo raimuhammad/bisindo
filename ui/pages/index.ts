@@ -1,68 +1,106 @@
 import { DefaultComponent } from "./default-component";
-import { Fragment } from "react";
+import { createElement, Fragment } from "react";
 import { Login } from "./guest/login";
 import { Batch } from "./admin/batch";
 import { BatchShow } from "./admin/batch.show";
 import { People, OndemandVideo, School } from "@mui/icons-material";
+import { VideoPage as AdminVideoPage } from "./admin/video/video-page";
+import { VideoList } from "@admin-pages/batch.show/video-list";
+import { AddVideo } from "@admin-pages/batch.show/add-video";
+import { StudentList } from "@admin-pages/batch.show/student-list";
+import { QuizCheck } from "@admin-pages/batch.show/quiz-check";
+import { Discussion } from "@admin-pages/batch.show/discussion";
+import { Info } from "@admin-pages/video/info";
+import { Quiz } from "@admin-pages/video/quiz";
+import { EditForm } from "@admin-pages/video/edit-form";
+import { DefaultComponent as DC } from "../providers/application-provider/default-component";
+import { Navigate } from "react-router-dom";
+import { Dashboard } from "@student-pages/dashboard";
+import { Discussion as Studentdiscusion } from "@student-pages/discussion";
+import { Progress } from "@student-pages/progress";
+import { Videos } from "@student-pages/videos";
+import { StudentVideo } from "@student-pages/video";
 
 const hideInMenu = true;
 
 const AdminDefault = DefaultComponent("ADMIN");
 const GuestDefault = DefaultComponent("GUEST");
-
 export const admin: RouteDefinition[] = [
   {
-    path: "/batch",
+    path: "classroom/:slug/:id",
+    component: BatchShow,
+    groups: [
+      // {
+      //   path: "*",
+      //   component: VideoList,
+      //   name: "batch-show-video",
+      // },
+      {
+        path: "videos",
+        component: VideoList,
+        name: "batch-show-video",
+      },
+      {
+        path: "add-video",
+        component: AddVideo,
+        name: "batch-show-add-vide",
+      },
+      {
+        path: "students",
+        component: StudentList,
+        name: "batch-show-student",
+      },
+      {
+        path: "quiz-check",
+        component: QuizCheck,
+        name: "batch-show-quiz-check",
+      },
+      {
+        path: "discussion",
+        component: Discussion,
+        name: "batch-show-discussion",
+      },
+    ],
+    key: "classroom-show",
+    icon: Fragment,
+    name: "classroom show",
+  },
+  {
+    path: "classroom",
     component: Batch,
     name: "menagement batch",
     key: "batch-index",
     icon: People,
   },
   {
-    path: "/batch/:slug/:id",
-    component: BatchShow,
-    name: "batch-show",
-    key: "batch-show",
+    path: "admin/video/:id",
+    component: AdminVideoPage,
+    name: "admin-video-page",
+    key: "admin-video-page",
     icon: Fragment,
     hideInMenu,
-  },
-  {
-    path: "/video/:id/quiz",
-    component: AdminDefault,
-    name: "video-quiz",
-    key: "video-quiz",
-    icon: Fragment,
-    hideInMenu,
-  },
-  {
-    path: "/quiz/:videoId",
-    component: AdminDefault,
-    name: "video-quiz-index",
-    key: "video-quiz-index",
-    icon: Fragment,
-    hideInMenu,
-  },
-  {
-    path: "/batch/:batchId/check-quiz",
-    component: AdminDefault,
-    name: "batch-quiz-index",
-    key: "batch-quiz-index",
-    icon: Fragment,
-    hideInMenu,
-  },
-  {
-    path: "/video",
-    component: AdminDefault,
-    name: "video pembelajaran",
-    key: "video-index",
-    icon: OndemandVideo,
-  },
-  {
-    path: "/student",
-    component: AdminDefault,
-    name: "siswa",
-    key: "student-index",
-    icon: School,
+    groups: [
+      {
+        path: "*",
+        component: Info,
+        name: "Informasi video",
+      },
+      {
+        path: "info",
+        component: Info,
+        name: "Informasi video",
+      },
+      {
+        path: "quiz",
+        component: Quiz,
+        name: "Quis",
+      },
+      {
+        path: "edit",
+        component: EditForm,
+        name: "Edit",
+      },
+    ],
   },
 ];
 export const guest: RouteDefinition[] = [
@@ -73,5 +111,17 @@ export const guest: RouteDefinition[] = [
     key: "login",
     icon: Fragment,
   },
+  {
+    path: "/",
+    component: () => createElement(Navigate, { to: "/login" }),
+    name: "login",
+    key: "login",
+    icon: Fragment,
+  },
 ];
-export const student: RouteDefinition[] = [];
+export const student: RouteDefinition[] = [
+  Progress,
+  Videos,
+  Studentdiscusion,
+  StudentVideo,
+];

@@ -11,6 +11,7 @@ use App\Models\QuizMetadata;
 use App\Models\StudentGrade;
 use App\Models\User;
 use App\Models\Video;
+use App\Models\VideoGrade;
 use Faker\Factory;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Schema;
@@ -127,9 +128,12 @@ class Development extends Command
      */
     $video = Video::factory()
       ->count($c)
-      ->create([
-        "grade_id"=>$grade->id
-      ])->each(function (Video $video){
+	    ->create()
+      ->each(function (Video $video) use ($grade){
+				VideoGrade::create([
+					"video_id"=>$video->id,
+					"grade_id"=>$grade->id,
+				]);
         for ($i = 0; $i < 5; $i++){
           if ($i === 0){
             $this->makeImageMatchQuiz($video);
@@ -146,8 +150,8 @@ class Development extends Command
 
   public function makeProgress(User $user, Grade $grade){
     $data = collect();
-    $c = $grade->videos()->count();
-    foreach ($grade->videos->take($this->faker->numberBetween(1, $c)) as $video){
+    $c = $grade->videos->count();
+    foreach ($grade->videos->get()->take($this->faker->numberBetween(1, $c)) as $video){
       $data->add([
         "video_id"=>$video->id,
         "time"=>$this->faker->numberBetween(1, $video->duration),
@@ -166,23 +170,23 @@ class Development extends Command
     $this->resetDb();
     $admin = $this->makeUser(env("DEV_EMAIL", "admin@app.com"), AppRole::ADMIN, true);
     $student = $this->makeUser(env("STUDENT_EMAIL", "student@app.com"), AppRole::SUBSCRIBER, true);
-//    Grade::factory()->count(5)->create()->each(function (Grade $grade){
-//      $this->makeVideos($grade);
-//      User::factory()->count(20)->create()->each(function (User $user) use ($grade){
-//        $user->assignRole(AppRole::SUBSCRIBER);
-//        StudentGrade::create([
-//          "user_id"=>$user->id,
-//          "grade_id"=>$grade->id,
-//        ]);
-//        $this->makeProgress(
-//          $user, $grade
-//        );
-//      });
-//    });
-//    StudentGrade::create([
-//      "grade_id"=>Grade::all()->first()->id,
-//      "user_id"=>$student->id
-//    ]);
+    Grade::factory()->count(5)->create()->each(function (Grade $grade){
+      $this->makeVideos($grade);
+      User::factory()->count(20)->create()->each(function (User $user) use ($grade){
+        $user->assignRole(AppRole::SUBSCRIBER);
+        StudentGrade::create([
+          "user_id"=>$user->id,
+          "grade_id"=>$grade->id,
+        ]);
+        $this->makeProgress(
+          $user, $grade
+        );
+      });
+    });
+    StudentGrade::create([
+      "grade_id"=>Grade::all()->first()->id,
+      "user_id"=>$student->id
+    ]);
     return 1;
   }
 }

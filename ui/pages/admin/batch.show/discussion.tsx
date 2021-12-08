@@ -1,9 +1,9 @@
 import { DiscussionContainer } from "@components/discussion/discussion-container";
 import { useBatchShow } from "./context";
-import { PaginatorProvider } from "@providers/model-provider/paginators";
+import { WithBatchShow } from "@admin-pages/batch.show/with-batch-show";
 
-export const Discussion = () => {
+export const Discussion = WithBatchShow(() => {
   const { modelId } = useBatchShow();
 
   return <DiscussionContainer gradeId={modelId} />;
-};
+});

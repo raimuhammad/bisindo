@@ -24,7 +24,7 @@ function useList<T, Props extends Record<string, any> = {}>(
   };
   useEffect(() => {
     fetch();
-  }, [props]);
+  }, []);
 
   const resolveData = (): T[] => {
     return data ? data[resultKey] : [];

@@ -50,6 +50,9 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @method static \Illuminate\Database\Query\Builder|Video withTrashed()
  * @method static \Illuminate\Database\Query\Builder|Video withoutTrashed()
  * @mixin \Eloquent
+ * @property-read mixed $student_progress
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Quiz[] $quizes
+ * @property-read int|null $quizes_count
  */
 class Video extends Model implements HasMedia
 {
@@ -72,8 +75,9 @@ class Video extends Model implements HasMedia
   /**
    * @utility
    */
-  public function grade(){
-    return $this->belongsTo(Grade::class);
+  public function getGradesAttribute(){
+		$connect = VideoGrade::whereVideoId($this->id);
+		return Grade::whereIn("id", $connect->get()->pluck("grade_id"))->get();
   }
   /**
    * @utility
@@ -81,6 +85,11 @@ class Video extends Model implements HasMedia
   public function quizes(){
     return $this->hasMany(Quiz::class);
   }
+
+	public function getQuizCountAttribute(){
+		return $this->quizes->count();
+	}
+
   public function durationHelper() : int{
     $video = $this->getFirstMedia('content');
     $helper = new DurationHelper();
@@ -106,8 +115,12 @@ class Video extends Model implements HasMedia
    * @return string
    */
   public function getContentAttribute() : string {
-    $path = \Str::replace(env('APP_URL'), "", $this->getFirstMediaUrl("content"));
-    return $path;
+		$media = $this->getFirstMedia("content");
+		$ext = \Str::afterLast($media->file_name,".");
+		return route("stream", [
+			"fileId"=>$media->uuid,
+			"extension"=>$ext
+		]);
   }
   /**
    * @attributes

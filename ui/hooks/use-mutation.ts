@@ -5,6 +5,7 @@ import { parseMutationQuerykey } from "@providers/model-provider/utils";
 type Options = {
   api: RootStoreBaseMutations;
   merge?: Record<string, any>;
+  parser?(data: any): any;
 };
 
 type UseMutation<T> = [
@@ -15,11 +16,18 @@ type UseMutation<T> = [
   (v: Record<string, any>) => void
 ];
 
-export function useMutation<T = any>({ api, merge = {} }: Options): UseMutation<T> {
+export function useMutation<T = any>({
+  api,
+  merge = {},
+  parser,
+}: Options): UseMutation<T> {
   const { data, loading, error, setQuery } = useQuery<any>();
   const resultKey = parseMutationQuerykey(api);
   const handler = (data: Record<string, any>) => {
-    return setQuery((root: any) => root[api]({...data, ...merge}));
+    if (parser) {
+      data = { ...parser(data) };
+    }
+    return setQuery((root: any) => root[api]({ ...data, ...merge }));
   };
   return [
     {

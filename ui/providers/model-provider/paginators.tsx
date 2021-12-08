@@ -1,19 +1,35 @@
 import type { IPaginatorOf } from "./paginator-factory";
 import { paginatorFactory } from "./paginator-factory";
-import type { GradeModelType, StudentGradeModelType } from "@root/models";
+import type {
+  GradeModelType,
+  StudentGradeModelType,
+  VideoModelType,
+} from "@root/models";
 import {
   DiscussionModelSelector,
   gradeModelPrimitives,
+  QuizModelSelector,
+  QuizModelType,
   StudentGradeModelSelector,
   userModelPrimitives,
 } from "@root/models";
 import { RootStoreBaseQueries } from "@models/RootStore.base";
 import { createContext, PropsWithChildren, useContext } from "react";
 import { observer } from "mobx-react";
+import { listFactory } from "@providers/model-provider/list-factory";
 
 type UseIPaginatorOf<T> = (includes?: Record<string, any>) => IPaginatorOf<T>;
 
 export const paginators = {
+  quizByVideo: paginatorFactory(
+    RootStoreBaseQueries.queryQuizes,
+    (selector: QuizModelSelector) => {
+      return selector
+        .show_at.id.type.additional_image.question.questionAnswer.image_matcher.choises(
+        (c) => c.id.image.text.index
+      );
+    }
+  ) as UseIPaginatorOf<VideoModelType>,
   grades: paginatorFactory(
     RootStoreBaseQueries.queryGrades,
     gradeModelPrimitives

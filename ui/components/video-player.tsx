@@ -11,34 +11,50 @@ import {
   ControlGroup,
   TimeProgress,
   usePlayer,
+  usePlayerContext,
 } from "@vime/react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Box } from "@mui/material";
-import { useToggle } from "@hooks/use-toggle";
+import {useToggle} from "@hooks/use-toggle";
 
 type Props = {
   url: string;
   onPlaying?(v: number): void;
   play?: boolean;
+  playOnTime?: number;
 };
 
-export const VideoPlayer = ({ url, onPlaying, play = false }: Props) => {
+export const VideoPlayer = ({
+  url,
+  onPlaying,
+  play = false,
+  playOnTime,
+}: Props) => {
   const playerRef = useRef<HTMLVmPlayerElement | null>(null);
+  const [isPlaying, {toggle, inline}] = useToggle(play);
+  useEffect(() => {
+    if (playOnTime) {
+      inline(false);
+    }
+    const val : HTMLVmPlayerElement = playerRef.current as HTMLVmPlayerElement;
+    if (val && playOnTime){
+      val.pause().then(()=>{
+        val.callAdapter('setCurrentTime', playOnTime).catch(console.log);
+      });
+    }
+  }, [playOnTime, playerRef]);
+  const onTimeUpdate = (e: CustomEvent<number>) => {
+    onPlaying
+      ? setTimeout(() => {
+          onPlaying(parseInt(e.detail.toFixed(1)));
+        }, 1000)
+      : null;
+  };
   return (
     <Box>
-      <Vime
-        playsinline
-        ref={playerRef}
-        onVmCurrentTimeChange={(e) =>
-          onPlaying
-            ? setTimeout(() => {
-                onPlaying(parseInt(e.detail.toFixed(1)));
-              }, 1000)
-            : null
-        }
-      >
+      <Vime playsinline ref={playerRef} onVmCurrentTimeChange={onTimeUpdate}>
         {url ? (
-          <Video crossOrigin='use-credentials'>
+          <Video crossOrigin="use-credentials">
             <source data-src={url} />
           </Video>
         ) : (

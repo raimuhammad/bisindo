@@ -30,6 +30,9 @@ class Field extends React.Component<Props> {
             return value ?? "";
           }
         }
+        if (this.props.value){
+          return this.props.value
+        }
         return "";
       }
     }
@@ -74,7 +77,7 @@ class Field extends React.Component<Props> {
         },
       } as TextFieldProps;
     }
-    return { ...base, ...rest } as TextFieldProps;
+    return { ...rest, ...base } as TextFieldProps;
   }
 
   render() {

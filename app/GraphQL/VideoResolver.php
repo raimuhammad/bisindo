@@ -6,6 +6,7 @@ namespace App\GraphQL;
 
 use App\Models\Grade;
 use App\Models\Video;
+use App\Models\VideoGrade;
 use App\Shared\GraphqlResolver;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -26,7 +27,7 @@ class VideoResolver extends GraphqlResolver
 
   public function getExcluded(array $array): array
   {
-    return ["content"];
+    return ["content", "grade_id"];
   }
 
   public function makeModel(): Model
@@ -44,24 +45,34 @@ class VideoResolver extends GraphqlResolver
     $this->customModelUpdate(
       [["content", "attachContent"]]
     );
+		$connect = new VideoGrade();
+		$connect->video_id = $this->model->id;
+		$connect->grade_id = $this->additionalArguments['grade_id'];
+		$connect->save();
   }
 
   protected function afterUpdate()
   {
-    $this->customModelUpdate(
-      [["content", "attachContent"]]
-    );
+//    $this->customModelUpdate(
+////      [["content", "attachContent"]]
+//    );
   }
 
   public function search($builder, string $value){
     if (! $value) return $builder;
-    $gradeIds = Grade::where("name", "like", $value)->select("id")->get()->pluck("id");
+//    $gradeIds = Grade::where("name", "like", $value)->select("id")->get()->pluck("id");
     $videoIds = Video::where("title", "like", $value)->select("id")->get()->pluck("id");
-    return $builder->whereIn("id", $videoIds)->orWhereIn("grade_id", $gradeIds);
+    return $builder->whereIn("id", $videoIds);
   }
 
   public function getByGrade($builder, string $gradeId){
-    return Video::whereGradeId($gradeId);
+		$ids = VideoGrade::whereGradeId($gradeId)->get()->pluck("video_id");
+    return $builder->whereIn("id", $ids);
   }
+
+	public function videoNotInGrade($builder, string $gradeId){
+		$excludedIds = VideoGrade::where("grade_id", $gradeId)->get()->pluck("video_id");
+		return $builder->whereNotIn("id", $excludedIds);
+	}
 
 }

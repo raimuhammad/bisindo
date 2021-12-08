@@ -13,5 +13,5 @@ export interface ProviderState extends AppStates {
 }
 
 export interface IApp extends ProviderState {
-  setUser(user: AppUser): void;
+  setUser(user: AppUser| null): void;
 }

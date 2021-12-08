@@ -8,19 +8,24 @@ type Video {
   content: String!
   thumbnail: String!
   duration: Int!
-  grade: Grade!
+  grades: [Grade!]! @method(name: "getGradesAttribute")
   quizes: [Quiz!]!
-  student_progress :[Progress!]!
+  student_progress: [Progress!]!
+  quiz_count: Int!
 }
 extend type Query {
   video(id: ID! @eq): Video @find
   videos(
-    grade_id: ID @where
+    grade_id: ID @builder(method: "App\\GraphQL\\VideoResolver@getByGrade")
     search: String @builder(method: "App\\GraphQL\\VideoResolver@search")
   ): [Video!]! @orderBy(column: "created_at", direction: DESC) @paginate
-  getVideoByGrade(grade_id: ID! @where): [Video!]!
-    @orderBy(column: "created_at", direction: ASC)
-    @paginate
+  getVideoByGrade(
+    grade_id: ID! @builder(method: "App\\GraphQL\\VideoResolver@getByGrade")
+  ): [Video!]! @orderBy(column: "created_at", direction: ASC) @all
+  videoNotInGrade(
+    id: ID!
+    @builder(method: "App\\GraphQL\\VideoResolver@videoNotInGrade")
+  ): [Video!]! @all
 }
 extend type Mutation {
   video(
@@ -29,9 +34,7 @@ extend type Mutation {
     caption: String! @rules(apply: ["required"])
     description: String! @rules(apply: ["required"])
     content: Upload! @rules(apply: ["required", "mimetypes:video/*"])
-  ): Video!
-    @hasFile(key: "content", resolver: "App\\Models\\Video@attachContent")
-    @create
+  ): Video! @field(resolver: "App\\GraphQL\\VideoResolver@create")
   videoUpdate(
     id: ID! @eq
     title: String! @rules(apply: ["required"])

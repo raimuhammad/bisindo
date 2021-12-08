@@ -18,6 +18,7 @@ import { FormProvider } from "react-hook-form";
 import { SubmitButton } from "@components/submit-button";
 import { Add } from "@mui/icons-material";
 import { usePopup } from "@hooks/use-popup";
+import { WithBatchShow } from "@admin-pages/batch.show/with-batch-show";
 
 const columns: GridColDef[] = [
   { field: "name", headerName: "Nama siswa", flex: 1 },
@@ -39,7 +40,7 @@ const AddStudentForm = observer(() => {
   usePopup({
     message: "Siswa berhasil di tambahkan",
     show: Boolean(response),
-    variant:"success",
+    variant: "success",
     callback(v?: any) {
       force(false)();
       form.reset();
@@ -47,7 +48,7 @@ const AddStudentForm = observer(() => {
     },
   });
   return (
-    <Paper sx={{ p: 2, mt:2 }}>
+    <Paper sx={{ p: 2, mt: 2 }}>
       <Button color={!open ? "primary" : "error"} onClick={toggle}>
         {open ? "Tutup" : "Tambahkan siswa"}
       </Button>
@@ -113,7 +114,7 @@ const Content = observer(() => {
   );
 });
 
-export const StudentList = () => {
+export const StudentList = WithBatchShow(() => {
   const { modelId } = useBatchShow();
   return (
     <PaginatorProvider dataKey="students" includes={{ gradeId: modelId }}>
@@ -127,4 +128,4 @@ export const StudentList = () => {
       <Content />
     </PaginatorProvider>
   );
-};
+});

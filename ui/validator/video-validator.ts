@@ -51,3 +51,8 @@ export const videoValidator = object({
   caption: string().required(),
   description: descriptionValidator.required(),
 });
+export const videoUpdateValidator = object({
+  title: string().required(),
+  caption: string().required(),
+  description: descriptionValidator.required(),
+});

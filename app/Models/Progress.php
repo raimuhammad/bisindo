@@ -29,6 +29,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read StudentGrade $student_grade
  * @property-read mixed $video_history
  * @property-read mixed $completion
+ * @property-read \App\Models\User $user
  */
 class Progress extends Model
 {

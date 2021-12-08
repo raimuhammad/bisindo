@@ -1,59 +1,53 @@
-import type { RouteComponentProps } from "react-router-dom";
-import { ScreenLoading } from "@components/screen-loading";
 import { observer } from "mobx-react";
-import { AnimatePresence, motion } from "framer-motion";
-import { PageBanner } from "@components/page-banner";
-import { Context, useBatchShowProvider, useBatchShow } from "./context";
-import { LinearProgress } from "@mui/material";
-import { PageControl } from "./page-control";
-import { ContentSwitcher } from "./content-switcher";
-import { List } from "@providers/model-provider/lists";
+import { Container } from "@mui/material";
+import { useEffect } from "react";
+import { useLayout } from "@layout/layout-provider";
+import { Outlet } from "react-router-dom";
 
-const Content = () => {
-  const { model, progress } = useBatchShow();
+export const adminBatchManagement = [
+  {
+    path: "/",
+    name: "batch-show-video",
+    key: "batch-show-video",
+  },
+  {
+    path: "videos",
+    name: "batch-show-video",
+    key: "batch-show-video",
+  },
+  {
+    path: "add-video",
+    name: "batch-show-add-vide",
+    key: "batch-show-add-video",
+  },
+  {
+    path: "students",
+    name: "batch-show-student",
+    key: "batch-show-student",
+  },
+  {
+    path: "quiz-check",
+    name: "batch-show-quiz-check",
+    key: "batch-show-quiz-check",
+  },
+  {
+    path: "discussion",
+    name: "batch-show-discussion",
+    key: "batch-show-discussion",
+  },
+];
+export const BatchShow = observer((location: any) => {
+  const { updateBackUrl } = useLayout();
+  useEffect(() => {
+    updateBackUrl({
+      url: "classroom",
+      label: "kembali ke ruang kelas",
+    });
+    return () => updateBackUrl(null);
+  }, []);
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      exit={{ opacity: 0 }}
-      animate={{
-        opacity: 1,
-        transition: {
-          duration: 1.7,
-        },
-      }}
-    >
-      <PageBanner title={model.name as string} subtitle="">
-        <PageControl />
-        {progress ? (
-          <LinearProgress
-            variant="indeterminate"
-            sx={{
-              position: "absolute",
-              bottom: 0,
-              width: "100%",
-            }}
-          />
-        ) : null}
-      </PageBanner>
-      <ContentSwitcher />
-    </motion.div>
+    <Container>
+      <Outlet />
+    </Container>
   );
-};
-
-export const BatchShow = observer(
-  (location: RouteComponentProps<{ id: string; slug: string }>) => {
-    const context = useBatchShowProvider(location);
-    return (
-      <Context.Provider value={context}>
-        <List
-          dataKey="videoByGrade"
-          props={{ gradeId: location.match.params.id }}
-        >
-          <AnimatePresence exitBeforeEnter initial={false}>
-            {context.showpage ? <Content /> : <ScreenLoading />}
-          </AnimatePresence>
-        </List>
-      </Context.Provider>
-    );
-  }
-);
+});

@@ -37,6 +37,8 @@ import { DiscussionModel, DiscussionModelType } from "./DiscussionModel"
 import { discussionModelPrimitives, DiscussionModelSelector } from "./DiscussionModel.base"
 import { DiscussionReplyModel, DiscussionReplyModelType } from "./DiscussionReplyModel"
 import { discussionReplyModelPrimitives, DiscussionReplyModelSelector } from "./DiscussionReplyModel.base"
+import { VideoGradeModel, VideoGradeModelType } from "./VideoGradeModel"
+import { videoGradeModelPrimitives, VideoGradeModelSelector } from "./VideoGradeModel.base"
 import { SimplePaginatorInfoModel, SimplePaginatorInfoModelType } from "./SimplePaginatorInfoModel"
 import { simplePaginatorInfoModelPrimitives, SimplePaginatorInfoModelSelector } from "./SimplePaginatorInfoModel.base"
 import { PageInfoModel, PageInfoModelType } from "./PageInfoModel"
@@ -83,7 +85,8 @@ type Refs = {
   multipleChoises: ObservableMap<string, MultipleChoiseModelType>,
   quizAnswers: ObservableMap<string, QuizAnswerModelType>,
   discussions: ObservableMap<string, DiscussionModelType>,
-  discussionReplies: ObservableMap<string, DiscussionReplyModelType>
+  discussionReplies: ObservableMap<string, DiscussionReplyModelType>,
+  videoGrades: ObservableMap<string, VideoGradeModelType>
 }
 
 
@@ -93,6 +96,8 @@ type Refs = {
 export enum RootStoreBaseQueries {
 queryAuth="queryAuth",
 queryVideo="queryVideo",
+queryGetVideoByGrade="queryGetVideoByGrade",
+queryVideoNotInGrade="queryVideoNotInGrade",
 queryQuizAnswers="queryQuizAnswers",
 queryIsUniqueEmail="queryIsUniqueEmail",
 queryUserByGrade="queryUserByGrade",
@@ -106,7 +111,6 @@ queryProgress="queryProgress",
 queryGradeByAuth="queryGradeByAuth",
 queryStudentProgress="queryStudentProgress",
 queryVideos="queryVideos",
-queryGetVideoByGrade="queryGetVideoByGrade",
 queryQuizes="queryQuizes",
 queryStudents="queryStudents",
 queryGrades="queryGrades",
@@ -133,7 +137,7 @@ mutateUserEdit="mutateUserEdit",
 mutateUserActivation="mutateUserActivation",
 mutateGrade="mutateGrade",
 mutateGradeEdit="mutateGradeEdit",
-mutateGradeDelete="mutateGradeDelete",
+mutateAddVideoInGrade="mutateAddVideoInGrade",
 mutateUpdateVideoProgress="mutateUpdateVideoProgress",
 mutateUpdateQuizProgress="mutateUpdateQuizProgress",
 mutateDiscussion="mutateDiscussion",
@@ -149,7 +153,7 @@ mutateDeleteDiscussionReply="mutateDeleteDiscussionReply"
 */
 export const RootStoreBase = withTypedRefs<Refs>()(MSTGQLStore
   .named("RootStore")
-  .extend(configureStoreMixin([['User', () => UserModel], ['Video', () => VideoModel], ['Grade', () => GradeModel], ['StudentGrade', () => StudentGradeModel], ['Progress', () => ProgressModel], ['Quiz', () => QuizModel], ['MultipleChoise', () => MultipleChoiseModel], ['QuizAnswer', () => QuizAnswerModel], ['VideoPaginator', () => VideoPaginatorModel], ['PaginatorInfo', () => PaginatorInfoModel], ['QuizPaginator', () => QuizPaginatorModel], ['StudentGradePaginator', () => StudentGradePaginatorModel], ['GradePaginator', () => GradePaginatorModel], ['DiscussionPaginator', () => DiscussionPaginatorModel], ['Discussion', () => DiscussionModel], ['DiscussionReply', () => DiscussionReplyModel], ['SimplePaginatorInfo', () => SimplePaginatorInfoModel], ['PageInfo', () => PageInfoModel]], ['User', 'Video', 'Grade', 'StudentGrade', 'Progress', 'Quiz', 'MultipleChoise', 'QuizAnswer', 'Discussion', 'DiscussionReply'], "js"))
+  .extend(configureStoreMixin([['User', () => UserModel], ['Video', () => VideoModel], ['Grade', () => GradeModel], ['StudentGrade', () => StudentGradeModel], ['Progress', () => ProgressModel], ['Quiz', () => QuizModel], ['MultipleChoise', () => MultipleChoiseModel], ['QuizAnswer', () => QuizAnswerModel], ['VideoPaginator', () => VideoPaginatorModel], ['PaginatorInfo', () => PaginatorInfoModel], ['QuizPaginator', () => QuizPaginatorModel], ['StudentGradePaginator', () => StudentGradePaginatorModel], ['GradePaginator', () => GradePaginatorModel], ['DiscussionPaginator', () => DiscussionPaginatorModel], ['Discussion', () => DiscussionModel], ['DiscussionReply', () => DiscussionReplyModel], ['VideoGrade', () => VideoGradeModel], ['SimplePaginatorInfo', () => SimplePaginatorInfoModel], ['PageInfo', () => PageInfoModel]], ['User', 'Video', 'Grade', 'StudentGrade', 'Progress', 'Quiz', 'MultipleChoise', 'QuizAnswer', 'Discussion', 'DiscussionReply', 'VideoGrade'], "js"))
   .props({
     users: types.optional(types.map(types.late((): any => UserModel)), {}),
     videos: types.optional(types.map(types.late((): any => VideoModel)), {}),
@@ -160,7 +164,8 @@ export const RootStoreBase = withTypedRefs<Refs>()(MSTGQLStore
     multipleChoises: types.optional(types.map(types.late((): any => MultipleChoiseModel)), {}),
     quizAnswers: types.optional(types.map(types.late((): any => QuizAnswerModel)), {}),
     discussions: types.optional(types.map(types.late((): any => DiscussionModel)), {}),
-    discussionReplies: types.optional(types.map(types.late((): any => DiscussionReplyModel)), {})
+    discussionReplies: types.optional(types.map(types.late((): any => DiscussionReplyModel)), {}),
+    videoGrades: types.optional(types.map(types.late((): any => VideoGradeModel)), {})
   })
   .actions(self => ({
     queryAuth(variables?: {  }, resultSelector: string | ((qb: UserModelSelector) => UserModelSelector) = userModelPrimitives.toString(), options: QueryOptions = {}) {
@@ -170,6 +175,16 @@ export const RootStoreBase = withTypedRefs<Refs>()(MSTGQLStore
     },
     queryVideo(variables: { id: string }, resultSelector: string | ((qb: VideoModelSelector) => VideoModelSelector) = videoModelPrimitives.toString(), options: QueryOptions = {}) {
       return self.query<{ video: VideoModelType}>(`query video($id: ID!) { video(id: $id) {
+        ${typeof resultSelector === "function" ? resultSelector(new VideoModelSelector()).toString() : resultSelector}
+      } }`, variables, options)
+    },
+    queryGetVideoByGrade(variables: { gradeId: string }, resultSelector: string | ((qb: VideoModelSelector) => VideoModelSelector) = videoModelPrimitives.toString(), options: QueryOptions = {}) {
+      return self.query<{ getVideoByGrade: VideoModelType[]}>(`query getVideoByGrade($gradeId: ID!) { getVideoByGrade(grade_id: $gradeId) {
+        ${typeof resultSelector === "function" ? resultSelector(new VideoModelSelector()).toString() : resultSelector}
+      } }`, variables, options)
+    },
+    queryVideoNotInGrade(variables: { id: string }, resultSelector: string | ((qb: VideoModelSelector) => VideoModelSelector) = videoModelPrimitives.toString(), options: QueryOptions = {}) {
+      return self.query<{ videoNotInGrade: VideoModelType[]}>(`query videoNotInGrade($id: ID!) { videoNotInGrade(id: $id) {
         ${typeof resultSelector === "function" ? resultSelector(new VideoModelSelector()).toString() : resultSelector}
       } }`, variables, options)
     },
@@ -233,11 +248,6 @@ export const RootStoreBase = withTypedRefs<Refs>()(MSTGQLStore
     },
     queryVideos(variables: { gradeId?: string, search?: string, first?: number, page?: number }, resultSelector: string | ((qb: VideoPaginatorModelSelector) => VideoPaginatorModelSelector) = videoPaginatorModelPrimitives.toString(), options: QueryOptions = {}) {
       return self.query<{ videos: VideoPaginatorModelType}>(`query videos($gradeId: ID, $search: String, $first: Int, $page: Int) { videos(grade_id: $gradeId, search: $search, first: $first, page: $page) {
-        ${typeof resultSelector === "function" ? resultSelector(new VideoPaginatorModelSelector()).toString() : resultSelector}
-      } }`, variables, options)
-    },
-    queryGetVideoByGrade(variables: { gradeId: string, first?: number, page?: number }, resultSelector: string | ((qb: VideoPaginatorModelSelector) => VideoPaginatorModelSelector) = videoPaginatorModelPrimitives.toString(), options: QueryOptions = {}) {
-      return self.query<{ getVideoByGrade: VideoPaginatorModelType}>(`query getVideoByGrade($gradeId: ID!, $first: Int, $page: Int) { getVideoByGrade(grade_id: $gradeId, first: $first, page: $page) {
         ${typeof resultSelector === "function" ? resultSelector(new VideoPaginatorModelSelector()).toString() : resultSelector}
       } }`, variables, options)
     },
@@ -351,9 +361,9 @@ export const RootStoreBase = withTypedRefs<Refs>()(MSTGQLStore
         ${typeof resultSelector === "function" ? resultSelector(new GradeModelSelector()).toString() : resultSelector}
       } }`, variables, optimisticUpdate)
     },
-    mutateGradeDelete(variables: { id: string }, resultSelector: string | ((qb: GradeModelSelector) => GradeModelSelector) = gradeModelPrimitives.toString(), optimisticUpdate?: () => void) {
-      return self.mutate<{ gradeDelete: GradeModelType}>(`mutation gradeDelete($id: ID!) { gradeDelete(id: $id) {
-        ${typeof resultSelector === "function" ? resultSelector(new GradeModelSelector()).toString() : resultSelector}
+    mutateAddVideoInGrade(variables: { videoId: string, gradeId: string }, resultSelector: string | ((qb: VideoGradeModelSelector) => VideoGradeModelSelector) = videoGradeModelPrimitives.toString(), optimisticUpdate?: () => void) {
+      return self.mutate<{ addVideoInGrade: VideoGradeModelType}>(`mutation addVideoInGrade($videoId: ID!, $gradeId: ID!) { addVideoInGrade(video_id: $videoId, grade_id: $gradeId) {
+        ${typeof resultSelector === "function" ? resultSelector(new VideoGradeModelSelector()).toString() : resultSelector}
       } }`, variables, optimisticUpdate)
     },
     mutateUpdateVideoProgress(variables: { videoId: string }, resultSelector: string | ((qb: ProgressModelSelector) => ProgressModelSelector) = progressModelPrimitives.toString(), optimisticUpdate?: () => void) {

@@ -2,7 +2,7 @@ import "./index.scss";
 import { render } from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import { ApplicationProvider } from "@providers/application-provider";
-import { Routes } from "@providers/application-provider/routes";
+import { Routes as RouterLoader } from "@providers/application-provider/routes";
 import { ModelProvider, useRootStore } from "@providers/model-provider";
 import { useCallback } from "react";
 import { LoginControl } from "@components/dev-component/login-control";
@@ -10,13 +10,14 @@ import { Layout } from "./layout";
 import { AppRole } from "@root/models";
 import { admin, student, guest } from "./pages";
 import { SnackbarProvider } from "notistack";
+import { LayoutProvider } from './layout/layout-provider';
 
 const getFallback = (user: AppUser | null) => {
   if (!user) {
     return "/login";
   }
   const { role } = user;
-  return role === AppRole.ADMIN ? "/batch" : "/study";
+  return role === AppRole.ADMIN ? "classroom" : "/";
 };
 
 const Loader = () => {
@@ -42,9 +43,11 @@ const Loader = () => {
   }, []);
   return (
     <ApplicationProvider getRoutes={getRoutes} authFunctions={authFunction}>
-      <Layout>
-        <Routes getFallback={getFallback} />
-      </Layout>
+      <LayoutProvider>
+        <Layout>
+          <RouterLoader getFallback={getFallback} />
+        </Layout>
+      </LayoutProvider>
       <LoginControl />
     </ApplicationProvider>
   );
