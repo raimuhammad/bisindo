@@ -9,7 +9,7 @@ import useImage from "use-image";
 
 export const ImageContainer = ({ index, text }: any) => {
   const { stage } = useKonva();
-  const { getNodeState, swap, mode } = useLetterContext();
+  const { getNodeState, swap, mode, enableDrag } = useLetterContext();
   const [node] = getNodeState(index);
   const src = "/letters/" + text.toLocaleLowerCase() + "0.png";
   const theme = useTheme();
@@ -31,7 +31,13 @@ export const ImageContainer = ({ index, text }: any) => {
     swap,
   });
   return (
-    <Group {...node} id={node.id} ref={ref} onDragEnd={onDragEnd} draggable>
+    <Group
+      {...node}
+      id={node.id}
+      ref={ref}
+      onDragEnd={enableDrag ? onDragEnd : undefined}
+      draggable={enableDrag}
+    >
       <Rect
         width={node.width}
         height={node.height}

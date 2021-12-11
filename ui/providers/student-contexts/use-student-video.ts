@@ -14,7 +14,8 @@ export function useStudentVideo({ studentGrade }: UseStudentGrade) {
     if (!check) {
       return 0;
     }
-    return Math.floor((check.duration as number) / playingTime);
+    const percent = (playingTime / (check.duration as number)) * 100;
+    return isFinite(percent) ? Math.floor(percent) : 0;
   };
   useEffect(() => {
     if (studentGrade) {
@@ -28,6 +29,6 @@ export function useStudentVideo({ studentGrade }: UseStudentGrade) {
   return {
     videos,
     loading: !data || loading,
-    getPlayingPercentage
+    getPlayingPercentage,
   };
 }

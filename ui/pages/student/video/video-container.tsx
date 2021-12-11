@@ -1,10 +1,15 @@
 import { useVideo } from "./provider";
 import { VideoPlayer } from "@components/video-player";
 export const VideoContainer = () => {
-  const { video } = useVideo();
+  const { video, videoUtilities } = useVideo();
+
+
   return (
     <div>
-      <VideoPlayer url={video.content as string} />
+      <VideoPlayer
+        playerRef={videoUtilities.playerRef}
+        url={video.content as string}
+      />
     </div>
   );
 };

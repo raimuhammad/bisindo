@@ -5,7 +5,18 @@ import {
   useQuery,
   VideoModelType,
 } from "@root/models";
-import { createContext, useContext, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+import { Player } from "@vime/react";
+import { useMount, usePrevious } from "react-use";
+import { useSnackbar } from "notistack";
+import { useToggle } from "@hooks/use-toggle";
 
 const builder = (selector: any) => {
   return selector.content.id.title.thumbnail.caption.quiz_count.quizes(
@@ -21,14 +32,63 @@ const useQuiz = (quizes: QuizModelType[]) => {
   const handleOpen = (quiz: QuizModelType) => {
     return () => setSelected(quiz);
   };
-  const { data } = useQuery((store: RootStoreType)=>{
-    return store.queryQuizAnswers()
-  })
+  const { data } = useQuery((store: RootStoreType) => {
+    return store.queryQuizAnswers();
+  });
   return {
     show: Boolean(selected),
     handleClose,
     handleOpen,
     selected,
+  };
+};
+
+const useVideoUtilities = (
+  quizes: QuizModelType[] = [],
+  utils: ReturnType<typeof useQuiz>
+) => {
+  const playerRef = useRef<HTMLVmPlayerElement>(null);
+  const [preparedQuiz, setPreparedQuiz] = useState<null | QuizModelType>(null);
+  const [disableSearch, { inline }] = useToggle();
+  const { enqueueSnackbar } = useSnackbar();
+
+  useEffect(() => {
+    if (preparedQuiz) {
+      enqueueSnackbar("Quiz akan segera di mulai");
+      setTimeout(() => {
+        console.log("called");
+        utils.handleOpen(preparedQuiz)();
+        playerRef.current?.pause();
+      }, 5000);
+    }
+  }, [preparedQuiz]);
+
+  const callback = useCallback(
+    (e: any) => {
+      if (!preparedQuiz) {
+        const check = quizes.find((item) => {
+          return (item.show_at as number) - 5 === Math.floor(e.detail);
+        });
+        if (check) {
+          setPreparedQuiz(check);
+        }
+      }
+    },
+    [quizes, preparedQuiz]
+  );
+  useEffect(() => {
+    const player: HTMLVmPlayerElement =
+      playerRef.current as HTMLVmPlayerElement;
+    if (player) {
+      player.addEventListener("vmCurrentTimeChange", callback);
+      return () => {
+        player.removeEventListener("vmCurrentTimeChange", callback);
+      };
+    }
+  }, [playerRef.current]);
+
+  return {
+    playerRef,
   };
 };
 
@@ -44,12 +104,16 @@ export function useVideoPageProvider() {
       );
     }
   );
-  const quiz = useQuiz(data && data.video ? data.video.quizes : []);
+  const prevParams = usePrevious(params);
+  const quizes = data && data.video ? data.video.quizes : [];
+  const quiz = useQuiz(quizes);
+  const videoUtilities = useVideoUtilities(quizes, quiz);
   return {
+    videoUtilities,
     video: (data && data.video ? data.video : null) as VideoModelType,
     loading,
     showLoading: !data || !data.video,
-    quiz
+    quiz,
   };
 }
 export type UseVideo = ReturnType<typeof useVideoPageProvider>;

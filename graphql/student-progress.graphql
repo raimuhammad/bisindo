@@ -7,11 +7,11 @@ type Progress{
 }
 
 extend type Query{
-  studentProgress(user_id: ID! @where(key: "user_id")) : Progress @first
+  studentProgress(user_id: ID! @where(key: "user_id")) : Progress @field(resolver: "App\\GraphQL\\ProgressResolver@find")
 }
 
 extend type Mutation {
-  updateVideoProgress(video_id: ID!) : Progress!
+  updateVideoProgress(video_id: ID!, play: Float!) : Progress!
   @field(resolver: "App\\GraphQL\\ProgressResolver@updateVideoProgress")
   updateQuizProgress(quiz_id: ID!, correct: Boolean!) : Progress!
   @field(resolver: "App\\GraphQL\\ProgressResolver@updateQuizProgress")

@@ -11,6 +11,7 @@ export type Props = {
   question: string;
   image: string;
   options: Option[];
+  onSubmit?(v: boolean): Promise<void>;
 };
 export function useMultipleChoiseProvider(props: Props) {
   const [selected, setSelected] = useState<number>(-1);
@@ -30,13 +31,17 @@ export function useMultipleChoiseProvider(props: Props) {
       setSelected(n);
     }
   };
+  console.log(
+    selected, props.answer
+  )
   return {
     isSubmitted,
     isTouched: selected !== -1,
     changeAnswer,
     onSubmitted,
     selected,
-    isAnswerCorrect: isSubmitted && selected === (props.answer - 1),
+    isAnswerCorrect: !selected ? false : selected === props.answer - 1,
+    onSubmit: props.onSubmit,
   };
 }
 export type UseMultipleChoice = ReturnType<typeof useMultipleChoiseProvider>;

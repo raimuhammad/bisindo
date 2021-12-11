@@ -12,7 +12,11 @@ export interface UseLetterSequence {
   nodes: LetterNode[];
   text: string;
   swap(target: number, sibling: number): void;
-  toggleHint():void
-  toggleMode():void
-  mode: "letter"| 'image'
+  toggleHint(): void;
+  toggleMode(): void;
+  mode: "letter" | "image";
+  showHint: boolean;
+  enableDrag: boolean;
+  toggleDrag(): void;
+  onSubmit?(v: boolean): Promise<void>;
 }

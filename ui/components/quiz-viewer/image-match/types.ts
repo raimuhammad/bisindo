@@ -21,6 +21,10 @@ export interface UseImageMatch {
   arrows: ArrowNode[];
   mouseHandler(index: number): (event: any) => void;
   popArrow(): void;
-  nodes: ImageNode[]
-  toggleHint(): void
+  nodes: ImageNode[];
+  toggleHint(): void;
+  isSubmitDisabled : boolean;
+  isAnswerCorrect: boolean
+  onSubmit?(v: boolean): Promise<void>
+  showHint: boolean
 }

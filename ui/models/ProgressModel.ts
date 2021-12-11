@@ -19,6 +19,7 @@ export type VideoHistory = {
 export type QuizHistory = {
   id: string;
   correct: boolean;
+  videoId: number;
 };
 
 /**

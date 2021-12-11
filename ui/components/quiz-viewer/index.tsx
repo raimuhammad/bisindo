@@ -6,7 +6,8 @@ import { ComponentType, Fragment } from "react";
 
 type Props = {
   type: QuizType;
-  viewerProps: any
+  viewerProps: any;
+  onSubmit?(v: boolean): void;
 };
 
 const ComponentMap: Record<QuizType, ComponentType<any>> = {
@@ -15,7 +16,7 @@ const ComponentMap: Record<QuizType, ComponentType<any>> = {
   IMAGE_MATCH: ImageMatch,
 };
 
-export const QuizViewer = ({ type, viewerProps }: Props) => {
+export const QuizViewer = ({ type, viewerProps, onSubmit }: Props) => {
   const Component = ComponentMap[type] ?? Fragment;
-  return <Component {...viewerProps} />;
+  return <Component {...viewerProps} onSubmit={onSubmit} />;
 };

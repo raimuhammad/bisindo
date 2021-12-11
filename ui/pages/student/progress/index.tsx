@@ -9,7 +9,6 @@ const Index = () => {
   const {
     gradeInfo: { studentGrade },
   } = useStudent();
-  console.log(studentGrade);
   return (
     <Container sx={{ py: 2, display: "flex", flexWrap: "wrap" }}>
       <Box sx={{ width: ["100%", "30%"], p :2 }}>

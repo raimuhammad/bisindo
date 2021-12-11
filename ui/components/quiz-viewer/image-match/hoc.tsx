@@ -15,6 +15,7 @@ import { AppBar } from "@mui/material";
 type Props = {
   stageHeight: number;
   text: string;
+  onSubmit?(v: boolean): Promise<void>
 };
 type State = {
   nodes: ImageNode[];
@@ -83,7 +84,9 @@ export class Hoc extends Component<Props, State> {
   getArrows = () => {
     if (this.state.showHint) {
       return this.state.nodes.map((item, index): ArrowNode => {
-        const shufledIndex = this.state.shufledNodes.findIndex(s=>s.text === item.text);
+        const shufledIndex = this.state.shufledNodes.findIndex(
+          (s) => s.text === item.text
+        );
         const shufled = this.state.shufledNodes[shufledIndex];
         return {
           toId: `item-image-${shufledIndex}`,
@@ -93,11 +96,11 @@ export class Hoc extends Component<Props, State> {
           from: item.text,
           arrowIndex: index,
           points: [
-            shufled.x + (item.width / 2 ),
+            shufled.x + item.width / 2,
             item.height,
-            (shufled.x + (shufled.width / 2)),
-            (this.stage.current as any).height() - (item.height),
-          ]
+            shufled.x + shufled.width / 2,
+            (this.stage.current as any).height() - item.height,
+          ],
         };
       });
     }
@@ -159,8 +162,20 @@ export class Hoc extends Component<Props, State> {
 
   toggleHint = () => {
     this.setState({
-      showHint: ! this.state.showHint
-    })
+      showHint: !this.state.showHint,
+    });
+  };
+
+  isAnswerCorrect = () : boolean => {
+    if (
+      this.state.arrows.length === this.props.text.length
+    ){
+      const check = this.state.arrows.find(item=>{
+        return item.from !== item.to;
+      });
+      return ! check;
+    }
+    return false;
   }
 
   getContextValues = (): UseImageMatch => {
@@ -169,7 +184,11 @@ export class Hoc extends Component<Props, State> {
       arrows: this.getArrows(),
       popArrow: this.popArrow,
       nodes: this.state.nodes,
-      toggleHint: this.toggleHint
+      toggleHint: this.toggleHint,
+      isSubmitDisabled: this.state.arrows.length !== this.props.text.length,
+      isAnswerCorrect: this.isAnswerCorrect(),
+      onSubmit: this.props.onSubmit,
+      showHint: this.state.showHint
     };
   };
 
@@ -194,7 +213,10 @@ export class Hoc extends Component<Props, State> {
               <ImageMatchContext.Provider value={this.getContextValues()}>
                 <Images items={this.state.nodes} />
                 <Images pos="end" items={this.state.shufledNodes} />
-                <ArrowRenderer showHint={this.state.showHint} arrows={this.getArrows()} />
+                <ArrowRenderer
+                  showHint={this.state.showHint}
+                  arrows={this.getArrows()}
+                />
               </ImageMatchContext.Provider>
             </KonvaContext.Provider>
           </Layer>

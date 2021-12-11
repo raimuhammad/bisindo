@@ -17,11 +17,13 @@ type Props = {
   text: string;
   width: number | string;
   height: number | string;
+  onSubmit?(v: boolean): Promise<void>;
 };
 type State = {
   nodes: LetterNode[];
   mode: "letter" | "image";
   showHint: boolean;
+  enableDrag: boolean;
 };
 
 const getColor = (current: Array<string>): string => {
@@ -52,6 +54,7 @@ export class Hoc extends Component<Props, State> {
       nodes: [],
       mode: "image",
       showHint: false,
+      enableDrag: true,
     };
     this.stage = createRef<Konva.Stage>();
     this.layer = createRef<Konva.Layer>();
@@ -161,6 +164,11 @@ export class Hoc extends Component<Props, State> {
     return [nodes[index], setter];
   };
 
+  toggleDrag = () =>
+    this.setState({
+      enableDrag: !this.state.enableDrag,
+    });
+
   getContextValues = (): UseLetterSequence => ({
     nodes: this.state.nodes,
     text: this.props.text,
@@ -169,10 +177,13 @@ export class Hoc extends Component<Props, State> {
     toggleHint: this.toggleHint,
     toggleMode: this.toggleMode,
     mode: this.state.mode,
+    showHint: this.state.showHint,
+    enableDrag: this.state.enableDrag,
+    toggleDrag: this.toggleDrag,
+    onSubmit: this.props.onSubmit,
   });
 
   render() {
-
     return (
       <LetterSequenceContext.Provider value={this.getContextValues()}>
         <Stage

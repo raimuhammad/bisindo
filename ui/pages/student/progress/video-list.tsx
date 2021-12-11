@@ -1,7 +1,6 @@
 import {
   Box,
   Button,
-  CircularProgress,
   LinearProgress,
   Paper,
   Theme,
@@ -15,7 +14,12 @@ import { useToggle } from "@hooks/use-toggle";
 import { observer } from "mobx-react";
 import { useNavigate } from "react-router-dom";
 
-const Video = observer(({ model }: { model: VideoModelType }) => {
+type VideoProps = {
+  model: VideoModelType;
+  onClick(v: VideoModelType): void;
+};
+
+const Video = observer(({ model, onClick }: VideoProps) => {
   const theme = useTheme();
   const [hovered, { force }] = useToggle();
   const {
@@ -23,15 +27,16 @@ const Video = observer(({ model }: { model: VideoModelType }) => {
     videoList: { getPlayingPercentage },
   } = useStudent();
   const playTime = getPlayingPercentage(model.id, getPlaying(model.id));
-  const navigate = useNavigate();
-  const onClick = () => {
-    navigate(`/video/${model.id}`);
-  };
-
+  const {
+    progressInfo: { quizHistory },
+  } = useStudent();
+  const workingQuizes = quizHistory.filter(
+    (item) => item.videoId.toString() === model.id.toString()
+  );
   return (
     <Box sx={{ position: "relative" }}>
       <Box
-        onClick={onClick}
+        onClick={() => onClick(model)}
         onMouseEnter={force(true)}
         onMouseLeave={force(false)}
         component={motion.div}
@@ -76,7 +81,7 @@ const Video = observer(({ model }: { model: VideoModelType }) => {
               Quis
             </Typography>
             <Typography sx={{ textAlign: "left" }} variant="caption">
-              0 /{model.quiz_count}
+              {workingQuizes.length} / {model.quiz_count}
             </Typography>
           </Box>
         </Box>
@@ -86,13 +91,33 @@ const Video = observer(({ model }: { model: VideoModelType }) => {
 });
 
 type Props = {
-  width?: string
-}
+  width?: string;
+  onItemClick?(v: VideoModelType): void;
+  exluded?: string[];
+};
 
-export const VideoList = ({width = "50%"}: Props) => {
+export const VideoList = ({
+  width = "50%",
+  onItemClick,
+  exluded = [],
+}: Props) => {
   const {
     videoList: { videos },
   } = useStudent();
+  const navigate = useNavigate();
+  const onClick = onItemClick
+    ? onItemClick
+    : (model: VideoModelType) => {
+        navigate(`/video/${model.id}`);
+      };
+
+  const getVideos = () => {
+    return videos.filter((item) => {
+      const isExluded = exluded?.includes(item.id);
+      return !isExluded;
+    });
+  };
+
   return (
     <Box>
       <Typography
@@ -111,8 +136,8 @@ export const VideoList = ({width = "50%"}: Props) => {
           },
         }}
       >
-        {videos.map((item) => (
-          <Video model={item} key={item.id} />
+        {getVideos().map((item) => (
+          <Video onClick={onClick} model={item} key={item.id} />
         ))}
       </Box>
     </Box>

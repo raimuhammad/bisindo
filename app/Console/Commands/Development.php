@@ -79,7 +79,7 @@ class Development extends Command
     $metas = [];
     for ($j = 0; $j < 4; $j++){
       $quizMeta = [
-        "index"=>$j,
+        "index"=>$j + 1,
       ];
       if (!$isImage){
         $quizMeta['text'] = $this->faker->text(30);

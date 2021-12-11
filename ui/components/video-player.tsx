@@ -13,15 +13,16 @@ import {
   usePlayer,
   usePlayerContext,
 } from "@vime/react";
-import { useEffect, useRef, useState } from "react";
+import {useEffect, useRef, useState, RefObject} from "react";
 import { Box } from "@mui/material";
-import {useToggle} from "@hooks/use-toggle";
+import { useToggle } from "@hooks/use-toggle";
 
 type Props = {
   url: string;
   onPlaying?(v: number): void;
   play?: boolean;
   playOnTime?: number;
+  playerRef?: RefObject<HTMLVmPlayerElement>;
 };
 
 export const VideoPlayer = ({
@@ -29,17 +30,20 @@ export const VideoPlayer = ({
   onPlaying,
   play = false,
   playOnTime,
+  playerRef: parentRef,
 }: Props) => {
-  const playerRef = useRef<HTMLVmPlayerElement | null>(null);
-  const [isPlaying, {toggle, inline}] = useToggle(play);
+  const playerRef = parentRef
+    ? parentRef
+    : useRef<HTMLVmPlayerElement | null>(null);
+  const [isPlaying, { toggle, inline }] = useToggle(play);
   useEffect(() => {
     if (playOnTime) {
       inline(false);
     }
-    const val : HTMLVmPlayerElement = playerRef.current as HTMLVmPlayerElement;
-    if (val && playOnTime){
-      val.pause().then(()=>{
-        val.callAdapter('setCurrentTime', playOnTime).catch(console.log);
+    const val: HTMLVmPlayerElement = playerRef.current as HTMLVmPlayerElement;
+    if (val && playOnTime) {
+      val.pause().then(() => {
+        val.callAdapter("setCurrentTime", playOnTime).catch(console.log);
       });
     }
   }, [playOnTime, playerRef]);

@@ -372,8 +372,8 @@ export const RootStoreBase = withTypedRefs<Refs>()(MSTGQLStore
         ${typeof resultSelector === "function" ? resultSelector(new VideoGradeModelSelector()).toString() : resultSelector}
       } }`, variables, optimisticUpdate)
     },
-    mutateUpdateVideoProgress(variables: { videoId: string }, resultSelector: string | ((qb: ProgressModelSelector) => ProgressModelSelector) = progressModelPrimitives.toString(), optimisticUpdate?: () => void) {
-      return self.mutate<{ updateVideoProgress: ProgressModelType}>(`mutation updateVideoProgress($videoId: ID!) { updateVideoProgress(video_id: $videoId) {
+    mutateUpdateVideoProgress(variables: { videoId: string, play: number }, resultSelector: string | ((qb: ProgressModelSelector) => ProgressModelSelector) = progressModelPrimitives.toString(), optimisticUpdate?: () => void) {
+      return self.mutate<{ updateVideoProgress: ProgressModelType}>(`mutation updateVideoProgress($videoId: ID!, $play: Float!) { updateVideoProgress(video_id: $videoId, play: $play) {
         ${typeof resultSelector === "function" ? resultSelector(new ProgressModelSelector()).toString() : resultSelector}
       } }`, variables, optimisticUpdate)
     },

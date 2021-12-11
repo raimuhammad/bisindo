@@ -12,17 +12,23 @@ class ProgressResolver
   public function updateVideoProgress($_, array $args){
     $video = Video::find($args['video_id']);
     $progress = Progress::whereUserId(auth()->id())->first();
+		$play = $args['play'] ?? 0;
     if ($progress){
       $videos = collect(\Safe\json_decode($progress->video_histories, true));
       $check = $videos->first(function ($item) use ($video){
         return $item['video_id'] === $video->id;
       });
-      if ($check){
-        return $progress;
+      if ($check && $check['time'] <= $play){
+				$videos = $videos->map(function ($item) use ($check, $play){
+					if ($check['video_id'] == $item['video_id']){
+						$item['time'] = $play;
+					}
+					return $item;
+				});
       }
       $videos->push([
         "video_id"=>$video->id,
-        "time"=>0
+        "time"=>$args['play'] ?? 0
       ]);
       $progress->video_histories = $videos->toJson();
       $progress->save();
@@ -42,7 +48,8 @@ class ProgressResolver
       }
       $attemptedQuiz->push([
         "correct"=>$args['correct'],
-        "id"=>$quiz->id
+        "id"=>$quiz->id,
+	      "videoId"=>$quiz->video_id
       ]);
       $progress->quiz_histories = $attemptedQuiz->toJson();
       $progress->save();
