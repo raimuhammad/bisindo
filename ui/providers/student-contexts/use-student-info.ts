@@ -16,9 +16,6 @@ export function useStudentInfo() {
       userId: user?.id ?? "",
     })
   );
-  console.log(
-    "Data : ",data
-  )
   const resolveVideoHistory = (): VideoHistory[] => {
     return data && data.studentProgress?.videoHistories
       ? data.studentProgress.videoHistories

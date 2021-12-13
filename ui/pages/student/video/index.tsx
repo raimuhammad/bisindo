@@ -1,7 +1,11 @@
 import { Fragment, useEffect } from "react";
 import { useLayout } from "@layout/layout-provider";
 import { Button, Container, Box, Typography } from "@mui/material";
-import { useVideoPageProvider, Context } from "./provider";
+import {
+  useVideoPageProvider,
+  Context,
+  useUpdateVideoProgress,
+} from "./provider";
 import { VideoContainer } from "./video-container";
 import { ScreenLoading } from "@components/screen-loading";
 import { observer } from "mobx-react";
@@ -23,21 +27,17 @@ const Index = observer(() => {
     updateNavs([]);
   }, []);
   const ctx = useVideoPageProvider();
-  const { store } = useQuery();
   const [loading, { inline }] = useToggle();
   const navigate = useNavigate();
+  const handleVideoChange = useUpdateVideoProgress(
+    ctx.videoUtilities.playerRef.current as HTMLVmPlayerElement
+  );
   const onVideoChange = (video: any) => {
     const playerRef = ctx.videoUtilities.playerRef
       .current as HTMLVmPlayerElement;
-    if (playerRef && ctx.video) {
-      const args = {
-        videoId: ctx.video.id,
-        play: playerRef.currentTime,
-      };
+    if (playerRef) {
       inline(true);
-      (store as RootStoreType)
-        .mutateUpdateVideoProgress(args)
-        .currentPromise()
+      handleVideoChange(video, playerRef.currentTime)
         .then(() => {
           inline(false);
           navigate(`/video/${video.id}`);

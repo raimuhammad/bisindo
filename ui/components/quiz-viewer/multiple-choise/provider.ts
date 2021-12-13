@@ -31,9 +31,6 @@ export function useMultipleChoiseProvider(props: Props) {
       setSelected(n);
     }
   };
-  console.log(
-    selected, props.answer
-  )
   return {
     isSubmitted,
     isTouched: selected !== -1,

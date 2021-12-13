@@ -170,8 +170,8 @@ class Development extends Command
     $this->resetDb();
     $admin = $this->makeUser(env("DEV_EMAIL", "admin@app.com"), AppRole::ADMIN, true);
     $student = $this->makeUser(env("STUDENT_EMAIL", "student@app.com"), AppRole::SUBSCRIBER, true);
-    Grade::factory()->count(5)->create()->each(function (Grade $grade){
-      $this->makeVideos($grade);
+    Grade::factory()->count(1)->create()->each(function (Grade $grade){
+//      $this->makeVideos($grade);
     });
     StudentGrade::create([
       "grade_id"=>Grade::all()->first()->id,

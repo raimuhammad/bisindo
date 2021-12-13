@@ -117,6 +117,18 @@ export function useVideoPageProvider() {
   };
 }
 export type UseVideo = ReturnType<typeof useVideoPageProvider>;
+export function useUpdateVideoProgress(playerRef: HTMLVmPlayerElement) {
+  const { store } = useQuery();
+  return async (video: VideoModelType, duration?: number | null) => {
+    const args = {
+      videoId: video.id,
+      play: duration ? duration : playerRef.currentTime,
+    };
+    return (store as RootStoreType)
+      .mutateUpdateVideoProgress(args)
+      .currentPromise();
+  };
+}
 export const Context = createContext<null | UseVideo>(null);
 export function useVideo() {
   return useContext(Context) as UseVideo;

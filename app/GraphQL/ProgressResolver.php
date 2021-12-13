@@ -18,6 +18,12 @@ class ProgressResolver
       $check = $videos->first(function ($item) use ($video){
         return $item['video_id'] === $video->id;
       });
+			if (! $check){
+				$videos->push([
+					"video_id"=>$video->id,
+					"time"=>$args['play'] ?? 0
+				]);
+			}
       if ($check && $check['time'] <= $play){
 				$videos = $videos->map(function ($item) use ($check, $play){
 					if ($check['video_id'] == $item['video_id']){
@@ -26,10 +32,6 @@ class ProgressResolver
 					return $item;
 				});
       }
-      $videos->push([
-        "video_id"=>$video->id,
-        "time"=>$args['play'] ?? 0
-      ]);
       $progress->video_histories = $videos->toJson();
       $progress->save();
     }

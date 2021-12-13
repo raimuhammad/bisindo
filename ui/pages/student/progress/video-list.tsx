@@ -13,10 +13,26 @@ import { motion } from "framer-motion";
 import { useToggle } from "@hooks/use-toggle";
 import { observer } from "mobx-react";
 import { useNavigate } from "react-router-dom";
+import { useStudentVideoStatus } from "@providers/student-contexts/use-student-video-status";
+import { Lock } from "@mui/icons-material";
 
 type VideoProps = {
   model: VideoModelType;
   onClick(v: VideoModelType): void;
+};
+
+const lockedStyle = {
+  opacity: 0,
+  position: "absolute",
+  top: 0,
+  left: 0,
+  height: "100%",
+  width: "100%",
+  background: "rgba(0,0,0,0.60)",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  borderRadius: 6,
 };
 
 const Video = observer(({ model, onClick }: VideoProps) => {
@@ -27,6 +43,9 @@ const Video = observer(({ model, onClick }: VideoProps) => {
     videoList: { getPlayingPercentage },
   } = useStudent();
   const playTime = getPlayingPercentage(model.id, getPlaying(model.id));
+  const { getIsLocked } = useStudentVideoStatus(model);
+  const isLocked = getIsLocked();
+
   const {
     progressInfo: { quizHistory },
   } = useStudent();
@@ -36,7 +55,7 @@ const Video = observer(({ model, onClick }: VideoProps) => {
   return (
     <Box sx={{ position: "relative" }}>
       <Box
-        onClick={() => onClick(model)}
+        onClick={() => !isLocked && onClick(model)}
         onMouseEnter={force(true)}
         onMouseLeave={force(false)}
         component={motion.div}
@@ -46,10 +65,26 @@ const Video = observer(({ model, onClick }: VideoProps) => {
         sx={{
           borderRadius: 1,
           cursor: "pointer",
+          position: "relative",
         }}
       >
+        {isLocked ? (
+          <motion.div
+            whileHover={{
+              opacity: 1,
+              zIndex: 100
+            }}
+            style={lockedStyle as any}
+          >
+            <Box sx={{ textAlign: "center", color: "white" }}>
+              <Lock />
+              <Typography>Video ini terkunci</Typography>
+            </Box>
+          </motion.div>
+        ) : null}
         <Box
           sx={{
+            zIndex: 99,
             width: "100%",
             borderRadius: 1,
           }}

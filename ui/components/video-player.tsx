@@ -13,7 +13,7 @@ import {
   usePlayer,
   usePlayerContext,
 } from "@vime/react";
-import {useEffect, useRef, useState, RefObject} from "react";
+import { useEffect, useRef, useState, RefObject } from "react";
 import { Box } from "@mui/material";
 import { useToggle } from "@hooks/use-toggle";
 
@@ -23,6 +23,7 @@ type Props = {
   play?: boolean;
   playOnTime?: number;
   playerRef?: RefObject<HTMLVmPlayerElement>;
+  onPlayEnded?(): void;
 };
 
 export const VideoPlayer = ({
@@ -31,6 +32,7 @@ export const VideoPlayer = ({
   play = false,
   playOnTime,
   playerRef: parentRef,
+  onPlayEnded,
 }: Props) => {
   const playerRef = parentRef
     ? parentRef
@@ -56,7 +58,12 @@ export const VideoPlayer = ({
   };
   return (
     <Box>
-      <Vime playsinline ref={playerRef} onVmCurrentTimeChange={onTimeUpdate}>
+      <Vime
+        onVmPlaybackEnded={onPlayEnded}
+        playsinline
+        ref={playerRef}
+        onVmCurrentTimeChange={onTimeUpdate}
+      >
         {url ? (
           <Video crossOrigin="use-credentials">
             <source data-src={url} />

@@ -94,7 +94,7 @@ export class SelectField extends React.Component<Props, any> {
       },
       onChange: this.handleChange,
       value: this.getValue(),
-    };
+    } as any;
   };
 
   render() {

@@ -80,7 +80,7 @@ class Field extends React.Component<FieldProps, State> {
       // @ts-ignore
       window.rootStore[query]({}, builder)
         .currentPromise()
-        .then((data: any) => {
+        .then((data) => {
           if (data && data[resultKey as keyof typeof data]) {
             const options = (data[
               resultKey as keyof typeof data
@@ -121,7 +121,7 @@ class Field extends React.Component<FieldProps, State> {
     } = this.props;
     return (
       <Autocomplete
-        renderInput={(props) => (
+        renderInput={(props: any) => (
           <TextField {...rest} {...props} {...this.getErrorProps()} />
         )}
         options={this.getOptions()}
