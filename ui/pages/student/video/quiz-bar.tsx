@@ -15,9 +15,11 @@ export const QuizBar = observer(() => {
   const quizes = video.quizes;
 
   const isDisabled = (v: QuizModelType) => {
-    return Boolean(quizHistory.find((item) => {
-      return item.id.toString() === v.id.toString();
-    }));
+    return Boolean(
+      quizHistory.find((item) => {
+        return item.id.toString() === v.id.toString();
+      })
+    );
   };
 
   return (

@@ -1,6 +1,6 @@
-import { Fragment, useEffect } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useLayout } from "@layout/layout-provider";
-import { Button, Container, Box, Typography } from "@mui/material";
+import { Button, Container, Box, Tabs, Tab, Divider } from "@mui/material";
 import {
   useVideoPageProvider,
   Context,
@@ -9,17 +9,17 @@ import {
 import { VideoContainer } from "./video-container";
 import { ScreenLoading } from "@components/screen-loading";
 import { observer } from "mobx-react";
-import { QuizBar } from "./quiz-bar";
 import { QuizContainer } from "./quiz-container";
-import { Header } from "./header";
-import { Description } from "./description";
 import { ArrowBack } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { VideoList } from "../progress/video-list";
-import { RootStoreType, useQuery } from "@root/models";
 import { useToggle } from "@hooks/use-toggle";
-import { QuizListInfo } from "@components/quiz-list-info";
 import { useStudent } from "@providers/student-contexts";
+import { Overview } from "@student-pages/video/overview";
+import { QuizInfo } from "@student-pages/video/quiz-info";
+import { AnimatePresence, motion } from "framer-motion";
+
+const components = [Overview, QuizInfo];
 
 const Index = observer(() => {
   const { updateNavs } = useLayout();
@@ -27,6 +27,7 @@ const Index = observer(() => {
     updateNavs([]);
   }, []);
   const ctx = useVideoPageProvider();
+  const [tab, setTab] = useState<number>(0);
   const [loading, { inline }] = useToggle();
   const navigate = useNavigate();
   const handleVideoChange = useUpdateVideoProgress(
@@ -51,6 +52,7 @@ const Index = observer(() => {
   const {
     progressInfo: { quizHistory },
   } = useStudent();
+  const Component = components[tab];
 
   return ctx.showLoading ? (
     <ScreenLoading />
@@ -67,32 +69,36 @@ const Index = observer(() => {
         >
           Kembali ke dashboard
         </Button>
-        <Header />
-        <QuizBar />
         <QuizContainer />
-        <VideoContainer />
         <Box sx={{ display: ["block", "flex"] }}>
-          <Box sx={{ width: ["100%", "30%"] }}>
-            <Box sx={{ pt: 2, mb: 1 }}>
-              <Typography variant="subtitle1" sx={{ fontWeight: "bolder" }}>
-                Progress quis
-              </Typography>
-              <QuizListInfo
-                history={quizHistory}
-                quizes={ctx.video.quizes ?? []}
+          <Box sx={{ width: ["100%", "70%"] }}>
+            <VideoContainer />
+            <Tabs value={tab} onChange={(e, v) => setTab(v)}>
+              <Tab value={0} label="Overview" />
+              <Tab value={1} label="Quis" />
+              <Tab
+                value={2}
+                label="Video lainya"
+                sx={{ display: ["block", "none"] }}
               />
+            </Tabs>
+            <Divider />
+            <AnimatePresence exitBeforeEnter>
+              <motion.div
+                animate={{ opacity: 1 }}
+                initial={{ opacity: 0 }}
+                exit={{ opacity: 0 }}
+                key={tab}
+              >
+                <Component />
+              </motion.div>
+            </AnimatePresence>
+          </Box>
+          <Box sx={{ width: [0, "30%"] }}>
+            <Box sx={{ px: 1 }}>
+              <VideoList selected={ctx.video} />
             </Box>
           </Box>
-          <Box sx={{ width: ["100%", "70%"] }}>
-            <Description />
-          </Box>
-        </Box>
-        <Box sx={{ mb: 3 }}>
-          <VideoList
-            exluded={[ctx.video.id]}
-            onItemClick={onVideoChange}
-            width="33%"
-          />
         </Box>
       </Context.Provider>
     </Container>

@@ -14,7 +14,6 @@ import {
 import { DraftJsViewer } from "@components/draft-js-viewer";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { observer } from "mobx-react";
 import { withVideoPage } from "./provider";
 
 export const Info = withVideoPage(() => {
@@ -32,7 +31,7 @@ export const Info = withVideoPage(() => {
       </Box>
       <Box sx={{ display: "flex", mb: 5 }}>
         <Box sx={{ width: "70%" }}>
-          <Box sx={{ p: 2, pl:0, }}>
+          <Box sx={{ p: 2, pl: 0 }}>
             <Box
               sx={{
                 p: 1,
@@ -44,7 +43,9 @@ export const Info = withVideoPage(() => {
               <Typography variant="h5">{video?.title}</Typography>
               <Typography variant="subtitle1">{video?.caption}</Typography>
             </Box>
-            <Typography sx={{my:1}} variant="subtitle1">Deskripsi video</Typography>
+            <Typography sx={{ my: 1 }} variant="subtitle1">
+              Deskripsi video
+            </Typography>
             <Box
               sx={{
                 p: 1,

@@ -16,4 +16,7 @@ extend type Query {
     @builder(method: "App\\Models\\StudentGrade@builder")
     @paginate
   gradeByAuth: StudentGrade @whereAuth(relation: "student") @find
+  studentGradeAll(
+    gradeId: ID! @where(key: "grade_id") @rules(apply: ["exists:grades,id"])
+  ): [StudentGrade!]! @all
 }

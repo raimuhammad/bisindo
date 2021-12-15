@@ -22,16 +22,18 @@ export const ArrowRenderer = ({ arrows, showHint }: Props) => {
       .toArray()
       .filter((item) => item.getAttr("data-role") === "image");
     items = items.map((item) => {
-      const startNode = startNodes.find(c=>c.id() === item.fromId) as Konva.Group
-      const endNode = endNodes.find(c=>c.id() === item.toId) as Konva.Group
+      const startNode = startNodes.find(
+        (c) => c.id() === item.fromId
+      ) as Konva.Group;
+      const endNode = endNodes.find((c) => c.id() === item.toId) as Konva.Group;
       return {
         ...item,
         points: [
-          startNode.x() + (startNode.width() / 2),
+          startNode.x() + startNode.width() / 2,
           startNode.y() + startNode.height(),
-          endNode.x() + (endNode.width() / 2),
-          endNode.y()
-        ]
+          endNode.x() + endNode.width() / 2,
+          endNode.y(),
+        ],
       };
     });
   }

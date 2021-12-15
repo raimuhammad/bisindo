@@ -2,8 +2,7 @@ import { Instance } from "mobx-state-tree";
 import { StudentGradeModelBase } from "./StudentGradeModel.base";
 
 /* The TypeScript type of an instance of StudentGradeModel */
-export interface StudentGradeModelType
-  extends Instance<typeof StudentGradeModel.Type> {}
+export type StudentGradeModelType = Instance<typeof StudentGradeModel.Type>;
 
 /* A graphql query fragment builders for StudentGradeModel */
 export {

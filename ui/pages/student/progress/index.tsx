@@ -3,7 +3,6 @@ import { useStudentNavs } from "@layout/student";
 import { useStudent } from "@providers/student-contexts";
 import {
   Box,
-  CircularProgress,
   Container,
   Divider,
   LinearProgress,
@@ -11,13 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 import { VideoList } from "./video-list";
-import {
-  ArrowCircleUp,
-  ArrowDropUp,
-  ArrowUpward,
-  MenuBook,
-  Stars,
-} from "@mui/icons-material";
+import { ArrowDropUp, MenuBook, Stars } from "@mui/icons-material";
 import { observer } from "mobx-react";
 
 const BatchInfo = () => {
@@ -54,7 +47,7 @@ const ProgressInfo = observer(() => {
     return history ? history.time >= (item.duration as number) : false;
   });
   const val = compeletedVideo.length
-    ? (compeletedVideo.length / videos.length) * 100
+    ? Math.floor((compeletedVideo.length / videos.length) * 100)
     : 0;
   return (
     <div style={{ position: "relative" }}>
@@ -79,7 +72,7 @@ const ProgressInfo = observer(() => {
         <LinearProgress variant="determinate" value={val} />
         <Box
           sx={{
-            width: `${val + 3}%`,
+            width: `${val + 1}%`,
             display: "flex",
             justifyContent: "flex-end",
           }}
@@ -105,19 +98,18 @@ const Index = () => {
   useStudentNavs([]);
   return (
     <Container sx={{ py: 2 }}>
-      <Box
-        sx={{
-          width: ["100%"],
-          display: "flex",
-          "&>div": { width: "50%", p: 1 },
-        }}
-      >
-        <BatchInfo />
-        <ProgressInfo />
-      </Box>
-      <Divider sx={{mb:2}}/>
-      <Box sx={{ width: ["100%"] }}>
-        <VideoList width="25%" />
+      <ProgressInfo />
+      <Divider />
+      <Box sx={{ display: "flex" }}>
+        <Box sx={{ width: "30%" }}>
+          <BatchInfo />
+        </Box>
+        <Box sx={{ width: "70%" }}>
+          <Typography variant="h6" sx={{ fontWeight: "lighter" }}>
+            Video pembelajaran
+          </Typography>
+          <VideoList width="25%" />
+        </Box>
       </Box>
     </Container>
   );

@@ -15,7 +15,7 @@
     "vitejs/src/models/stores/*",
     "views/models/**/**"
   ],
-  "plugins": ["react"],
+  "plugins": ["react", "unused-imports"],
   "rules": {
     // note you must disable the base rule as it can report incorrect errors
     "no-use-before-define": "off",
@@ -23,7 +23,9 @@
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-explicit-any": "off",
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "off"
   },
   "extends": ["eslint:recommended", "plugin:react/recommended"],
   "env": {
@@ -36,19 +38,23 @@
   },
   "overrides": [
     {
-      "files": ["views/**/*.ts", "views/**/*.tsx"],
+      "files": ["ui/**/*.ts", "ui/**/*.tsx"],
       "rules": {
         "no-use-before-define": "off",
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/explicit-module-boundary-types": "off",
-        "@typescript-eslint/no-explicit-any": "off"
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-use-before-define": ["error"],
+        "react/react-in-jsx-scope": "off",
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": "off"
       },
       "extends": [
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:prettier/recommended"
       ],
-      "plugins": ["@typescript-eslint", "react"],
+      "plugins": ["@typescript-eslint", "react", "unused-imports"],
       "parser": "@typescript-eslint/parser"
     }
   ]

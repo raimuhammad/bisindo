@@ -9,7 +9,7 @@ import {
 import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { Theme } from "@mui/material";
-import withTheme from '@mui/styles/withTheme';
+import withTheme from "@mui/styles/withTheme";
 import { FormHelper } from "./form-helper";
 import { MutableRefObject } from "react";
 

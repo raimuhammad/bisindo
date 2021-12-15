@@ -24,10 +24,10 @@ type PageControl = {
 
 function usePageControll() {
   const pageControl = usePageSwitcher(items as unknown as string[]);
-  const push  = useNavigate();
+  const push = useNavigate();
   const { pathname } = useLocation();
   const [page, setPage] = useState<string>("Videos");
-  const [state, setState] = useState<Omit<PageControl, 'page'>>({
+  const [state, setState] = useState<Omit<PageControl, "page">>({
     animate: "x",
     animateDirection: "left",
   });
@@ -57,7 +57,10 @@ function usePageControll() {
     });
   };
   return {
-    pageControll: [{...state, page}, changeContent] as [PageControl, (v: string) => void],
+    pageControll: [{ ...state, page }, changeContent] as [
+      PageControl,
+      (v: string) => void
+    ],
   };
 }
 

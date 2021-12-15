@@ -109,6 +109,7 @@ queryGradeById="queryGradeById",
 queryGradeQuizes="queryGradeQuizes",
 queryProgress="queryProgress",
 queryGradeByAuth="queryGradeByAuth",
+queryStudentGradeAll="queryStudentGradeAll",
 queryStudentProgress="queryStudentProgress",
 queryVideos="queryVideos",
 queryQuizes="queryQuizes",
@@ -239,6 +240,11 @@ export const RootStoreBase = withTypedRefs<Refs>()(MSTGQLStore
     },
     queryGradeByAuth(variables?: {  }, resultSelector: string | ((qb: StudentGradeModelSelector) => StudentGradeModelSelector) = studentGradeModelPrimitives.toString(), options: QueryOptions = {}) {
       return self.query<{ gradeByAuth: StudentGradeModelType}>(`query gradeByAuth { gradeByAuth {
+        ${typeof resultSelector === "function" ? resultSelector(new StudentGradeModelSelector()).toString() : resultSelector}
+      } }`, variables, options)
+    },
+    queryStudentGradeAll(variables: { gradeId: string }, resultSelector: string | ((qb: StudentGradeModelSelector) => StudentGradeModelSelector) = studentGradeModelPrimitives.toString(), options: QueryOptions = {}) {
+      return self.query<{ studentGradeAll: StudentGradeModelType[]}>(`query studentGradeAll($gradeId: ID!) { studentGradeAll(gradeId: $gradeId) {
         ${typeof resultSelector === "function" ? resultSelector(new StudentGradeModelSelector()).toString() : resultSelector}
       } }`, variables, options)
     },

@@ -44,7 +44,7 @@ export function useStudentInfo() {
     loading: !data || loading,
     videoHistory: resolveVideoHistory(),
     quizHistory: resolveQuizHistory(),
-    getPlaying
+    getPlaying,
   };
 }
 

@@ -1,7 +1,5 @@
 import Konva from "konva";
 
-const checkCollision = () => {};
-
 const getSiblings = (target: Konva.Group, stage: Konva.Stage) => {
   return stage
     .find("Group")
@@ -38,15 +36,11 @@ export function makeDragHandler({
     const collideWith = sibling.findIndex((item) => {
       return haveIntersection(rect.getClientRect(), item.getClientRect());
     });
-    console.log(
-      collideWith === -1
-    )
+    console.log(collideWith === -1);
     if (collideWith !== -1) {
       swap(target, collideWith);
     } else {
-      console.log(
-        "go original"
-      )
+      console.log("go original");
       rect.setPosition({
         x: original.x,
         y: original.y,
@@ -66,7 +60,7 @@ export function makeImageRect({ stage, text }: MakeImageRectProps) {
       return [0, 0];
     }
     const stageHeight = stage.height();
-    const dimension = (stage.height() / text.length);
+    const dimension = stage.height() / text.length;
     const halfStage = stageHeight / 2;
     const y = halfStage - dimension / 2;
     const stageWidth = stage.width();

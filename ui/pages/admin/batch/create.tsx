@@ -10,7 +10,7 @@ import { useSnackbar } from "notistack";
 const buttonSx = {
   marginTop: 2,
   textTransform: "none",
-  mb:2
+  mb: 2,
 };
 
 export const Create = () => {
@@ -34,7 +34,7 @@ export const Create = () => {
       >
         {!open ? "Tambah batch baru" : "Tutup"}
       </Button>
-      <Collapse in={open} sx={{mb:2}}  timeout="auto">
+      <Collapse in={open} sx={{ mb: 2 }} timeout="auto">
         <MutationFormProvider mutateKey="createBatch">
           <Paper sx={{ padding: 2, borderRadius: 0 }}>
             <Form onSuccess={onSuccess} />

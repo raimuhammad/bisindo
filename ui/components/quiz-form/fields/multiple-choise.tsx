@@ -1,29 +1,21 @@
 import {
   Box,
-  Button,
   FormControl,
   FormControlLabel,
   FormLabel,
-  IconButton,
   Radio,
   RadioGroup,
   Typography,
 } from "@mui/material";
-import { useQuizForm, IndexMap, useQuizType } from "../provider";
+import { IndexMap } from "../provider";
 import { FormField } from "@components/form-field/form-field";
 import { AnimatePresence, motion } from "framer-motion";
-import {
-  useController,
-  useFieldArray,
-  useFormContext,
-  useWatch,
-} from "react-hook-form";
+import { useController, useFormContext, useWatch } from "react-hook-form";
 import { useEffect } from "react";
 import { SelectField } from "@components/form-field/select-field";
 import { ImageField } from "./image-field";
 
 import * as React from "react";
-import { Delete } from "@mui/icons-material";
 
 const items = [
   {
@@ -101,10 +93,8 @@ const OptionField = ({ index, delay, value, type, ...rest }: any) => {
       <Box sx={{ my: 2, pr: 2 }}>
         {type === "image" ? (
           <>
-            <Typography>
-              {label}
-            </Typography>
-            <ImageField name={name} label='Pilih gambar' />
+            <Typography>{label}</Typography>
+            <ImageField name={name} label="Pilih gambar" />
           </>
         ) : (
           <FormField

@@ -53,6 +53,8 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @property-read mixed $student_progress
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Quiz[] $quizes
  * @property-read int|null $quizes_count
+ * @property-read mixed $grades
+ * @property-read mixed $quiz_count
  */
 class Video extends Model implements HasMedia
 {
@@ -122,6 +124,20 @@ class Video extends Model implements HasMedia
 			"extension"=>$ext
 		]);
   }
+	public function getOrderAttribute(){
+		/**
+		 * @var User $user
+		 */
+		$user = auth()->user();
+		if ($user && $user->hasRole(AppRole::SUBSCRIBER)){
+			$progress = Progress::whereUserId($user->id)->first();
+			if ($progress && $connect = VideoGrade::
+				whereVideoId($this->id)->whereGradeId($progress->student_grade->grade_id)->first()){
+				return $connect->order;
+			}
+		}
+		return 0;
+	}
   /**
    * @attributes
    * @return string

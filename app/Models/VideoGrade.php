@@ -22,6 +22,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|VideoGrade whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|VideoGrade whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|VideoGrade whereVideoId($value)
+ * @property int $order
+ * @method static \Illuminate\Database\Eloquent\Builder|VideoGrade whereOrder($value)
  */
 class VideoGrade extends Model
 {

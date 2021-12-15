@@ -8,7 +8,7 @@ import {
   UseControllerReturn,
   useFormContext,
 } from "react-hook-form";
-import { Autocomplete } from '@mui/material';
+import { Autocomplete } from "@mui/material";
 import { TextField } from "@mui/material";
 
 type QueryOptions = {
@@ -82,9 +82,9 @@ class Field extends React.Component<FieldProps, State> {
         .currentPromise()
         .then((data) => {
           if (data && data[resultKey as keyof typeof data]) {
-            const options = (data[
-              resultKey as keyof typeof data
-            ] as Array<any>).map(toOptions);
+            const options = (
+              data[resultKey as keyof typeof data] as Array<any>
+            ).map(toOptions);
             this.setState({ options, loading: false });
           }
         });
@@ -121,8 +121,8 @@ class Field extends React.Component<FieldProps, State> {
     } = this.props;
     return (
       <Autocomplete
-        renderInput={(props: any) => (
-          <TextField {...rest} {...props} {...this.getErrorProps()} />
+        renderInput={(props) => (
+          <TextField {...rest} {...props} {...(this.getErrorProps() as any)} />
         )}
         options={this.getOptions()}
         // @ts-ignore

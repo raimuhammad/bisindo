@@ -1,6 +1,9 @@
-import {FileUploadProvider, useFileUpload} from "@components/form-field/file-upload-field";
-import {Box, Button, IconButton, Tooltip} from "@mui/material";
-import {Delete} from "@mui/icons-material";
+import {
+  FileUploadProvider,
+  useFileUpload,
+} from "@components/form-field/file-upload-field";
+import { Box, Button, IconButton, Tooltip } from "@mui/material";
+import { Delete } from "@mui/icons-material";
 import * as React from "react";
 
 const ImagePreview = () => {
@@ -39,13 +42,13 @@ const ImagePreview = () => {
   );
 };
 
-const Control = ({label} : {label: string}) => {
+const Control = ({ label }: { label: string }) => {
   const { clickHandler, previewUrl } = useFileUpload();
   return (
     <>
       <Button
         fullWidth
-        size='small'
+        size="small"
         variant="contained"
         color="primary"
         onClick={clickHandler}
@@ -57,16 +60,19 @@ const Control = ({label} : {label: string}) => {
         {previewUrl ? <ImagePreview /> : null}
       </Box>
     </>
-  )
-}
+  );
+};
 
-export const ImageField = ({ name, label }: { name: string; label: string }) => {
+export const ImageField = ({
+  name,
+  label,
+}: {
+  name: string;
+  label: string;
+}) => {
   return (
-    <FileUploadProvider
-      accept="image/*"
-      name={name}
-    >
-      <Control label={label}/>
+    <FileUploadProvider accept="image/*" name={name}>
+      <Control label={label} />
     </FileUploadProvider>
   );
 };

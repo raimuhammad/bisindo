@@ -33,7 +33,12 @@ const DeleteDialog = () => {
         >
           Batal
         </Button>
-        <SubmitButton color='error' onClick={onConfirm} icon={<Delete />} loading={loading}>
+        <SubmitButton
+          color="error"
+          onClick={onConfirm}
+          icon={<Delete />}
+          loading={loading}
+        >
           Hapus
         </SubmitButton>
       </DialogActions>
@@ -60,8 +65,8 @@ export const useDeleteApiProvider = ({
       setHidePopUp(true);
     },
     variant: "success",
-    show: Boolean(data && data[resultKey]) && ! hidePopUp,
-    autoShow: false
+    show: Boolean(data && data[resultKey]) && !hidePopUp,
+    autoShow: false,
   });
   const handleCloseDialog = () => {
     if (!loading) {

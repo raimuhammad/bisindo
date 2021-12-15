@@ -46,5 +46,5 @@
     }
   },
   "include": ["ui", "vite.config.ts", "cypress"],
-  "exclude": ["node_modules", "src.old"]
+  "exclude": ["node_modules", "ui/src.old"]
 }

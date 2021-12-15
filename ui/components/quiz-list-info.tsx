@@ -3,6 +3,7 @@ import * as React from "react";
 import { QuizHistory, QuizModelType } from "@root/models";
 import { List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
 import { Check, Close } from "@mui/icons-material";
+import { RenderWhen } from "@components/render-when";
 
 type Props = {
   history: QuizHistory[];
@@ -28,7 +29,10 @@ const Info = ({
   return (
     <ListItem>
       <ListItemIcon>
-        <Icon />
+        <RenderWhen when={!history}>-</RenderWhen>
+        <RenderWhen when={Boolean(history)}>
+          <Icon />
+        </RenderWhen>
       </ListItemIcon>
       <ListItemText
         secondary={

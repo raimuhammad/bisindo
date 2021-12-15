@@ -2,8 +2,7 @@ import type { GradeModelType } from "@root/models";
 import { observer } from "mobx-react";
 import { usePaginator } from "@providers/model-provider/paginators";
 import { ReactNode, useEffect, useState } from "react";
-import { PageContentContainer } from "@components/page-content-container";
-import {Box, Button, Container, Paper, Typography} from "@mui/material";
+import { Box, Button, Container, Paper, Typography } from "@mui/material";
 import { Delete, OndemandVideo, Save, School } from "@mui/icons-material";
 import { FormDialog } from "@components/form-dialog";
 import { FormProvider, useForm } from "react-hook-form";
@@ -42,7 +41,9 @@ const Info = ({ icon, text }: { text: string; icon: ReactNode }) => {
  * Komponen penampil batch
  */
 const BatchCard = observer(({ batch, onSelect }: Props) => {
-  const path = `/classroom/${voca(batch.name).slugify().value()}/${batch.id}/videos`;
+  const path = `/classroom/${voca(batch.name).slugify().value()}/${
+    batch.id
+  }/videos`;
   const { navigate } = useNavigation(path);
   return (
     <Paper
@@ -138,6 +139,7 @@ const UpdateForm = observer(
 const DeleteForm = observer(
   ({ selected, action, handleClose }: State & { handleClose(): void }) => {
     const [{ response, loading }, dispatch] = useMutation<GradeModelType>({
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       api: RootStoreBaseMutations.mutateGradeDelete,
       merge: { id: selected ? selected.id : "" },

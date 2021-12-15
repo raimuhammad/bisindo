@@ -17,6 +17,7 @@ class CreateVideoGradesTable extends Migration
 			$table->id();
 			$table->unsignedBigInteger('video_id');
 			$table->unsignedBigInteger('grade_id');
+			$table->unsignedBigInteger('order');
 			$table->timestamps();
 		});
 	}

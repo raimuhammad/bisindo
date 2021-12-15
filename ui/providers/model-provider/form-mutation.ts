@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useQuery } from "@root/models";
 import { parseMutationQuerykey } from "./utils";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 
 type Options = {
   api: RootStoreBaseMutations;
@@ -38,17 +38,19 @@ function formMutation<T = any>({
         response: null,
       });
       const dt = parser ? parser({ ...data, ...merge }) : { ...data, ...merge };
-      setLoading(true)
-      return (store as any)[api](dt)
+      setLoading(true);
+      return (store as any)
+        [api](dt)
         .currentPromise()
         .then((response: any) => {
-          setLoading(false)
+          setLoading(false);
           if (response && response[resultKey]) {
             setFormResult({ response });
           }
           setError(false);
-        }).catch(()=>{
-          console.log("Error")
+        })
+        .catch(() => {
+          console.log("Error");
           setError(true);
           setLoading(false);
         });
@@ -83,7 +85,7 @@ export interface IFormMutationOf<T> {
   setFormValue(v: Record<string, any>): void;
   reset(): void;
   handler(): void;
-  error: any
+  error: any;
 }
 
 export function formMutationfactory<T>({

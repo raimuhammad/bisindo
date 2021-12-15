@@ -1,11 +1,18 @@
-import { Box, Button, Typography, Container, Paper, FormLabel } from "@mui/material";
+import {
+  Box,
+  Button,
+  Typography,
+  Container,
+  Paper,
+  FormLabel,
+} from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import { useMount } from "react-use";
 import { VideoPlayer } from "./video-player";
 import { useFormContext } from "react-hook-form";
 import { useSnackbar } from "notistack";
 import { TextEditor } from "@components/form-field/text-editor-field";
-import {FormField} from "@components/form-field/form-field";
+import { FormField } from "@components/form-field/form-field";
 
 const useFilePreview = (): [
   {
@@ -96,13 +103,18 @@ export const VideoUploader = () => {
   return (
     <Container>
       <VideoField />
-      <FormField name='title' label='Judul video' sx={{pb:2}} fullWidth/>
-      <FormField name='caption' label='caption video' sx={{pb:2}} fullWidth/>
-      <Paper sx={{p:1, mb:2}}>
-        <FormLabel sx={{p:1, paddingBottom:2}}>
+      <FormField name="title" label="Judul video" sx={{ pb: 2 }} fullWidth />
+      <FormField
+        name="caption"
+        label="caption video"
+        sx={{ pb: 2 }}
+        fullWidth
+      />
+      <Paper sx={{ p: 1, mb: 2 }}>
+        <FormLabel sx={{ p: 1, paddingBottom: 2 }}>
           Masukan deskripsi video
         </FormLabel>
-        <TextEditor placeholder='Deskripsi video' name="description" />
+        <TextEditor placeholder="Deskripsi video" name="description" />
       </Paper>
     </Container>
   );

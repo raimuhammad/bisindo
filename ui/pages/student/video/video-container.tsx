@@ -7,9 +7,8 @@ import {
   DialogActions,
   DialogContent,
   DialogContentText,
-  DialogTitle,
 } from "@mui/material";
-import { ArrowForward, ArrowRight, Close } from "@mui/icons-material";
+import { ArrowForward, Close } from "@mui/icons-material";
 import { useToggle } from "@hooks/use-toggle";
 import { useSnackbar } from "notistack";
 import { observer } from "mobx-react";
@@ -44,7 +43,6 @@ export const VideoContainer = observer(() => {
         });
     }
   };
-  const onNext = () => {};
   return (
     <>
       {loading ? <ScreenLoading /> : null}

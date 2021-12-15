@@ -10,10 +10,8 @@ import {
   VolumeControl,
   ControlGroup,
   TimeProgress,
-  usePlayer,
-  usePlayerContext,
 } from "@vime/react";
-import { useEffect, useRef, useState, RefObject } from "react";
+import { useEffect, useRef, RefObject } from "react";
 import { Box } from "@mui/material";
 import { useToggle } from "@hooks/use-toggle";
 

@@ -19,14 +19,19 @@ import { SubmitButton } from "@components/submit-button";
 import { Add } from "@mui/icons-material";
 import { usePopup } from "@hooks/use-popup";
 import { WithBatchShow } from "@admin-pages/batch.show/with-batch-show";
-import { useStudentFormProvider, StudentFormContext, useStudentForm  } from './student/provider'
-import { DrawerForm } from './student/drawer-form'
+import {
+  useStudentFormProvider,
+  StudentFormContext,
+  useStudentForm,
+} from "./student/provider";
+import { DrawerForm } from "./student/drawer-form";
 
 const columns: GridColDef[] = [
   { field: "name", headerName: "Nama siswa", flex: 1 },
   {
     field: "email",
-    headerName: "Alamat email", flex:1,
+    headerName: "Alamat email",
+    flex: 1,
   },
   {
     field: "status",
@@ -135,7 +140,7 @@ export const StudentList = WithBatchShow(() => {
         <AddStudentForm />
       </MutationFormProvider>
       <StudentFormContext.Provider value={formctx}>
-        <DrawerForm/>
+        <DrawerForm />
         <Content />
       </StudentFormContext.Provider>
     </PaginatorProvider>

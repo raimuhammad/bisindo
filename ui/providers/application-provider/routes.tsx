@@ -1,7 +1,5 @@
-import { Route, Routes as AppRouter, Navigate } from "react-router-dom";
+import { Route, Routes as AppRouter } from "react-router-dom";
 import { useApp } from ".";
-import { Batch } from "@pages/admin/batch";
-import { AnimatedRoutes } from "@components/animated-routes";
 import { AnimatedPage } from "@components/animated-page";
 
 type RoutesProps = {

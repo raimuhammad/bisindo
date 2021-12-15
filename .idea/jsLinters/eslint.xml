@@ -2,7 +2,7 @@
 <project version="4">
   <component name="EslintConfiguration">
     <custom-configuration-file used="true" path="$PROJECT_DIR$/.eslintrc.json" />
-    <files-pattern value="{views/**/*,*}.{js,ts,jsx,tsx,html,vue}" />
+    <files-pattern value="{ui/**/*,*}.{js,ts,jsx,tsx,html,vue}" />
     <option name="fix-on-save" value="true" />
   </component>
 </project>

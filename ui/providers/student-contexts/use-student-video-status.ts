@@ -6,21 +6,14 @@ export function useStudentVideoStatus(video: VideoModelType) {
     progressInfo: { videoHistory, quizHistory },
     videoList: { videos },
   } = useStudent();
-  const getPrevVideo = (): VideoModelType | null => {
-    const check = videos.findIndex((item) => item.id === video.id);
-    if (check > 0) {
-      return videos[check - 1];
-    }
-    return null;
+  const getPrevVideo = (): VideoModelType | undefined => {
+    return videos.find((item) => item.order === (video.order as number) - 1);
   };
-  const getNextVideo = () => {
-    const check = videos.findIndex((item) => item.id === video.id);
-    if (check === videos.length) {
-      return null;
-    }
-    return videos[check + 1];
-  }
+  console.log(videos);
   const getIsLocked = (): boolean => {
+    if (video.order === 1) {
+      return false;
+    }
     const prevVideo = getPrevVideo();
     if (!prevVideo) {
       return false;

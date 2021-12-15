@@ -26,15 +26,15 @@ export const Controller = () => {
       <Typography sx={{ mr: "auto" }}>
         Samakan huruf & gambar berikut sesuai hurufnya
       </Typography>
-      <Box sx={{ mr: 2, display: 'flex', alignItems: 'center' }}>
+      <Box sx={{ mr: 2, display: "flex", alignItems: "center" }}>
         {submitted ? (
-          <Typography sx={{display: "inline-block", mr:2}}>
+          <Typography sx={{ display: "inline-block", mr: 2 }}>
             {isAnswerCorrect
               ? "Jawaban anda benar"
               : "Maaf jawaban anda tidak tepat"}
           </Typography>
         ) : null}
-        <ButtonGroup sx={{display: "block"}}>
+        <ButtonGroup sx={{ display: "block" }}>
           <Button
             onClick={popArrow}
             disabled={loading || submitted || arrows.length === 0}

@@ -32,7 +32,7 @@ export function makeImageRect({ stage, text }: any) {
     }
     const stageHeight = stage.width() - text.length;
     const dimension = stageHeight / text.length;
-    let x = !index ? 0 : dimension * index;
+    const x = !index ? 0 : dimension * index;
     return {
       x,
       y: 0,
@@ -114,12 +114,12 @@ export const onDrawing = ({
       };
     };
     if (nodeStatus.hasArrow) {
-      return new Promise<ReturnType<OnDrawingCallback>>(resolve => {
+      return new Promise<ReturnType<OnDrawingCallback>>((resolve) => {
         return resolve({
           nodes,
-          arrow: null
-        })
-      })
+          arrow: null,
+        });
+      });
     }
     const target = event.currentTarget as Konva.Group;
     const pointer = stage.getPointerPosition() as any;

@@ -38,7 +38,13 @@ export const DiscussionContainer = ({ gradeId }: Props) => {
   return (
     <Context.Provider value={context}>
       <PaginatorProvider dataKey="discussion" includes={{ gradeId }}>
-        <MutationFormProvider mutateKey={formKey} parser={parser}>
+        <MutationFormProvider
+          merge={{
+            userId: context.userId,
+          }}
+          mutateKey={formKey}
+          parser={parser}
+        >
           <DiscussionForm />
         </MutationFormProvider>
         <DiscussionList />

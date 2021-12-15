@@ -8,7 +8,7 @@ export type Options<T = any> = {
   id: string;
 };
 
-export function useShowProvider<T, Values = {}>({
+export function useShowProvider<T, Values = any>({
   api,
   provider,
   id,
@@ -49,4 +49,4 @@ interface Base<T> {
   model: T;
   hasResponse: boolean;
 }
-export type UseShowProvider<T, V = {}> = Base<T> & V;
+export type UseShowProvider<T, V = any> = Base<T> & V;

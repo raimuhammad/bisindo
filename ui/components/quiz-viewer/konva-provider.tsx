@@ -1,6 +1,6 @@
 import { Stage, Layer } from "react-konva";
 import { useQuizDimension } from "./quiz-viewer-container";
-import {createContext, useContext, useRef} from "react";
+import { createContext, useContext, useRef } from "react";
 import Konva from "konva";
 
 const useKonvaProvider = () => {
@@ -24,14 +24,12 @@ export const KonvaProvider = ({ children }: any) => {
         width={window.innerWidth}
       >
         <Layer ref={context.layer}>
-          <Context.Provider value={context}>
-            {children}
-          </Context.Provider>
+          <Context.Provider value={context}>{children}</Context.Provider>
         </Layer>
       </Stage>
     </Context.Provider>
   );
 };
-export function useKonva(): IKonvaProvider{
+export function useKonva(): IKonvaProvider {
   return useContext(Context) as IKonvaProvider;
 }

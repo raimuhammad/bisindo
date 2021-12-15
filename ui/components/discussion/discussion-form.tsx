@@ -7,12 +7,13 @@ import { SubmitButton } from "@components/submit-button";
 import { ChatBubble } from "@mui/icons-material";
 import { FormProvider } from "react-hook-form";
 import { usePopup } from "@hooks/use-popup";
-import {useCallback, useEffect, useState} from "react";
+import { useCallback, useEffect } from "react";
 import messages from "./form-message.json";
 import { usePaginator } from "@providers/model-provider/paginators";
 
 export const DiscussionForm = observer(() => {
-  const { formMode, setFormMode, initialContent, setSelected, selectedId } = useDiscussion();
+  const { formMode, setFormMode, initialContent, setSelected, selectedId } =
+    useDiscussion();
   const { loading, form, response, handler, reset } = useMutationForm();
   const { initialFetch } = usePaginator();
 

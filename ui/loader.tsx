@@ -10,7 +10,7 @@ import { Layout } from "./layout";
 import { AppRole } from "@root/models";
 import { admin, student, guest } from "./pages";
 import { SnackbarProvider } from "notistack";
-import { LayoutProvider } from './layout/layout-provider';
+import { LayoutProvider } from "./layout/layout-provider";
 
 const getFallback = (user: AppUser | null) => {
   if (!user) {

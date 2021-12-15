@@ -12,7 +12,7 @@ type UseMutation<T> = [
   {
     loading: boolean;
     response: null | T;
-    error: any
+    error: any;
   },
   (v: Record<string, any>) => void
 ];

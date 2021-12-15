@@ -1,5 +1,3 @@
-import { PaginatorProvider } from "@providers/model-provider/paginators";
-import { useAdminLayout } from "@layout/admin.context";
 import {
   createContext,
   useCallback,
@@ -10,7 +8,7 @@ import {
 import type { GradeModelType } from "@root/models";
 import { useIsSm } from "@hooks/use-media";
 
-export type BatchTabType = "videos" | "student" | "editor" | 'discussion';
+export type BatchTabType = "videos" | "student" | "editor" | "discussion";
 
 const tablist: BatchTabType[] = ["videos", "student", "editor", "discussion"];
 

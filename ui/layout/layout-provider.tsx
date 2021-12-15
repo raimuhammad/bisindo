@@ -7,7 +7,6 @@ type Nav = {
   label: string;
 };
 
-type Props = {};
 type BackUrl = {
   url: string;
   label: string;
@@ -23,7 +22,7 @@ interface Actions {
 type UseLayout = State & Actions;
 const LayoutContext = createContext<UseLayout | null>(null);
 export const useLayout = () => useContext(LayoutContext) as UseLayout;
-export class LayoutProvider extends React.Component<Props, State> {
+export class LayoutProvider extends React.Component<any, State> {
   constructor(props: any) {
     super(props);
     this.state = {

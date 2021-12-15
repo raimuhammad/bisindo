@@ -1,9 +1,6 @@
 import { observer } from "mobx-react";
-import {
-  PaginatorProvider,
-  usePaginator,
-} from "@providers/model-provider/paginators";
-import type { QuizModelType, VideoModelType } from "@root/models";
+import { usePaginator } from "@providers/model-provider/paginators";
+import type { QuizModelType } from "@root/models";
 import { useEffect } from "react";
 import { Box, Button, ButtonGroup, Paper, Typography } from "@mui/material";
 import { QuizType } from "@root/models";
@@ -24,7 +21,7 @@ const ItemList = () => {
   return (
     <div>
       {isEmpty ? (
-        <Typography sx={{my:3}} align="center" variant="h4">
+        <Typography sx={{ my: 3 }} align="center" variant="h4">
           Video ini tidak memiliki quis
         </Typography>
       ) : null}

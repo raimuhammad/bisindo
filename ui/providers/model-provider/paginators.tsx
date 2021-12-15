@@ -9,14 +9,12 @@ import {
   DiscussionModelSelector,
   gradeModelPrimitives,
   QuizModelSelector,
-  QuizModelType,
   StudentGradeModelSelector,
   userModelPrimitives,
 } from "@root/models";
 import { RootStoreBaseQueries } from "@models/RootStore.base";
 import { createContext, PropsWithChildren, useContext } from "react";
 import { observer } from "mobx-react";
-import { listFactory } from "@providers/model-provider/list-factory";
 
 type UseIPaginatorOf<T> = (includes?: Record<string, any>) => IPaginatorOf<T>;
 
@@ -24,8 +22,7 @@ export const paginators = {
   quizByVideo: paginatorFactory(
     RootStoreBaseQueries.queryQuizes,
     (selector: QuizModelSelector) => {
-      return selector
-        .show_at.id.type.additional_image.question.questionAnswer.image_matcher.choises(
+      return selector.show_at.id.type.additional_image.question.questionAnswer.image_matcher.choises(
         (c) => c.id.image.text.index
       );
     }
@@ -61,7 +58,6 @@ type P = {
   dataKey: keyof typeof paginators;
   includes?: Record<string, any>;
 };
-
 export const PaginatorProvider = observer(
   ({ dataKey, includes = {}, children }: PropsWithChildren<P>) => {
     const callback = paginators[dataKey];

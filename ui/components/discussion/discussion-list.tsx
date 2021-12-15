@@ -44,7 +44,7 @@ export const DiscussionList = observer(() => {
         </Box>
       ) : null}
       <Container>
-        <Box sx={{my:2}}>
+        <Box sx={{ my: 2 }}>
           <Button startIcon={<ChatBubble />} onClick={openFormCreate}>
             Buat thread diskusi
           </Button>

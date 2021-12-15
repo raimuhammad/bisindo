@@ -2,7 +2,6 @@ import { PaginatorInfoModelSelector, useQuery } from "@root/models";
 import type { PaginatorInfoModelType } from "@root/models";
 import type { RootStoreBaseQueries } from "@root/models/RootStore.base";
 import type { SnapshotOut } from "mobx-state-tree";
-import voca from "voca";
 import { useCallback, useState } from "react";
 import { parseMutationQuerykey } from "./utils";
 
@@ -54,7 +53,7 @@ const useFetch = (api: RootStoreBaseQueries, selector: any) => {
     result,
     fetch,
     loading,
-    hasResponse: Boolean(data)
+    hasResponse: Boolean(data),
   };
 };
 
@@ -156,7 +155,7 @@ function usePaginatorService<T>({ includeQuery, api, selector }: Options) {
     loading,
     initialFetch,
     isEmpty,
-    hasResponse
+    hasResponse,
   };
 }
 
@@ -165,7 +164,7 @@ export interface IPaginatorOf<T> {
   actions: ReturnType<typeof useQueryParameter> &
     ReturnType<typeof useQueryAction>;
   loading: boolean;
-  hasResponse: boolean
+  hasResponse: boolean;
   initialFetch(): void;
   isEmpty: boolean;
 }

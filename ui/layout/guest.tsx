@@ -1,5 +1,3 @@
-export const Guest = ({ children } : any) => {
-  return <>
-    {children}
-  </>;
+export const Guest = ({ children }: any) => {
+  return <>{children}</>;
 };

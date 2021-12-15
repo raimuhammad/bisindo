@@ -1,15 +1,15 @@
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-export function useNavigation(path : string = ""){
-  const push  = useNavigate();
+export function useNavigation(path = "") {
+  const push = useNavigate();
   const to = (path: string) => () => {
     return push(path);
-  }
+  };
   const navigate = () => {
-    push(path)
-  }
+    push(path);
+  };
   return {
     navigate,
     to,
-  }
+  };
 }

@@ -44,7 +44,7 @@ export const QuizInfo = () => {
           exit={{ opacity: 0 }}
         >
           {loading ? (
-            <CircularProgress sx={{ml: "auto"}} size={20} />
+            <CircularProgress sx={{ ml: "auto" }} size={20} />
           ) : (
             <Button
               onClick={isSubmitted ? () => handleClose(false) : onSubmitHandler}

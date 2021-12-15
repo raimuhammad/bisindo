@@ -15,9 +15,7 @@ export const TextOption = ({ index, content }: any) => {
       <Typography variant="subtitle2" sx={{ fontWeight: "bolder" }}>
         Opsi {map[index]}
       </Typography>
-      <Typography variant="subtitle1">
-        {content}
-      </Typography>
+      <Typography variant="subtitle1">{content}</Typography>
     </div>
   );
 };

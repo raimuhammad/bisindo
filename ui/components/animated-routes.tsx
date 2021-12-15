@@ -10,12 +10,13 @@ type Nav = {
 type Props = {
   navs: Nav[];
   wrapper?: ComponentType;
-  withRoutes ?: boolean
+  withRoutes?: boolean;
 };
 
 export const AnimatedRoutes = ({
   navs,
-  wrapper = Fragment, withRoutes = false,
+  wrapper = Fragment,
+  withRoutes = false,
   children,
 }: PropsWithChildren<Props>) => {
   const { pathname } = useLocation();

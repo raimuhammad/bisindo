@@ -1,6 +1,6 @@
 import { useAdminLayout } from "@layout/admin.context";
 import { Fragment, useEffect } from "react";
-import { Box, Container, LinearProgress, Typography } from "@mui/material";
+import { Container } from "@mui/material";
 import {
   PaginatorProvider,
   usePaginator,
@@ -33,7 +33,7 @@ const Index = () => {
   const { updateNavs } = useLayout();
   useEffect(() => {
     setTitle("Menagemen batch");
-    updateNavs([])
+    updateNavs([]);
     return () => {
       setTitle("");
     };

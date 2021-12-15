@@ -2,8 +2,7 @@ import { Instance } from "mobx-state-tree";
 import { ProgressModelBase } from "./ProgressModel.base";
 
 /* The TypeScript type of an instance of ProgressModel */
-export interface ProgressModelType
-  extends Instance<typeof ProgressModel.Type> {}
+export type ProgressModelType = Instance<typeof ProgressModel.Type>;
 
 /* A graphql query fragment builders for ProgressModel */
 export {

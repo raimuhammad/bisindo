@@ -8,7 +8,7 @@ import {
 import { ImageOption } from "./image-option";
 import { TextOption } from "./text-option";
 import { ComponentType } from "react";
-import { QuizInfo } from './quiz-info'
+import { QuizInfo } from "./quiz-info";
 
 const sx = {
   display: "flex",
@@ -34,12 +34,12 @@ const optionContainerFx = {
     "&[data-selected='true']": {
       boxShadow: 3,
       zIndex: 2,
-      bgcolor:"primary.main",
-      color:'white'
+      bgcolor: "primary.main",
+      color: "white",
     },
     "&:hover": {
-      bgcolor:"primary.main",
-      color:'white'
+      bgcolor: "primary.main",
+      color: "white",
     },
   },
 };
@@ -88,7 +88,7 @@ export const MultipleChoise = (props: Props) => {
                 ))}
               </Box>
             </Box>
-            <QuizInfo/>
+            <QuizInfo />
           </Box>
         </div>
       </Box>

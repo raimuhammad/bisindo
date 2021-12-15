@@ -30,7 +30,7 @@ export const CommonField = ({
     }
   };
 
-  let props: Record<string, any> = {
+  const props: Record<string, any> = {
     size: "small",
     fullWidth: true,
     helperText: !isFormError ? "" : "Huruf telah di gunakan",

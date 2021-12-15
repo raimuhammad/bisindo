@@ -13,8 +13,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { Player } from "@vime/react";
-import { useMount, usePrevious } from "react-use";
+import { usePrevious } from "react-use";
 import { useSnackbar } from "notistack";
 import { useToggle } from "@hooks/use-toggle";
 

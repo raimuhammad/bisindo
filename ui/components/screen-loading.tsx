@@ -1,5 +1,4 @@
 import { Box, CircularProgress } from "@mui/material";
-import { motion } from "framer-motion";
 
 export const ScreenLoading = () => {
   return (
@@ -9,7 +8,7 @@ export const ScreenLoading = () => {
         left: "50%",
         top: "50%",
         transform: "translate(-50%,-50%)",
-        zIndex: 100*100
+        zIndex: 100 * 100,
       }}
     >
       <CircularProgress size={150} />

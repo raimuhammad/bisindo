@@ -1,5 +1,4 @@
 import { object, string, mixed } from "yup";
-import { convertFromRaw, EditorState, RawDraftContentState } from "draft-js";
 
 const messages = {
   videos: {

@@ -147,7 +147,7 @@ const DeleteForm = observer(() => {
       id: user?.id,
     },
   });
-  console.log(error)
+  console.log(error);
   useOnSuccess(response, "Pengguna berhasil di hapus");
   return (
     <div>

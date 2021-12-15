@@ -1,19 +1,26 @@
-import { Instance } from "mobx-state-tree"
-import { DiscussionReplyModelBase } from "./DiscussionReplyModel.base"
+import { Instance } from "mobx-state-tree";
+import { DiscussionReplyModelBase } from "./DiscussionReplyModel.base";
 
 /* The TypeScript type of an instance of DiscussionReplyModel */
-export interface DiscussionReplyModelType extends Instance<typeof DiscussionReplyModel.Type> {}
+export type DiscussionReplyModelType = Instance<
+  typeof DiscussionReplyModel.Type
+>;
 
 /* A graphql query fragment builders for DiscussionReplyModel */
-export { selectFromDiscussionReply, discussionReplyModelPrimitives, DiscussionReplyModelSelector } from "./DiscussionReplyModel.base"
+export {
+  selectFromDiscussionReply,
+  discussionReplyModelPrimitives,
+  DiscussionReplyModelSelector,
+} from "./DiscussionReplyModel.base";
 
 /**
  * DiscussionReplyModel
  */
-export const DiscussionReplyModel = DiscussionReplyModelBase
-  .actions(self => ({
+export const DiscussionReplyModel = DiscussionReplyModelBase.actions(
+  (self) => ({
     // This is an auto-generated example action.
     log() {
-      console.log(JSON.stringify(self))
-    }
-  }))
+      console.log(JSON.stringify(self));
+    },
+  })
+);

@@ -12,6 +12,7 @@ type Video {
   quizes: [Quiz!]!
   student_progress: [Progress!]!
   quiz_count: Int!
+  order: Int!
 }
 extend type Query {
   video(id: ID! @eq): Video @find

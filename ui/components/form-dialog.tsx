@@ -13,11 +13,15 @@ export const FormDialog = ({
   isCloseDisabled,
 }: PropsWithChildren<Props>) => {
   return (
-    <Dialog open={open} PaperProps={{
-      sx:{
-        minWidth: ["80vw", "50vw"]
-      }
-    }} onClose={isCloseDisabled ? undefined : handleClose}>
+    <Dialog
+      open={open}
+      PaperProps={{
+        sx: {
+          minWidth: ["80vw", "50vw"],
+        },
+      }}
+      onClose={isCloseDisabled ? undefined : handleClose}
+    >
       <DialogContent>{children}</DialogContent>
     </Dialog>
   );

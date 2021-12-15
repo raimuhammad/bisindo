@@ -1,7 +1,7 @@
 import { RootStoreType, useQuery, VideoModelType } from "@root/models";
 import { ComponentType, createContext, useContext, useEffect } from "react";
 import { useAdminLayout } from "@layout/admin.context";
-import { Outlet, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useLayout } from "@layout/layout-provider";
 import { ScreenLoading } from "@components/screen-loading";
 import { observer } from "mobx-react";

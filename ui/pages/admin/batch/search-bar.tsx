@@ -1,8 +1,13 @@
-import {Typography, Box, InputAdornment, Button, Container} from "@mui/material";
+import {
+  Typography,
+  Box,
+  InputAdornment,
+  Button,
+  Container,
+} from "@mui/material";
 import { FormField } from "@components/form-field/form-field";
 import { Refresh, Search } from "@mui/icons-material";
 import { useState } from "react";
-import { PageContentContainer } from "@components/page-content-container";
 import { usePaginator } from "@providers/model-provider/paginators";
 
 export const SearchBar = () => {
@@ -45,16 +50,14 @@ export const SearchBar = () => {
           size="medium"
         />
         <Box sx={{ p: 1, display: "flex", justifyContent: "flex-end" }}>
-          <Box sx={{display: hasResponse?"block" : "none"}}>
-            <Typography variant='caption'>
-              {
-                result.paginator.total ?
-                  `Hasil pencarian : ${result.paginator.total} item` :
-                  `Data tidak di temukan dengan kata kunci "${parameter.search}"`
-              }
+          <Box sx={{ display: hasResponse ? "block" : "none" }}>
+            <Typography variant="caption">
+              {result.paginator.total
+                ? `Hasil pencarian : ${result.paginator.total} item`
+                : `Data tidak di temukan dengan kata kunci "${parameter.search}"`}
             </Typography>
           </Box>
-          <Box sx={{ml: "auto"}}>
+          <Box sx={{ ml: "auto" }}>
             <Button type="submit" startIcon={<Search />} disabled={loading}>
               Cari
             </Button>

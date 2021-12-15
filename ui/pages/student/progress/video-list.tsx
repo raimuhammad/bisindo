@@ -1,24 +1,24 @@
 import {
   Box,
-  Button,
-  LinearProgress,
-  Paper,
-  Theme,
-  Typography,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
   useTheme,
 } from "@mui/material";
 import { VideoModelType } from "@root/models";
 import { useStudent } from "@providers/student-contexts";
-import { motion } from "framer-motion";
 import { useToggle } from "@hooks/use-toggle";
 import { observer } from "mobx-react";
 import { useNavigate } from "react-router-dom";
 import { useStudentVideoStatus } from "@providers/student-contexts/use-student-video-status";
-import { Lock } from "@mui/icons-material";
+import { Lock, PlayArrow, Check } from "@mui/icons-material";
+import { RenderWhen } from "@components/render-when";
 
 type VideoProps = {
   model: VideoModelType;
   onClick(v: VideoModelType): void;
+  selected?: boolean;
 };
 
 const lockedStyle = {
@@ -35,7 +35,7 @@ const lockedStyle = {
   borderRadius: 6,
 };
 
-const Video = observer(({ model, onClick }: VideoProps) => {
+const Video = observer(({ model, onClick, selected }: VideoProps) => {
   const theme = useTheme();
   const [hovered, { force }] = useToggle();
   const {
@@ -45,7 +45,6 @@ const Video = observer(({ model, onClick }: VideoProps) => {
   const playTime = getPlayingPercentage(model.id, getPlaying(model.id));
   const { getIsLocked } = useStudentVideoStatus(model);
   const isLocked = getIsLocked();
-
   const {
     progressInfo: { quizHistory },
   } = useStudent();
@@ -53,75 +52,57 @@ const Video = observer(({ model, onClick }: VideoProps) => {
     (item) => item.videoId.toString() === model.id.toString()
   );
   return (
-    <Box sx={{ position: "relative" }}>
-      <Box
-        onClick={() => !isLocked && onClick(model)}
-        onMouseEnter={force(true)}
-        onMouseLeave={force(false)}
-        component={motion.div}
-        animate={{
-          boxShadow: !hovered ? theme.shadows[1] : theme.shadows[10],
-        }}
-        sx={{
-          borderRadius: 1,
-          cursor: "pointer",
-          position: "relative",
-        }}
-      >
-        {isLocked ? (
-          <motion.div
-            whileHover={{
-              opacity: 1,
-              zIndex: 100
-            }}
-            style={lockedStyle as any}
+    <ListItem
+      dense
+      data-selected={selected}
+      sx={{
+        mb: 1,
+        transition: "all ease .2s",
+        borderRadius: 1,
+        "&:hover": {
+          bgcolor: "primary.light",
+        },
+        "&[data-selected='true']": {
+          bgcolor: "primary.main",
+        },
+        "&:hover, &[data-selected='true']": {
+          boxShadow: 2,
+          "& > * > *": {
+            color: "white",
+          },
+        },
+      }}
+      onClick={() => onClick(model)}
+      button
+    >
+      <ListItemIcon>
+        <RenderWhen when={isLocked}>
+          <Lock />
+        </RenderWhen>
+        <RenderWhen when={!isLocked}>
+          <RenderWhen
+            when={workingQuizes.length === model.quiz_count && playTime === 100}
           >
-            <Box sx={{ textAlign: "center", color: "white" }}>
-              <Lock />
-              <Typography>Video ini terkunci</Typography>
-            </Box>
-          </motion.div>
-        ) : null}
-        <Box
-          sx={{
-            zIndex: 99,
-            width: "100%",
-            borderRadius: 1,
-          }}
-          component="img"
-          src={model.thumbnail}
-          alt=""
-        />
-        <Box sx={{ p: 2 }}>
-          <Typography
-            sx={{
-              color: (t: Theme) => t.palette.grey["800"],
-              fontWeight: "bolder",
-            }}
-            variant="subtitle1"
+            <Check />
+          </RenderWhen>
+          <RenderWhen
+            when={workingQuizes.length !== model.quiz_count || playTime !== 100}
           >
-            {model.title}
-          </Typography>
-          <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-            <Typography sx={{ textAlign: "left" }} variant="caption">
-              Progress anda
-            </Typography>
-            <Typography sx={{ textAlign: "left" }} variant="caption">
-              {playTime ? `${playTime}%` : ""}
-            </Typography>
-          </Box>
-          <LinearProgress value={playTime} variant="determinate" />
-          <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-            <Typography sx={{ textAlign: "left" }} variant="caption">
-              Quis
-            </Typography>
-            <Typography sx={{ textAlign: "left" }} variant="caption">
-              {workingQuizes.length} / {model.quiz_count}
-            </Typography>
-          </Box>
-        </Box>
-      </Box>
-    </Box>
+            <PlayArrow />
+          </RenderWhen>
+        </RenderWhen>
+      </ListItemIcon>
+      <ListItemText
+        primaryTypographyProps={{
+          sx: {
+            color: "primary.dark",
+            fontWeight: "bolder",
+          },
+        }}
+        primary={`${model.order}. ${model.title}`}
+        secondary={`${model.durationText}`}
+      />
+    </ListItem>
   );
 });
 
@@ -129,12 +110,14 @@ type Props = {
   width?: string;
   onItemClick?(v: VideoModelType): void;
   exluded?: string[];
+  selected?: VideoModelType;
 };
 
 export const VideoList = ({
   width = "50%",
   onItemClick,
   exluded = [],
+  selected,
 }: Props) => {
   const {
     videoList: { videos },
@@ -155,26 +138,16 @@ export const VideoList = ({
 
   return (
     <Box>
-      <Typography
-        sx={{ color: (t: Theme) => t.palette.grey["700"] }}
-        variant="h4"
-      >
-        Video pembelajaran
-      </Typography>
-      <Box
-        sx={{
-          display: ["block", "flex"],
-          flexWrap: "wrap",
-          "& > div": {
-            width: ["100%", width],
-            p: 1,
-          },
-        }}
-      >
+      <List sx={{ py: 0 }}>
         {getVideos().map((item) => (
-          <Video onClick={onClick} model={item} key={item.id} />
+          <Video
+            selected={selected ? selected.id === item.id : false}
+            model={item}
+            key={item.id}
+            onClick={onClick}
+          />
         ))}
-      </Box>
+      </List>
     </Box>
   );
 };

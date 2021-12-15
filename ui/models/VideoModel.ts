@@ -3,7 +3,7 @@ import { VideoModelBase } from "./VideoModel.base";
 import { getDurationTimeText } from "@utils/get-duration-time";
 
 /* The TypeScript type of an instance of VideoModel */
-export interface VideoModelType extends Instance<typeof VideoModel.Type> {}
+export type VideoModelType = Instance<typeof VideoModel.Type>;
 
 /* A graphql query fragment builders for VideoModel */
 export {

@@ -32,12 +32,12 @@ export function usePopup({
     });
   };
 
-  useEffect(()=>{
-    closeSnackbar()
-    return ()=>{
-      closeSnackbar()
-    }
-  }, [])
+  useEffect(() => {
+    closeSnackbar();
+    return () => {
+      closeSnackbar();
+    };
+  }, []);
 
   useEffect(() => {
     if (autoShow && show) {

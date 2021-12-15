@@ -1,7 +1,6 @@
-import { useLocalStorage, useMount } from "react-use";
+import { useLocalStorage } from "react-use";
 import { createContext, useContext, useEffect, useState } from "react";
 import { useMediaQuery, useTheme } from "@mui/material";
-import type { Theme } from "@mui/material";
 
 type State = {
   isExpanded: boolean;

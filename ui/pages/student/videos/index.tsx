@@ -1,9 +1,8 @@
 import { Fragment } from "react";
-import {useStudentNavs} from "@layout/student";
+import { useStudentNavs } from "@layout/student";
 
 const Index = () => {
-
-  useStudentNavs([])
+  useStudentNavs([]);
 
   return <div>video page</div>;
 };

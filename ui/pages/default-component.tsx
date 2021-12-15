@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 export const DefaultComponent =
   (role: string) =>
   ({ location: { pathname } }: any) => {

@@ -1,5 +1,5 @@
 import { observer } from "mobx-react";
-import { DataGrid, GridCell, GridRow, GridColDef } from "@mui/x-data-grid";
+import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import type { SnapshotOut } from "mobx-state-tree";
 import type { PaginatorInfoModelType } from "@root/models";
 

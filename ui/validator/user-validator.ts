@@ -1,5 +1,4 @@
 import { object, ref, string } from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
 import { Mail, AccountCircle } from "@mui/icons-material";
 
 export const userValidator = object({

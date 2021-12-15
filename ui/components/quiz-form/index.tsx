@@ -2,17 +2,16 @@ import {
   QuizFormContext,
   useQuizFormProvider,
   Props,
-  useQuizForm,
   useQuizType,
 } from "./provider";
 import { TimeSlider } from "./fields/time-slider";
-import { Box, Button, ButtonGroup } from "@mui/material";
+import { Box } from "@mui/material";
 import { TypeSelector } from "./fields/type-selector";
 import { AnimatePresence, motion } from "framer-motion";
 import { ImageMatch } from "./fields/image-match";
 import { LetterSequence } from "./fields/letter-sequence";
 import { MultipleChoise } from "./fields/multiple-choise";
-import { QuizType, useQuery } from "@root/models";
+import { QuizType } from "@root/models";
 import { ComponentType, useEffect } from "react";
 import { ControllerButton } from "./controller-button";
 import { FormProvider, useForm, useWatch } from "react-hook-form";

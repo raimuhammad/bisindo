@@ -1,14 +1,6 @@
-import {
-  AppBar,
-  Box,
-  Tab,
-  Tabs,
-  Toolbar,
-  Container,
-  Button,
-} from "@mui/material";
+import { AppBar, Tab, Tabs, Container, Button } from "@mui/material";
 import { useLayout } from "../layout-provider";
-import { useNavigate, useLocation, useRoutes } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowBack } from "@mui/icons-material";
@@ -20,9 +12,7 @@ export const NavigationPanel = () => {
   const navigate = (path: string) => {
     push(path);
   };
-  console.log(
-    pathname
-  )
+  console.log(pathname);
   useEffect(() => {
     document.body.scroll({
       top: 0,
@@ -46,9 +36,7 @@ export const NavigationPanel = () => {
     const selected = navs.findIndex((item) => {
       return item.path === pathname.replaceAll("%20", " ");
     });
-    console.log(
-      navs
-    )
+    console.log(navs);
     return selected === -1 ? 0 : selected;
   };
   return (
@@ -86,7 +74,12 @@ export const NavigationPanel = () => {
           ))}
         </Tabs>
         <motion.div
-          style={{ flex:1,marginLeft: "auto", width: 'fit-content', textAlign:'right' }}
+          style={{
+            flex: 1,
+            marginLeft: "auto",
+            width: "fit-content",
+            textAlign: "right",
+          }}
           animate={{
             opacity: backurl ? 1 : 0,
           }}

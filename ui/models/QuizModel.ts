@@ -5,7 +5,7 @@ import { QuizType } from "@models/QuizTypeEnum";
 import { getDurationTimeText } from "@utils/get-duration-time";
 
 /* The TypeScript type of an instance of QuizModel */
-export interface QuizModelType extends Instance<typeof QuizModel.Type> {}
+export type QuizModelType = Instance<typeof QuizModel.Type>;
 
 /* A graphql query fragment builders for QuizModel */
 export {

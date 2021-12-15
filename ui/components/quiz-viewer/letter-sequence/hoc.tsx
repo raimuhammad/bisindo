@@ -6,7 +6,6 @@ import { makeImageRect } from "@components/quiz-viewer/letter-sequence/utils";
 import faker from "faker";
 import { colors } from "@components/quiz-viewer/colors";
 import { find } from "lodash";
-import { Box } from "@mui/material";
 import { LetterSequenceContext } from "./provider";
 import { ImageContainer } from "./image-container";
 import { Context as KonvaContext } from "../konva-provider";

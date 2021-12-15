@@ -20,10 +20,7 @@ export const PageBanner = ({
           position: "relative",
         }}
       >
-        <Typography
-          sx={{ mb: 2, textTransform: "capitalize" }}
-          variant="h4"
-        >
+        <Typography sx={{ mb: 2, textTransform: "capitalize" }} variant="h4">
           {title}
         </Typography>
         <Typography sx={{ mb: 2 }}>{subtitle}</Typography>

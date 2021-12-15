@@ -1,7 +1,6 @@
 import { object, string } from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Mail, Lock } from "@mui/icons-material";
-import { createElement } from "react";
 
 export const loginValidator = yupResolver(
   object({

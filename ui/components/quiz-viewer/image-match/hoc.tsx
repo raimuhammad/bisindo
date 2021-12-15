@@ -15,7 +15,7 @@ import { AppBar } from "@mui/material";
 type Props = {
   stageHeight: number;
   text: string;
-  onSubmit?(v: boolean): Promise<void>
+  onSubmit?(v: boolean): Promise<void>;
 };
 type State = {
   nodes: ImageNode[];
@@ -166,17 +166,15 @@ export class Hoc extends Component<Props, State> {
     });
   };
 
-  isAnswerCorrect = () : boolean => {
-    if (
-      this.state.arrows.length === this.props.text.length
-    ){
-      const check = this.state.arrows.find(item=>{
+  isAnswerCorrect = (): boolean => {
+    if (this.state.arrows.length === this.props.text.length) {
+      const check = this.state.arrows.find((item) => {
         return item.from !== item.to;
       });
-      return ! check;
+      return !check;
     }
     return false;
-  }
+  };
 
   getContextValues = (): UseImageMatch => {
     return {
@@ -188,7 +186,7 @@ export class Hoc extends Component<Props, State> {
       isSubmitDisabled: this.state.arrows.length !== this.props.text.length,
       isAnswerCorrect: this.isAnswerCorrect(),
       onSubmit: this.props.onSubmit,
-      showHint: this.state.showHint
+      showHint: this.state.showHint,
     };
   };
 

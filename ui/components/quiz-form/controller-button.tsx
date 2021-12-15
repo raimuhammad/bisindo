@@ -1,5 +1,5 @@
 import { Button, ButtonGroup, CircularProgress } from "@mui/material";
-import { useQuizForm, useQuizType } from "./provider";
+import { useQuizType } from "./provider";
 import { useWatch } from "react-hook-form";
 import { QuizViewerContainer } from "@components/quiz-viewer/quiz-viewer-container";
 import { useToggle } from "@hooks/use-toggle";
@@ -39,7 +39,7 @@ export const ControllerButton = ({
       const checkInvalidOptions = options.find((item) => !item.content);
       return Boolean(checkInvalidOptions) || !multipleChoice.question;
     } else {
-      return !Boolean(text);
+      return !text;
     }
   };
   const buttonProps = {

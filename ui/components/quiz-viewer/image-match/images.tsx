@@ -4,8 +4,6 @@ import { useTheme } from "@mui/material";
 import { useKonva } from "@components/quiz-viewer/konva-provider";
 import { useImageMatch } from "./provider";
 import useImage from "use-image";
-import {useEffect, useRef} from "react";
-import Konva from "konva";
 
 type Props = {
   items: ImageNode[];
@@ -33,7 +31,7 @@ const ImageContainer = ({
   const src = "/letters/" + text.toLocaleLowerCase() + "0.png";
   const [img] = useImage(src);
   const id = `item-${role}-${index}`;
-  const hasArrowPointed = arrows.find(item=>item.toId === id);
+  const hasArrowPointed = arrows.find((item) => item.toId === id);
 
   const getFill = () => {
     if (hasArrowPointed || role === "text") {

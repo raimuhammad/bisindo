@@ -1,4 +1,4 @@
-import { Option, useMultipleChoice } from "./provider";
+import { useMultipleChoice } from "./provider";
 import { Box, Typography } from "@mui/material";
 
 const map = ["A", "B", "C", "D"];
@@ -23,7 +23,9 @@ export const ImageOption = ({ index, content }: any) => {
           backgroundPosition: "center",
         }}
       />
-      <Typography align='center' variant="h2">{map[index]}</Typography>
+      <Typography align="center" variant="h2">
+        {map[index]}
+      </Typography>
       {/*<Box sx={{width: "100%"}} component="img" src={content} />*/}
     </Box>
   );

@@ -30,8 +30,8 @@ class Field extends React.Component<Props> {
             return value ?? "";
           }
         }
-        if (this.props.value){
-          return this.props.value
+        if (this.props.value) {
+          return this.props.value;
         }
         return "";
       }

@@ -23,8 +23,8 @@ export interface UseImageMatch {
   popArrow(): void;
   nodes: ImageNode[];
   toggleHint(): void;
-  isSubmitDisabled : boolean;
-  isAnswerCorrect: boolean
-  onSubmit?(v: boolean): Promise<void>
-  showHint: boolean
+  isSubmitDisabled: boolean;
+  isAnswerCorrect: boolean;
+  onSubmit?(v: boolean): Promise<void>;
+  showHint: boolean;
 }

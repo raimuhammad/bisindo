@@ -52,7 +52,7 @@ export const Controller = () => {
     >
       <Box sx={{ display: "flex" }}>
         <Typography variant="h6">
-          Susunlah kata "{text}" dengan menggunakan bisindo
+          Susunlah kata {`"${text}"`} dengan menggunakan bisindo
         </Typography>
         <Box sx={{ ml: "auto", display: "flex", alignItems: "center" }}>
           <AnimatePresence exitBeforeEnter>

@@ -14,7 +14,6 @@ import {
   Typography,
 } from "@mui/material";
 import type { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar/AppBar";
-import { useAdminLayout } from "../admin.context";
 import { AccountCircle, ExpandMore, Search } from "@mui/icons-material";
 import { useApp } from "@providers/application-provider";
 import { useIsSm } from "@hooks/use-media";
